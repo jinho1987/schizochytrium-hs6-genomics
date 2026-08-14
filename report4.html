@@ -120,7 +120,7 @@ a{color:var(--teal-ink);}
     <span class="pill done">ncRNA annotation &mdash; done</span>
     <span class="pill done" id="pill-te">Transposable elements &mdash; done</span>
     <span class="pill pending" id="pill-rascaf">RNA-seq scaffolding &mdash; running</span>
-    <span class="pill pending" id="pill-eggnog">eggNOG-mapper &mdash; running</span>
+    <span class="pill done" id="pill-eggnog">eggNOG-mapper &mdash; done</span>
     <span class="pill done">Expression-constrained flux (draft) &mdash; done, caveated</span>
   </div>
 
@@ -321,8 +321,22 @@ a{color:var(--teal-ink);}
 
   <section id="eggnog">
     <div class="sec-head"><span class="sec-num">09</span><h2>Independent functional re-annotation</h2></div>
-    <p class="lede">The project's existing GO/KEGG/COG annotation for HS6 was built by transferring strain #7's vendor-delivered annotation across the orthology map &mdash; specifically to avoid a full local eggNOG-mapper install. Running eggNOG-mapper directly against HS6's own proteome now, for an independent annotation that isn't dependent on #7's annotation quality, and to catch the ~14% of genes that failed KO conversion in the original two-hop KEGG REST API approach.</p>
-    <p class="pending-note" id="eggnog-status">Running at last check (downloading the reference database). Results will be added here once complete.</p>
+    <p class="lede">The project's existing GO/KEGG/COG annotation for HS6 was built by transferring strain #7's vendor-delivered annotation across the orthology map &mdash; specifically to avoid a full local eggNOG-mapper install. Ran eggNOG-mapper (DIAMOND search mode) directly against HS6's own 16,088-protein proteome, for an independent annotation that isn't dependent on #7's annotation quality.</p>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="v">9,134</div><div class="k">proteins with a DIAMOND hit (56.8% of 16,088)</div></div>
+      <div class="stat-card"><div class="v">8,468</div><div class="k">with a real description/COG category</div></div>
+      <div class="stat-card"><div class="v">5,123</div><div class="k">with a KEGG KO assignment</div></div>
+      <div class="stat-card"><div class="v">3,429</div><div class="k">with GO terms</div></div>
+    </div>
+    <div class="callout finding">
+      <span class="lbl">Cross-validates the existing KEGG annotation</span>
+      <p>This fully independent method (HS6's own proteome vs. the eggNOG orthology database, no dependency on strain #7's annotation) assigns a KEGG KO to <b>5,123</b> genes &mdash; within 1% of the <b>5,180</b> genes that had a KO via the original two-hop (strain #7 vendor annotation &rarr; orthology transfer) approach used throughout this project. Two independent annotation strategies converging on almost the same coverage number is a meaningful cross-check that the KEGG-based pathway work elsewhere in this project (&sect;4, &sect;11) isn't an artifact of one particular annotation pipeline.</p>
+    </div>
+    <div class="callout caveat">
+      <span class="lbl">g342 (the biggest unexplained effect size, &sect;11) &mdash; a lead, not a resolution</span>
+      <p>eggNOG-mapper does return a hit for <b>g342</b> (log2FC=+6.03, previously "no SwissProt hit, no GO, no KEGG"): a weak DIAMOND match (e-value 9.3&times;10&#8315;&sup1;&sup9;&#8309;&#8309;, COG category N / cell motility) to a bacterial (Deinococcus-Thermus) ortholog group annotated as <i>leishmanolysin</i>-like, carrying PKD and Peptidase_M8 domains. A bacterial top-hit with a modest e-value for a eukaryotic algal gene is exactly the kind of result that needs independent confirmation (e.g. a dedicated InterProScan domain search, or checking whether nearby genes in the same orthogroup support a peptidase function) before treating it as real &mdash; reported here as a first lead, not a solved identity.</p>
+    </div>
+    <p class="pending-note">Full annotation table (9,134 genes &times; 20 eggNOG fields): <a href="results/eggnog/hs6_eggnog.emapper.annotations.tsv">results/eggnog/hs6_eggnog.emapper.annotations.tsv</a></p>
   </section>
 
   <section id="fba">
