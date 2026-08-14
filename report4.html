@@ -137,7 +137,8 @@ a{color:var(--teal-ink);}
       <li><a href="#rascaf">8. RNA-seq-guided scaffolding</a></li>
       <li><a href="#eggnog">9. Independent functional re-annotation</a></li>
       <li><a href="#fba">10. Expression-constrained flux model</a></li>
-      <li><a href="#methods">11. Methods &amp; reproducibility</a></li>
+      <li><a href="#degrigor">11. DEG statistical rigor &amp; annotation audit</a></li>
+      <li><a href="#methods">12. Methods &amp; reproducibility</a></li>
     </ol>
   </nav>
 
@@ -328,8 +329,72 @@ a{color:var(--teal-ink);}
     <p class="pending-note">Draft model files and full analysis scripts: <a href="scripts/job_fba.sh">scripts/job_fba.sh</a>, <a href="scripts/eflux_analysis.py">scripts/eflux_analysis.py</a>, <a href="scripts/eflux_lipid_biomass.py">scripts/eflux_lipid_biomass.py</a></p>
   </section>
 
+  <section id="degrigor">
+    <div class="sec-head"><span class="sec-num">11</span><h2>DEG statistical rigor &amp; annotation audit (HS6 vs. #4)</h2></div>
+    <p class="lede">The genotype-effect DE test (1,223 significant genes at padj&lt;0.05, out of 13,529 tested) has been used throughout this project's reports. This section runs the standard rigor checks that hadn't been done yet: is the test itself well-calibrated, how complete is the annotation of what came out significant, what does the effect-size distribution actually look like, and does a proper KEGG pathway-level test back up the lipid-pathway narrative used elsewhere.</p>
+
+    <h3>P-value calibration</h3>
+    <p>A well-behaved DE test should show a roughly flat (uniform) p-value distribution among non-significant genes, with an excess concentrated near p=0 reflecting real signal. Binning all 13,529 p-values into deciles:</p>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="v">2.03&times;</div><div class="k">enrichment in [0.0&ndash;0.1) bin vs. uniform-null</div></div>
+      <div class="stat-card"><div class="v">CV=0.042</div><div class="k">tail-bin [0.5&ndash;1.0) flatness (lower = better calibrated)</div></div>
+    </div>
+    <div class="callout finding">
+      <span class="lbl">Test is well-calibrated</span>
+      <p>The tail bins (p&gt;0.5, where only non-significant genes should live) are nearly perfectly flat &mdash; bin counts range 1,116&ndash;1,345 against an expected ~1,253 under a uniform null, a coefficient of variation of just 0.042. That's the signature of a properly-calibrated test, not one artificially inflating significance. The 2.03&times; enrichment near p=0 is real but modest &mdash; consistent with a genuine but not overwhelming biological signal, which is exactly what you'd expect from an n=1 design: real effects are detectable, but the design can't support claiming a huge fraction of the genome is confidently affected.</p>
+    </div>
+
+    <h3>Annotation completeness</h3>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="v">52.3%</div><div class="k">significant DEGs with a real protein name</div></div>
+      <div class="stat-card"><div class="v">49.7%</div><div class="k">background rate, all 13,529 tested genes</div></div>
+      <div class="stat-card"><div class="v">47.7%</div><div class="k">significant DEGs still "hypothetical/uncharacterized"</div></div>
+    </div>
+    <p>The significant gene set is annotated at almost exactly the background rate &mdash; no evidence that annotated vs. unannotated genes are systematically more or less likely to turn up significant. That's a clean result (rules out one class of technical artifact), but it also means <b>nearly half of the genes driving this project's conclusions have no functional annotation at all</b>, including the single largest mover in the entire dataset:</p>
+    <div class="callout caveat">
+      <span class="lbl">Biggest effect size in the dataset is a complete unknown</span>
+      <p><b>g342</b> &mdash; log2FC = +6.03, padj = 1.5&times;10&#8315;&sup2;&sup8; (both the largest effect size and one of the most significant genes anywhere in the dataset) &mdash; has no SwissProt hit, no GO terms, no KEGG assignment. Worth prioritizing once the independent eggNOG-mapper re-annotation (&sect;9) finishes.</p>
+    </div>
+
+    <h3>Effect size distribution</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>|log2FC|</th><th>Count</th><th>% of significant genes</th></tr></thead>
+      <tbody>
+        <tr><td>0.5 &ndash; 1</td><td>351</td><td>28.7%</td></tr>
+        <tr><td>1 &ndash; 2</td><td>674</td><td>55.1%</td></tr>
+        <tr><td>2 &ndash; 3</td><td>154</td><td>12.6%</td></tr>
+        <tr><td>3 &ndash; 5</td><td>39</td><td>3.2%</td></tr>
+        <tr><td>&gt; 5</td><td>5</td><td>0.4%</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Median |log2FC| = 1.26. Most significant genes sit in the modest 1&ndash;2-fold range, as expected &mdash; the handful of large-effect (&gt;3-fold) genes are the ones already highlighted as pathway candidates elsewhere in this project (e.g. <i>g7955</i> at -5.06 by 68h in the trajectory analysis, &sect;5).</p>
+
+    <h3>KEGG pathway-level enrichment (the honest gap)</h3>
+    <p>Formal hypergeometric enrichment across the 8 curated lipid/isoprenoid KEGG pathway maps used throughout this project, against the same significant/tested gene sets as above:</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Pathway</th><th>Significant / tested</th><th>p-value</th></tr></thead>
+      <tbody>
+        <tr><td>Fatty acid biosynthesis (ko00061)</td><td>4/19</td><td>0.190</td></tr>
+        <tr><td>Glycerolipid metabolism (ko00561)</td><td>6/34</td><td>0.222</td></tr>
+        <tr><td>Fatty acid degradation (ko00071)</td><td>5/38</td><td>0.493</td></tr>
+        <tr><td>Terpenoid backbone / MVA (ko00900)</td><td>3/25</td><td>0.597</td></tr>
+        <tr><td>Glycerophospholipid metabolism (ko00564)</td><td>5/54</td><td>0.798</td></tr>
+        <tr><td>Fatty acid elongation, carotenoid biosynthesis, unsaturated FA biosynthesis</td><td>0 hits each</td><td>1.000</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout caveat">
+      <span class="lbl">This does not reach significance &mdash; and that matters</span>
+      <p>None of the 8 curated lipid/isoprenoid pathways reach conventional significance (best: fatty acid biosynthesis, p=0.19). This is a real limitation worth stating plainly rather than glossing over: these pathway maps are small (14&ndash;54 genes each) and only 5,180 of the 13,529 tested genes have any KO assignment at all, which leaves this specific test under-powered. <b>It does not mean the lipid-pathway story is wrong</b> &mdash; the individual genes involved (<i>FabD</i> g12095, <i>DGAT</i> g7896, <i>SDP1</i> g8236, and others) are still strongly, significantly, and coherently differentially expressed in the direction the phenotype predicts, and that's corroborated independently by the trajectory analysis (&sect;5) and the flux model's qualitative signal (&sect;10). What it does mean is that this project should <b>not claim formal pathway-level statistical enrichment for the lipid story</b> the way it legitimately can for the cytoskeleton signal (GO:0051015, p.adjust=1.7&times;10&#8315;&sup1;&sup3;, &sect;4) &mdash; that's a meaningfully stronger claim, and only one of the two stories can honestly make it.</p>
+    </div>
+    <p class="pending-note">Raw volcano-plot data (log2FC vs. -log10(padj) for all 13,529 tested genes): <a href="results/volcano_data.tsv">results/volcano_data.tsv</a>. Analysis scripts: <a href="scripts/deg_rigor_analysis.py">scripts/deg_rigor_analysis.py</a>, <a href="scripts/kegg_pathway_enrichment.py">scripts/kegg_pathway_enrichment.py</a></p>
+  </section>
+
   <section id="methods">
-    <div class="sec-head"><span class="sec-num">11</span><h2>Methods &amp; reproducibility</h2></div>
+    <div class="sec-head"><span class="sec-num">12</span><h2>Methods &amp; reproducibility</h2></div>
     <p class="lede">Every analysis in this report is reproducible from the scripts in <code>/scripts</code> against the genome/annotation/RNA-seq files described in the main comparative genomics report. Tool versions and environments used:</p>
     <div class="table-wrap">
     <table>
