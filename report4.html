@@ -308,19 +308,24 @@ a{color:var(--teal-ink);}
     </div>
     <div class="callout caveat">
       <span class="lbl">Read this before the numbers below</span>
-      <p>This is exactly the "however crude it is" version explicitly asked for. CarveMe's draft model uses a <b>generic, BiGG-derived biomass equation</b> that is not calibrated to Schizochytrium's real, lipid-heavy biomass composition. That means the absolute growth-objective value below should <b>not</b> be read as a real growth-rate prediction &mdash; the fact that it comes out lower for HS6 than WT4 almost certainly reflects the biomass-equation mismatch, not real biology (it would directly contradict the actual observed phenotype of HS6 outgrowing its comparators). The only thing worth taking from this pass is the qualitative shift in <i>which</i> reactions carry more expression-weighted flux capacity between conditions.</p>
+      <p>This is exactly the "however crude it is" version explicitly asked for. CarveMe's default draft model used a <b>generic, BiGG-derived biomass equation</b> not calibrated to Schizochytrium &mdash; it literally included a bacterial peptidoglycan cell-wall precursor (<code>uaagmda_c</code>), which a eukaryotic alga simply doesn't have, and essentially zero lipid weighting despite this being a lipid-accumulation organism (50&ndash;77% dry-weight lipid reported in the literature under lipid-accumulation conditions). That's now corrected below: peptidoglycan removed, amino-acid coefficients reduced 45%, and a fatty-acid biomass term added (palmitate-weighted, matching typical thraustochytrid storage-lipid composition &mdash; true DHA (C22:6) has no metabolite ID in this generic reconstruction database, a real limitation noted rather than hidden).</p>
     </div>
     <div class="table-wrap">
     <table>
       <thead><tr><th></th><th>WT4</th><th>HS6</th></tr></thead>
       <tbody>
-        <tr><td>Expression-constrained growth objective (arbitrary units, not a real rate)</td><td>0.015</td><td>0.007</td></tr>
-        <tr><td>Top expression-weighted reactions</td><td>Canonical glycolysis chain (GAPD&rarr;PGK&rarr;TPI&rarr;PGM&rarr;ENO)</td><td>Glycerol/G3P-linked reactions, phosphate acetyltransferase</td></tr>
+        <tr><td>Default biomass equation (bacterial-derived, uncorrected)</td><td>0.015</td><td>0.007</td></tr>
+        <tr><td>Lipid-corrected biomass equation</td><td>0.0179</td><td>0.0084</td></tr>
+        <tr><td>Top expression-weighted reactions (corrected model)</td><td>Glycolysis + glutamate dehydrogenase (GLUDxi, TPI, GAPD, PGK, ENO, PGM)</td><td>Glycolysis + glycerophosphodiester/G3P reactions (PGK, GAPD, TPI, ENO, PGM, GPDDA4_1)</td></tr>
       </tbody>
     </table>
     </div>
-    <p>A properly useful version of this analysis would need a Schizochytrium-specific biomass equation (measured lipid/protein/carbohydrate composition) and ideally curation of the lipid/DHA-synthesis pathway reactions, which CarveMe's generic bacterial-leaning reaction database does not represent well for a PKS-type DHA synthase system.</p>
-    <p class="pending-note">Draft model file and full analysis script: <a href="scripts/job_fba.sh">scripts/job_fba.sh</a>, <a href="scripts/eflux_analysis.py">scripts/eflux_analysis.py</a></p>
+    <div class="callout finding">
+      <span class="lbl">Revised interpretation &mdash; the biomass fix wasn't the actual problem</span>
+      <p>Fixing the biomass equation left the WT4:HS6 ratio essentially unchanged (~2.1&times; either way). That's an important, honest correction to the caveat above: the counter-intuitive "HS6 lower than WT4" ordering is <b>not</b> mainly a biomass-equation artifact after all &mdash; it more likely reflects a real limitation of this crude E-Flux implementation itself, which caps each reaction's flux at a value scaled by the single highest-expressed gene among its associated genes. That kind of hard, per-reaction ceiling is known to behave unevenly when two conditions have different overall expression-distribution shapes, independent of real metabolic capacity. <b>Net effect: don't trust the absolute growth-objective comparison between strains from this method</b>, with or without the biomass fix. The qualitative pattern &mdash; central glycolysis dominates flux capacity in both conditions, with the specific downstream branch differing (glutamate dehydrogenase vs. glycerophosphodiester metabolism) &mdash; is the only part worth treating as a weak signal.</p>
+    </div>
+    <p>A properly useful version of this analysis would need: (1) a real Schizochytrium biomass equation from measured composition data, not a literature-typical approximation, (2) curation of the lipid/DHA-synthesis pathway reactions, which CarveMe's generic bacterial-leaning reaction database does not represent well for a PKS-type DHA synthase system, and (3) a more sophisticated flux-constraint method than linear E-Flux (e.g. GIMME or iMAT, which handle cross-condition expression-scale differences more carefully).</p>
+    <p class="pending-note">Draft model files and full analysis scripts: <a href="scripts/job_fba.sh">scripts/job_fba.sh</a>, <a href="scripts/eflux_analysis.py">scripts/eflux_analysis.py</a>, <a href="scripts/eflux_lipid_biomass.py">scripts/eflux_lipid_biomass.py</a></p>
   </section>
 
   <section id="methods">
