@@ -1,5 +1,6 @@
 title: Schizochytrium HS6
 description: Schizochytrium sp. HS6 vs. #4 (WT) vs. #7 -- comparative genomics, transcriptomics, and synthetic-biology part discovery
-theme: jekyll-theme-cayman
 markdown: kramdown
-show_downloads: true
+exclude:
+  - scripts/*.py
+  - scripts/*.sh
