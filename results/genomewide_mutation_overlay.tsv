@@ -1,0 +1,5 @@
+gene	scaffold	pos	ref_alt	location	log2FC	padj
+g3906	Scaffolds_17	488558	G>A	promoter_window	1.911	1.2069e-03
+g6124	Scaffolds_2	336298	A>G	promoter_window	-0.590	1.7446e-02
+g6124	Scaffolds_2	336322	GAAA>GAA	promoter_window	-0.590	1.7446e-02
+g14345	Scaffolds_4	2843502	T>C	gene_body	0.761	3.2977e-02

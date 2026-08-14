@@ -1,0 +1,1224 @@
+gene	class	lfc20	lfc44	lfc68	description
+g4043	early_responder	4.703	4.424	4.805	DnaJ homolog subfamily B member 5
+g4042	early_responder	4.695	4.323	4.817	Chaperone protein ClpB1
+g8328	roughly_flat	-3.610	-2.987	-3.798	Zinc metalloproteinase nas-15
+g12035	roughly_flat	-2.525	-2.958	-2.753	Neural-cadherin
+g6378	roughly_flat	3.339	3.448	3.591	Ferric reduction oxidase 7, chloroplastic
+g8131	early_responder	-2.718	-2.710	-2.320	Trypsin I-P1
+g342	late_responder	5.062	5.388	7.856	NA
+g8955	roughly_flat	1.925	1.971	2.139	NA
+g6018	roughly_flat	-2.298	-2.574	-2.651	Matrilin-3
+g6003	roughly_flat	-3.509	-2.923	-3.727	AAA-ATPase At4g25835
+g4485	roughly_flat	-2.354	-3.372	-3.152	Sodium-dependent phosphate transport protein 2B
+g522	roughly_flat	2.281	2.309	2.425	Apoptosis-inducing factor homolog A
+g6004	early_responder	-2.896	-2.566	-3.059	Putative AAA family ATPase L572
+g15559	late_responder	2.306	3.371	3.620	NA
+g2569	late_responder	2.338	3.544	3.896	NA
+g1305	roughly_flat	-1.819	-1.856	-2.089	Actin
+g13536	roughly_flat	2.296	3.981	3.620	Cyclin-dependent kinase F-3
+g12119	roughly_flat	-2.199	-2.737	-2.600	Serine/threonine-protein phosphatase 2B catalytic subunit
+g912	roughly_flat	-2.129	-1.967	-2.704	NA
+g13866	roughly_flat	2.668	4.572	3.634	Ultraviolet-B receptor UVR8
+g6725	roughly_flat	-1.951	-3.449	-3.026	NA
+g9086	roughly_flat	2.465	2.617	3.189	Transcriptional activator Myb
+g8049	late_responder	-1.896	-2.968	-3.176	Protein mono-ADP-ribosyltransferase PARP3
+g11028	roughly_flat	2.259	4.961	4.530	NA
+g1855	roughly_flat	-2.587	-5.449	-4.385	NA
+g1416	late_responder	2.917	3.976	4.680	NA
+g8732	late_responder	1.919	3.322	3.521	Capreomycidine synthase
+g13759	roughly_flat	-1.707	-2.001	-2.387	Severin
+g7882	roughly_flat	-2.084	-2.182	-2.423	Sodium/potassium/calcium exchanger 5
+g4607	transient_peak_44h	2.274	4.623	3.186	NA
+g14307	roughly_flat	-1.848	-3.150	-2.983	NA
+g15357	roughly_flat	1.453	1.467	1.690	Polyketide synthase Pks13
+g15324	roughly_flat	1.550	1.664	2.168	High affinity iron permease ftrA
+g3582	late_responder	1.696	2.389	2.711	NA
+g5286	roughly_flat	-2.632	-2.759	-3.939	NA
+g12261	roughly_flat	-1.804	-1.886	-2.146	MOB kinase activator-like 1A
+g7860	late_responder	-2.048	-2.531	-3.232	Sodium/potassium/calcium exchanger 1
+g4487	roughly_flat	-2.409	-3.668	-2.836	Sodium-dependent phosphate transport protein 2B
+g7969	roughly_flat	-1.611	-1.523	-1.971	NA
+g4649	early_responder	-3.123	-2.667	-3.048	NA
+g3578	roughly_flat	1.952	2.927	2.453	NA
+g13513	late_responder	-1.928	-2.663	-3.696	NA
+g11796	late_responder	1.899	3.529	3.661	Stromal membrane-associated protein 2
+g11443	roughly_flat	-1.764	-1.906	-2.010	MOB kinase activator-like 1A
+g4758	roughly_flat	-3.085	-1.798	-2.577	Gamma-aminobutyric acid type B receptor subunit 2
+g8059	late_responder	-1.534	-2.377	-2.840	NA
+g11596	late_responder	-1.506	-2.518	-2.890	NA
+g12075	roughly_flat	-1.706	-1.947	-1.910	NA
+g12367	late_responder	-1.507	-2.836	-3.376	NA
+g7516	roughly_flat	1.384	1.503	1.416	LAS seventeen-binding protein 3
+g9082	transient_peak_44h	1.608	2.973	2.100	Histidinol dehydrogenase
+g1856	transient_peak_44h	-2.301	-3.614	-2.028	NA
+g7826	roughly_flat	-1.476	-1.710	-1.480	Nascent polypeptide-associated complex subunit alpha-like protein
+g14188	roughly_flat	1.636	1.889	1.984	NA
+g12071	roughly_flat	-1.346	-1.223	-1.562	Transitional endoplasmic reticulum ATPase
+g4490	roughly_flat	-1.599	-3.357	-2.668	Sodium-dependent phosphate transport protein 2B
+g7870	late_responder	-2.088	-2.733	-3.827	NA
+g8466	roughly_flat	1.675	3.737	3.387	Heme oxygenase 1
+g6952	roughly_flat	-1.771	-1.336	-1.868	Dehydration-responsive element-binding protein 2G
+g8048	roughly_flat	-1.873	-1.704	-2.549	Myosin-6
+g9021	roughly_flat	2.970	3.108	1.850	Dihydroxy-acid dehydratase
+g1439	early_responder	1.253	1.116	1.283	Low affinity inorganic phosphate transporter 5
+g10808	transient_peak_44h	2.242	4.400	3.298	Propanediol uptake facilitator PduF
+g15914	roughly_flat	1.215	2.098	1.670	Arginase
+g642	roughly_flat	-1.450	-2.083	-2.106	MOB kinase activator-like 1 homolog B
+g5434	late_responder	3.109	2.863	4.750	Porphobilinogen deaminase
+g2273	late_responder	-1.319	-1.874	-2.621	Ammonium transporter 1 member 3
+g7777	early_responder	-1.579	-1.455	-1.694	NA
+g9324	roughly_flat	-1.263	-1.276	-1.180	Arginine kinase Oct f 2
+g8236	roughly_flat	-1.180	-1.300	-1.507	Triacylglycerol lipase SDP1
+g5459	early_responder	5.565	4.200	3.783	Magnetosome protein MamZ
+g6374	early_responder	4.875	3.147	3.890	Ferric reduction oxidase 7, chloroplastic
+g8148	roughly_flat	-1.143	-1.177	-1.398	Cytochrome P450 710A3
+g1875	late_responder	1.934	3.683	5.326	NA
+g13924	early_responder	-1.447	-1.266	-1.559	NA
+g2270	late_responder	-1.172	-1.764	-2.229	Ammonium transporter 1 member 3
+g2420	roughly_flat	-1.690	-2.003	-2.059	Calcium-regulated actin-bundling protein
+g2793	roughly_flat	1.190	1.515	1.252	NA
+g7117	roughly_flat	1.853	1.956	1.112	NA
+g526	transient_peak_44h	1.771	3.355	2.364	Apoptosis-inducing factor homolog B
+g14479	roughly_flat	-1.938	-2.463	-2.730	NA
+g5246	roughly_flat	-2.067	-3.439	-2.872	Drebrin
+g6304	late_responder	-1.551	-2.571	-2.799	NA
+g286	late_responder	-1.161	-3.079	-3.626	NA
+g15722	transient_peak_44h	2.028	3.095	1.343	NA
+g8862	roughly_flat	-1.689	-1.616	-2.430	Sphingomyelinase C
+g15150	late_responder	-0.997	-1.436	-1.696	NA
+g8894	roughly_flat	1.610	1.677	1.021	NA
+g6015	late_responder	1.388	1.168	2.106	Collagen alpha-2(VI) chain
+g8160	roughly_flat	-1.274	-1.347	-1.389	Cyclin-Y
+g1853	roughly_flat	-4.226	-4.385	-4.080	NA
+g7883	roughly_flat	-1.109	-1.340	-1.375	Homoserine kinase
+g12109	roughly_flat	-2.228	-2.237	-1.531	NA
+g8293	early_responder	-2.024	-1.832	-1.624	Glycerophosphocholine acyltransferase 1
+g2740	roughly_flat	-1.184	-1.472	-1.538	NA
+g6238	roughly_flat	-2.435	-3.313	-3.420	NA
+g12030	early_responder	-1.901	-1.766	-1.926	GDT1-like protein 5
+g126	late_responder	-1.094	-1.531	-2.011	NA
+g2570	late_responder	1.166	3.111	3.541	NA
+g8100	roughly_flat	-1.195	-1.218	-1.460	Organellar oligopeptidase A, chloroplastic/mitochondrial
+g8047	roughly_flat	-1.865	-0.987	-1.583	D-3-phosphoglycerate dehydrogenase
+g7795	roughly_flat	-1.131	-1.166	-1.332	Casein kinase II subunit alpha-2
+g8023	roughly_flat	-1.178	-1.644	-1.668	Twinfilin
+g7793	early_responder	-1.364	-1.241	-1.024	Alcohol dehydrogenase class-3
+g11076	transient_peak_44h	1.637	2.686	1.349	SEC14-like protein 5
+g8072	early_responder	-1.670	-1.544	-1.850	Myosin-I heavy chain
+g12159	late_responder	-1.400	-1.352	-2.124	NA
+g349	early_responder	5.383	4.032	5.040	NA
+g12053	roughly_flat	-1.076	-1.236	-1.129	Epsin
+g12321	transient_peak_44h	1.171	3.788	2.789	NA
+g12173	late_responder	-1.722	-2.493	-3.836	NA
+g14190	roughly_flat	1.105	1.162	1.355	NA
+g11298	late_responder	-1.251	-2.019	-2.285	Actin-binding Rho-activating protein
+g7044	roughly_flat	1.272	0.932	1.532	Purple acid phosphatase 18
+g10392	late_responder	-1.255	-3.545	-4.265	Dynamin-related protein 4C
+g7939	roughly_flat	-1.224	-1.406	-1.686	Exosome RNA helicase MTR4
+g701	roughly_flat	1.606	1.872	1.113	Hybrid signal transduction histidine kinase K
+g12057	roughly_flat	-1.666	-2.157	-1.474	NA
+g2939	roughly_flat	-3.089	-3.260	-2.676	NA
+g15547	late_responder	-1.109	-1.941	-2.479	High molecular weight form of myosin-1
+g3138	early_responder	-4.415	-2.784	-3.193	NA
+g12120	late_responder	-1.170	-1.754	-1.915	Prostaglandin E synthase 2
+g1204	late_responder	-1.098	-1.791	-2.470	High molecular weight form of myosin-1
+g10712	roughly_flat	0.959	3.546	3.392	Chaperone protein ClpB
+g991	early_responder	3.291	1.959	2.161	NA
+g2222	early_responder	-1.604	-1.508	-1.577	Trypsin
+g8010	late_responder	-1.250	-1.642	-2.343	NA
+g10539	roughly_flat	-1.311	-1.345	-1.408	NA
+g15068	late_responder	-1.170	-2.558	-3.287	Bis(5'-nucleosyl)-tetraphosphatase PrpE [asymmetrical]
+g12935	roughly_flat	-2.171	-1.443	-2.271	NA
+g2845	roughly_flat	0.871	1.308	1.190	NA
+g7845	late_responder	-1.497	-1.397	-2.604	NA
+g14630	late_responder	-1.181	-2.220	-3.056	NA
+g8226	roughly_flat	-1.022	-1.416	-1.239	Putative 26S proteasome complex subunit sem-1
+g1742	transient_peak_44h	1.299	4.294	2.905	Hydroxymethylglutaryl-CoA lyase, mitochondrial
+g14754	early_responder	-1.463	-1.131	-1.155	Pollen-specific protein SF3
+g8917	early_responder	-1.139	-0.902	-1.016	NA
+g1778	early_responder	2.574	2.201	1.455	Sterol-4-alpha-carboxylate 3-dehydrogenase, decarboxylating
+g4408	late_responder	1.064	2.310	3.127	Aqualysin-1
+g3596	late_responder	-1.182	-2.025	-2.911	NA
+g9652	roughly_flat	-1.407	-1.176	-1.759	Atrial natriuretic peptide-converting enzyme
+g6156	roughly_flat	-1.954	-1.895	-2.408	Cyclin-U2-2
+g2759	late_responder	-1.517	-1.432	-2.320	Protease Do-like 7
+g13789	transient_peak_44h	1.456	4.808	3.669	NA
+g12954	roughly_flat	-0.910	-1.679	-1.427	Superoxide oxidase CybB
+g7801	early_responder	-1.463	-1.273	-0.840	Calcium-transporting ATPase 1
+g4946	transient_peak_44h	1.537	2.353	1.632	N-acetylgalactosamine-6-O-sulfatase
+g8710	roughly_flat	-1.159	-1.709	-1.573	Uncharacterized J domain-containing protein C4H3.01
+g1958	roughly_flat	1.811	1.370	2.243	NA
+g10799	roughly_flat	1.058	2.264	2.075	Glycerol uptake facilitator protein
+g7926	roughly_flat	-1.812	-1.285	-2.702	Myosin-K heavy chain
+g7830	early_responder	-1.553	-1.355	-1.629	Acyl-CoA dehydrogenase apdG
+g7949	late_responder	-1.463	-1.623	-2.452	Myosin-J heavy chain
+g14240	late_responder	-1.708	-2.110	-3.616	NA
+g11628	transient_peak_44h	1.047	2.427	1.596	NA
+g9405	early_responder	-1.718	-1.530	-1.375	NA
+g7975	late_responder	-2.335	-3.668	-3.919	Poly [ADP-ribose] polymerase 1
+g12832	roughly_flat	0.863	1.086	1.041	NA
+g8157	early_responder	-1.191	-0.910	-1.080	NA
+g14378	early_responder	-1.923	-1.098	-1.135	Trimethylamine transporter
+g6412	transient_peak_44h	2.197	4.964	2.879	NA
+g8897	transient_peak_44h	1.247	2.680	1.320	Protein JOKA2
+g6357	late_responder	-1.564	-3.053	-4.184	NA
+g8178	early_responder	-1.324	-1.270	-1.585	NA
+g12098	late_responder	-2.010	-3.139	-4.101	NA
+g10829	roughly_flat	-1.744	-1.917	-2.046	NA
+g12105	early_responder	-1.856	-1.419	-0.891	Thioredoxin domain-containing protein
+g12095	early_responder	-1.821	-1.761	-1.933	Malonyl CoA-acyl carrier protein transacylase
+g10487	roughly_flat	-0.882	-1.975	-1.797	NA
+g8084	roughly_flat	-1.594	-1.680	-1.560	NA
+g5217	late_responder	-1.012	-1.905	-2.343	NA
+g7246	roughly_flat	1.803	0.979	1.456	NA
+g12150	transient_peak_44h	-1.072	-1.414	-1.001	UPF0014 membrane protein slr1647
+g195	transient_peak_44h	0.998	2.206	1.521	NA
+g8330	early_responder	-1.356	-1.308	-1.461	Actin-related protein 2/3 complex subunit 5
+g7798	roughly_flat	-2.360	-2.510	-1.824	NA
+g5457	roughly_flat	4.597	2.350	4.254	NA
+g13868	roughly_flat	0.837	2.949	2.720	E3 ubiquitin-protein ligase RNF181
+g6408	transient_peak_44h	1.262	4.558	2.813	Putative lipid phosphate phosphatase 3, chloroplastic
+g6380	late_responder	3.875	4.960	7.896	Ferric reduction oxidase 6
+g7881	roughly_flat	-1.602	-2.346	-2.224	NA
+g7067	late_responder	-1.403	-1.975	-2.287	Disintegrin and metalloproteinase domain-containing protein MDE
+g10271	transient_peak_44h	1.569	2.569	1.317	NA
+g13089	late_responder	-1.218	-1.686	-2.217	Arginine kinase Oct f 2
+g12609	late_responder	-0.926	-1.510	-1.527	S-phase kinase-associated protein 1 homolog
+g12197	transient_peak_44h	-1.368	-2.453	-1.284	NA
+g2823	late_responder	-1.525	-2.248	-2.968	Polyadenylate-binding protein RBP47
+g7889	early_responder	-1.397	-1.125	-0.862	NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 9, mitochondrial
+g9229	late_responder	-0.990	-2.544	-3.625	Ubiquitin carboxyl-terminal hydrolase 50
+g13492	late_responder	-1.105	-1.937	-2.315	Anoctamin-7
+g14376	roughly_flat	0.866	0.979	1.289	Trimethylamine transporter
+g7259	roughly_flat	-1.351	-1.984	-1.862	Myosin-2
+g12099	late_responder	-0.963	-1.411	-1.593	V-type proton ATPase subunit H
+g12058	roughly_flat	-1.389	-0.957	-1.445	NA
+g12169	roughly_flat	-2.443	-2.744	-1.452	Serine/threonine-protein kinase 4
+g8127	early_responder	-1.454	-0.999	-1.190	Suppressor protein of bem1/bed5 double mutants
+g8115	late_responder	-1.041	-1.559	-1.890	Thiamine transporter 2
+g1521	late_responder	-0.845	-2.695	-3.107	NA
+g3730	late_responder	-1.178	-1.313	-2.186	NA
+g9799	transient_peak_44h	1.097	3.899	2.065	NA
+g6154	early_responder	-1.786	-1.290	-1.371	Ribosomal protein S6 kinase beta-1
+g2075	late_responder	-1.026	-2.732	-3.506	NA
+g10235	transient_peak_44h	1.412	2.890	1.140	NA
+g12175	late_responder	-1.235	-1.513	-2.096	NA
+g8258	roughly_flat	-1.288	-1.344	-0.951	Purine nucleoside phosphorylase
+g8261	late_responder	-0.948	-1.083	-1.825	Sphingolipid delta(4)-desaturase DES1
+g8053	roughly_flat	-1.521	-1.705	-1.014	NA
+g7846	roughly_flat	-1.032	-1.119	-1.292	Serine-protein kinase ATM
+g11711	late_responder	-1.068	-1.546	-2.149	Transcription factor MYB3R-3
+g15987	late_responder	-0.952	-1.847	-1.966	NA
+g8303	roughly_flat	-0.905	-1.236	-1.091	Phosphate acetyltransferase
+g10461	roughly_flat	-1.245	-0.825	-1.101	Dimethylglycine dehydrogenase, mitochondrial
+g10185	transient_peak_44h	1.113	2.165	1.084	NA
+g6977	roughly_flat	1.347	1.916	1.951	NA
+g9061	late_responder	-0.897	-1.843	-2.537	High molecular weight form of myosin-1
+g12122	late_responder	-1.026	-1.160	-1.561	Cullin-4
+g10704	late_responder	-1.002	-1.820	-2.999	NA
+g13358	transient_peak_44h	0.891	2.160	1.340	NA
+g15628	early_responder	-1.345	-1.152	-1.064	Flavohemoprotein
+g15117	late_responder	-0.880	-2.006	-3.242	NA
+g8052	late_responder	-0.784	-1.083	-1.214	NA
+g15343	late_responder	-0.696	-3.020	-3.318	Myosin-M heavy chain
+g14184	late_responder	-1.353	-2.190	-2.500	NA
+g14493	roughly_flat	-1.470	-2.158	-2.111	NA
+g5493	late_responder	-0.976	-1.687	-2.362	NA
+g9683	late_responder	-2.225	-3.525	-3.924	NA
+g5102	late_responder	1.265	1.120	2.544	Sugar transport protein 1
+g12027	late_responder	-1.508	-2.200	-2.804	NA
+g4177	late_responder	-0.772	-2.213	-3.254	Endoribonuclease Dicer homolog 2b
+g7625	late_responder	0.796	1.241	1.304	Pyrophosphate-energized vacuolar membrane proton pump
+g3555	late_responder	-1.389	-1.853	-2.676	NA
+g3290	late_responder	-0.701	-1.702	-2.040	NA
+g4062	late_responder	-0.684	-3.722	-4.127	NA
+g7851	roughly_flat	-0.818	-1.146	-1.160	DNA damage-binding protein 1
+g8015	late_responder	-0.861	-1.249	-1.373	Structural maintenance of chromosomes protein 1
+g8045	roughly_flat	-1.130	-1.502	-1.312	NA
+g9610	early_responder	-0.925	-0.868	-0.965	NA
+g8111	early_responder	-2.048	-1.458	-1.548	Serine/threonine-protein kinase pakC
+g5715	transient_peak_44h	1.431	2.010	1.084	Iron-sulfur cluster assembly 1 homolog, mitochondrial
+g6428	late_responder	-0.998	-2.005	-2.296	Myosin-1
+g7769	late_responder	-0.961	-1.229	-2.219	Thioredoxin reductase SEP1
+g13659	roughly_flat	-0.916	-1.173	-0.776	Actin
+g8673	early_responder	1.786	1.401	1.342	3-sulfolactaldehyde dehydrogenase
+g2593	late_responder	3.856	4.619	7.999	Folate-biopterin transporter
+g3781	transient_peak_44h	1.669	3.501	1.920	NA
+g14306	late_responder	-0.669	-2.212	-2.530	NA
+g3013	late_responder	-1.376	-1.418	-2.649	NA
+g12067	roughly_flat	-0.952	-1.997	-1.606	NA
+g12701	roughly_flat	-1.078	-0.828	-1.062	Protein IWS1 homolog
+g8334	late_responder	-0.740	-1.200	-1.275	Succinate--CoA ligase [ADP-forming] subunit alpha
+g725	roughly_flat	1.105	1.235	1.022	NA
+g3994	late_responder	-0.859	-1.504	-1.736	High molecular weight form of myosin-1
+g7964	roughly_flat	-1.986	-2.331	-1.192	NA
+g14084	late_responder	-0.816	-2.309	-2.841	NA
+g8286	roughly_flat	-0.977	-1.016	-1.045	NA
+g5018	roughly_flat	0.740	1.502	1.371	Protein psi1
+g8733	roughly_flat	1.165	1.290	0.823	NA
+g11538	transient_peak_44h	-0.954	-1.389	-1.067	ABC transporter B family member 2
+g8888	roughly_flat	-1.578	-1.579	-2.095	NA
+g12065	roughly_flat	-0.966	-1.171	-1.169	Transmembrane protein 65
+g8104	early_responder	-2.671	-2.126	-2.268	NA
+g7770	roughly_flat	-1.349	-1.138	-1.732	Sentrin-specific protease 1
+g7816	late_responder	-2.207	-2.371	-4.026	Staphyloferrin A synthase
+g7778	early_responder	-1.140	-1.030	-0.807	Proteasomal ubiquitin receptor ADRM1-A
+g5468	late_responder	-0.742	-1.934	-2.457	NA
+g15905	late_responder	-1.378	-1.942	-2.491	NA
+g11245	roughly_flat	-1.283	-1.569	-1.748	Unconventional myosin-Ie
+g8465	transient_peak_44h	1.177	2.056	1.301	Rho GTPase-activating protein 22
+g8151	roughly_flat	-1.455	-1.698	-1.748	Phosducin-like protein 1
+g13582	late_responder	-1.079	-2.006	-2.835	Myosin-2 heavy chain
+g8290	early_responder	-1.481	-1.226	-1.053	Protein costars
+g14652	late_responder	-0.964	-1.329	-2.663	NA
+g5017	roughly_flat	0.606	2.864	2.354	Chaperone protein ClpB1
+g8640	late_responder	-1.128	-1.709	-1.862	NA
+g654	late_responder	0.985	1.092	1.677	Glutamate decarboxylase 5
+g7967	early_responder	-1.760	-1.660	-2.007	Protein phosphatase Slingshot
+g10815	transient_peak_44h	1.319	3.285	1.948	Bifunctional protein FolD 4, chloroplastic
+g242	roughly_flat	-1.375	-0.778	-1.012	Translation machinery-associated protein 22
+g13862	transient_peak_44h	0.876	4.471	2.765	Mitochondrial inner membrane protein Mpv17
+g6827	transient_peak_44h	0.818	2.593	1.752	Tetratricopeptide repeat protein 28
+g5503	late_responder	-0.998	-1.382	-1.538	Serine/threonine-protein phosphatase 2A 55 kDa regulatory subunit B delta isoform
+g12211	late_responder	-0.853	-1.381	-1.512	NA
+g4935	roughly_flat	0.790	2.958	2.687	NA
+g12359	late_responder	1.125	1.915	2.106	NA
+g8209	roughly_flat	-1.975	-0.723	-1.543	Acyl-CoA dehydrogenase apdG
+g9739	transient_peak_44h	1.087	3.425	1.473	Tubby-like F-box protein 3
+g15114	late_responder	-0.725	-2.011	-2.989	NA
+g3203	roughly_flat	-1.909	-2.290	-1.449	NA
+g7892	roughly_flat	-0.640	-1.377	-1.208	Glyceraldehyde-3-phosphate dehydrogenase 2
+g7955	late_responder	-1.490	-2.572	-5.062	Long-chain-fatty-acid--CoA ligase ACSBG2
+g5954	roughly_flat	0.609	1.844	1.632	NA
+g10448	roughly_flat	1.185	1.114	1.594	NA
+g12262	roughly_flat	0.723	1.612	1.407	Protein NRT1/ PTR FAMILY 8.4
+g8336	roughly_flat	-1.190	-1.209	-1.041	Probable pre-mRNA-splicing factor ATP-dependent RNA helicase DEAH2
+g12422	roughly_flat	-1.656	-1.987	-2.201	Medium-chain-fatty-acid--[acyl-carrier-protein] ligase JamA
+g11059	transient_peak_44h	1.004	2.800	1.956	NA
+g7977	early_responder	-1.191	-1.000	-0.936	UPF0587 protein CG4646
+g13235	late_responder	-1.028	-1.674	-1.762	Gamma-aminobutyric acid type B receptor subunit 2
+g4306	late_responder	0.403	3.720	3.751	DNA-dependent metalloprotease WSS1 homolog 2
+g8219	early_responder	-1.010	-0.787	-0.905	V-type proton ATPase 21 kDa proteolipid subunit c''
+g8167	roughly_flat	-1.788	-1.393	-2.384	NA
+g4500	early_responder	-3.098	-2.835	-1.947	NA
+g9427	roughly_flat	1.096	1.418	0.755	Metal tolerance protein 2
+g12288	roughly_flat	0.961	2.174	1.850	FAD-linked sulfhydryl oxidase ALR
+g4810	transient_peak_44h	0.871	1.303	0.950	NA
+g8265	roughly_flat	-1.040	-1.326	-1.140	NA
+g1732	late_responder	-1.415	-1.724	-2.889	APETALA2-like protein 2
+g12349	transient_peak_44h	0.698	2.880	1.711	3-isopropylmalate dehydratase
+g8616	roughly_flat	-0.900	-1.207	-1.016	Alcohol dehydrogenase class-3
+g2180	early_responder	-1.746	-1.464	-1.620	Serine/threonine-protein phosphatase 6 regulatory ankyrin repeat subunit B
+g1757	early_responder	-1.272	-0.917	-0.722	Actin
+g14305	roughly_flat	-0.992	-2.989	-2.672	NA
+g15110	late_responder	-0.816	-1.774	-2.984	NA
+g12021	roughly_flat	-0.941	-1.307	-1.287	Glutamate dehydrogenase, mitochondrial
+g12020	early_responder	-1.459	-1.217	-1.018	NA
+g7020	transient_peak_44h	1.031	2.370	1.107	E3 ubiquitin-protein ligase RNF8
+g7873	early_responder	-1.077	-1.043	-1.135	RhoGEF domain-containing protein gxcJ
+g6793	roughly_flat	1.307	1.523	0.937	NA
+g8057	roughly_flat	-1.017	-1.079	-1.012	ER membrane protein complex subunit 2
+g15009	transient_peak_44h	2.671	3.743	1.607	NA
+g8067	early_responder	-0.857	-0.785	-0.962	Charged multivesicular body protein 6-A
+g268	roughly_flat	-0.903	-1.135	-1.190	NA
+g7981	roughly_flat	-0.639	-1.153	-1.148	Synapse-associated protein of 47 kDa
+g12481	late_responder	-0.702	-1.436	-2.338	NA
+g3772	late_responder	-0.622	-1.338	-1.518	NA
+g8139	early_responder	-1.270	-0.790	-0.872	Aspartokinase
+g11113	late_responder	-0.938	-1.721	-2.343	Unconventional myosin-VI
+g10155	transient_peak_44h	0.732	2.306	1.623	Cytosolic Fe-S cluster assembly factor NBP35
+g8062	late_responder	-0.745	-0.794	-1.235	NA
+g7999	roughly_flat	-1.006	-1.186	-1.123	Serine/threonine-protein kinase AFC2
+g3020	late_responder	-0.818	-3.031	-3.280	Myosin-M heavy chain
+g12051	roughly_flat	-0.963	-1.166	-1.099	CLIP-associated protein
+g11190	late_responder	-0.624	-1.461	-1.859	NA
+g12344	roughly_flat	-1.036	-2.138	-1.719	NA
+g4764	roughly_flat	-1.641	-1.011	-1.571	NA
+g8129	late_responder	-0.842	-1.108	-1.426	NA
+g10236	transient_peak_44h	0.807	1.266	0.875	Heat stress transcription factor A-4a
+g8122	roughly_flat	-0.688	-1.546	-1.402	NA
+g8233	roughly_flat	-0.594	-1.247	-1.234	NA
+g16033	roughly_flat	-1.250	-0.969	-1.317	NA
+g5542	transient_peak_44h	1.272	2.984	1.134	NA
+g5312	roughly_flat	0.507	2.117	1.646	NA
+g12136	early_responder	-1.491	-0.898	-0.999	Diphosphomevalonate decarboxylase
+g2379	transient_peak_44h	-0.713	-2.359	-1.661	Histone-lysine N-methyltransferase set5
+g46	late_responder	-1.227	-1.766	-1.996	NA
+g14591	late_responder	-0.836	-1.602	-2.606	LIM domain-containing protein WLIM2b
+g8106	late_responder	-0.696	-1.010	-1.135	NA
+g1233	late_responder	-0.651	-1.632	-2.195	NA
+g3639	late_responder	-0.925	-1.743	-2.070	Serine/threonine-protein kinase 4
+g6067	late_responder	-0.714	-1.286	-1.890	NA
+g8331	roughly_flat	-2.192	-2.875	-3.030	NA
+g10080	late_responder	-0.788	-1.165	-1.359	Transgelin-2
+g4248	early_responder	-1.711	-1.613	-1.387	NA
+g8810	roughly_flat	-1.499	-1.400	-1.946	NA
+g7952	late_responder	-0.963	-1.809	-2.563	Long-chain-fatty-acid--CoA ligase ACSBG2
+g12072	late_responder	-0.708	-1.377	-1.668	NA
+g7896	late_responder	-2.031	-2.647	-3.120	Putative diacyglycerol O-acyltransferase MT1468
+g9712	late_responder	-1.154	-1.384	-1.795	High molecular weight form of myosin-1
+g9299	late_responder	-0.566	-1.325	-1.593	Phosphoserine aminotransferase
+g9428	transient_peak_44h	1.408	1.980	1.184	DNA-3-methyladenine glycosylase 1
+g2809	roughly_flat	-0.722	-1.015	-0.888	NA
+g5586	transient_peak_44h	0.897	3.091	2.283	NA
+g7809	roughly_flat	-0.940	-1.161	-1.145	GTPase HRas
+g10550	roughly_flat	-1.814	-1.834	-0.652	Carbonic anhydrase 2
+g9983	transient_peak_44h	0.956	2.511	1.083	NA
+g8804	transient_peak_44h	0.863	1.183	0.712	Serine/threonine-protein kinase Sgk1
+g6821	roughly_flat	0.282	3.286	2.934	NA
+g8572	early_responder	-1.886	-1.356	-1.389	Zinc metalloproteinase/disintegrin
+g2407	transient_peak_44h	0.522	2.292	1.637	NA
+g4040	late_responder	2.592	2.646	3.973	Chaperone protein ClpB1
+g11574	roughly_flat	0.769	1.249	1.034	NA
+g12918	late_responder	0.589	1.394	2.039	NA
+g9664	late_responder	-1.150	-2.152	-2.838	NA
+g8411	early_responder	1.518	1.470	0.531	Sterol 3-beta-glucosyltransferase
+g13427	late_responder	0.587	1.183	1.238	Lathosterol oxidase
+g5972	transient_peak_44h	0.672	1.591	1.018	NA
+g8314	roughly_flat	-0.948	-1.252	-0.992	COP9 signalosome complex subunit 3
+g10341	transient_peak_44h	1.132	1.478	0.569	NA
+g7821	roughly_flat	-0.728	-1.627	-1.272	NA
+g11757	roughly_flat	-0.665	-1.151	-1.063	Centrosomal protein of 164 kDa
+g8095	early_responder	-1.987	-1.531	-1.272	NA
+g12083	roughly_flat	-1.042	-1.247	-1.423	NA
+g11189	transient_peak_44h	1.111	2.387	0.775	NA
+g15074	roughly_flat	-1.094	-2.206	-1.865	TPR repeat-containing protein YpiA
+g7212	late_responder	-1.084	-1.720	-2.773	Ubiquitin-protein ligase E3A
+g10000	late_responder	-0.478	-2.207	-3.101	Vacuolar protein sorting-associated protein 1
+g12146	early_responder	-1.241	-0.957	-0.856	Hypoxanthine-guanine phosphoribosyltransferase
+g8285	early_responder	-0.954	-0.762	-0.736	Tubulin beta chain
+g938	transient_peak_44h	0.917	2.017	1.220	Ras-related protein Rab-19
+g8327	early_responder	-1.363	-1.171	-1.313	Clavesin-2
+g15145	transient_peak_44h	0.665	1.963	1.121	NA
+g13994	transient_peak_44h	0.874	3.229	1.947	NA
+g8235	late_responder	-0.682	-1.016	-1.076	Fatty acid amide hydrolase
+g9283	late_responder	-0.633	-1.958	-3.317	NA
+g10067	roughly_flat	0.761	3.608	3.164	NA
+g8255	early_responder	-2.857	-2.187	-1.399	NA
+g733	transient_peak_44h	1.213	2.066	0.887	NA
+g12106	early_responder	-1.102	-1.068	-0.711	Probable inactive purple acid phosphatase 29
+g3944	roughly_flat	-1.179	-0.846	-1.152	Dual E2 ubiquitin-conjugating enzyme/E3 ubiquitin-protein ligase BIRC6
+g1685	late_responder	-0.954	-1.252	-2.034	Unconventional myosin-Ib
+g3100	roughly_flat	0.558	1.377	1.071	GID complex subunit 1
+g2387	roughly_flat	0.343	2.744	2.149	Ubiquitin-conjugating enzyme E2 14
+g7887	roughly_flat	-0.892	-1.049	-0.871	Ribose-phosphate pyrophosphokinase
+g14568	late_responder	-0.869	-2.862	-3.928	NA
+g8170	roughly_flat	-1.063	-1.214	-0.591	H(+)/Cl(-) exchange transporter 7
+g12174	late_responder	-0.782	-1.464	-1.860	NA
+g8198	early_responder	-1.621	-1.518	-1.243	Enoyl-CoA hydratase domain-containing protein 3, mitochondrial
+g715	transient_peak_44h	1.012	1.455	0.908	NA
+g15428	roughly_flat	1.248	3.677	3.412	12-oxophytodienoate reductase 1
+g12130	late_responder	-0.940	-1.259	-1.959	AP2-like ethylene-responsive transcription factor TOE3
+g2956	transient_peak_44h	-1.296	-2.225	-1.613	Zinc transporter ZIP12
+g4310	late_responder	-0.929	-1.411	-1.911	NA
+g14186	roughly_flat	2.963	3.139	3.035	NA
+g8030	roughly_flat	-1.302	-1.488	-1.600	NA
+g2532	late_responder	-1.274	-1.557	-2.779	NA
+g7966	roughly_flat	-0.913	-1.095	-1.034	NA
+g13404	late_responder	-1.156	-1.296	-2.141	NA
+g7461	roughly_flat	0.404	2.491	2.278	NA
+g459	roughly_flat	0.393	4.134	3.331	NA
+g12046	roughly_flat	-0.979	-1.588	-1.358	Uridine kinase
+g7477	late_responder	-0.491	-1.657	-2.473	NA
+g1686	transient_peak_44h	1.131	1.934	0.619	Lateral signaling target protein 2 homolog
+g1610	late_responder	-1.308	-1.720	-2.474	cGMP-dependent protein kinase 2
+g3296	late_responder	-2.258	-2.876	-5.645	NA
+g10459	roughly_flat	-1.072	-0.645	-1.018	Sarcosine dehydrogenase, mitochondrial
+g10234	late_responder	-0.832	-1.803	-2.552	Actin-binding Rho-activating protein
+g7827	late_responder	-0.441	-1.993	-2.428	NA
+g9397	late_responder	-1.036	-2.346	-3.429	Probable serine incorporator
+g259	transient_peak_44h	0.938	1.280	0.943	Calcium/calmodulin-dependent protein kinase type 1
+g14669	early_responder	-2.396	-1.694	-1.273	NA
+g13340	transient_peak_44h	-1.263	-1.745	-1.282	NA
+g5078	transient_peak_44h	-0.909	-1.299	-0.737	Na(+)/H(+) antiporter
+g2202	late_responder	-0.499	-1.589	-2.765	NFX1-type zinc finger-containing protein 1
+g7546	transient_peak_44h	0.489	3.190	2.046	Ornithine decarboxylase
+g475	roughly_flat	-0.481	-3.050	-2.418	NA
+g13956	roughly_flat	-0.851	-0.902	-0.984	NA
+g12464	late_responder	-0.716	-1.444	-1.917	NA
+g8022	transient_peak_44h	-1.866	-2.674	-1.166	Mannose-P-dolichol utilization defect 1 protein homolog 1
+g13677	late_responder	-0.874	-0.904	-1.522	Myb-related protein B
+g11283	transient_peak_44h	-1.281	-3.232	-2.269	WD repeat-containing protein 35
+g8094	roughly_flat	-0.732	-0.901	-0.805	CCR4-NOT transcription complex subunit 1
+g15389	transient_peak_44h	0.907	2.791	1.092	NA
+g12195	roughly_flat	-0.600	-1.110	-1.021	NA
+g11193	roughly_flat	-1.034	-0.737	-1.097	NA
+g8384	roughly_flat	-0.785	-3.582	-3.278	NA
+g7453	late_responder	-0.738	-0.971	-2.169	NA
+g597	roughly_flat	-1.237	-2.235	-1.852	NA
+g12069	late_responder	-0.758	-1.411	-1.417	NA
+g8797	roughly_flat	1.022	2.226	1.992	Probable sodium/sulfate cotransporter 3
+g7213	late_responder	-0.911	-1.458	-1.802	NA
+g10483	roughly_flat	-1.052	-0.687	-1.011	Serine/threonine-protein kinase Tao
+g3042	late_responder	1.100	1.621	2.988	NA
+g9227	transient_peak_44h	0.699	2.449	1.715	Ubiquitin carboxyl-terminal hydrolase 2
+g8472	roughly_flat	-1.704	-1.727	-2.404	NA
+g5636	roughly_flat	0.646	1.100	1.008	NA
+g10541	late_responder	-0.699	-1.279	-2.664	NA
+g8342	late_responder	-0.654	-1.136	-1.657	NA
+g93	late_responder	0.864	1.090	1.774	NA
+g5700	roughly_flat	-1.495	-1.866	-2.041	Choline transporter-like protein 4
+g14241	transient_peak_44h	-1.275	-3.078	-1.850	NA
+g11843	late_responder	-1.322	-1.257	-2.141	Probable serine/threonine-protein kinase roco5
+g9597	late_responder	-0.843	-2.387	-3.382	NA
+g7800	late_responder	-0.622	-1.673	-2.428	NA
+g15562	roughly_flat	-0.568	-1.096	-1.034	NA
+g7571	late_responder	-0.472	-1.649	-2.103	NA
+g10485	roughly_flat	-0.476	-1.540	-1.436	Probable serine/threonine-protein kinase DDB_G0272254
+g915	roughly_flat	0.634	0.922	0.882	Probable metal-nicotianamine transporter YSL6
+g15010	transient_peak_44h	0.428	3.440	1.899	NA
+g12145	roughly_flat	-0.772	-1.282	-1.188	Exportin-6-B
+g15706	transient_peak_44h	0.882	2.470	0.916	Transcription factor MYB98
+g12659	roughly_flat	-1.625	-2.016	-2.021	NA
+g5824	transient_peak_44h	0.857	2.226	0.925	NA
+g9675	transient_peak_44h	0.627	2.004	1.019	NA
+g25	early_responder	-1.019	-0.866	-1.044	NA
+g8195	roughly_flat	-0.995	-0.685	-0.871	Sorbin and SH3 domain-containing protein 1 homolog
+g7411	roughly_flat	0.766	0.862	0.852	Probable inactive serine/threonine-protein kinase slob1
+g8291	late_responder	-0.902	-0.851	-1.423	NA
+g12208	roughly_flat	-1.769	-2.200	-2.544	NA
+g6650	roughly_flat	1.327	2.916	2.420	NA
+g755	roughly_flat	0.256	2.657	2.569	NA
+g8001	roughly_flat	-0.910	-1.519	-1.417	Mitochondrial 2-oxoglutarate/malate carrier protein
+g9005	transient_peak_44h	0.927	1.325	0.851	E3 ubiquitin-protein ligase KEG
+g11951	transient_peak_44h	0.699	2.653	1.320	NA
+g12165	late_responder	0.085	2.840	3.786	ADP-ribosylation factor 1
+g9981	transient_peak_44h	0.810	1.284	0.652	NA
+g2274	late_responder	-0.949	-1.704	-2.365	Glutamine synthetase
+g15029	roughly_flat	-2.727	-1.772	-3.497	NA
+g10826	transient_peak_44h	0.482	1.650	1.208	Protein kinase 2
+g10105	roughly_flat	1.086	1.049	1.433	NA
+g4561	late_responder	-0.969	-1.425	-2.607	DNA methyltransferase CcrM
+g7917	roughly_flat	-0.988	-1.081	-1.156	O-acetyl-L-homoserine sulfhydrylase
+g15278	late_responder	-0.465	-1.723	-3.212	NA
+g797	early_responder	0.727	0.654	0.681	Aldo-keto reductase family 1 member A1
+g7995	roughly_flat	-1.224	-1.542	-1.120	NA
+g16030	late_responder	-0.729	-1.048	-1.627	NA
+g12117	roughly_flat	-1.213	-1.525	-1.667	NA
+g2025	transient_peak_44h	1.600	2.392	1.717	NA
+g11257	roughly_flat	-0.802	-1.056	-0.841	NA
+g16063	roughly_flat	1.143	1.229	1.544	Transcription factor MYB3R-1
+g12055	late_responder	-0.710	-1.068	-1.388	NA
+g8746	late_responder	-0.662	-1.914	-2.091	NA
+g15664	roughly_flat	-1.432	-0.745	-1.236	Protein dispatched homolog 1
+g12899	late_responder	-2.244	-2.198	-3.480	NA
+g11261	late_responder	-0.649	-0.696	-1.222	NA
+g14561	roughly_flat	-0.613	-0.786	-0.835	DNA-dependent ATPase/E3 ubiquitin-protein ligase rad5
+g5986	early_responder	-1.628	-0.684	-0.853	NA
+g6541	late_responder	-0.717	-0.616	-1.211	Probable cysteine desulfurase
+g7978	roughly_flat	-0.787	-0.752	-1.002	NA
+g1745	roughly_flat	-1.446	-1.494	-0.575	tRNA wybutosine-synthesizing protein 5
+g11021	transient_peak_44h	-0.645	-1.668	-1.218	Small ribosomal subunit protein eS28
+g15133	roughly_flat	1.440	0.865	1.125	Low affinity inorganic phosphate transporter 4
+g3906	late_responder	0.313	2.505	2.800	Carnitine O-acetyltransferase, mitochondrial
+g7797	transient_peak_44h	-1.029	-1.516	-1.088	Hydroxyacylglutathione hydrolase
+g8593	transient_peak_44h	0.530	1.190	0.869	NA
+g6221	late_responder	-1.379	-1.975	-3.020	NA
+g8213	roughly_flat	-1.509	-1.243	-2.123	Cytosolic sulfotransferase 1
+g12751	roughly_flat	-0.816	-1.316	-1.312	NACHT domain- and WD repeat-containing protein 1
+g4217	roughly_flat	-1.200	-1.250	-1.543	NA
+g3104	roughly_flat	-1.082	-1.444	-1.507	NA
+g2807	transient_peak_44h	0.801	1.598	1.113	NA
+g12100	roughly_flat	-0.714	-0.827	-0.968	NA
+g11776	late_responder	-1.113	-1.879	-2.184	Cysteine and glycine-rich protein 1
+g12371	roughly_flat	-1.057	-1.440	-1.308	NA
+g396	late_responder	-0.603	-1.534	-2.329	NA
+g15144	transient_peak_44h	0.615	1.581	0.917	NA
+g10046	roughly_flat	0.436	2.855	2.684	NA
+g14821	roughly_flat	0.965	1.408	1.324	NA
+g7990	roughly_flat	-1.061	-1.156	-1.392	NA
+g8360	roughly_flat	-1.356	-0.693	-1.562	Trypsin 5G1
+g13403	early_responder	-3.370	-1.616	-1.549	NA
+g5722	roughly_flat	0.599	0.939	0.779	NA
+g313	late_responder	-0.503	-1.651	-2.933	Protein psiC
+g8054	early_responder	-1.108	-0.711	-0.745	NA
+g7513	roughly_flat	-0.407	-2.626	-2.611	NA
+g7919	transient_peak_44h	-0.806	-1.097	-0.776	NA
+g10978	late_responder	0.136	2.150	2.361	NA
+g12679	late_responder	-0.620	-1.209	-2.417	NA
+g7865	roughly_flat	-0.925	-0.830	-1.258	ATP-binding cassette sub-family B member 10, mitochondrial
+g2415	late_responder	-0.934	-1.533	-2.476	Protein psiC
+g4128	transient_peak_44h	0.814	1.856	0.856	Signal transducer and activator of transcription A
+g4991	late_responder	-0.943	-1.001	-2.351	NA
+g13424	transient_peak_44h	0.353	2.624	1.804	NA
+g8128	late_responder	-0.636	-1.044	-1.309	NA
+g8387	late_responder	0.607	1.638	1.748	NA
+g7867	roughly_flat	-1.088	-1.298	-1.150	NA
+g9733	transient_peak_44h	1.600	2.432	0.389	NAD(P)H oxidoreductase RTN4IP1, mitochondrial
+g8215	roughly_flat	-0.858	-1.580	-1.421	Sentrin-specific protease 6
+g12325	transient_peak_44h	-0.950	-1.513	-0.701	NA
+g6413	transient_peak_44h	1.409	3.085	0.724	NA
+g7996	early_responder	-1.275	-0.738	-0.564	Elongation factor 1-alpha
+g11861	roughly_flat	-2.726	-2.680	-3.846	NA
+g15116	late_responder	-0.461	-1.409	-2.548	NA
+g12767	late_responder	-0.558	-1.400	-1.873	NA
+g13609	roughly_flat	-0.687	-0.747	-0.790	NA
+g85	late_responder	-0.781	-1.563	-3.240	Serine/threonine/tyrosine-protein kinase HT1
+g8263	roughly_flat	-0.939	-0.755	-1.169	Transcription factor MYB3R-3
+g7933	early_responder	-1.339	-0.978	-0.841	MTOR-associated protein MEAK7
+g2636	late_responder	0.558	1.029	2.198	NA
+g6309	late_responder	-0.301	-1.627	-1.632	Folate receptor alpha
+g10431	late_responder	-0.551	-1.807	-2.730	Myosin-M heavy chain
+g10069	transient_peak_44h	1.427	2.583	0.586	NA
+g1836	transient_peak_44h	-0.647	-1.062	-0.789	NA
+g12942	roughly_flat	-1.740	-1.796	-1.170	NA
+g7792	roughly_flat	-0.915	-0.937	-1.047	UPF0324 membrane protein mlr2225
+g12160	roughly_flat	-1.030	-1.210	-0.741	Ubiquitin-like modifier-activating enzyme ATG7
+g15146	transient_peak_44h	0.604	1.701	0.839	NA
+g13696	transient_peak_44h	0.467	2.286	1.524	NA
+g12170	roughly_flat	-0.945	-0.999	-0.705	Cysteinylglycine-S-conjugate dipeptidase
+g13077	transient_peak_44h	0.878	1.900	0.594	ATP-dependent Clp protease ATP-binding subunit ClpX
+g478	transient_peak_44h	0.524	1.196	0.757	Uncharacterized protein HI_1586
+g14603	transient_peak_44h	0.552	2.036	1.041	NA
+g10174	roughly_flat	0.803	0.549	1.399	NA
+g5634	roughly_flat	-0.461	-1.158	-0.907	Cytochrome c peroxidase, mitochondrial
+g9689	late_responder	-0.788	-2.495	-2.735	NA
+g6363	late_responder	-1.258	-1.590	-2.945	NA
+g9078	roughly_flat	0.008	3.151	2.680	NA
+g6302	transient_peak_44h	0.997	2.333	1.303	NA
+g15120	roughly_flat	-1.162	-2.241	-2.004	NA
+g2600	transient_peak_44h	0.734	0.964	0.556	NA
+g511	mixed_direction	-0.228	4.407	4.030	Probable transporter XF_0766
+g7810	roughly_flat	-0.775	-0.904	-1.023	Probable inactive serine/threonine-protein kinase scy1
+g8225	roughly_flat	-0.864	-0.986	-0.819	General transcription and DNA repair factor IIH helicase subunit XPD
+g8176	early_responder	-1.955	-1.191	-1.248	Large ribosomal subunit protein bL34
+g1281	roughly_flat	0.627	0.744	0.792	Intermembrane lipid transfer protein vps13A
+g16076	late_responder	0.484	0.934	1.088	NA
+g9421	transient_peak_44h	0.574	1.545	0.850	Phospholipid-transporting ATPase DRS2
+g7133	late_responder	-0.601	-2.179	-2.624	NA
+g7982	roughly_flat	-1.065	-1.150	-0.783	Protein Rae1
+g2200	late_responder	-0.301	-1.562	-2.420	NA
+g1724	late_responder	-0.674	-0.764	-1.394	NA
+g5533	roughly_flat	-0.628	-0.962	-0.839	Alpha-tocopherol transfer protein-like
+g11986	late_responder	-0.757	-1.366	-1.720	NA
+g4135	late_responder	-0.943	-1.275	-3.860	NA
+g15118	late_responder	-0.521	-1.388	-2.411	NA
+g8260	roughly_flat	-1.169	-1.637	-1.530	tRNA:m(4)X modification enzyme TRM13 homolog
+g8212	roughly_flat	-1.124	-0.578	-0.834	Protein phosphatase 1B
+g7972	early_responder	-1.838	-1.145	-0.913	Uncharacterized protein aq_1088
+g13006	early_responder	0.812	0.806	0.568	NA
+g10969	late_responder	-1.302	-1.851	-2.534	Disintegrin and metalloproteinase domain-containing protein B
+g9907	roughly_flat	-0.561	-3.265	-3.220	NA
+g15147	transient_peak_44h	0.430	1.584	1.056	NA
+g12167	roughly_flat	-2.078	-2.080	-1.025	SH3 and multiple ankyrin repeat domains protein 2
+g1996	late_responder	-0.334	-1.328	-1.769	NA
+g3424	transient_peak_44h	1.089	1.604	1.116	Transmembrane protein DDB_G0269096
+g8008	roughly_flat	-1.010	-0.593	-0.947	Glutathione S-transferase 1
+g398	transient_peak_44h	-1.068	-2.414	-1.352	NA
+g7773	early_responder	-1.375	-0.642	-0.668	Large ribosomal subunit protein eL6z
+g8944	early_responder	1.447	1.218	0.845	Diacylglycerol lipase-beta
+g10399	late_responder	-0.858	-0.989	-1.737	Probable serine/threonine-protein kinase drkC
+g10026	early_responder	-2.137	-1.464	-1.756	NA
+g7187	late_responder	-0.717	-1.189	-3.325	GREB1-like protein
+g11926	transient_peak_44h	0.398	2.204	1.177	Ubiquitin-like domain-containing protein CIP73
+g2630	roughly_flat	-2.307	-1.838	-2.314	NA
+g12168	roughly_flat	-2.978	-3.084	-1.806	NA
+g8218	roughly_flat	-0.859	-0.822	-1.133	Phosphatidylinositol 4-phosphate 5-kinase
+g10830	roughly_flat	-0.667	-1.389	-1.154	G protein-coupled receptor kinase 5
+g8295	roughly_flat	-1.293	-1.661	-1.518	NA
+g11210	late_responder	-0.587	-1.076	-2.017	NA
+g218	roughly_flat	0.711	0.842	0.732	NA
+g7588	late_responder	0.692	2.643	2.956	NA
+g11914	transient_peak_44h	0.424	2.019	1.080	Zinc finger A20 and AN1 domain-containing stress-associated protein 9
+g13245	transient_peak_44h	-0.795	-1.163	-0.876	NA
+g8098	transient_peak_44h	-0.897	-1.441	-0.844	Disulfide-bond oxidoreductase YghU
+g2297	transient_peak_44h	0.429	2.122	1.152	Persulfide dioxygenase ETHE1 homolog, mitochondrial
+g6548	late_responder	-0.732	-1.661	-2.548	NA
+g13338	late_responder	-0.789	-1.686	-2.007	Actin-binding Rho-activating protein
+g2610	transient_peak_44h	0.617	1.000	0.585	Protein CCA1
+g11981	roughly_flat	-0.776	-0.982	-0.528	Estradiol 17-beta-dehydrogenase 11
+g2844	roughly_flat	-1.140	-0.407	-0.935	NA
+g12524	transient_peak_44h	0.893	1.750	0.554	NA
+g8587	roughly_flat	0.046	2.454	2.281	Zinc finger protein ZPR1 homolog
+g13509	transient_peak_44h	0.880	1.954	0.983	NA
+g8266	roughly_flat	-0.821	-0.566	-0.775	Serine/threonine-protein kinase 54
+g8249	transient_peak_44h	-0.458	-2.299	-1.623	NA
+g1678	late_responder	-0.357	-1.509	-2.520	NA
+g8667	late_responder	0.452	1.208	1.370	Protein SrpB
+g2388	transient_peak_44h	0.771	2.909	1.692	NA
+g10038	roughly_flat	-1.185	-0.448	-0.846	Long-chain-fatty-acid--CoA ligase ACSBG2
+g1255	transient_peak_44h	1.346	1.815	1.201	Probable sodium/metabolite cotransporter BASS4, chloroplastic
+g7365	transient_peak_44h	0.758	1.629	0.786	NA
+g5287	late_responder	-0.407	-2.054	-4.652	NA
+g13417	late_responder	0.497	1.534	2.117	NA
+g16046	transient_peak_44h	0.831	1.279	0.488	Lon protease 2
+g9485	transient_peak_44h	0.553	1.575	1.093	Mechanosensitive ion channel protein 10
+g18	late_responder	0.965	1.683	2.555	Putative carbamate hydrolase RutD
+g4469	roughly_flat	0.541	1.193	1.002	NA
+g11258	transient_peak_44h	0.298	2.010	1.263	Probable transporter PD_1892
+g2504	roughly_flat	-0.953	-0.652	-0.837	DNA polymerase alpha catalytic subunit
+g8074	late_responder	-0.578	-0.873	-0.966	Sporulation protein RMD1
+g857	late_responder	-0.927	-1.243	-1.926	NA
+g15112	late_responder	-0.249	-1.475	-2.004	NA
+g859	late_responder	-0.389	-1.064	-1.620	NA
+g3141	roughly_flat	-1.799	-1.427	-1.929	Crystal protein
+g7077	late_responder	-1.110	-3.486	-3.654	NA
+g6770	early_responder	1.038	0.769	0.486	NA
+g15381	roughly_flat	-1.630	-0.557	-1.127	Solute carrier family 12 member 2
+g14849	roughly_flat	0.389	2.819	2.385	NA
+g7234	late_responder	0.535	0.812	0.943	Kynurenine/alpha-aminoadipate aminotransferase, mitochondrial
+g3003	transient_peak_44h	0.421	1.760	1.290	Plexin-A2
+g9403	late_responder	-0.066	-2.533	-3.055	NA
+g7872	transient_peak_44h	-1.060	-1.551	-0.898	NA
+g11070	late_responder	-1.152	-2.101	-3.328	NA
+g8682	roughly_flat	-0.975	-1.585	-1.559	NA
+g5311	late_responder	-0.494	-1.087	-2.082	Putative cytochrome P450 CYP13A7
+g6802	roughly_flat	-1.092	-0.592	-0.969	NA
+g3902	transient_peak_44h	0.810	1.923	0.969	Putative amidohydrolase YhaA
+g12365	roughly_flat	-2.022	-1.599	-3.603	NA
+g7734	late_responder	-1.066	-4.279	-4.363	NA
+g6710	late_responder	-0.676	-0.759	-1.130	Protoheme IX farnesyltransferase, mitochondrial
+g2331	transient_peak_44h	-0.529	-1.157	-0.855	ATP synthase F(1) complex subunit delta, mitochondrial
+g6	early_responder	-0.906	-0.605	-0.703	Protein psiP
+g8126	early_responder	-0.972	-0.735	-0.642	NA
+g14694	roughly_flat	-0.371	-2.133	-2.064	NA
+g7886	late_responder	-0.451	-1.149	-1.182	Peroxisomal biogenesis factor 3
+g10888	transient_peak_44h	0.394	2.373	1.130	NA
+g13337	early_responder	-0.818	-0.539	-0.590	Actin
+g13217	late_responder	0.417	1.500	1.529	GTP-binding protein 2
+g8012	roughly_flat	-1.500	-1.768	-0.916	Uncharacterized protein y4mH
+g753	roughly_flat	-0.933	-0.656	-0.911	NA
+g9014	roughly_flat	-0.755	-0.996	-0.950	Solute carrier family 49 member A3
+g2815	roughly_flat	-0.909	-0.763	-1.093	NA
+g8276	early_responder	-0.887	-0.763	-0.866	Lipid droplet-associated hydrolase
+g10147	late_responder	-1.105	-2.667	-2.823	NA
+g10669	roughly_flat	0.449	1.074	1.000	Calcineurin subunit B
+g8187	early_responder	-1.684	-1.209	-0.900	Zinc-type alcohol dehydrogenase-like protein C337.11
+g1746	transient_peak_44h	-1.407	-3.160	-1.896	NA
+g4631	late_responder	-0.556	-0.822	-1.114	Probable arginine--tRNA ligase, cytoplasmic
+g1309	roughly_flat	-0.788	-0.424	-0.939	ABC transporter G family member 11
+g15421	roughly_flat	-0.942	-0.721	-1.936	NA
+g6153	roughly_flat	-0.706	-1.808	-1.451	Ribosomal protein S6 kinase alpha-2
+g12076	late_responder	-0.468	-0.703	-0.972	Protein REVEILLE 5
+g1110	roughly_flat	-0.992	-0.578	-2.334	Acetyl-coenzyme A synthetase
+g11129	transient_peak_44h	0.590	1.493	0.877	NA
+g1247	roughly_flat	1.254	1.267	0.837	Uncharacterized methyltransferase C1B3.06c
+g15005	transient_peak_44h	0.354	3.029	1.603	NA
+g7890	early_responder	-1.674	-1.434	-1.087	NA
+g3399	roughly_flat	0.635	0.901	0.830	Cysteine protease RD19A
+g3082	transient_peak_44h	0.981	1.606	0.659	Cyclin-U4-3
+g13608	late_responder	-0.434	-1.236	-1.725	NA
+g9338	roughly_flat	-1.349	-0.416	-1.311	Uncharacterized protein R883
+g13097	late_responder	-0.590	-1.613	-3.297	Serine/threonine-protein kinase 54
+g4800	roughly_flat	0.349	1.675	1.290	NA
+g2668	late_responder	-1.493	-2.386	-2.773	Band 7 domain-containing protein MJ0827
+g3455	late_responder	0.518	0.578	0.947	NA
+g12022	transient_peak_44h	-0.810	-1.509	-0.968	3-hydroxybutyryl-CoA dehydratase-like protein, mitochondrial
+g7856	early_responder	-0.779	-0.545	-0.674	Transformation/transcription domain-associated protein
+g5872	roughly_flat	-1.644	-0.720	-1.299	Putative heme-binding peroxidase
+g3859	transient_peak_44h	0.400	1.961	1.374	NA
+g5226	late_responder	-1.022	-1.773	-2.099	RasGEF domain-containing serine/threonine-protein kinase X
+g8382	late_responder	-0.478	-1.005	-2.031	NA
+g5540	early_responder	1.144	0.988	0.472	Autoinducer 2 sensor kinase/phosphatase LuxQ
+g6914	roughly_flat	-0.723	-0.826	-0.562	Adenylyl cyclase-associated protein 1
+g14195	transient_peak_44h	0.408	1.453	0.912	ABC transporter G family member 39
+g12810	transient_peak_44h	0.411	1.737	1.099	Serine/threonine-protein kinase RIO3
+g9713	late_responder	-1.082	-2.133	-3.062	Uncharacterized Nudix hydrolase P35G2.12
+g15374	late_responder	-1.437	-1.448	-2.616	NA
+g12140	roughly_flat	-1.804	-0.783	-1.025	NA
+g1163	roughly_flat	0.477	0.842	0.710	CBS domain-containing protein CBSCBSPB3
+g12492	late_responder	-1.360	-2.577	-3.882	NA
+g11956	roughly_flat	0.484	1.110	0.988	NA
+g1523	roughly_flat	-1.546	-2.595	-2.461	NA
+g12808	roughly_flat	-1.295	-0.587	-0.753	Chymotrypsin-like protease CTRL-1
+g315	roughly_flat	-1.698	-1.265	-2.165	Regulator of G protein signaling 13
+g7885	roughly_flat	-0.710	-1.655	-1.454	Probable magnesium transporter NIPA8
+g7859	transient_peak_44h	-1.628	-2.216	-1.621	NA
+g8760	transient_peak_44h	-1.030	-1.599	-1.026	NA
+g5161	roughly_flat	-0.320	-3.145	-2.861	Severin
+g9492	roughly_flat	-0.735	-0.821	-1.048	E3 SUMO-protein ligase NSE2
+g6030	roughly_flat	-1.312	-1.545	-0.718	Bidirectional sugar transporter SWEET6
+g11972	roughly_flat	0.150	2.259	1.875	Sulfite oxidase
+g5294	transient_peak_44h	-1.528	-2.310	-1.576	NA
+g8097	roughly_flat	-1.015	-1.195	-0.979	Protein O-mannosyl-transferase TMTC4
+g7286	roughly_flat	-0.716	-0.757	-0.658	NA
+g10327	roughly_flat	-1.977	-1.006	-1.522	NA
+g8185	transient_peak_44h	0.504	2.988	1.504	NA
+g7759	transient_peak_44h	1.420	2.738	1.240	NA
+g11191	late_responder	-0.241	-1.367	-2.444	NA
+g8758	transient_peak_44h	0.665	1.696	0.580	Upstream activation factor subunit UAF30
+g15672	late_responder	-0.426	-1.013	-1.137	NA
+g2455	roughly_flat	-1.459	-0.594	-1.056	Bifunctional lysine-specific demethylase and histidyl-hydroxylase NO66
+g3687	transient_peak_44h	0.694	0.960	0.529	Patatin-like phospholipase domain-containing protein 6
+g3364	roughly_flat	-1.034	-0.459	-2.768	NA
+g8044	early_responder	-1.565	-1.197	-1.258	Nucleolar protein 16
+g5961	transient_peak_44h	0.474	1.391	0.786	Calcium-dependent protein kinase 5
+g1353	late_responder	-0.444	-1.017	-2.322	Pyruvyl transferase 1
+g9415	roughly_flat	2.123	1.724	2.565	Protein YSC84
+g8102	early_responder	-0.987	-0.781	-0.631	Protein OS-9 homolog
+g2033	transient_peak_44h	0.295	1.825	1.236	NA
+g14639	late_responder	0.413	0.994	1.309	Putative aldehyde dehydrogenase family 7 member A1 homolog
+g11824	late_responder	-0.692	-1.557	-2.101	cGMP-dependent protein kinase 2
+g5712	transient_peak_44h	0.222	2.619	1.518	NA
+g481	roughly_flat	0.457	1.131	0.949	NA
+g7054	late_responder	-0.665	-1.628	-3.040	NA
+g12114	late_responder	-0.526	-1.523	-1.910	NA
+g10540	roughly_flat	-0.468	-1.781	-1.718	NA
+g11722	roughly_flat	-1.312	-1.031	-1.382	Diacylglycerol lipase-alpha
+g8194	roughly_flat	-1.578	-1.637	-0.823	Molybdopterin synthase sulfur carrier subunit
+g9936	roughly_flat	-1.106	-1.098	-1.592	Ubiquitin carboxyl-terminal hydrolase 17-like protein B
+g13464	transient_peak_44h	0.183	2.538	1.767	NA
+g8068	roughly_flat	-1.218	-1.524	-1.301	NA
+g5359	late_responder	-0.564	-1.111	-1.463	Disheveled-associated activator of morphogenesis 1
+g8232	late_responder	-0.511	-1.106	-1.458	E3 ubiquitin-protein ligase RNF10
+g7875	roughly_flat	-0.926	-0.987	-1.025	Probable transcriptional regulatory protein TTE1135
+g7701	roughly_flat	-1.169	-0.701	-2.429	NA
+g15299	late_responder	-0.553	-1.588	-3.306	NA
+g4520	late_responder	-0.609	-0.978	-1.236	Myosin ID heavy chain
+g10409	late_responder	-0.810	-1.150	-1.723	NA
+g9674	roughly_flat	0.513	1.249	1.089	NA
+g13563	transient_peak_44h	-0.691	-1.083	-0.785	Acetyl-CoA acetyltransferase
+g9328	roughly_flat	-0.990	-1.472	-1.226	Heat shock 70 kDa protein 12B
+g2862	late_responder	-0.850	-1.505	-2.017	Ribonuclease inhibitor
+g13784	late_responder	-0.910	-2.422	-3.263	NA
+g4339	transient_peak_44h	0.890	1.749	0.408	NA
+g12326	late_responder	-0.224	-1.235	-1.735	Zinc metalloproteinase-disintegrin-like EoVMP2
+g15142	roughly_flat	0.165	1.661	1.315	NA
+g7446	early_responder	-1.155	-0.801	-0.651	cAMP-dependent protein kinase regulatory subunit
+g12354	transient_peak_44h	0.603	2.451	1.334	NA
+g15021	transient_peak_44h	0.658	0.915	0.625	Diacylglycerol lipase-beta
+g11477	early_responder	1.448	1.348	1.383	NA
+g14202	early_responder	-1.698	-1.454	-1.057	Guanine nucleotide-binding protein alpha-7 subunit
+g4282	transient_peak_44h	0.045	3.079	1.778	Alternative squalene epoxidase
+g15410	early_responder	4.571	2.421	1.092	NA
+g8245	roughly_flat	-1.408	-2.380	-2.250	NA
+g8990	late_responder	-1.303	-1.769	-2.569	LIM homeobox transcription factor 1-beta.1
+g6055	late_responder	-0.835	-1.749	-2.044	NA
+g3731	late_responder	-0.852	-0.865	-1.657	FK506-binding protein 1B
+g12470	late_responder	-1.275	-2.183	-2.902	NA
+g14316	late_responder	0.528	0.700	0.860	Intermembrane lipid transfer protein VPS13B
+g5776	roughly_flat	-0.738	-0.472	-0.778	26S proteasome regulatory subunit 4
+g2756	late_responder	-0.737	-1.101	-2.724	NA
+g11151	early_responder	-1.293	-0.937	-0.476	NA
+g12264	late_responder	0.045	1.577	2.556	Protein NRT1/ PTR FAMILY 8.4
+g3323	early_responder	-2.117	-0.790	-0.872	Ubiquinone biosynthesis O-methyltransferase
+g2968	roughly_flat	0.619	2.346	1.823	NA
+g4659	roughly_flat	0.316	1.112	1.020	NA
+g3137	roughly_flat	0.919	1.165	0.663	NA
+g225	roughly_flat	-2.788	-1.286	-2.009	Probable glucitol transport protein GutA
+g8166	early_responder	-1.957	-1.411	-1.226	NA
+g1102	roughly_flat	-1.263	-1.329	-1.065	NA
+g419	transient_peak_44h	0.606	1.920	0.707	Cysteine dioxygenase type 1
+g7848	roughly_flat	-1.029	-0.789	-1.005	Serine/threonine-protein kinase YPK1
+g7973	roughly_flat	-0.536	-1.868	-1.682	Endonuclease III homolog
+g3178	transient_peak_44h	0.838	1.456	0.530	NA
+g13867	roughly_flat	-1.796	-0.476	-0.934	Protein DD3-3
+g3369	transient_peak_44h	0.281	2.143	1.083	NA
+g5449	transient_peak_44h	0.848	1.890	1.423	NADPH-dependent quinone oxidoreductase VAT1
+g8203	roughly_flat	-0.818	-0.822	-0.781	Transportin MOS14
+g9362	transient_peak_44h	-1.118	-1.845	-1.243	Two-pore potassium channel 1
+g5060	late_responder	-0.647	-0.813	-2.176	Structural maintenance of chromosomes protein 6B
+g15113	late_responder	-0.232	-1.181	-2.120	NA
+g12025	late_responder	-0.534	-0.830	-1.005	Splicing factor 3B subunit 2
+g2813	late_responder	-0.301	-1.177	-1.867	NA
+g7071	roughly_flat	-0.397	-1.614	-1.293	Ubiquitin carboxyl-terminal hydrolase 15
+g7912	roughly_flat	-1.177	-0.562	-0.713	Calcium-binding protein 39-like
+g9325	late_responder	-0.995	-1.636	-1.775	Phospholipid scramblase 1
+g1867	roughly_flat	0.434	1.016	0.817	NA
+g568	transient_peak_44h	0.693	1.713	0.497	Uracil-regulated protein 1
+g12070	late_responder	-1.073	-1.083	-1.721	NA
+g15305	transient_peak_44h	0.778	1.651	0.507	Calcium/calmodulin-dependent protein kinase type 1B
+g13154	roughly_flat	-1.376	-1.609	-1.914	NA
+g14002	early_responder	-1.055	-0.679	-0.697	Receptor expression-enhancing protein 5
+g8109	roughly_flat	-0.840	-1.601	-1.293	Biogenesis of lysosome-related organelles complex 1 subunit 2
+g8019	early_responder	-1.199	-0.911	-0.668	Periodic tryptophan protein 2 homolog
+g8663	late_responder	0.413	0.657	0.761	Sodium-dependent phosphate transport protein 2B
+g8567	transient_peak_44h	0.470	1.837	0.744	NA
+g10687	roughly_flat	-0.870	-0.495	-0.897	Poly [ADP-ribose] polymerase 2-A
+g240	late_responder	-0.643	-1.538	-2.071	Pleckstrin homology domain-containing family A member 1
+g512	early_responder	-1.608	-1.605	-1.091	NA
+g11754	roughly_flat	0.954	1.090	0.316	NA
+g3747	roughly_flat	-0.440	-0.754	-0.621	NA
+g8190	roughly_flat	-1.224	-0.879	-1.232	NA
+g8223	roughly_flat	-1.040	-0.431	-1.038	NA
+g10748	roughly_flat	-2.156	-2.162	-1.155	NA
+g8153	late_responder	-0.575	-0.741	-1.086	NA
+g8147	early_responder	-1.041	-0.984	-0.396	NA
+g9369	late_responder	-0.108	-1.572	-1.670	Putative mitochondrial 2-oxoglutarate/malate carrier protein
+g14721	roughly_flat	0.621	0.751	0.568	Probable myosin light chain kinase DDB_G0271550
+g155	early_responder	-0.715	-0.692	-0.775	NA
+g6743	early_responder	-1.615	-0.880	-1.046	NA
+g3071	roughly_flat	0.758	1.381	1.281	Protein O-glucosyltransferase 2
+g4204	roughly_flat	2.095	1.652	2.464	NA
+g14211	late_responder	-1.045	-1.289	-1.716	3',5'-cyclic-nucleotide phosphodiesterase regA
+g15662	roughly_flat	-1.180	-0.685	-1.845	NA
+g8887	early_responder	-0.690	-0.686	-0.668	NA
+g1338	roughly_flat	-0.892	-0.659	-1.662	NA
+g10428	late_responder	-0.287	-0.911	-1.126	Myb-related protein A
+g10331	transient_peak_44h	0.325	1.306	0.880	Putative cystathionine beta-synthase MT1108
+g3631	late_responder	-0.604	-0.632	-0.931	NA
+g15036	early_responder	1.176	1.013	0.435	Ribosomal protein S6 kinase alpha-6
+g3873	transient_peak_44h	0.621	1.218	0.746	Phosphatidylinositol/phosphatidylcholine transfer protein SFH2
+g14260	late_responder	-1.225	-1.041	-1.969	NA
+g13400	transient_peak_44h	-0.847	-2.401	-1.733	NA
+g9702	early_responder	-1.333	-0.900	-0.879	NA
+g10266	transient_peak_44h	0.311	1.452	0.888	NA
+g1237	late_responder	-0.719	-1.500	-1.637	NA
+g8224	late_responder	-0.965	-0.931	-1.454	ATP-dependent RecD2 DNA helicase
+g4222	late_responder	0.295	0.886	1.262	NA
+g5229	transient_peak_44h	-0.860	-2.652	-1.928	NA
+g2325	late_responder	0.337	1.059	1.060	NA
+g7802	early_responder	-0.813	-0.612	-0.503	Ubiquitin-conjugating enzyme E2 2
+g12161	roughly_flat	-1.163	-1.193	-1.236	NA
+g3292	late_responder	-0.327	-1.773	-2.568	NA
+g3081	roughly_flat	0.354	1.818	1.536	E3 ubiquitin-protein ligase RNF181
+g8997	transient_peak_44h	0.572	1.739	0.950	NA
+g15614	roughly_flat	-1.583	-1.836	-1.261	NA
+g8171	roughly_flat	-0.605	-0.668	-0.810	N-terminal acetyltransferase A complex auxiliary subunit NAA15
+g2097	roughly_flat	-0.632	-0.759	-0.565	66 kDa stress protein
+g10579	late_responder	-0.542	-1.239	-1.903	Rho GTPase-activating protein 22
+g12204	late_responder	-0.560	-1.160	-1.290	NA
+g15210	early_responder	-0.794	-0.732	-0.866	NA
+g1595	transient_peak_44h	-1.488	-3.476	-2.088	NA
+g388	roughly_flat	0.677	0.974	0.758	FH protein interacting protein FIP2
+g7383	transient_peak_44h	0.027	2.275	1.391	NA
+g12138	roughly_flat	-0.664	-1.262	-1.261	NA
+g8197	late_responder	-0.345	-1.164	-1.476	Ultraviolet-B receptor UVR8
+g7813	roughly_flat	-0.849	-0.447	-0.640	JmjC domain-containing protein F
+g3651	transient_peak_44h	1.302	1.733	0.761	Ribosomal protein S6 kinase alpha-2
+g6589	transient_peak_44h	0.924	1.458	0.412	NA
+g14569	late_responder	-0.423	-2.036	-2.356	NA
+g8205	early_responder	-1.010	-0.905	-0.769	Alpha-(1,3)-fucosyltransferase FucT
+g1664	late_responder	-0.279	-1.419	-1.627	NA
+g7786	roughly_flat	-1.535	-1.592	-0.536	L-asparaginase 1
+g6733	roughly_flat	-0.776	-0.617	-0.968	NA
+g4532	roughly_flat	-0.982	-1.225	-1.010	NA
+g8794	transient_peak_44h	0.297	1.477	0.884	Probable sodium/sulfate cotransporter 3
+g4582	transient_peak_44h	0.672	0.954	0.378	NA
+g5160	late_responder	-1.306	-2.292	-2.727	NA
+g12268	roughly_flat	-1.621	-0.649	-1.182	Protein NRT1/ PTR FAMILY 8.3
+g275	late_responder	-0.990	-0.946	-1.640	NA
+g4605	early_responder	2.396	1.029	1.247	Histone H2A
+g12064	early_responder	-1.424	-1.196	-1.032	NA
+g8142	roughly_flat	-0.590	-0.747	-0.638	Lysine-specific histone demethylase 1 homolog 3
+g12043	late_responder	-0.432	-0.694	-0.818	Intermembrane lipid transfer protein VPS13
+g10389	late_responder	-0.434	-1.479	-1.840	NA
+g12111	roughly_flat	-0.535	-0.765	-0.736	NA
+g3601	late_responder	-0.801	-0.796	-1.476	Probable serine/threonine-protein kinase DDB_G0267514
+g3461	transient_peak_44h	0.518	1.645	0.595	Multicopper oxidase mco
+g2531	transient_peak_44h	0.364	1.401	0.987	Chaperone protein DnaJ
+g9937	late_responder	0.375	0.943	1.021	ABC transporter G family member 1
+g6674	roughly_flat	0.216	1.258	0.972	NA
+g9279	late_responder	-0.497	-1.186	-2.118	NA
+g5618	mixed_direction	2.773	1.781	0.000	NA
+g15288	early_responder	-0.971	-0.794	-0.691	Surfeit locus protein 2
+g1864	transient_peak_44h	0.056	2.725	2.029	Tubulin polyglutamylase ttll6
+g15115	late_responder	-0.087	-1.456	-2.581	NA
+g14846	late_responder	-1.046	-1.236	-1.664	Probable protein phosphatase 2C 27
+g12435	transient_peak_44h	0.962	2.338	1.569	NA
+g12142	roughly_flat	-0.959	-1.063	-0.957	D-inositol 3-phosphate glycosyltransferase
+g1033	roughly_flat	1.264	1.449	0.700	NA
+g13967	transient_peak_44h	0.579	1.351	0.577	Prolyl 4-hydroxylase subunit alpha
+g1314	early_responder	-1.127	-0.783	-0.471	Guanine nucleotide-binding protein subunit alpha
+g10812	roughly_flat	1.569	1.580	0.429	Acyl-coenzyme A thioesterase 4, mitochondrial
+g5813	transient_peak_44h	0.443	1.648	0.751	Cyclin-U1-1
+g10952	transient_peak_44h	0.576	1.393	0.951	G protein-coupled receptor-associated protein LMBRD2
+g14151	roughly_flat	0.501	0.769	0.655	Intermembrane lipid transfer protein vps1301
+g3914	late_responder	-1.725	-1.557	-4.747	NA
+g1248	roughly_flat	-1.481	-1.244	-2.126	NA
+g10249	transient_peak_44h	-0.502	-1.681	-0.625	Macrophage migration inhibitory factor
+g10966	early_responder	-1.199	-0.892	-0.812	Disintegrin and metalloproteinase domain-containing protein B
+g7876	late_responder	-0.749	-1.211	-1.588	DNA-directed RNA polymerases II, IV and V subunit 12
+g8002	late_responder	-1.330	-2.035	-2.344	Methylsterol monooxygenase 2-2
+g8152	early_responder	-1.244	-0.692	-0.449	Putative UDP-glucuronate:xylan alpha-glucuronosyltransferase 3
+g8007	roughly_flat	-1.101	-0.614	-0.786	NA
+g3654	late_responder	-0.193	-1.856	-2.169	NA
+g7620	late_responder	-1.435	-1.649	-2.897	NA
+g8385	late_responder	-0.518	-1.049	-1.528	NA
+g14414	late_responder	-0.880	-1.984	-3.117	LIM domain kinase 1
+g4969	transient_peak_44h	-1.434	-2.744	-1.698	NA
+g10007	early_responder	-1.115	-1.112	-1.114	Phosphatidylinositol 4-kinase
+g7771	roughly_flat	-0.911	-0.966	-0.721	NA
+g10125	transient_peak_44h	0.527	0.786	0.585	ABC transporter A family member 1
+g3928	early_responder	-1.583	-0.833	-0.331	Hydroxymethylglutaryl-CoA synthase A
+g6124	early_responder	-0.638	-0.586	-0.549	Ribosomal protein S6 kinase alpha-2
+g13277	transient_peak_44h	0.481	1.621	0.819	NA
+g8972	late_responder	-0.546	-1.219	-1.574	Myosin-VIIa
+g7923	roughly_flat	-0.453	-1.033	-0.852	AMP deaminase
+g11255	late_responder	-0.375	-0.672	-1.107	NA
+g4218	early_responder	-0.854	-0.832	-0.639	NA
+g5827	roughly_flat	1.236	1.350	0.957	NA
+g12162	roughly_flat	-0.699	-0.973	-0.890	NA
+g13315	late_responder	-0.471	-1.141	-2.130	Putative pumilio homolog 8, chloroplastic
+g10314	late_responder	0.472	0.657	0.998	Fumarate hydratase, mitochondrial
+g2951	transient_peak_44h	-0.936	-1.772	-0.938	Protein DNA-DAMAGE INDUCIBLE 1
+g9998	late_responder	-0.380	-2.548	-3.355	NA
+g2066	late_responder	0.293	0.942	1.012	NA
+g12068	late_responder	-0.505	-1.052	-1.200	ATP-dependent RNA helicase DHX29
+g6423	late_responder	-0.489	-1.242	-1.600	NA
+g837	transient_peak_44h	0.398	1.439	0.696	NA
+g15188	roughly_flat	-0.483	-1.377	-1.140	NA
+g10828	roughly_flat	-0.674	-0.694	-0.568	NA
+g15878	transient_peak_44h	0.520	1.320	0.607	Rab GTPase-activating protein eat-17
+g7806	roughly_flat	-2.656	-0.882	-2.897	NA
+g12129	roughly_flat	-0.757	-0.840	-0.852	2',5'-phosphodiesterase 12
+g8159	roughly_flat	-1.047	-0.901	-1.514	NA
+g8533	early_responder	-1.339	-1.289	-1.060	Multiple C2 and transmembrane domain-containing protein 1
+g8034	late_responder	-0.915	-1.297	-1.392	Bax inhibitor 1
+g8013	early_responder	-1.145	-0.922	-0.480	NA
+g8165	early_responder	-1.611	-0.895	-0.982	NA
+g1077	roughly_flat	0.380	1.007	0.780	Vacuolar protein sorting-associated protein 32 homolog 1
+g6649	roughly_flat	-1.316	-1.150	-1.836	NA
+g972	early_responder	-1.357	-0.879	-0.848	2Fe-2S ferredoxin
+g8823	late_responder	-1.091	-2.225	-3.620	E3 ubiquitin-protein ligase SspH1
+g9461	transient_peak_44h	0.466	1.563	0.864	N-acyl-aromatic-L-amino acid amidohydrolase (carboxylate-forming)
+g8264	roughly_flat	-1.106	-1.137	-0.832	Ankyrin repeat and BTB/POZ domain-containing protein 1
+g8120	early_responder	-1.069	-0.564	-0.515	NA
+g7963	late_responder	-0.311	-0.988	-1.363	NA
+g9974	roughly_flat	-0.493	-0.884	-0.816	High molecular weight form of myosin-1
+g13724	transient_peak_44h	-0.774	-1.374	-0.553	Gigasin-3a
+g9495	roughly_flat	-0.876	-0.668	-1.200	Ergothioneine biosynthesis protein A
+g6325	roughly_flat	-1.537	-1.627	-1.942	Muscle-specific protein 20
+g8406	roughly_flat	0.928	1.056	0.672	NA
+g13729	early_responder	-1.214	-0.930	-0.457	Ileal sodium/bile acid cotransporter
+g11875	roughly_flat	-0.649	-0.744	-0.575	Eukaryotic translation initiation factor 3 subunit J-A
+g13687	transient_peak_44h	0.516	1.233	0.465	Exosome complex component 10
+g12210	roughly_flat	-1.969	-1.796	-2.370	Multiple C2 and transmembrane domain-containing protein 1
+g15119	late_responder	-1.214	-1.552	-3.516	NA
+g7844	roughly_flat	-0.937	-1.083	-0.953	Transmembrane protein 184A
+g5786	late_responder	-0.405	-0.928	-1.166	Glutathione gamma-glutamylcysteinyltransferase 2
+g10845	transient_peak_44h	0.602	0.925	0.509	Probable protein phosphatase 2C 71
+g8284	roughly_flat	-0.829	-0.380	-0.620	Arylsulfatase
+g5165	late_responder	-0.050	-2.359	-2.765	E3 ubiquitin-protein ligase SspH1
+g312	late_responder	-1.157	-3.105	-4.542	Protein psiK
+g10857	transient_peak_44h	-0.754	-2.161	-1.514	Transient receptor potential cation channel subfamily A member 1 homolog
+g1564	roughly_flat	-0.741	-0.640	-0.861	Protein mono-ADP-ribosyltransferase PARP6
+g11309	transient_peak_44h	0.681	1.246	0.459	PHAF1 protein At3g51130
+g3804	early_responder	1.179	0.738	0.593	Mitochondrial Rho GTPase 2
+g8189	roughly_flat	-0.870	-0.637	-0.997	DNA replication licensing factor MCM2
+g10486	mixed_direction	0.135	-1.994	-2.828	Probable serine/threonine-protein kinase DDB_G0272254
+g5162	early_responder	1.252	1.152	1.360	NA
+g4161	late_responder	-0.206	-1.301	-1.391	NA
+g8869	late_responder	-0.774	-0.977	-3.204	NA
+g4286	transient_peak_44h	0.676	2.708	1.311	NA
+g6149	early_responder	-0.665	-0.576	-0.718	ATP-dependent RNA helicase has1
+g8761	late_responder	0.440	0.852	1.481	NA
+g5424	roughly_flat	-0.974	-1.445	-1.421	Sodium/hydrogen exchanger 8
+g7404	transient_peak_44h	0.578	1.246	0.599	ABC transporter C family member 3
+g4214	late_responder	-0.970	-1.425	-2.205	NA
+g4995	early_responder	2.184	0.883	0.281	NA
+g781	late_responder	-0.471	-0.599	-0.974	Protein kinase 2
+g7943	early_responder	-1.045	-0.813	-0.521	Protein regulator of cytokinesis 1
+g14365	mixed_direction	-0.066	2.064	1.833	DnaJ homolog subfamily B member 6
+g3400	roughly_flat	-0.509	-2.477	-2.294	Importin subunit alpha-1a
+g12947	transient_peak_44h	0.105	1.967	1.086	Protein JOKA2
+g4630	transient_peak_44h	0.346	1.631	1.051	Probable 1-acylglycerol-3-phosphate O-acyltransferase
+g3189	roughly_flat	-0.996	-0.142	-2.102	NA
+g12357	transient_peak_44h	0.496	1.174	0.728	NA
+g3432	roughly_flat	0.324	1.098	0.971	Glutaredoxin 1
+g12029	roughly_flat	-0.701	-0.765	-0.914	Trifunctional purine biosynthetic protein adenosine-3
+g6299	transient_peak_44h	0.946	2.158	0.635	NA
+g15940	transient_peak_44h	0.199	1.589	0.919	NA
+g7468	early_responder	-0.611	-0.593	-0.735	Kelch domain-containing protein 4
+g8254	late_responder	-0.513	-0.722	-0.854	Vacuolar basic amino acid transporter vsb1
+g15067	transient_peak_44h	-0.687	-1.054	-0.674	Cytochrome P450 704C1
+g2457	roughly_flat	-1.096	-0.988	-1.564	NA
+g7858	early_responder	-1.319	-0.770	-0.796	NA
+g7817	roughly_flat	-1.337	-0.616	-1.022	14-3-3 protein zeta/delta
+g12665	late_responder	-0.527	-0.740	-0.880	NA
+g4891	transient_peak_44h	0.172	1.869	1.162	Crystallin J1C
+g12442	transient_peak_44h	0.742	1.272	0.300	Inositol hexakisphosphate kinase 3
+g4448	roughly_flat	-1.441	-1.193	-1.498	NA
+g12112	transient_peak_44h	-0.680	-1.066	-0.761	NA
+g9731	transient_peak_44h	-0.605	-1.421	-0.919	NA
+g15164	late_responder	-0.469	-3.972	-4.721	NA
+g4089	transient_peak_44h	0.052	1.654	1.138	Elongation factor 3
+g6698	roughly_flat	-1.162	-0.808	-1.031	ABC transporter A family member 1
+g13823	roughly_flat	-1.487	-1.667	-0.267	Chromate transport protein
+g7465	transient_peak_44h	-1.665	-2.829	-1.408	NA
+g7782	roughly_flat	-1.243	-1.650	-1.320	Cytidine deaminase 6
+g15069	roughly_flat	-0.331	-3.334	-2.782	NA
+g2667	transient_peak_44h	-1.320	-2.675	-0.953	Band 7 domain-containing protein MJ0827
+g7599	early_responder	0.961	0.779	0.762	NA
+g5530	late_responder	-0.506	-1.382	-1.978	NA
+g7374	early_responder	-1.919	-0.879	-0.851	NA
+g4363	late_responder	-0.615	-0.873	-1.915	NA
+g2661	transient_peak_44h	-0.467	-1.165	-0.684	Beta-lactamase domain-containing protein 2
+g8270	late_responder	-0.891	-0.737	-1.379	DEAD-box ATP-dependent RNA helicase 36
+g12166	early_responder	-0.731	-0.543	-0.433	ADP-ribosylation factor
+g2061	early_responder	-0.949	-0.641	-0.310	NA
+g12044	early_responder	-0.963	-0.557	-0.467	ATP-sensitive inward rectifier potassium channel 12
+g2424	mixed_direction	-0.096	2.108	1.744	NA
+g5034	transient_peak_44h	0.470	1.802	0.677	Cell division control protein 48 homolog A
+g1383	roughly_flat	-0.757	-0.628	-0.840	NA
+g11960	late_responder	-0.616	-1.222	-2.142	Bifunctional adenosine 5'-phosphosulfate phosphorylase/adenylylsulfatase HINT4
+g2309	late_responder	0.005	2.159	2.579	NA
+g15109	late_responder	-0.512	-2.130	-2.345	NA
+g11262	roughly_flat	0.221	1.507	1.237	NA
+g7820	late_responder	-0.156	-0.955	-1.593	GIGYF family protein Gyf
+g8479	roughly_flat	0.153	2.379	1.926	Transcription factor MYB3R-5
+g8116	late_responder	-0.404	-0.655	-0.771	Fumarate reductase
+g8141	late_responder	-0.654	-0.998	-1.303	Sodium/potassium/calcium exchanger 5
+g5726	early_responder	-3.638	-0.788	-0.804	NA
+g12096	early_responder	-1.586	-0.685	-0.426	NADH-cytochrome b5 reductase 2
+g5933	late_responder	-0.548	-0.954	-2.269	NA
+g3868	roughly_flat	-0.628	-0.625	-0.941	Cytochrome P450 CYP94D108
+g2613	late_responder	-0.682	-2.057	-2.823	NA
+g5670	roughly_flat	-0.643	-0.821	-0.770	ATP-dependent DNA helicase Q1
+g8228	early_responder	-2.377	-1.466	-0.833	Kinesin-II 95 kDa subunit
+g29	late_responder	-0.987	-1.521	-3.382	Disintegrin and metalloproteinase domain-containing protein B
+g10625	transient_peak_44h	0.293	1.096	0.787	NA
+g5331	early_responder	-0.762	-0.759	-0.916	Muscle LIM protein Mlp84B
+g7735	late_responder	-0.112	-1.035	-2.066	Cyclic GMP-binding protein C
+g8204	early_responder	-1.401	-0.922	-0.594	SPRY domain-containing protein 7
+g12153	early_responder	-0.946	-0.904	-1.051	NA
+g6387	transient_peak_44h	0.448	0.790	0.518	Long-chain-fatty-acid--CoA ligase 5
+g11256	transient_peak_44h	0.575	1.099	0.363	Calcium/calmodulin-dependent protein kinase kinase 2
+g792	roughly_flat	-0.976	-1.226	-1.091	NA
+g2955	late_responder	-1.213	-2.199	-2.782	NA
+g794	roughly_flat	-0.719	-1.316	-1.252	Probable ubiquitin carboxyl-terminal hydrolase MINDY-4
+g6816	roughly_flat	-1.015	-0.686	-0.898	Monoterpene epsilon-lactone hydrolase
+g9346	transient_peak_44h	-0.240	-1.696	-1.223	NA
+g5795	transient_peak_44h	0.067	2.999	1.505	Protein ENHANCED DISEASE RESISTANCE 2-like
+g3874	early_responder	0.886	0.704	0.387	NA
+g14387	roughly_flat	-1.388	-1.396	-1.357	NA
+g15423	transient_peak_44h	0.466	0.665	0.492	E3 ubiquitin-protein ligase HERC2
+g1529	late_responder	-0.015	-1.547	-2.243	NA
+g12016	late_responder	-0.788	-1.225	-1.591	NA
+g15249	late_responder	-0.241	-0.808	-1.079	Eukaryotic translation initiation factor 3 subunit D
+g10823	late_responder	-0.535	-0.540	-2.095	NA
+g1086	transient_peak_44h	0.399	0.934	0.500	Probable protein phosphatase 2C 5
+g7843	roughly_flat	-0.662	-0.637	-0.824	Pre-mRNA-splicing factor prp1
+g15103	late_responder	-1.081	-0.890	-1.692	Actin
+g4572	roughly_flat	0.640	0.946	0.778	NA
+g14345	late_responder	0.521	0.756	0.995	NA
+g5833	transient_peak_44h	0.383	1.245	0.705	Thioredoxin
+g15964	transient_peak_44h	-0.642	-1.799	-1.338	Myosin-2
+g2527	transient_peak_44h	0.520	0.839	0.482	Linear gramicidin synthase subunit D
+g7823	early_responder	-0.940	-0.724	-0.465	Integral membrane protein GPR180
+g1927	roughly_flat	-1.536	-1.785	-1.056	NA
+g6272	roughly_flat	-0.470	-0.733	-0.687	Signal recognition particle subunit SRP68
+g2488	transient_peak_44h	0.262	0.981	0.689	Prohibitin-2
+g5223	roughly_flat	-0.834	-1.040	-0.968	NA
+g1963	transient_peak_44h	0.471	1.117	0.422	NA
+g9043	roughly_flat	-1.637	-1.945	-1.337	Nuclear distribution protein nudF
+g9833	roughly_flat	-1.297	-0.346	-0.634	ATP-dependent RNA helicase DBP3
+g7665	late_responder	0.402	1.091	1.348	NA
+g8724	mixed_direction	-0.129	2.388	2.151	DnaJ homolog subfamily C member 7 homolog
+g15182	late_responder	-0.040	-1.289	-1.670	Gelsolin-like protein 1
+g9079	roughly_flat	-1.106	-1.435	-1.113	Probable serine/threonine-protein kinase DDB_G0268876
+g4213	mixed_direction	-1.728	-4.024	1.045	NA
+g7014	roughly_flat	-1.226	-1.651	-1.282	GDP-fucose protein O-fucosyltransferase 4
+g7326	roughly_flat	-1.809	-1.102	-1.755	NA
+g433	roughly_flat	-0.617	-0.853	-0.815	NA
+g6498	mixed_direction	-0.002	1.971	1.622	NA
+g12094	roughly_flat	-1.638	-0.414	-1.255	Phosphatidylinositol transfer protein CSR1
+g8073	early_responder	-1.315	-1.190	-0.958	NA
+g8145	early_responder	-1.849	-1.315	-1.126	NA
+g6308	roughly_flat	-0.425	-0.869	-0.693	Hydroxyproline O-arabinosyltransferase RDN2
+g7994	late_responder	-1.241	-1.538	-1.899	Glutathione gamma-glutamylcysteinyltransferase 2
+g1961	roughly_flat	-0.899	-0.280	-0.685	Probable glutamate--tRNA ligase, cytoplasmic
+g5308	early_responder	-1.744	-1.583	-1.002	Protein rliB
+g10637	late_responder	-0.774	-0.960	-4.076	Inorganic pyrophosphatase
+g15957	early_responder	0.682	0.571	0.349	NA
+g1776	late_responder	-1.129	-1.623	-3.150	NA
+g6225	transient_peak_44h	0.191	1.280	0.868	UV excision repair protein rhp23
+g8216	roughly_flat	-0.721	-1.341	-1.223	D-galactarolactone cycloisomerase
+g2840	roughly_flat	0.132	1.153	0.959	Anti-sigma-I factor RsgI3
+g6382	transient_peak_44h	2.031	2.874	0.873	NA
+g8207	roughly_flat	-0.830	-0.600	-0.775	Glutathione S-transferase kappa 1
+g7791	roughly_flat	-1.779	-0.309	-1.592	NA
+g14386	roughly_flat	-0.542	-1.907	-1.892	NA
+g6613	roughly_flat	-0.690	-0.699	-0.942	Phenyloxazoline synthase MbtB
+g12783	late_responder	-0.312	-1.683	-2.092	MOB kinase activator-like 1 homolog B
+g3907	early_responder	-0.784	-0.684	-0.298	Coronin-1C
+g9037	roughly_flat	0.774	0.736	1.152	Nose resistant to fluoxetine protein 6
+g1932	mixed_direction	2.376	2.567	-0.027	NA
+g7318	transient_peak_44h	-0.591	-1.385	-0.756	Uncharacterized urease accessory protein ureG-like
+g11999	roughly_flat	0.440	0.932	0.783	NA
+g169	roughly_flat	-0.635	-0.760	-0.866	Nudix hydrolase 8
+g12134	early_responder	-1.018	-0.574	-0.655	NA
+g12941	transient_peak_44h	0.429	0.819	0.442	NA
+g10597	late_responder	-0.997	-2.062	-3.190	NA
+g8006	early_responder	-1.292	-0.927	-0.641	Serine/threonine-protein phosphatase 4 regulatory subunit 2-A
+g1169	late_responder	0.703	1.326	1.627	DENN domain-containing protein 4C
+g14636	roughly_flat	0.347	0.765	0.684	Alpha-aminoadipic semialdehyde synthase
+g12045	early_responder	-1.634	-0.928	-0.855	Lysosomal phospholipase A and acyltransferase
+g1548	roughly_flat	0.945	0.214	0.764	Probable carboxypeptidase S-like 2
+g9408	roughly_flat	-0.642	-0.471	-2.662	von Willebrand factor A domain-containing protein 5B1
+g12049	late_responder	-0.273	-0.867	-1.156	E3 ubiquitin-protein ligase RNF123
+g3278	transient_peak_44h	0.306	1.543	0.810	NA
+g2596	early_responder	-0.868	-0.737	-0.284	NA
+g15178	transient_peak_44h	0.469	0.980	0.544	NA
+g5735	transient_peak_44h	0.639	1.303	0.544	GTP cyclohydrolase-2
+g12807	transient_peak_44h	0.622	1.275	0.708	Trypsin
+g3847	early_responder	0.523	0.489	0.565	Probable alpha-mannosidase At5g66150
+g15443	early_responder	-1.547	-0.596	-0.612	Coactosin
+g7772	roughly_flat	-0.967	-0.475	-0.690	Serine/threonine-protein kinase rio2
+g3094	roughly_flat	0.816	0.459	0.850	2-acylglycerol O-acyltransferase 1
+g7974	early_responder	-1.434	-0.774	-0.429	NA
+g9642	roughly_flat	0.756	0.788	0.409	Phosphatidylserine decarboxylase proenzyme 1, mitochondrial
+g13138	transient_peak_44h	0.429	1.417	0.995	Probable myosin light chain kinase DDB_G0282429
+g8191	transient_peak_44h	-1.166	-1.545	-0.763	NA
+g12871	late_responder	0.390	0.523	0.804	Lysophosphatidylcholine acyltransferase 2
+g1142	transient_peak_44h	0.498	0.769	0.447	NA
+g272	late_responder	0.327	0.835	1.082	Sulfhydryl oxidase 1
+g15132	roughly_flat	-2.048	-1.266	-1.706	NA
+g5725	roughly_flat	-0.631	-0.776	-0.401	L-lactate dehydrogenase (cytochrome)
+g15948	mixed_direction	-0.326	4.206	2.931	Kinesin-like protein KIN-14Q
+g2573	roughly_flat	-0.590	-0.393	-0.649	Probable uroporphyrinogen-III C-methyltransferase
+g15350	early_responder	-1.364	-0.976	-0.875	cGMP-dependent 3',5'-cGMP phosphodiesterase A
+g15200	late_responder	-0.227	-1.217	-1.509	NA
+g10590	mixed_direction	-0.231	2.303	3.964	Cilium assembly protein DZIP1L
+g1634	transient_peak_44h	0.813	1.370	0.416	NA
+g9096	early_responder	1.483	0.585	0.303	Probable myosin light chain kinase DDB_G0282429
+g2248	early_responder	-1.062	-0.967	-0.481	NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 2
+g476	late_responder	-0.870	-2.520	-2.902	m7GpppN-mRNA hydrolase NUDT17
+g2256	roughly_flat	0.616	0.697	0.541	GTP-binding protein 1
+g9641	roughly_flat	-1.303	-0.773	-1.790	NA
+g928	early_responder	-0.864	-0.788	-0.229	Gamma-aminobutyric acid type B receptor subunit 2
+g7937	roughly_flat	-1.789	-0.629	-3.326	NA
+g7757	transient_peak_44h	0.656	1.315	0.846	Serine/threonine-protein kinase EDR1
+g14100	roughly_flat	0.480	0.683	0.605	Ubiquitin carboxyl-terminal hydrolase 32
+g3599	roughly_flat	-0.633	-1.562	-1.426	NA
+g13714	late_responder	0.630	1.060	1.467	NA
+g7783	roughly_flat	-1.024	-0.331	-0.542	Histone H3.2
+g1527	late_responder	-0.165	-1.676	-2.085	NA
+g4425	late_responder	-0.186	-3.183	-3.924	NA
+g4609	transient_peak_44h	0.595	0.784	0.481	THO complex subunit 2
+g6791	transient_peak_44h	0.297	1.492	0.833	NA
+g7976	late_responder	-0.650	-1.274	-1.561	Poly [ADP-ribose] polymerase 1
+g2475	early_responder	-1.572	-1.250	-1.300	NA
+g8050	early_responder	-0.741	-0.572	-0.416	RalBP1-associated Eps domain-containing protein 1
+g8326	roughly_flat	-0.783	-0.831	-1.008	Serine/threonine-protein phosphatase 4 catalytic subunit
+g15741	roughly_flat	0.777	1.054	0.974	Probable phospholipid-transporting ATPase IM
+g5134	late_responder	-0.752	-1.098	-1.201	NA
+g12548	roughly_flat	-0.465	-0.920	-0.718	Protein unc-45 homolog A
+g14171	roughly_flat	-0.568	-0.395	-0.998	NA
+g7906	roughly_flat	-1.514	-0.597	-1.088	AIG2-like protein C
+g6675	transient_peak_44h	0.440	0.848	0.557	E3 ubiquitin-protein ligase AIRP2
+g12164	early_responder	-0.965	-0.561	-0.277	ADP-ribosylation factor
+g7579	late_responder	-0.338	-0.535	-1.504	NA
+g9725	roughly_flat	0.313	0.957	0.782	NA
+g4145	roughly_flat	-1.392	-0.802	-2.249	NA
+g3773	roughly_flat	-0.377	-0.643	-0.604	NA
+g1528	mixed_direction	0.138	-1.337	-2.347	NA
+g14629	roughly_flat	0.252	0.802	0.677	Vacuolar-sorting receptor 1
+g7989	early_responder	-1.466	-0.693	-0.245	Branched-chain-amino-acid aminotransferase
+g2306	roughly_flat	0.207	1.166	0.975	NA
+g13728	late_responder	-0.623	-1.201	-1.837	Fatty acyl-CoA reductase
+g3732	late_responder	-0.402	-1.486	-2.658	NA
+g11904	transient_peak_44h	0.230	1.620	0.644	Iron-sulfur cluster assembly enzyme ISCU
+g12252	late_responder	-0.793	-1.078	-1.223	NA
+g13447	early_responder	0.679	0.679	0.750	DnaJ homolog subfamily C member 11
+g8447	roughly_flat	0.521	2.239	1.901	NA
+g5803	late_responder	-0.431	-0.712	-1.609	Regulator of nonsense transcripts 1
+g2278	transient_peak_44h	-0.396	-0.884	-0.417	Glutamine synthetase cytosolic isozyme
+g5000	roughly_flat	0.497	1.395	1.327	Stress-induced-phosphoprotein 1
+g11883	late_responder	-0.454	-0.631	-1.025	Regulator of telomere elongation helicase 1 homolog
+g6708	transient_peak_44h	0.345	2.190	0.561	CBS domain-containing protein CBSX3, mitochondrial
+g7785	early_responder	-0.818	-0.633	-0.721	E3 ubiquitin-protein ligase UPL6
+g845	mixed_direction	0.010	-1.697	-2.133	NA
+g11371	late_responder	-0.149	-0.772	-1.241	Phosphoenolpyruvate carboxykinase (ATP)
+g14624	late_responder	0.451	1.694	1.747	Histidine ammonia-lyase
+g6043	roughly_flat	-0.332	-0.714	-0.642	NA
+g1050	mixed_direction	-0.024	2.321	1.455	NA
+g2575	late_responder	-0.294	-0.556	-0.694	High affinity nitrate transporter 2.5
+g10717	late_responder	0.303	0.787	0.926	Serine carboxypeptidase-like 20
+g2506	roughly_flat	0.581	0.299	0.700	NA
+g5729	early_responder	1.037	0.950	0.224	NA
+g2986	roughly_flat	-0.832	-0.322	-0.580	NA
+g9820	early_responder	2.002	1.628	1.453	Putative S-adenosyl-L-methionine-dependent methyltransferase MSMEG_0614/MSMEI_0598
+g5362	late_responder	-0.587	-0.985	-2.845	NA
+g11636	transient_peak_44h	0.511	1.066	0.355	NA
+g11797	roughly_flat	0.125	1.590	1.453	NA

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparative Metabolic Map — HS6 vs. Schizochytrium sp. #7</title>
+<style>
+:root{
+  --ink:#141414; --ink-soft:#3a3a3a; --ink-faint:#767676;
+  --paper:#ffffff; --line:#141414; --line-faint:#bdbdbd;
+  --accent:#a3231b;
+  --fill-product:#f2f2f2;
+  --serif: "Times New Roman", Times, "Georgia", serif;
+  --sans: Arial, Helvetica, "Liberation Sans", sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:#e8e8e6; color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased;}
+.page{max-width:1180px; margin:0 auto; padding:36px 20px 60px;}
+.sheet{background:var(--paper); border:1px solid #d2d2d0; padding:40px 48px 34px; box-shadow:0 1px 3px rgba(0,0,0,0.08);}
+
+.journal-head{display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:22px;}
+.journal-name{font-family:var(--sans); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft);}
+.journal-meta{font-family:var(--sans); font-size:11px; color:var(--ink-faint);}
+
+.fig-label{font-family:var(--sans); font-size:13px; font-weight:700; color:var(--ink); margin-bottom:2px;}
+h1{font-family:var(--sans); font-weight:700; font-size:16.5px; line-height:1.35; margin:0 0 22px; color:var(--ink); max-width:92ch;}
+h1 i{font-style:italic;}
+
+.diagram-frame{border:1px solid var(--line-faint); padding:6px;}
+.diagram-scroll{overflow-x:auto; overflow-y:hidden;}
+.diagram-scroll svg{display:block; min-width:1400px;}
+
+.inset-row{display:flex; gap:40px; align-items:flex-start; margin-top:26px; padding-top:20px; border-top:1px solid var(--line-faint); flex-wrap:wrap;}
+.inset-block{flex:0 0 auto;}
+.inset-title{font-family:var(--sans); font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); margin-bottom:8px;}
+
+.caption{margin-top:26px; padding-top:16px; border-top:1px solid var(--line-faint); font-family:var(--serif); font-size:13px; line-height:1.62; color:var(--ink-soft); text-align:justify;}
+.caption b{color:var(--ink); font-weight:700;}
+.caption .drop{font-weight:700; color:var(--ink);}
+
+.methods-note{margin-top:16px; font-family:var(--sans); font-size:10.5px; color:var(--ink-faint); line-height:1.6;}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="sheet">
+
+  <div class="journal-head">
+    <div class="journal-name">Comparative Genomics &amp; Metabolic Engineering</div>
+    <div class="journal-meta">Working figure · 2026-07-31</div>
+  </div>
+
+  <div class="fig-label">Figure 1</div>
+  <h1>Comparative metabolic map of lipid, isoprenoid, and respiratory-chain biosynthesis in <i>Schizochytrium</i> sp. HS6 and strain #7. The pathway network (A–D) is almost entirely conserved between strains; one step (solid red) carries a genome-confirmed copy-number difference. A respiratory-chain/ubiquinone module initially flagged as HS6-specific (D) was tested and excluded — it is conserved in both genomes.</h1>
+
+  <div class="diagram-frame">
+  <div class="diagram-scroll">
+<svg viewBox="0 0 2360 860" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Metabolic map comparing HS6 and strain 7">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0.5 L9,5 L0,9.5 z" fill="var(--ink)"/>
+    </marker>
+    <marker id="ahRed" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M0,0.5 L9,5 L0,9.5 z" fill="var(--accent)"/>
+    </marker>
+    <marker id="ahRedDash" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0.5 L9,5 L0,9.5 z" fill="var(--accent)"/>
+    </marker>
+    <marker id="ahGrey" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0.5 L9,5 L0,9.5 z" fill="var(--ink-faint)"/>
+    </marker>
+  </defs>
+
+  <text x="0" y="10" font-family="Arial" font-size="10.5" font-weight="700" letter-spacing="0.04em" fill="var(--ink)">A</text>
+  <text x="18" y="10" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">FATTY ACID SYNTHESIS → PUFA / DHA (POLYKETIDE ROUTE)</text>
+
+  <g font-family="Arial">
+    <rect x="0" y="24" width="182" height="54" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="91" y="56" text-anchor="middle" font-size="12.5" fill="var(--ink)">Malonyl-CoA</text>
+
+    <rect x="320" y="24" width="210" height="54" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="425" y="50" text-anchor="middle" font-size="11.5" fill="var(--ink)">Acyl chain</text>
+    <text x="425" y="65" text-anchor="middle" font-size="11.5" fill="var(--ink)">(PKS-bound)</text>
+
+    <rect x="660" y="24" width="182" height="54" fill="var(--fill-product)" stroke="var(--ink)" stroke-width="1.25"/>
+    <text x="751" y="56" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--ink)">PUFA / DHA</text>
+  </g>
+
+  <line x1="186" y1="51" x2="316" y2="51" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="251" y="40" text-anchor="middle" font-family="Arial" font-style="italic" font-size="11" fill="var(--ink)">FabD</text>
+  <text x="251" y="94" text-anchor="middle" font-family="Arial" font-size="9.5" fill="var(--ink-faint)">g12095 · 99.5% id.</text>
+
+  <line x1="534" y1="51" x2="656" y2="51" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="595" y="40" text-anchor="middle" font-family="Arial" font-style="italic" font-size="11" fill="var(--ink)">Pks13</text>
+  <text x="595" y="94" text-anchor="middle" font-family="Arial" font-size="9.5" fill="var(--ink-faint)">g15357 · 99.9% id.</text>
+
+  <line x1="0" y1="130" x2="2360" y2="130" stroke="var(--line-faint)" stroke-width="0.75"/>
+
+  <text x="0" y="158" font-family="Arial" font-size="10.5" font-weight="700" fill="var(--ink)">B</text>
+  <text x="18" y="158" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">TRIACYLGLYCEROL ASSEMBLY &amp; TURNOVER (KENNEDY PATHWAY)</text>
+
+  <g font-family="Arial">
+    <rect x="0" y="172" width="182" height="54" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="91" y="204" text-anchor="middle" font-size="12.5" fill="var(--ink)">Free fatty acid</text>
+
+    <rect x="320" y="172" width="182" height="54" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="411" y="204" text-anchor="middle" font-size="12.5" fill="var(--ink)">Acyl-CoA</text>
+
+    <rect x="640" y="172" width="210" height="54" fill="var(--fill-product)" stroke="var(--ink)" stroke-width="1.25"/>
+    <text x="745" y="198" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">Triacylglycerol</text>
+    <text x="745" y="213" text-anchor="middle" font-size="10" fill="var(--ink-faint)">(lipid droplet)</text>
+  </g>
+
+  <line x1="186" y1="199" x2="316" y2="199" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="251" y="182" text-anchor="middle" font-family="Arial" font-style="italic" font-size="10" fill="var(--ink)">FA-CoA ligases</text>
+  <text x="251" y="242" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink-faint)">g6387/g7952/g7955 · 99.7–100%</text>
+
+  <line x1="506" y1="199" x2="636" y2="199" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="571" y="188" text-anchor="middle" font-family="Arial" font-style="italic" font-size="11" fill="var(--ink)">DGAT</text>
+  <text x="571" y="242" text-anchor="middle" font-family="Arial" font-size="9.5" fill="var(--ink-faint)">g7896 · 98.6% id.</text>
+
+  <!-- degradation branch -->
+  <line x1="91" y1="226" x2="91" y2="286" stroke="var(--ink)" stroke-width="1" marker-end="url(#ah)"/>
+  <g font-family="Arial">
+    <rect x="0" y="296" width="240" height="48" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="120" y="316" text-anchor="middle" font-size="10.5" fill="var(--ink)">β-oxidation / terminal</text>
+    <text x="120" y="331" text-anchor="middle" font-size="10.5" fill="var(--ink)">oxidation</text>
+  </g>
+  <text x="250" y="313" font-family="Arial" font-style="italic" font-size="10" fill="var(--ink)">Alkane monooxygenase</text>
+  <text x="250" y="327" font-family="Arial" font-size="9" fill="var(--ink-faint)">g3889 · 99.4% id.</text>
+
+  <!-- turnover return -->
+  <line x1="745" y1="226" x2="745" y2="266" stroke="var(--ink)" stroke-width="1"/>
+  <line x1="745" y1="266" x2="524" y2="266" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="635" y="257" text-anchor="middle" font-family="Arial" font-style="italic" font-size="10.5" fill="var(--ink)">SDP1</text>
+  <text x="635" y="288" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink-faint)">g8236 · 99.8% id.</text>
+
+  <g font-family="Arial">
+    <rect x="380" y="296" width="140" height="48" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="450" y="325" text-anchor="middle" font-size="12" fill="var(--ink)">DAG</text>
+  </g>
+
+  <line x1="376" y1="320" x2="255" y2="320" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="315" y="303" text-anchor="middle" font-family="Arial" font-style="italic" font-size="9.5" fill="var(--ink)">DAG lipase / droplet hydrolase</text>
+  <text x="315" y="358" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink-faint)">g11722 96.5% · g8276 99.7%</text>
+
+  <text x="530" y="381" font-family="Arial" font-size="9.5" fill="var(--ink-faint)" font-style="italic">recycles to the free fatty-acid pool (A, above)</text>
+
+  <line x1="0" y1="410" x2="2360" y2="410" stroke="var(--line-faint)" stroke-width="0.75"/>
+
+  <text x="0" y="438" font-family="Arial" font-size="10.5" font-weight="700" fill="var(--ink)">C</text>
+  <text x="18" y="438" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">ISOPRENOID PRECURSOR PATHWAY (MVA) → STEROLS / CAROTENOIDS</text>
+
+  <g font-family="Arial">
+    <rect x="0" y="452" width="192" height="54" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="96" y="484" text-anchor="middle" font-size="12" fill="var(--ink)">2 × Acetyl-CoA</text>
+
+    <rect x="330" y="452" width="192" height="54" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="426" y="484" text-anchor="middle" font-size="11.5" fill="var(--ink)">Acetoacetyl-CoA</text>
+
+    <rect x="660" y="452" width="172" height="54" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="746" y="484" text-anchor="middle" font-size="12.5" fill="var(--ink)">HMG-CoA</text>
+
+    <rect x="980" y="452" width="182" height="54" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="1071" y="484" text-anchor="middle" font-size="12.5" fill="var(--ink)">Mevalonate</text>
+
+    <rect x="1310" y="452" width="210" height="54" fill="none" stroke="var(--accent)" stroke-width="2"/>
+    <text x="1415" y="484" text-anchor="middle" font-size="12" fill="var(--ink)">Mevalonate-5-P</text>
+
+    <rect x="1668" y="452" width="210" height="54" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="1773" y="484" text-anchor="middle" font-size="11.5" fill="var(--ink)">Mevalonate-5-PP</text>
+
+    <rect x="2026" y="452" width="122" height="54" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="2087" y="480" text-anchor="middle" font-size="12.5" fill="var(--ink)">IPP</text>
+    <text x="2087" y="495" text-anchor="middle" font-size="9" fill="var(--ink-faint)">isoprenoid unit</text>
+  </g>
+
+  <line x1="196" y1="479" x2="326" y2="479" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="261" y="468" text-anchor="middle" font-family="Arial" font-size="9.5" fill="var(--ink)">g13563 · 100%</text>
+
+  <line x1="526" y1="479" x2="656" y2="479" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="591" y="468" text-anchor="middle" font-family="Arial" font-size="9.5" fill="var(--ink)">g3928 · 100%</text>
+
+  <line x1="836" y1="479" x2="976" y2="479" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
+  <text x="906" y="468" text-anchor="middle" font-family="Arial" font-style="italic" font-size="9.5" fill="var(--ink-faint)">HMGR (not profiled)</text>
+
+  <line x1="1166" y1="479" x2="1304" y2="479" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#ahRed)"/>
+  <text x="1235" y="463" text-anchor="middle" font-family="Arial" font-style="italic" font-weight="700" font-size="11.5" fill="var(--accent)">MVK</text>
+  <text x="1235" y="504" text-anchor="middle" font-family="Arial" font-size="9.5" fill="var(--accent)">g10519 · 2× in HS6 only*</text>
+
+  <line x1="1520" y1="479" x2="1664" y2="479" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="1592" y="468" text-anchor="middle" font-family="Arial" font-size="9.5" fill="var(--ink)">g12136 · 99.8%</text>
+
+  <line x1="1878" y1="479" x2="2022" y2="479" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
+  <text x="1950" y="468" text-anchor="middle" font-family="Arial" font-style="italic" font-size="9.5" fill="var(--ink-faint)">PMK (not profiled)</text>
+
+  <line x1="2087" y1="506" x2="2087" y2="556" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
+  <g font-family="Arial">
+    <rect x="1867" y="566" width="440" height="52" fill="var(--fill-product)" stroke="var(--ink)" stroke-width="1.25"/>
+    <text x="2087" y="588" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">Sterols  /  Carotenoids</text>
+    <text x="2087" y="604" text-anchor="middle" font-size="9" fill="var(--ink-faint)">carotenoid branch — relevant to HS6 selection history</text>
+  </g>
+
+  <line x1="0" y1="650" x2="2360" y2="650" stroke="var(--line-faint)" stroke-width="0.75"/>
+
+  <text x="0" y="678" font-family="Arial" font-size="10.5" font-weight="700" fill="var(--ink)">D</text>
+  <text x="18" y="678" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">RESPIRATORY CHAIN / UBIQUINONE MODULE — TESTED, CONSERVED IN BOTH STRAINS</text>
+
+  <g font-family="Arial">
+    <rect x="0" y="692" width="210" height="50" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="105" y="712" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">Complex I</text>
+    <text x="105" y="726" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">NADH dehydrogenase</text>
+    <text x="105" y="738" text-anchor="middle" font-size="8.5" fill="var(--ink-faint)">NDUFS4/S5/A8/B7 + AF1/AF3</text>
+
+    <rect x="0" y="752" width="210" height="50" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="105" y="772" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">Complex II</text>
+    <text x="105" y="786" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">succinate dehydrogenase</text>
+    <text x="105" y="798" text-anchor="middle" font-size="8.5" fill="var(--ink-faint)">SDHC + SDHAF4</text>
+
+    <rect x="320" y="722" width="230" height="54" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="435" y="745" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)">Ubiquinone pool (CoQ)</text>
+    <text x="435" y="760" text-anchor="middle" font-size="9" fill="var(--ink-faint)">biosynthesis: COQ9</text>
+
+    <rect x="660" y="722" width="220" height="54" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="770" y="745" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">Complex III</text>
+    <text x="770" y="760" text-anchor="middle" font-size="9" fill="var(--ink-faint)">assembly: UQCC5</text>
+
+    <rect x="990" y="722" width="340" height="54" fill="none" stroke="var(--ink)" stroke-width="1"/>
+    <text x="1160" y="745" text-anchor="middle" font-size="10" fill="var(--ink)">Cytochrome c → Complex IV → ATP synthase → ATP</text>
+    <text x="1160" y="760" text-anchor="middle" font-size="8.5" font-style="italic" fill="var(--ink-faint)">not differentially detected between strains</text>
+  </g>
+
+  <line x1="214" y1="717" x2="316" y2="735" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <line x1="214" y1="777" x2="316" y2="763" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <line x1="554" y1="749" x2="656" y2="749" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <line x1="884" y1="749" x2="986" y2="749" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
+  <text x="0" y="820" font-family="Arial" font-size="9.5" font-style="italic" fill="var(--ink-faint)">All ten loci independently confirmed present and correctly gene-modeled in strain #7's own genome annotation (see caption) — the initial "HS6-only" KO call was a pipeline artifact, not a genomic or metabolic difference.</text>
+</svg>
+  </div>
+  </div>
+
+  <div class="inset-row">
+    <div class="inset-block">
+      <div class="inset-title">Inset · long-read depth at MVK locus</div>
+      <svg viewBox="0 0 260 150" width="260" height="150">
+        <line x1="40" y1="10" x2="40" y2="120" stroke="var(--ink)" stroke-width="1"/>
+        <line x1="40" y1="120" x2="230" y2="120" stroke="var(--ink)" stroke-width="1"/>
+        <text x="34" y="14" text-anchor="end" font-family="Arial" font-size="9" fill="var(--ink-faint)">80×</text>
+        <text x="34" y="72" text-anchor="end" font-family="Arial" font-size="9" fill="var(--ink-faint)">40×</text>
+        <text x="34" y="123" text-anchor="end" font-family="Arial" font-size="9" fill="var(--ink-faint)">0</text>
+        <line x1="36" y1="70" x2="230" y2="70" stroke="var(--line-faint)" stroke-width="0.75" stroke-dasharray="2,3"/>
+        <rect x="75" y="21" width="46" height="99" fill="var(--accent)"/>
+        <text x="98" y="12" text-anchor="middle" font-family="Arial" font-size="9.5" font-weight="700" fill="var(--accent)">79.5×</text>
+        <text x="98" y="136" text-anchor="middle" font-family="Arial" font-size="9.5" fill="var(--ink)">HS6</text>
+        <rect x="160" y="67" width="46" height="53" fill="none" stroke="var(--ink)" stroke-width="1.25"/>
+        <text x="183" y="59" text-anchor="middle" font-family="Arial" font-size="9.5" font-weight="700" fill="var(--ink)">42.9×</text>
+        <text x="183" y="136" text-anchor="middle" font-family="Arial" font-size="9.5" fill="var(--ink)">#7</text>
+      </svg>
+    </div>
+    <div class="inset-block" style="max-width:620px;">
+      <div class="inset-title">Symbol key</div>
+      <svg viewBox="0 0 620 116" width="620" height="116">
+        <line x1="0" y1="16" x2="34" y2="16" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah2)"/>
+        <defs><marker id="ah2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0.5 L9,5 L0,9.5 z" fill="var(--ink)"/></marker></defs>
+        <text x="42" y="20" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">conserved step, ≥96.5% identity, single copy in both strains</text>
+
+        <line x1="0" y1="42" x2="34" y2="42" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="42" y="46" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">confirmed strain-specific copy-number difference (HS6 only) — genome depth-verified</text>
+
+        <line x1="0" y1="68" x2="34" y2="68" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="4,4"/>
+        <text x="42" y="72" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">canonical step, not represented in the gene panel analyzed here</text>
+
+        <line x1="0" y1="94" x2="34" y2="94" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="4,4"/>
+        <text x="42" y="98" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">step verified conserved across strains after an initial KO-level "unique" call was tested and rejected</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="caption">
+    <span class="drop">Figure 1.</span> <b>Comparative metabolic map of lipid, isoprenoid, and respiratory-chain biosynthesis in <i>Schizochytrium</i> sp. HS6 and strain #7.</b>
+    (A) Fatty acid synthesis via the polyketide synthase route to PUFA/DHA. (B) Triacylglycerol assembly and turnover (Kennedy pathway), including the β-oxidation branch.
+    (C) The mevalonate (MVA) pathway supplying isoprenoid units to sterol and carotenoid biosynthesis. Gene identifiers and pairwise amino-acid identities (italic enzyme name, locus ID, percent identity)
+    are shown above each arrow, derived from reciprocal-best-hit orthology between the two independently PacBio HiFi–assembled genomes (98.9% genome-wide nucleotide identity; see Methods).
+    Of the 15 enzymatic steps directly evidenced by the gene panel, 14 are single-copy orthologs at 96.5–100% identity in both strains. The sole exception is mevalonate kinase
+    (<i>MVK</i>, g10519, red), which resides on Scaffolds_28 — the one locus in this comparison carrying an independently confirmed 2-fold copy-number duplication specific to HS6
+    (79.5× vs. 42.9× long-read depth, HS6 vs. #7 — each strain's own HiFi reads independently self-mapped to its own assembly at the orthologous locus;
+    genome-wide baseline ≈ 41× HS6 / 43× #7, inset). Dashed grey arrows in (C) denote canonical MVA-pathway and downstream isoprenoid steps
+    (HMG-CoA reductase, phosphomevalonate kinase, and the sterol/carotenoid branch point) that are biochemically expected but not directly represented among the DEG/orthology panel analyzed in this study.
+    (D) A respiratory-chain/ubiquinone module — Complex I (<i>NDUFS4, NDUFS5, NDUFA8, NDUFB7</i>, assembly factors <i>NDUFAF1</i>/<i>NDUFAF3</i>), Complex II (<i>SDHC, SDHAF4</i>), ubiquinone
+    biosynthesis (<i>COQ9</i>), and Complex III assembly (<i>UQCC5</i>) — was initially flagged as HS6-specific by the independent, genome-wide KEGG-ortholog comparison. Targeted verification (DIAMOND
+    blastx of all ten HS6 proteins against the #7 genome, unrestricted target reporting) recovered a match for every gene, six of them full-length at 90–100% amino-acid identity; the #7 genome's own
+    MAKER annotation independently calls and names the same loci (e.g. <i>Ndufaf3</i>, <i>Coq9</i>) at the matching coordinates. The apparent absence therefore traces to the KEGG-ortholog (KO)
+    assignment step of the comparison pipeline, not to a gene-content or metabolic difference — the same class of false negative previously identified and corrected for <i>dgat2_1</i> in the main
+    comparative genomics report. This module is retained here, marked as tested and excluded, rather than silently removed, so the negative result is on record. Complex IV/ATP synthase (grey, dashed)
+    shows a mixed, non-directional signal (<i>COX5B</i>/<i>COA7</i> on the HS6 side vs. <i>COX17</i> on the #7 side) and was never scored as strain-specific. Of the growth-associated candidates considered
+    for the higher biomass accumulation of HS6 relative to #7 under glucose and glycerol provision, only the MVK/mevalonate-pathway copy-number difference in (C) — confirmed independently by long-read
+    depth realignment — currently stands as genome-verified evidence.
+  </div>
+
+  <div class="methods-note">
+    Orthology: bidirectional DIAMOND blastp, reciprocal best hit. Genome alignment: minimap2 (asm10). Depth: each strain's own raw HiFi reads independently realigned to its own assembly (minimap2, map-hifi) and depth measured at the orthologous MVK locus (HS6 Scaffolds_28; #7 contig26, LOCUS_013099) versus that strain's own genome-wide baseline — a symmetric check on both sides, not a comparison against a reported/assumed figure.
+    Panel D: independent KEGG orthology (KO) assignment per strain via the KEGG REST API (UniProt → KEGG GENES → KO), compared as presence/absence across the full 3-way KO matrix (3,938 KOs);
+    the ten flagged genes were then verified by DIAMOND blastx of the HS6 proteins against the #7 genome (--max-target-seqs 4100) and cross-checked against the #7 MAKER gene models directly.
+    Pathway topology follows KEGG reference maps 00061, 00071, 00561, 00900, 00190. Full analysis: HS6 vs. <i>Schizochytrium</i> sp. #7 comparative genomics report.
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>

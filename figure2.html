@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Figure 2 — Regulatory & Metabolic Map, #4 (WT) vs HS6</title>
+<style>
+:root{
+  --ink:#141414; --ink-soft:#3a3a3a; --ink-faint:#767676;
+  --paper:#ffffff; --line:#141414; --line-faint:#bdbdbd;
+  --up-strong:#a3231b; --up-mid:#e3b3ac; --neutral:#f2f2f2; --down-mid:#aec2dd; --down-strong:#2f5fa0;
+  --serif: "Times New Roman", Times, "Georgia", serif;
+  --sans: Arial, Helvetica, "Liberation Sans", sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:#e8e8e6; color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased;}
+.page{max-width:1180px; margin:0 auto; padding:36px 20px 60px;}
+.sheet{background:var(--paper); border:1px solid #d2d2d0; padding:40px 48px 34px; box-shadow:0 1px 3px rgba(0,0,0,0.08);}
+.journal-head{display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:22px;}
+.journal-name{font-family:var(--sans); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft);}
+.journal-meta{font-family:var(--sans); font-size:11px; color:var(--ink-faint);}
+.fig-label{font-family:var(--sans); font-size:13px; font-weight:700; color:var(--ink); margin-bottom:2px;}
+h1{font-family:var(--sans); font-weight:700; font-size:16.5px; line-height:1.35; margin:0 0 22px; color:var(--ink); max-width:96ch;}
+h1 i{font-style:italic;}
+.diagram-frame{border:1px solid var(--line-faint); padding:6px;}
+.diagram-scroll{overflow-x:auto; overflow-y:hidden;}
+.diagram-scroll svg{display:block; min-width:1400px;}
+.legend-row{display:flex; gap:40px; align-items:flex-start; margin-top:22px; padding-top:18px; border-top:1px solid var(--line-faint); flex-wrap:wrap;}
+.legend-block{flex:0 0 auto;}
+.legend-title{font-family:var(--sans); font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); margin-bottom:8px;}
+.caption{margin-top:22px; padding-top:16px; border-top:1px solid var(--line-faint); font-family:var(--serif); font-size:13px; line-height:1.62; color:var(--ink-soft); text-align:justify;}
+.caption b{color:var(--ink); font-weight:700;}
+.caption .drop{font-weight:700; color:var(--ink);}
+.methods-note{margin-top:16px; font-family:var(--sans); font-size:10.5px; color:var(--ink-faint); line-height:1.6;}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="sheet">
+  <div class="journal-head">
+    <div class="journal-name">Comparative Genomics &amp; Metabolic Engineering</div>
+    <div class="journal-meta">Working figure · 2026-07-31</div>
+  </div>
+
+  <div class="fig-label">Figure 2</div>
+  <h1>Trans-regulatory and metabolic architecture of the HS6 phenotype relative to its parent strain, <i>Schizochytrium</i> sp. #4 (WT). No causal coding mutation was found in any pathway or regulator gene shown; node color reflects RNA-seq differential expression (HS6 vs. WT #4, DESeq2, n = 1 per genotype × timepoint).</h1>
+
+  <div class="diagram-frame">
+  <div class="diagram-scroll">
+<svg viewBox="0 0 1750 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Regulatory and metabolic map, WT4 vs HS6">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0.5 L9,5 L0,9.5 z" fill="var(--ink)"/>
+    </marker>
+    <marker id="ahGrey" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0.5 L9,5 L0,9.5 z" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- ===================== PANEL 1: trans-regulatory network ===================== -->
+  <text x="0" y="14" font-family="Arial" font-size="10.5" font-weight="700" fill="var(--ink)">1</text>
+  <text x="16" y="14" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">TRANS-REGULATORY NETWORK — MYB3R / MYB FAMILY &amp; CDK-LIKE KINASE</text>
+  <rect x="0" y="0" width="1750" height="0" fill="none"/>
+
+  <g font-family="Arial">
+    <!-- up members -->
+    <rect x="0" y="26" width="150" height="62" fill="#a3231b" stroke="var(--ink)" stroke-width="1"/>
+    <text x="75" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff" font-style="italic">Myb activator</text>
+    <text x="75" y="64" text-anchor="middle" font-size="9.5" fill="#fff">g9086 · +2.78</text>
+    <text x="75" y="78" text-anchor="middle" font-size="9" fill="#f4d9d6">padj 9.7e-17</text>
+
+    <rect x="180" y="26" width="150" height="62" fill="#a3231b" stroke="var(--ink)" stroke-width="1"/>
+    <text x="255" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff" font-style="italic">CDK-like kinase</text>
+    <text x="255" y="64" text-anchor="middle" font-size="9.5" fill="#fff">g13536 · +3.36</text>
+    <text x="255" y="78" text-anchor="middle" font-size="9" fill="#f4d9d6">padj 1.6e-18</text>
+
+    <rect x="360" y="26" width="150" height="62" fill="#e3b3ac" stroke="var(--ink)" stroke-width="1"/>
+    <text x="435" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)" font-style="italic">MYB98</text>
+    <text x="435" y="64" text-anchor="middle" font-size="9.5" fill="var(--ink)">g15706 · +1.41</text>
+    <text x="435" y="78" text-anchor="middle" font-size="9" fill="#6b4a45">padj 8.4e-4</text>
+
+    <rect x="540" y="26" width="150" height="62" fill="#e3b3ac" stroke="var(--ink)" stroke-width="1"/>
+    <text x="615" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)" font-style="italic">MYB3R-1</text>
+    <text x="615" y="64" text-anchor="middle" font-size="9.5" fill="var(--ink)">g16063 · +1.32</text>
+    <text x="615" y="78" text-anchor="middle" font-size="9" fill="#6b4a45">padj 1.2e-3</text>
+
+    <rect x="720" y="26" width="150" height="62" fill="#e3b3ac" stroke="var(--ink)" stroke-width="1"/>
+    <text x="795" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)" font-style="italic">MYB3R-5</text>
+    <text x="795" y="64" text-anchor="middle" font-size="9.5" fill="var(--ink)">g8479 · +1.50</text>
+    <text x="795" y="78" text-anchor="middle" font-size="9" fill="#6b4a45">padj 2.8e-2</text>
+
+    <!-- down members -->
+    <rect x="960" y="26" width="150" height="62" fill="#aec2dd" stroke="var(--ink)" stroke-width="1"/>
+    <text x="1035" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)" font-style="italic">MYB3R-3</text>
+    <text x="1035" y="64" text-anchor="middle" font-size="9.5" fill="var(--ink)">g11711 · −1.58</text>
+    <text x="1035" y="78" text-anchor="middle" font-size="9" fill="#2f4a63">padj 1.1e-5</text>
+
+    <rect x="1140" y="26" width="150" height="62" fill="#aec2dd" stroke="var(--ink)" stroke-width="1"/>
+    <text x="1215" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)" font-style="italic">Myb-related B</text>
+    <text x="1215" y="64" text-anchor="middle" font-size="9.5" fill="var(--ink)">g13677 · −1.10</text>
+    <text x="1215" y="78" text-anchor="middle" font-size="9" fill="#2f4a63">padj 6.5e-4</text>
+
+    <rect x="1320" y="26" width="150" height="62" fill="#aec2dd" stroke="var(--ink)" stroke-width="1"/>
+    <text x="1395" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)" font-style="italic">MYB3R-3 (2)</text>
+    <text x="1395" y="64" text-anchor="middle" font-size="9.5" fill="var(--ink)">g8263 · −0.96</text>
+    <text x="1395" y="78" text-anchor="middle" font-size="9" fill="#2f4a63">padj 1.8e-3</text>
+
+    <rect x="1500" y="26" width="150" height="62" fill="#aec2dd" stroke="var(--ink)" stroke-width="1"/>
+    <text x="1575" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)" font-style="italic">Myb-related A</text>
+    <text x="1575" y="64" text-anchor="middle" font-size="9.5" fill="var(--ink)">g10428 · −0.78</text>
+    <text x="1575" y="78" text-anchor="middle" font-size="9" fill="#2f4a63">padj 1.2e-2 †</text>
+  </g>
+
+  <!-- motif hub -->
+  <line x1="795" y1="88" x2="795" y2="128" stroke="var(--ink)" stroke-width="1"/>
+  <polygon points="795,128 815,148 795,168 775,148" fill="none" stroke="var(--ink)" stroke-width="1.25"/>
+  <text x="795" y="152" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink)">shared</text>
+  <text x="795" y="120" text-anchor="middle" font-family="Arial" font-size="8.5" fill="var(--ink-faint)">CAAACCCSAAAC motif</text>
+  <text x="795" y="185" text-anchor="middle" font-family="Arial" font-size="8" fill="var(--ink-faint)">(P = 3.2×10⁻⁷, STREME)</text>
+
+  <line x1="795" y1="168" x2="600" y2="196" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
+  <line x1="795" y1="168" x2="795" y2="196" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
+  <line x1="795" y1="168" x2="990" y2="196" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
+  <text x="600" y="210" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink-soft)">FabD (g12095)</text>
+  <text x="795" y="210" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink-soft)">FA-CoA ligase (g7955)</text>
+  <text x="990" y="210" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink-soft)">alkane MO (g3889)</text>
+  <text x="795" y="228" text-anchor="middle" font-family="Arial" font-size="8" fill="var(--ink-faint)">promoters of these three pathway genes independently carry the same motif — panels 2–3, below</text>
+
+  <line x1="0" y1="236" x2="1750" y2="236" stroke="var(--line-faint)" stroke-width="0.75"/>
+
+  <!-- ===================== PANEL 2: metabolic pathway ===================== -->
+  <text x="0" y="242" font-family="Arial" font-size="10.5" font-weight="700" fill="var(--ink)">2</text>
+  <text x="16" y="242" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">FATTY ACID SYNTHESIS → PUFA / DHA</text>
+
+  <g font-family="Arial">
+    <rect x="0" y="256" width="182" height="56" fill="var(--neutral)" stroke="var(--ink)" stroke-width="1"/>
+    <text x="91" y="288" text-anchor="middle" font-size="12" fill="var(--ink)">Malonyl-CoA</text>
+
+    <rect x="360" y="256" width="220" height="56" fill="var(--neutral)" stroke="var(--ink)" stroke-width="1"/>
+    <text x="470" y="282" text-anchor="middle" font-size="11" fill="var(--ink)">Acyl chain</text>
+    <text x="470" y="296" text-anchor="middle" font-size="11" fill="var(--ink)">(PKS-bound)</text>
+
+    <rect x="740" y="256" width="182" height="56" fill="#e3b3ac" stroke="var(--ink)" stroke-width="1.25"/>
+    <text x="831" y="288" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">PUFA / DHA</text>
+  </g>
+  <line x1="186" y1="284" x2="356" y2="284" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="271" y="242" text-anchor="middle" font-family="Arial" font-style="italic" font-size="10.5" fill="var(--ink)">FabD</text>
+  <rect x="240" y="248" width="62" height="14" fill="#aec2dd" stroke="var(--ink)" stroke-width="0.75"/>
+  <text x="271" y="258" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink)">g12095 −1.86</text>
+
+  <line x1="584" y1="284" x2="736" y2="284" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="660" y="242" text-anchor="middle" font-family="Arial" font-style="italic" font-size="10.5" fill="var(--ink)">Pks13</text>
+  <rect x="629" y="248" width="62" height="14" fill="#e3b3ac" stroke="var(--ink)" stroke-width="0.75"/>
+  <text x="660" y="258" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink)">g15357 +1.54</text>
+
+  <line x1="0" y1="345" x2="1750" y2="345" stroke="var(--line-faint)" stroke-width="0.75"/>
+
+  <text x="0" y="372" font-family="Arial" font-size="10.5" font-weight="700" fill="var(--ink)">3</text>
+  <text x="16" y="372" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">TRIACYLGLYCEROL ASSEMBLY &amp; TURNOVER</text>
+
+  <g font-family="Arial">
+    <rect x="0" y="386" width="182" height="56" fill="var(--neutral)" stroke="var(--ink)" stroke-width="1"/>
+    <text x="91" y="418" text-anchor="middle" font-size="12" fill="var(--ink)">Free fatty acid</text>
+
+    <rect x="360" y="386" width="182" height="56" fill="var(--neutral)" stroke="var(--ink)" stroke-width="1"/>
+    <text x="451" y="418" text-anchor="middle" font-size="12" fill="var(--ink)">Acyl-CoA</text>
+
+    <rect x="720" y="386" width="210" height="56" fill="#aec2dd" stroke="var(--ink)" stroke-width="1.25"/>
+    <text x="825" y="410" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)">Triacylglycerol</text>
+    <text x="825" y="424" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">(storage)</text>
+  </g>
+
+  <line x1="186" y1="414" x2="356" y2="414" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="271" y="372" text-anchor="middle" font-family="Arial" font-style="italic" font-size="10" fill="var(--ink)">FA-CoA ligases</text>
+  <rect x="221" y="378" width="100" height="14" fill="#aec2dd" stroke="var(--ink)" stroke-width="0.75"/>
+  <text x="271" y="388" text-anchor="middle" font-family="Arial" font-size="8.5" fill="var(--ink)">g6387 +0.6 · g7952/g7955 −1.7/−2.9</text>
+
+  <line x1="546" y1="414" x2="716" y2="414" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="631" y="372" text-anchor="middle" font-family="Arial" font-style="italic" font-size="10.5" fill="var(--ink)">DGAT</text>
+  <rect x="600" y="378" width="62" height="14" fill="#7ba1cc" stroke="var(--ink)" stroke-width="0.75"/>
+  <text x="631" y="388" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink)">g7896 −2.63</text>
+
+  <!-- degradation branch -->
+  <line x1="91" y1="442" x2="91" y2="490" stroke="var(--ink)" stroke-width="1" marker-end="url(#ah)"/>
+  <g font-family="Arial">
+    <rect x="0" y="500" width="230" height="46" fill="var(--neutral)" stroke="var(--ink)" stroke-width="1"/>
+    <text x="115" y="519" text-anchor="middle" font-size="10" fill="var(--ink)">β-oxidation / terminal</text>
+    <text x="115" y="533" text-anchor="middle" font-size="10" fill="var(--ink)">oxidation</text>
+  </g>
+  <text x="240" y="516" font-family="Arial" font-style="italic" font-size="10" fill="var(--ink)">Alkane monooxygenase</text>
+  <rect x="240" y="522" width="80" height="14" fill="#aec2dd" stroke="var(--ink)" stroke-width="0.75"/>
+  <text x="280" y="532" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink)">g3889 −1.72 (n.s.)</text>
+
+  <!-- turnover -->
+  <line x1="825" y1="442" x2="825" y2="480" stroke="var(--ink)" stroke-width="1"/>
+  <line x1="825" y1="480" x2="546" y2="480" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="685" y="470" text-anchor="middle" font-family="Arial" font-style="italic" font-size="10.5" fill="var(--ink)">SDP1</text>
+  <rect x="655" y="493" width="62" height="14" fill="#aec2dd" stroke="var(--ink)" stroke-width="0.75"/>
+  <text x="686" y="503" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink)">g8236 −1.33</text>
+
+  <g font-family="Arial">
+    <rect x="400" y="500" width="140" height="46" fill="var(--neutral)" stroke="var(--ink)" stroke-width="1"/>
+    <text x="470" y="528" text-anchor="middle" font-size="12" fill="var(--ink)">DAG</text>
+  </g>
+
+  <line x1="396" y1="523" x2="240" y2="523" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="318" y="512" text-anchor="middle" font-family="Arial" font-style="italic" font-size="9" fill="var(--ink)">DAG lipase / droplet hydrolase</text>
+  <rect x="286" y="558" width="100" height="14" fill="#aec2dd" stroke="var(--ink)" stroke-width="0.75"/>
+  <text x="336" y="568" text-anchor="middle" font-family="Arial" font-size="8.5" fill="var(--ink)">g11722 −1.25 · g8276 −0.84</text>
+
+  <text x="580" y="592" font-family="Arial" font-size="9.5" fill="var(--ink-faint)" font-style="italic">recycles to the free fatty-acid pool (panel 3, above)</text>
+
+  <line x1="0" y1="622" x2="1750" y2="622" stroke="var(--line-faint)" stroke-width="0.75"/>
+
+  <text x="0" y="650" font-family="Arial" font-size="10.5" font-weight="700" fill="var(--ink)">4</text>
+  <text x="16" y="650" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">ISOPRENOID PRECURSOR PATHWAY (MVA) → STEROLS / CAROTENOIDS</text>
+
+  <g font-family="Arial">
+    <rect x="0" y="664" width="192" height="56" fill="var(--neutral)" stroke="var(--ink)" stroke-width="1"/>
+    <text x="96" y="696" text-anchor="middle" font-size="11.5" fill="var(--ink)">2 × Acetyl-CoA</text>
+
+    <rect x="340" y="664" width="192" height="56" fill="var(--neutral)" stroke="var(--ink)" stroke-width="1"/>
+    <text x="436" y="696" text-anchor="middle" font-size="11" fill="var(--ink)">Acetoacetyl-CoA</text>
+
+    <rect x="680" y="664" width="172" height="56" fill="var(--neutral)" stroke="var(--ink)" stroke-width="1"/>
+    <text x="766" y="696" text-anchor="middle" font-size="12" fill="var(--ink)">HMG-CoA</text>
+
+    <rect x="1000" y="664" width="182" height="56" fill="var(--neutral)" stroke="var(--ink)" stroke-width="1"/>
+    <text x="1091" y="696" text-anchor="middle" font-size="12" fill="var(--ink)">Mevalonate</text>
+
+    <rect x="1330" y="664" width="200" height="56" fill="var(--neutral)" stroke="var(--ink)" stroke-width="1"/>
+    <text x="1430" y="690" text-anchor="middle" font-size="11" fill="var(--ink)">Mevalonate-5-P</text>
+    <text x="1430" y="704" text-anchor="middle" font-size="8.5" fill="var(--ink-faint)">MVK: shared with WT — see §</text>
+  </g>
+
+  <line x1="196" y1="691" x2="336" y2="691" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <rect x="230" y="659" width="76" height="14" fill="#aec2dd" stroke="var(--ink)" stroke-width="0.75"/>
+  <text x="268" y="669" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink)">g13563 −0.86</text>
+
+  <line x1="536" y1="691" x2="676" y2="691" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <rect x="570" y="659" width="76" height="14" fill="#aec2dd" stroke="var(--ink)" stroke-width="0.75"/>
+  <text x="608" y="669" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink)">g3928 −0.92</text>
+
+  <line x1="856" y1="691" x2="996" y2="691" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
+  <text x="926" y="669" text-anchor="middle" font-family="Arial" font-style="italic" font-size="9.5" fill="var(--ink-faint)">HMGR (not profiled)</text>
+
+  <line x1="1186" y1="691" x2="1326" y2="691" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/>
+  <text x="1256" y="670" text-anchor="middle" font-family="Arial" font-style="italic" font-size="10.5" fill="var(--ink)">MVK</text>
+  <rect x="1220" y="678" width="76" height="14" fill="var(--neutral)" stroke="var(--ink)" stroke-width="0.75" stroke-dasharray="2,2"/>
+  <text x="1258" y="688" text-anchor="middle" font-family="Arial" font-size="8.5" fill="var(--ink)">g10519 −0.48 (n.s.)</text>
+
+  <line x1="1530" y1="691" x2="1650" y2="691" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
+  <text x="1590" y="669" text-anchor="middle" font-family="Arial" font-style="italic" font-size="9" fill="var(--ink-faint)">g12136 −1.13 → downstream</text>
+
+</svg>
+  </div>
+  </div>
+
+  <div class="legend-row">
+    <div class="legend-block">
+      <div class="legend-title">log2FC (HS6 vs. WT #4)</div>
+      <svg viewBox="0 0 600 46" width="600" height="46">
+        <rect x="0" y="6" width="46" height="18" fill="#2f5fa0"/>
+        <rect x="46" y="6" width="46" height="18" fill="#aec2dd"/>
+        <rect x="92" y="6" width="46" height="18" fill="#f2f2f2" stroke="var(--line-faint)" stroke-width="0.5"/>
+        <rect x="138" y="6" width="46" height="18" fill="#e3b3ac"/>
+        <rect x="184" y="6" width="46" height="18" fill="#a3231b"/>
+        <text x="0" y="38" font-family="Arial" font-size="9" fill="var(--ink-faint)">≤−2</text>
+        <text x="92" y="38" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink-faint)">0</text>
+        <text x="230" y="38" text-anchor="end" font-family="Arial" font-size="9" fill="var(--ink-faint)">≥+2</text>
+        <text x="260" y="20" font-family="Arial" font-size="10" fill="var(--ink-soft)">dashed border = not significant (padj ≥ 0.05)</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="caption">
+    <span class="drop">Figure 2.</span> <b>Trans-regulatory and metabolic architecture of the HS6 phenotype relative to parent strain #4 (WT).</b>
+    Panel 1: nine MYB/MYB3R-family transcription factors and one CDK-like kinase, coordinately dysregulated in HS6 versus WT, share a common cis-regulatory
+    motif (STREME de novo discovery, <i>P</i> = 3.2×10⁻⁷; independently reconfirmed using StringTie-derived promoter boundaries). The same motif occurs in the promoters
+    of three pathway genes in panels 2–3 (dashed arrows), consistent with — but not proof of — direct transcriptional regulation.
+    Panels 2–4 show the fatty-acid/PKS, triacylglycerol, and MVA-pathway backbone with each gene colored by its own log2 fold change (HS6 vs. WT #4, DESeq2, n = 1 per
+    genotype × timepoint; dashed node borders indicate padj ≥ 0.05). <b>No coding mutation was identified in any regulator or pathway gene shown</b> — every gene in this
+    figure was screened against high-confidence WT #4 resequencing variants and found unmutated. Mevalonate kinase (panel 4, g10519) additionally carries a 2-fold
+    copy-number duplication (Scaffolds_28) that is present in <i>both</i> WT #4 and HS6 (confirmed from WT #4's own short-read depth at this locus), indicating the
+    duplication predates HS6's derivation and is not itself a driver of the WT-to-HS6 phenotypic change.
+  </div>
+
+  <div class="methods-note">
+    Differential expression: DESeq2, design ~genotype + time, n = 1 per genotype × timepoint (statistics reflect pooled-dispersion estimation, not biological replication).
+    Motif discovery: STREME (MEME Suite) on StringTie-derived promoter boundaries, up- and down-regulated gene sets (padj &lt; 0.05, |log2FC| &gt; 0.5) vs. genome-wide background.
+    Variant screening: BWA-MEM + bcftools (haploid model), WT #4 resequencing reads vs. HS6 reference, high-confidence filtered call set.
+    † Myb-related A (g10428) resides on Scaffolds_28, the same locus as MVK. Full analysis: HS6 vs. WT #4 RNA-seq/variant report and HS6 vs. <i>Schizochytrium</i> sp. #7 comparative genomics report.
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
