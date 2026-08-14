@@ -118,7 +118,7 @@ a{color:var(--teal-ink);}
     <span class="pill done">Genome-wide mutation overlay &mdash; done</span>
     <span class="pill done">GO enrichment &mdash; done</span>
     <span class="pill done">ncRNA annotation &mdash; done</span>
-    <span class="pill pending" id="pill-te">Transposable elements &mdash; running</span>
+    <span class="pill done" id="pill-te">Transposable elements &mdash; done</span>
     <span class="pill pending" id="pill-rascaf">RNA-seq scaffolding &mdash; running</span>
     <span class="pill pending" id="pill-eggnog">eggNOG-mapper &mdash; running</span>
     <span class="pill done">Expression-constrained flux (draft) &mdash; done, caveated</span>
@@ -284,8 +284,33 @@ a{color:var(--teal-ink);}
 
   <section id="te">
     <div class="sec-head"><span class="sec-num">07</span><h2>Transposable elements</h2></div>
-    <p class="lede">De novo TE family discovery (RepeatModeler2) followed by genome masking/annotation (RepeatMasker) on both the HS6 and strain #7 assemblies &mdash; motivated in part by asking whether a TE is sitting at the Scaffolds_28/<i>MVK</i> duplication breakpoint (a plausible mechanism for how that duplication arose).</p>
-    <p class="pending-note" id="te-status">Running at last check (~347 candidate repeat families identified by RepeatScout, refinement in progress). Results will be added here once both genomes finish.</p>
+    <p class="lede">De novo TE family discovery (RepeatModeler2, ~347 candidate repeat families identified by RepeatScout before refinement) followed by genome masking/annotation (RepeatMasker) on both the HS6 and strain #7 assemblies &mdash; motivated in part by asking whether a TE is sitting at the Scaffolds_28/<i>MVK</i> duplication breakpoint (a plausible mechanism for how that duplication arose).</p>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="v">9.17%</div><div class="k">HS6 genome masked (5.65 Mb of 61.6 Mb)</div></div>
+      <div class="stat-card"><div class="v">9.33%</div><div class="k">strain #7 genome masked (5.82 Mb of 62.4 Mb)</div></div>
+    </div>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Class</th><th>HS6 (elements / bp / %)</th><th>Strain #7 (elements / bp / %)</th></tr></thead>
+      <tbody>
+        <tr><td>LTR retrotransposons (Ty1/Copia)</td><td>79 / 162,036 bp / 0.26%</td><td>48 / 53,053 bp / 0.09%</td></tr>
+        <tr><td>SINEs</td><td>41 / 6,598 bp / 0.01%</td><td>95 / 25,018 bp / 0.04%</td></tr>
+        <tr><td>DNA transposons (PiggyBac &amp; other)</td><td>0 / 0 bp / 0.00%</td><td>134 / 178,599 bp / 0.29%</td></tr>
+        <tr><td>Rolling-circles</td><td>110 / 17,635 bp / 0.03%</td><td>89 / 15,788 bp / 0.03%</td></tr>
+        <tr><td>Unclassified repeats</td><td>6,009 / 2,503,204 bp / 4.06%</td><td>5,909 / 2,057,143 bp / 3.30%</td></tr>
+        <tr><td>Simple repeats + low complexity</td><td>45,889 / 2,154,390 bp / 3.49%</td><td>45,976 / 2,091,328 bp / 3.35%</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout finding">
+      <span class="lbl">One clear qualitative difference: DNA transposons</span>
+      <p>Strain #7 carries 134 DNA-transposon copies (mostly PiggyBac-family, 178.6&nbsp;kb total) that are <b>completely absent</b> from HS6 (0 copies). HS6 in turn carries proportionally about 3&times; more LTR/Ty1-Copia retrotransposon content than #7 (0.26% vs 0.09% of the genome). Both patterns are consistent with the two strains having diverged TE landscapes despite being derived from the same lineage &mdash; but de novo family discovery on two genomes assembled and annotated independently can also produce this kind of asymmetry as an artifact of assembly completeness/fragmentation rather than real biology, so it's reported as an observation, not a mechanism.</p>
+    </div>
+    <div class="callout caveat">
+      <span class="lbl">No TE found at the MVK duplication breakpoint</span>
+      <p>Checked directly: within &plusmn;5&nbsp;kb of the duplicated <i>MVK</i> locus (<code>g10519</code>, Scaffolds_28:710,505&ndash;712,837), the only annotated repeat features are a short unclassified element ~4.4&nbsp;kb upstream of the gene start and a simple <code>(CAAG)n</code> repeat ~800&nbsp;bp upstream &mdash; neither overlaps the gene body or sits at a plausible breakpoint position. <b>This analysis does not support a TE-mediated mechanism for the Scaffolds_28 MVK duplication</b>; segmental/whole-region duplication (e.g. via replication slippage or an unequal crossover with no TE involvement) remains the more likely explanation given the data on hand. Reported as a negative result rather than omitted, since the original motivation for running this analysis was explicitly to test this hypothesis.</p>
+    </div>
+    <p class="pending-note">Full RepeatMasker output (all annotated repeat features, genome-wide): <a href="results/te_annotation/hs6_te.out.gff">results/te_annotation/hs6_te.out.gff</a> (HS6), <a href="results/te_annotation/strain7_te.out.gff">results/te_annotation/strain7_te.out.gff</a> (strain #7). Summary tables: <a href="results/te_annotation/hs6_te_summary.tbl">hs6_te_summary.tbl</a>, <a href="results/te_annotation/strain7_te_summary.tbl">strain7_te_summary.tbl</a>.</p>
   </section>
 
   <section id="rascaf">
