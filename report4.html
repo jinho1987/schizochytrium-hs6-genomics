@@ -138,7 +138,8 @@ a{color:var(--teal-ink);}
       <li><a href="#eggnog">9. Independent functional re-annotation</a></li>
       <li><a href="#fba">10. Expression-constrained flux model</a></li>
       <li><a href="#degrigor">11. DEG statistical rigor &amp; annotation audit</a></li>
-      <li><a href="#methods">12. Methods &amp; reproducibility</a></li>
+      <li><a href="#sequences">12. Lab-ready sequences &amp; PCR primers</a></li>
+      <li><a href="#methods">13. Methods &amp; reproducibility</a></li>
     </ol>
   </nav>
 
@@ -393,8 +394,64 @@ a{color:var(--teal-ink);}
     <p class="pending-note">Raw volcano-plot data (log2FC vs. -log10(padj) for all 13,529 tested genes): <a href="results/volcano_data.tsv">results/volcano_data.tsv</a>. Analysis scripts: <a href="scripts/deg_rigor_analysis.py">scripts/deg_rigor_analysis.py</a>, <a href="scripts/kegg_pathway_enrichment.py">scripts/kegg_pathway_enrichment.py</a></p>
   </section>
 
+  <section id="sequences">
+    <div class="sec-head"><span class="sec-num">12</span><h2>Lab-ready sequences &amp; PCR primers</h2></div>
+    <p class="lede">Every part identified in &sect;1 (promoters) and &sect;2 (IME introns/UTRs) as sequence, ready to amplify directly from HS6 genomic DNA. 16 parts got a matched primer pair (PCR product spans almost the entire part, so what you clone is what was ranked); the 12 underlying 5&prime;UTR-only and intron-only subsequences are included as reference/synthesis sequences since they are fully contained within their parent cassette.</p>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="v">10</div><div class="k">promoter candidates, primers designed</div></div>
+      <div class="stat-card"><div class="v">6</div><div class="k">IME cassettes, primers designed</div></div>
+      <div class="stat-card"><div class="v">28</div><div class="k">total sequences in the master FASTA</div></div>
+    </div>
+
+    <h3>Promoters (amplify from HS6 gDNA, ~1.4&ndash;1.5 kb product)</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Gene</th><th>Coordinates</th><th>Fwd primer (5&prime;&rarr;3&prime;)</th><th>Tm</th><th>Rev primer (5&prime;&rarr;3&prime;)</th><th>Tm</th><th>Product</th></tr></thead>
+      <tbody>
+        <tr><td class="gene">g827</td><td class="mono">Scaffolds_1:1331380&ndash;1336822 (+)</td><td class="mono">ATCGAAAGGCACCTTTGATTGC</td><td>60.1&deg;</td><td class="mono">GCTTTCTTGCTTGCTTGCTTTC</td><td>59.8&deg;</td><td>1434 bp</td></tr>
+        <tr><td class="gene">g14235</td><td class="mono">Scaffolds_4:2422058&ndash;2423536 (&minus;)</td><td class="mono">AGCTTCTTCTCCTTCTTCCTGC</td><td>60.0&deg;</td><td class="mono">TTCTACGCTCGAACCTCAACAA</td><td>60.0&deg;</td><td>1437 bp</td></tr>
+        <tr><td class="gene">g5520</td><td class="mono">Scaffolds_19:716146&ndash;718410 (+)</td><td class="mono">ACTGAATGGACACGAGAGAAGC</td><td>60.4&deg;</td><td class="mono">CGTGTCCATATATAGCCAACAAGC</td><td>59.8&deg;</td><td>1401 bp</td></tr>
+        <tr><td class="gene">g11097</td><td class="mono">Scaffolds_29:1895727&ndash;1897643 (&minus;)</td><td class="mono">GATAGTAGCACGTAGTCCGCAA</td><td>60.0&deg;</td><td class="mono">CGACTGTTAAAGGTTCTTGGCC</td><td>59.8&deg;</td><td>1413 bp</td></tr>
+        <tr><td class="gene">g2206</td><td class="mono">Scaffolds_14:482674&ndash;483588 (&minus;)</td><td class="mono">AGGCTTATACTCACAGGAGGGA</td><td>59.8&deg;</td><td class="mono">CAACGAATAAACTACGGTGCCT</td><td>59.0&deg;</td><td>1459 bp</td></tr>
+        <tr><td class="gene">g9463</td><td class="mono">Scaffolds_25:509610&ndash;511058 (+)</td><td class="mono">CGATTGCGGCGGATCTTTG</td><td>60.0&deg;</td><td class="mono">TCATTGTTTTCGCTCATCACGC</td><td>60.4&deg;</td><td>1404 bp</td></tr>
+        <tr><td class="gene">g5694</td><td class="mono">Scaffolds_19:1289161&ndash;1291374 (&minus;)</td><td class="mono">AGTGCGTTTATCGTTGATTCACT</td><td>59.0&deg;</td><td class="mono">AGGGACTTGGTTGTCAAAAGCT</td><td>60.4&deg;</td><td>1405 bp</td></tr>
+        <tr><td class="gene">g9189</td><td class="mono">Scaffolds_24:1345047&ndash;1354067 (&minus;)</td><td class="mono">TTCTCTTTCTCTCTCGTCAGGG</td><td>58.9&deg;</td><td class="mono">GATGAACAGGGAAATACGGGGT</td><td>60.1&deg;</td><td>1454 bp</td></tr>
+        <tr><td class="gene">g14162</td><td class="mono">Scaffolds_4:2158701&ndash;2160200 (+)</td><td class="mono">CGTGGAAAGTGACTCGTATCGA</td><td>60.2&deg;</td><td class="mono">AACTTGTTCTGCCTGGTGTTTG</td><td>59.8&deg;</td><td>1409 bp</td></tr>
+        <tr><td class="gene">g15361</td><td class="mono">Scaffolds_7:592463&ndash;594577 (&minus;)</td><td class="mono">CGTCTTGTCTTTGCCTGCTTC</td><td>60.1&deg;</td><td class="mono">GAAATCCAAGTTCCGGGTTTGC</td><td>60.6&deg;</td><td>1437 bp</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>IME cassettes (500&nbsp;bp promoter stub + native 5&prime;UTR + intron, ~0.8&ndash;1.6 kb product)</h3>
+    <p>This is the recommended cloning unit for testing intron-mediated enhancement &mdash; it carries enough upstream sequence to drive transcription on its own, so it can be tested as a self-contained reporter fusion (fluorescent protein or similar) without pairing it to one of the &sect;1 promoters first. An intron-deleted control (PCR-splice or gBlock synthesis) is the natural comparison arm for confirming an IME effect.</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Gene</th><th>Coordinates</th><th>Fwd primer (5&prime;&rarr;3&prime;)</th><th>Tm</th><th>Rev primer (5&prime;&rarr;3&prime;)</th><th>Tm</th><th>Product</th></tr></thead>
+      <tbody>
+        <tr><td class="gene">g13643</td><td class="mono">Scaffolds_4:159205&ndash;160084 (&minus;)</td><td class="mono">TTGTTTGGCACGAATCAGCAAA</td><td>60.2&deg;</td><td class="mono">TTCTCAAGTATTCGAGCAGGCC</td><td>60.4&deg;</td><td>1286 bp</td></tr>
+        <tr><td class="gene">g5935</td><td class="mono">Scaffolds_19:2101987&ndash;2102891 (+)</td><td class="mono">TACTATAGAGCAAATGCCGCGT</td><td>60.0&deg;</td><td class="mono">ACTCGCCCAAGATGTACTTCAG</td><td>60.1&deg;</td><td>1299 bp</td></tr>
+        <tr><td class="gene">g6200</td><td class="mono">Scaffolds_2:579010&ndash;579410 (&minus;)</td><td class="mono">AGTGTATCAAGCGCTCCGATAG</td><td>60.0&deg;</td><td class="mono">CTTTCGTTGACAAACCTGTGCT</td><td>59.9&deg;</td><td>772 bp</td></tr>
+        <tr><td class="gene">g5747</td><td class="mono">Scaffolds_19:1487516&ndash;1488705 (+)</td><td class="mono">CTTAAGGCCAACTACGCGAATG</td><td>60.0&deg;</td><td class="mono">CAAGAAGATTCACACCCCAGGA</td><td>60.0&deg;</td><td>1572 bp</td></tr>
+        <tr><td class="gene">g13671</td><td class="mono">Scaffolds_4:249931&ndash;250551 (&minus;)</td><td class="mono">GCACGGATTTATTTCCAAGCCT</td><td>59.6&deg;</td><td class="mono">CGAAGGTGTACGTGTGTATGTA</td><td>57.9&deg;</td><td>981 bp</td></tr>
+        <tr><td class="gene">g11549</td><td class="mono">Scaffolds_3:306712&ndash;307311 (+)</td><td class="mono">AAGAAGAGATGGGACCAACGAC</td><td>60.0&deg;</td><td class="mono">ATGACCTCGCTAAAACCTCCAG</td><td>60.1&deg;</td><td>976 bp</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout method">
+      <span class="lbl">Primer design</span>
+      <p>Primer3 (v2.6, via <code>primer3-py</code>), targeting Tm 57&ndash;63&deg;C (optimum 60&deg;C), 18&ndash;27 nt length, 35&ndash;65% GC, max poly-X run of 4, product spanning the full extracted part (promoters: full 1.5&nbsp;kb minus &le;100&nbsp;bp end trim; IME cassettes: full cassette minus &le;150&nbsp;bp end trim) so the amplicon <i>is</i> the ranked/analyzed sequence, not an arbitrary sub-region of it. All 16 targets returned a valid pair on the first pass &mdash; no degenerate or low-complexity regions forced a fallback.</p>
+    </div>
+    <div class="callout caveat">
+      <span class="lbl">Before ordering primers or starting PCR</span>
+      <p>These primers are un-validated in silico designs &mdash; no wet-lab testing, no off-target/specificity BLAST against the full HS6 genome, and no secondary-structure (hairpin/dimer) check against each other pairwise. Run a quick BLAST of each primer against <code>HS6_scaf.fasta</code> before ordering if amplifying from genomic DNA (repetitive elements or paralogous promoter regions among the housekeeping-gene candidates in &sect;1 are the most likely source of a non-specific band). Standard colony-PCR/Sanger confirmation of the amplicon is still the right final check, as with any new primer pair.</p>
+    </div>
+
+    <p class="pending-note">All 28 sequences (10 promoters, 6 IME cassettes, 6 5&prime;UTR-only, 6 intron-only) in one file: <a href="results/all_parts_master.fasta">results/all_parts_master.fasta</a>. Combined catalog with rationale, coordinates, and primers in table form: <a href="results/sequence_parts_catalog.tsv">results/sequence_parts_catalog.tsv</a>. Raw primer3 output: <a href="results/part_primers.tsv">results/part_primers.tsv</a>.</p>
+  </section>
+
   <section id="methods">
-    <div class="sec-head"><span class="sec-num">12</span><h2>Methods &amp; reproducibility</h2></div>
+    <div class="sec-head"><span class="sec-num">13</span><h2>Methods &amp; reproducibility</h2></div>
     <p class="lede">Every analysis in this report is reproducible from the scripts in <code>/scripts</code> against the genome/annotation/RNA-seq files described in the main comparative genomics report. Tool versions and environments used:</p>
     <div class="table-wrap">
     <table>
