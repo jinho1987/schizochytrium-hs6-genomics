@@ -29,7 +29,11 @@ This repo contains the **figures, reports, analysis scripts, and small result ta
 - 6 RNA-seq libraries (3 timepoints × 2 genotypes, n=1 each — **no biological replicates**, see the caveats in `report3.html`)
 - WT4-vs-HS6 short-read resequencing variant calls (bcftools, haploid model)
 
-Small result tables live in [`results/`](results/) (ranked candidate lists, classifications, overlay tables). Conda/pip environment setup for every tool used is documented at the bottom of `report4.html`, including several real tool-install bugs hit and fixed along the way (wrong CLI flags, dead download URLs, gene-ID format mismatches) — kept in the writeup so they don't cost the next person the same time.
+Small result tables live in [`results/`](results/) (ranked candidate lists, classifications, overlay tables, sequences & primers). The combined differential-expression workbook — all 13,529 genes, genotype-effect stats + per-timepoint log2FC + normalized counts + annotation in one sheet, color-coded, with a sorted significant-only sheet and GO enrichment tables — is [`results/HS6_vs_WT4_DEG_combined.xlsx`](results/HS6_vs_WT4_DEG_combined.xlsx). Conda/pip environment setup for every tool used is documented at the bottom of `report4.html`, including several real tool-install bugs hit and fixed along the way (wrong CLI flags, dead download URLs, gene-ID format mismatches) — kept in the writeup so they don't cost the next person the same time.
+
+## Site structure
+
+The homepage (`index.md`, built with a custom Jekyll layout in [`_layouts/default.html`](_layouts/default.html)) groups everything by the two comparisons this repo actually contains — HS6 vs. #7 (genome) and HS6 vs. #4 (RNA-seq) — rather than a flat report list. A shared navigation bar ([`assets/css/site-nav.css`](assets/css/site-nav.css)) with the same grouping appears on every page so you can move between reports and figures without going back through the homepage.
 
 ## Statistical caveats that apply throughout
 
