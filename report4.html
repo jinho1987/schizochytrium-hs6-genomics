@@ -132,7 +132,7 @@ a{color:var(--teal-ink);}
     <span class="pill done">GO enrichment &mdash; done</span>
     <span class="pill done">ncRNA annotation &mdash; done</span>
     <span class="pill done" id="pill-te">Transposable elements &mdash; done</span>
-    <span class="pill pending" id="pill-rascaf">RNA-seq scaffolding &mdash; running</span>
+    <span class="pill pending" id="pill-rascaf">RNA-seq scaffolding &mdash; stopped, incomplete</span>
     <span class="pill done" id="pill-eggnog">eggNOG-mapper &mdash; done</span>
     <span class="pill done">Expression-constrained flux (draft) &mdash; done, caveated</span>
   </div>
@@ -293,6 +293,28 @@ a{color:var(--teal-ink);}
     </div>
     <p class="pending-note">Only 3 of 1,223 genes had a nearby variant &mdash; consistent with the genome-wide variant set being small (84 total, typical for a strict EMS-mutagenesis candidate list after QC), not a bug in the overlay method.</p>
     <p class="pending-note">Full overlay results: <a href="results/genomewide_mutation_overlay.tsv">results/genomewide_mutation_overlay.tsv</a></p>
+
+    <h3>Targeted check: carotenoid-pathway genes, independent of DE status</h3>
+    <p>The overlay above only looks near genes that are <b>also significantly DE</b> &mdash; which would miss a target-site resistance mutation that changes protein function without changing expression. HS6 was selected using EMS mutagenesis <b>plus norflurazon</b>, a herbicide that blocks the carotenoid-desaturation step; classic norflurazon resistance is often a point mutation directly in the desaturase gene itself. Pulled every HS6 gene mapped to the KEGG carotenoid-biosynthesis pathway (ko00906) plus every gene independently annotated (SwissProt + eggNOG) with a carotenoid-pathway function, and checked all 8 against the full 84-variant set directly &mdash; regardless of whether they were DE.</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Gene</th><th>Identity</th><th>Region checked</th><th>Variants found</th></tr></thead>
+      <tbody>
+        <tr><td class="gene">g6151</td><td><b>Carotenoid 3,4-desaturase</b> (top candidate &mdash; the actual desaturation step norflurazon targets)</td><td class="mono">Scaffolds_2:423,025&ndash;431,011</td><td>0</td></tr>
+        <tr><td class="gene">g3852</td><td>Lycopene elongase/hydratase</td><td class="mono">Scaffolds_17:295,998&ndash;300,864</td><td>0</td></tr>
+        <tr><td class="gene">g5428</td><td>Beta-carotene hydroxylase 1</td><td class="mono">Scaffolds_19:409,279&ndash;413,989</td><td>0</td></tr>
+        <tr><td class="gene">g7205</td><td>Beta,beta-carotene 15,15'-dioxygenase (BCO2-like)</td><td class="mono">Scaffolds_21:703,171&ndash;708,814</td><td>0</td></tr>
+        <tr><td class="gene">g7815</td><td>Beta,beta-carotene 15,15'-dioxygenase</td><td class="mono">Scaffolds_22:188,239&ndash;193,855</td><td>0</td></tr>
+        <tr><td class="gene">g14287</td><td>Squalene synthase (upstream isoprenoid precursor)</td><td class="mono">Scaffolds_4:2,615,466&ndash;2,621,016</td><td>0</td></tr>
+        <tr><td class="gene">g1472</td><td>Alternative squalene epoxidase</td><td class="mono">Scaffolds_11:746,701&ndash;751,720</td><td>0</td></tr>
+        <tr><td class="gene">g4282</td><td>Alternative squalene epoxidase</td><td class="mono">Scaffolds_18:174,565&ndash;179,422</td><td>0</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout caveat">
+      <span class="lbl">Clean negative result &mdash; genuinely tested, not just unexamined</span>
+      <p>Zero variants at any of the 8 candidate loci, including <b>g6151</b>, the gene doing the actual desaturation chemistry norflurazon blocks. Within the limits of what this data can show, <b>there is no evidence of a target-site resistance mutation in HS6's carotenoid pathway</b>. Two real caveats keep this from being a clean "ruled out": (1) the 84-variant set is itself a small, strictly-QC'd subset &mdash; a true causal variant could exist but have failed the confidence filter; (2) thraustochytrids like <i>Schizochytrium</i> are poorly represented in KEGG's orthology database for this pathway (only 2 of 63 possible carotenoid-pathway KOs had an HS6 gene at all), so a real desaturase-family gene could exist in the genome without being captured by either the KO-based or text-based search used here. The practical read: whatever conferred norflurazon resistance in HS6, it does not appear to be a simple coding or promoter-proximal mutation in the pathway's core annotated enzymes &mdash; resistance via a transporter, detoxification route, or a gene this search missed remains open.</p>
+    </div>
   </section>
 
   <section id="te">
@@ -329,7 +351,7 @@ a{color:var(--teal-ink);}
   <section id="rascaf">
     <div class="sec-head"><span class="sec-num">08</span><h2>RNA-seq-guided scaffolding</h2></div>
     <p class="lede">Applied the same Rascaf scaffolding approach used successfully in the sibling Chlorella HS2&times;ALE project (327&rarr;288 contigs, N50 +41% there) to HS6, using the existing 6 RNA-seq libraries &mdash; no new sequencing needed. Re-scoring telomere/chromosome completeness after scaffolding is the main payoff: some of HS6's 14 currently-partial scaffolds may resolve to complete chromosomes.</p>
-    <p class="pending-note" id="rascaf-status">Running at last check (merging the 6 RNA-seq BAMs; this step is I/O-bound and slower than expected on this drive). Results will be added here once complete.</p>
+    <p class="pending-note" id="rascaf-status">Stopped by request before completion. The BAM merge/sort finished, but the core <code>rascaf</code> alignment-support step was still running after ~2 hours of wall-clock time (an I/O-bound step on this drive) when it was terminated, and <code>rascaf-join</code> (the step that actually produces the merged-scaffold FASTA) never started. No scaffold-count or N50 result to report &mdash; the current 34-scaffold HS6 assembly, already used throughout every other analysis in this project, stands as-is.</p>
   </section>
 
   <section id="eggnog">
