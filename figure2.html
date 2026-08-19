@@ -59,9 +59,10 @@ h1 i{font-style:italic;}
   <div class="fig-label">Figure 2</div>
   <h1>Trans-regulatory and metabolic architecture of the HS6 phenotype relative to its parent strain, <i>Schizochytrium</i> sp. #4 (WT). No causal coding mutation was found in any pathway or regulator gene shown; node color reflects RNA-seq differential expression (HS6 vs. WT #4, DESeq2, n = 1 per genotype × timepoint).</h1>
 
+  <figure style="margin:0;">
   <div class="diagram-frame">
   <div class="diagram-scroll">
-<svg viewBox="0 0 1750 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Regulatory and metabolic map, WT4 vs HS6">
+<svg viewBox="0 0 1750 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trans-regulatory network (MYB3R paralogs split by direction of change) and fatty-acid, triacylglycerol, and isoprenoid pathway map, colored by log2 fold change, Schizochytrium HS6 versus parent strain #4">
   <defs>
     <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
       <path d="M0,0.5 L9,5 L0,9.5 z" fill="var(--ink)"/>
@@ -71,10 +72,20 @@ h1 i{font-style:italic;}
     </marker>
   </defs>
 
-  <!-- ===================== PANEL 1: trans-regulatory network ===================== -->
-  <text x="0" y="14" font-family="Arial" font-size="10.5" font-weight="700" fill="var(--ink)">1</text>
-  <text x="16" y="14" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">TRANS-REGULATORY NETWORK — MYB3R / MYB FAMILY &amp; CDK-LIKE KINASE</text>
-  <rect x="0" y="0" width="1750" height="0" fill="none"/>
+  <!-- ===================== PANEL a: trans-regulatory network ===================== -->
+  <text x="0" y="14" font-family="Arial" font-size="12" font-weight="700" fill="var(--ink)">a</text>
+  <text x="20" y="14" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">TRANS-REGULATORY NETWORK — MYB3R / MYB FAMILY &amp; CDK-LIKE KINASE</text>
+
+  <!-- cluster tint backgrounds (painted first, boxes sit on top) -->
+  <rect x="-6" y="22" width="888" height="70" fill="#a3231b" fill-opacity="0.055"/>
+  <rect x="954" y="22" width="702" height="70" fill="#2f5fa0" fill-opacity="0.055"/>
+
+  <!-- cluster brackets -->
+  <path d="M0,18 L0,12 L870,12 L870,18" fill="none" stroke="var(--ink-faint)" stroke-width="1"/>
+  <text x="0" y="9" font-family="Arial" font-size="9.5" font-weight="700" fill="#a3231b" letter-spacing="0.02em">UP IN HS6 — 4 MYB TFs + 1 CDK-like kinase</text>
+
+  <path d="M960,18 L960,12 L1650,12 L1650,18" fill="none" stroke="var(--ink-faint)" stroke-width="1"/>
+  <text x="1650" y="9" text-anchor="end" font-family="Arial" font-size="9.5" font-weight="700" fill="#2f5fa0" letter-spacing="0.02em">DOWN IN HS6 — 4 MYB3R-family TFs (2 independent MYB3R-3 loci)</text>
 
   <g font-family="Arial">
     <!-- up members -->
@@ -82,11 +93,6 @@ h1 i{font-style:italic;}
     <text x="75" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff" font-style="italic">Myb activator</text>
     <text x="75" y="64" text-anchor="middle" font-size="9.5" fill="#fff">g9086 · +2.78</text>
     <text x="75" y="78" text-anchor="middle" font-size="9" fill="#f4d9d6">padj 9.7e-17</text>
-
-    <rect x="180" y="26" width="150" height="62" fill="#a3231b" stroke="var(--ink)" stroke-width="1"/>
-    <text x="255" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff" font-style="italic">CDK-like kinase</text>
-    <text x="255" y="64" text-anchor="middle" font-size="9.5" fill="#fff">g13536 · +3.36</text>
-    <text x="255" y="78" text-anchor="middle" font-size="9" fill="#f4d9d6">padj 1.6e-18</text>
 
     <rect x="360" y="26" width="150" height="62" fill="#e3b3ac" stroke="var(--ink)" stroke-width="1"/>
     <text x="435" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)" font-style="italic">MYB98</text>
@@ -97,6 +103,12 @@ h1 i{font-style:italic;}
     <text x="615" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)" font-style="italic">MYB3R-1</text>
     <text x="615" y="64" text-anchor="middle" font-size="9.5" fill="var(--ink)">g16063 · +1.32</text>
     <text x="615" y="78" text-anchor="middle" font-size="9" fill="#6b4a45">padj 1.2e-3</text>
+
+    <!-- CDK-like kinase: same "up" cluster but visually flagged non-MYB via rounded corners + dashed outline -->
+    <rect x="180" y="26" width="150" height="62" rx="9" fill="#a3231b" stroke="var(--ink)" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="255" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff" font-style="italic">CDK-like kinase</text>
+    <text x="255" y="64" text-anchor="middle" font-size="9.5" fill="#fff">g13536 · +3.36</text>
+    <text x="255" y="78" text-anchor="middle" font-size="9" fill="#f4d9d6">padj 1.6e-18 (non-MYB)</text>
 
     <rect x="720" y="26" width="150" height="62" fill="#e3b3ac" stroke="var(--ink)" stroke-width="1"/>
     <text x="795" y="50" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)" font-style="italic">MYB3R-5</text>
@@ -125,26 +137,28 @@ h1 i{font-style:italic;}
     <text x="1575" y="78" text-anchor="middle" font-size="9" fill="#2f4a63">padj 1.2e-2 †</text>
   </g>
 
-  <!-- motif hub -->
-  <line x1="795" y1="88" x2="795" y2="128" stroke="var(--ink)" stroke-width="1"/>
-  <polygon points="795,128 815,148 795,168 775,148" fill="none" stroke="var(--ink)" stroke-width="1.25"/>
-  <text x="795" y="152" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink)">shared</text>
-  <text x="795" y="120" text-anchor="middle" font-family="Arial" font-size="8.5" fill="var(--ink-faint)">CAAACCCSAAAC motif</text>
-  <text x="795" y="185" text-anchor="middle" font-family="Arial" font-size="8" fill="var(--ink-faint)">(P = 3.2×10⁻⁷, STREME)</text>
+  <!-- two clusters converge on one shared-motif hub: bracket + single drop-line per side, not 9 messy fan lines -->
+  <path d="M435,92 L435,102 L870,102 L870,92" fill="none" stroke="#a3231b" stroke-width="1" stroke-opacity="0.55"/>
+  <path d="M1305,92 L1305,102 L870,102 L870,92" fill="none" stroke="#2f5fa0" stroke-width="1" stroke-opacity="0.55"/>
+  <line x1="870" y1="102" x2="870" y2="128" stroke="var(--ink)" stroke-width="1"/>
+  <polygon points="870,128 890,148 870,168 850,148" fill="none" stroke="var(--ink)" stroke-width="1.25"/>
+  <text x="870" y="152" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink)">shared</text>
+  <text x="870" y="120" text-anchor="middle" font-family="Arial" font-size="8.5" fill="var(--ink-faint)">CAAACCCSAAAC motif</text>
+  <text x="870" y="185" text-anchor="middle" font-family="Arial" font-size="8" fill="var(--ink-faint)">(P = 3.2×10⁻⁷, STREME)</text>
 
-  <line x1="795" y1="168" x2="600" y2="196" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
-  <line x1="795" y1="168" x2="795" y2="196" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
-  <line x1="795" y1="168" x2="990" y2="196" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
+  <line x1="870" y1="168" x2="600" y2="196" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
+  <line x1="870" y1="168" x2="870" y2="196" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
+  <line x1="870" y1="168" x2="990" y2="196" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#ahGrey)"/>
   <text x="600" y="210" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink-soft)">FabD (g12095)</text>
-  <text x="795" y="210" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink-soft)">FA-CoA ligase (g7955)</text>
+  <text x="870" y="210" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink-soft)">FA-CoA ligase (g7955)</text>
   <text x="990" y="210" text-anchor="middle" font-family="Arial" font-size="9" fill="var(--ink-soft)">alkane MO (g3889)</text>
-  <text x="795" y="228" text-anchor="middle" font-family="Arial" font-size="8" fill="var(--ink-faint)">promoters of these three pathway genes independently carry the same motif — panels 2–3, below</text>
+  <text x="870" y="228" text-anchor="middle" font-family="Arial" font-size="8" fill="var(--ink-faint)">promoters of these three pathway genes independently carry the same motif — panels b–c, below</text>
 
   <line x1="0" y1="236" x2="1750" y2="236" stroke="var(--line-faint)" stroke-width="0.75"/>
 
-  <!-- ===================== PANEL 2: metabolic pathway ===================== -->
-  <text x="0" y="242" font-family="Arial" font-size="10.5" font-weight="700" fill="var(--ink)">2</text>
-  <text x="16" y="242" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">FATTY ACID SYNTHESIS → PUFA / DHA</text>
+  <!-- ===================== PANEL b: metabolic pathway ===================== -->
+  <text x="0" y="242" font-family="Arial" font-size="12" font-weight="700" fill="var(--ink)">b</text>
+  <text x="20" y="242" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">FATTY ACID SYNTHESIS → PUFA / DHA</text>
 
   <g font-family="Arial">
     <rect x="0" y="256" width="182" height="56" fill="var(--neutral)" stroke="var(--ink)" stroke-width="1"/>
@@ -169,8 +183,8 @@ h1 i{font-style:italic;}
 
   <line x1="0" y1="345" x2="1750" y2="345" stroke="var(--line-faint)" stroke-width="0.75"/>
 
-  <text x="0" y="372" font-family="Arial" font-size="10.5" font-weight="700" fill="var(--ink)">3</text>
-  <text x="16" y="372" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">TRIACYLGLYCEROL ASSEMBLY &amp; TURNOVER</text>
+  <text x="0" y="372" font-family="Arial" font-size="12" font-weight="700" fill="var(--ink)">c</text>
+  <text x="20" y="372" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">TRIACYLGLYCEROL ASSEMBLY &amp; TURNOVER</text>
 
   <g font-family="Arial">
     <rect x="0" y="386" width="182" height="56" fill="var(--neutral)" stroke="var(--ink)" stroke-width="1"/>
@@ -222,12 +236,12 @@ h1 i{font-style:italic;}
   <rect x="286" y="558" width="100" height="14" fill="#aec2dd" stroke="var(--ink)" stroke-width="0.75"/>
   <text x="336" y="568" text-anchor="middle" font-family="Arial" font-size="8.5" fill="var(--ink)">g11722 −1.25 · g8276 −0.84</text>
 
-  <text x="580" y="592" font-family="Arial" font-size="9.5" fill="var(--ink-faint)" font-style="italic">recycles to the free fatty-acid pool (panel 3, above)</text>
+  <text x="580" y="592" font-family="Arial" font-size="9.5" fill="var(--ink-faint)" font-style="italic">recycles to the free fatty-acid pool (panel c, above)</text>
 
   <line x1="0" y1="622" x2="1750" y2="622" stroke="var(--line-faint)" stroke-width="0.75"/>
 
-  <text x="0" y="650" font-family="Arial" font-size="10.5" font-weight="700" fill="var(--ink)">4</text>
-  <text x="16" y="650" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">ISOPRENOID PRECURSOR PATHWAY (MVA) → STEROLS / CAROTENOIDS</text>
+  <text x="0" y="650" font-family="Arial" font-size="12" font-weight="700" fill="var(--ink)">d</text>
+  <text x="20" y="650" font-family="Arial" font-size="10.5" fill="var(--ink-soft)">ISOPRENOID PRECURSOR PATHWAY (MVA) → STEROLS / CAROTENOIDS</text>
 
   <g font-family="Arial">
     <rect x="0" y="664" width="192" height="56" fill="var(--neutral)" stroke="var(--ink)" stroke-width="1"/>
@@ -287,14 +301,17 @@ h1 i{font-style:italic;}
     </div>
   </div>
 
+  <figcaption>
   <div class="caption">
     <span class="drop">Figure 2.</span> <b>Trans-regulatory and metabolic architecture of the HS6 phenotype relative to parent strain #4 (WT).</b>
-    Panel 1: nine MYB/MYB3R-family transcription factors and one CDK-like kinase, coordinately dysregulated in HS6 versus WT, share a common cis-regulatory
-    motif (STREME de novo discovery, <i>P</i> = 3.2×10⁻⁷; independently reconfirmed using StringTie-derived promoter boundaries). The same motif occurs in the promoters
-    of three pathway genes in panels 2–3 (dashed arrows), consistent with — but not proof of — direct transcriptional regulation.
-    Panels 2–4 show the fatty-acid/PKS, triacylglycerol, and MVA-pathway backbone with each gene colored by its own log2 fold change (HS6 vs. WT #4, DESeq2, n = 1 per
+    Panel <b>a</b>: eight MYB/MYB3R-family transcription factors and one CDK-like kinase, coordinately dysregulated in HS6 versus WT, split cleanly by direction —
+    four MYB TFs plus the kinase up in HS6 (rust, left cluster), four MYB3R-family TFs down in HS6 (blue, right cluster), including two independently-annotated
+    <i>MYB3R-3</i> gene copies that move in the same direction. All nine genes share a common cis-regulatory motif (STREME de novo discovery, <i>P</i> = 3.2×10⁻⁷;
+    independently reconfirmed using StringTie-derived promoter boundaries). The same motif occurs in the promoters of three pathway genes in panels <b>b</b>–<b>c</b>
+    (dashed arrows), consistent with — but not proof of — direct transcriptional regulation.
+    Panels <b>b</b>–<b>d</b> show the fatty-acid/PKS, triacylglycerol, and MVA-pathway backbone with each gene colored by its own log2 fold change (HS6 vs. WT #4, DESeq2, n = 1 per
     genotype × timepoint; dashed node borders indicate padj ≥ 0.05). <b>No coding mutation was identified in any regulator or pathway gene shown</b> — every gene in this
-    figure was screened against high-confidence WT #4 resequencing variants and found unmutated. Mevalonate kinase (panel 4, g10519) additionally carries a 2-fold
+    figure was screened against high-confidence WT #4 resequencing variants and found unmutated. Mevalonate kinase (panel <b>d</b>, g10519) additionally carries a 2-fold
     copy-number duplication (Scaffolds_28) that is present in <i>both</i> WT #4 and HS6 (confirmed from WT #4's own short-read depth at this locus), indicating the
     duplication predates HS6's derivation and is not itself a driver of the WT-to-HS6 phenotypic change.
   </div>
@@ -305,6 +322,8 @@ h1 i{font-style:italic;}
     Variant screening: BWA-MEM + bcftools (haploid model), WT #4 resequencing reads vs. HS6 reference, high-confidence filtered call set.
     † Myb-related A (g10428) resides on Scaffolds_28, the same locus as MVK. Full analysis: HS6 vs. WT #4 RNA-seq/variant report and HS6 vs. <i>Schizochytrium</i> sp. #7 comparative genomics report.
   </div>
+  </figcaption>
+  </figure>
 
 </div>
 </div>

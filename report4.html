@@ -152,7 +152,8 @@ a{color:var(--teal-ink);}
       <li><a href="#fba">10. Expression-constrained flux model</a></li>
       <li><a href="#degrigor">11. DEG statistical rigor &amp; annotation audit</a></li>
       <li><a href="#sequences">12. Lab-ready sequences &amp; PCR primers</a></li>
-      <li><a href="#methods">13. Methods &amp; reproducibility</a></li>
+      <li><a href="#qpcr">13. RT-qPCR validation panel</a></li>
+      <li><a href="#methods">14. Methods &amp; reproducibility</a></li>
     </ol>
   </nav>
 
@@ -524,8 +525,40 @@ a{color:var(--teal-ink);}
     <p class="pending-note">All 28 sequences (10 promoters, 6 IME cassettes, 6 5&prime;UTR-only, 6 intron-only) in one file: <a href="results/all_parts_master.fasta">results/all_parts_master.fasta</a>. Combined catalog with rationale, coordinates, and primers in table form: <a href="results/sequence_parts_catalog.tsv">results/sequence_parts_catalog.tsv</a>. Raw primer3 output: <a href="results/part_primers.tsv">results/part_primers.tsv</a>.</p>
   </section>
 
+  <section id="qpcr">
+    <div class="sec-head"><span class="sec-num">13</span><h2>RT-qPCR validation panel</h2></div>
+    <p class="lede">Every DESeq2 finding in this project rests on n&#8201;=&#8201;1 per genotype&times;timepoint &mdash; internally consistent, but not independently replicated. RT-qPCR on new biological material is the direct way to test whether the headline patterns (the MYB3R paralog split, the lipid-pathway genes, the candidate driver-mutation loci) hold up outside DESeq2's statistical framework. Selected 27 genes spanning five categories and designed primers specifically for qPCR &mdash; smaller amplicons and, where the gene structure allows it, exon-junction spanning to rule out genomic DNA contamination by primer design rather than by hoping a no-RT control catches it.</p>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="v">27</div><div class="k">genes selected across 5 categories</div></div>
+      <div class="stat-card"><div class="v">6</div><div class="k">genes with true exon-junction-spanning primers</div></div>
+      <div class="stat-card"><div class="v">21</div><div class="k">single-exon CDS &mdash; require a no-RT control</div></div>
+      <div class="stat-card"><div class="v">3</div><div class="k">stable reference/normalizer genes included</div></div>
+    </div>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Category</th><th>Genes</th><th>Why selected</th></tr></thead>
+      <tbody>
+        <tr><td>MYB regulatory network</td><td>9</td><td>All 8 significant MYB/MYB3R-family TFs (&sect;5, Figure 2 panel a) plus the co-dysregulated CDK-like kinase &mdash; the specific paralog-split pattern (MYB3R-3 down, MYB3R-1/-5 up) is the thing most worth confirming independently.</td></tr>
+        <tr><td>Lipid/PUFA pathway</td><td>10</td><td>FabD, Pks13, three FA-CoA ligases, DGAT, alkane monooxygenase, SDP1, and two DAG-lipase/hydrolase genes &mdash; the full fatty-acid&rarr;PUFA&rarr;TAG backbone from Figure 2 panels b&ndash;c, including one non-significant gene (alkane MO, padj=0.087) worth resolving either way.</td></tr>
+        <tr><td>Candidate driver loci</td><td>4</td><td>g6423, g3906, g14345, g6124 &mdash; the only loci genome-wide carrying both a variant and DE significance (&sect;6). (g1760 excluded from this qPCR panel: it carries a variant but padj=0.257, not actually a DEG.)</td></tr>
+        <tr><td>Largest-effect gene</td><td>1</td><td>g342, log2FC=+6.03, padj=1.5&times;10&#8315;&sup2;&sup8; &mdash; the single biggest mover in the dataset and still functionally unannotated (&sect;11).</td></tr>
+        <tr><td>Reference/normalizer</td><td>3</td><td>g827, g227, g10543 &mdash; the most stable, genotype-independent genes from the promoter-ranking pass (&sect;1), included specifically as qPCR &Delta;&Delta;Ct normalizers.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout method">
+      <span class="lbl">Primer design, done properly for qPCR</span>
+      <p>Actual exon/CDS structure was checked per gene from the BRAKER models before designing anything &mdash; this is not the same primer3 recipe used for the cloning primers in &sect;12. Product size constrained to 70&ndash;200&nbsp;bp, Tm 58&ndash;62&deg;C (opt 60, pair difference &le;1.5&deg;C), GC 40&ndash;60%, with Primer3's own hairpin/self-dimer/pair-complementarity checks enforced (not just size/Tm). Where a gene had &ge;2 CDS exons, primers were required to span the junction via Primer3's <code>SEQUENCE_OVERLAP_JUNCTION_LIST</code> mechanism (7&nbsp;bp minimum 5&prime; overlap, 4&nbsp;bp minimum 3&prime; overlap) &mdash; a genomic DNA template physically cannot produce the correct-sized product from a junction-spanning pair. <b>Most genes in this genome are single-exon at the CDS level</b> (21 of 27 in this panel) &mdash; for those, junction-spanning isn't possible, and a no-RT (minus reverse-transcriptase) control is the correct, standard way to rule out genomic contamination, not a shortcut.</p>
+    </div>
+    <div class="callout finding">
+      <span class="lbl">All 27 genes returned a valid primer pair, first pass</span>
+      <p>No degenerate regions, extreme GC, or repeat content forced a design failure or fallback for any target &mdash; including the 6 junction-constrained designs, which is a harder constraint to satisfy than free-form picking. Full table (identity, log2FC, padj, genomic coordinates, exon count, both primer sequences, Tm, product size) and both sequence sets (genomic DNA per locus, including introns/UTRs; and the spliced CDS actually used for primer picking) are linked below for independent verification &mdash; run your own BLAST against <code>HS6_scaf.fasta</code> before ordering, same caveat as &sect;12.</p>
+    </div>
+    <p class="pending-note">Full panel with genomic coordinates and primers: <a href="results/qpcr_primer_panel.tsv">results/qpcr_primer_panel.tsv</a>. Raw genomic DNA sequence per gene (includes introns/UTRs, directly sliced from <code>HS6_scaf.fasta</code> at the coordinates in the table above): <a href="results/qpcr_gene_genomic_sequences.fasta">results/qpcr_gene_genomic_sequences.fasta</a>. Spliced CDS used for primer design: <a href="results/qpcr_target_spliced_cds.fasta">results/qpcr_target_spliced_cds.fasta</a>.</p>
+  </section>
+
   <section id="methods">
-    <div class="sec-head"><span class="sec-num">13</span><h2>Methods &amp; reproducibility</h2></div>
+    <div class="sec-head"><span class="sec-num">14</span><h2>Methods &amp; reproducibility</h2></div>
     <p class="lede">Every analysis in this report is reproducible from the scripts in <code>/scripts</code> against the genome/annotation/RNA-seq files described in the main comparative genomics report. Tool versions and environments used:</p>
     <div class="table-wrap">
     <table>
