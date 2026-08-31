@@ -101,7 +101,9 @@ a{color:var(--teal-ink);}
 .struct-fig-group{margin:18px 0 24px;}
 .struct-fig-group .group-label{font-family:var(--mono); font-size:12px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.04em; margin-bottom:8px;}
 .struct-fig-row{display:grid; grid-template-columns:1.3fr 1.3fr 1fr; gap:14px;}
-@media (max-width:820px){.struct-fig-row{grid-template-columns:1fr;}}
+.struct-fig-row-2{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px;}
+.struct-fig-subhead{font-family:var(--mono); font-size:11px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.04em; margin:16px 0 8px;}
+@media (max-width:820px){.struct-fig-row{grid-template-columns:1fr;} .struct-fig-row-2{grid-template-columns:1fr;}}
 .struct-fig-card{background:var(--bg-raised); border:1px solid var(--line); border-radius:10px; padding:10px; display:flex; flex-direction:column;}
 .struct-fig-card img{width:100%; height:auto; display:block; border-radius:6px; background:var(--line-soft);}
 .struct-fig-card .cap-title{font-family:var(--mono); font-size:11.5px; font-weight:700; color:var(--ink); margin-top:8px;}
@@ -148,6 +150,7 @@ a{color:var(--teal-ink);}
     <span class="pill done">Genome-wide missense survey &mdash; done</span>
     <span class="pill done" id="pill-esmfold">ESM structural folding &mdash; done</span>
     <span class="pill done">Structural variant survey (Delly) &mdash; done</span>
+    <span class="pill pending">Mechanistic synthesis &mdash; hypotheses only, not tested</span>
   </div>
 
   <nav class="toc">
@@ -168,7 +171,8 @@ a{color:var(--teal-ink);}
       <li><a href="#qpcr">13. RT-qPCR validation panel</a></li>
       <li><a href="#missense">14. Genome-wide missense mutation survey</a></li>
       <li><a href="#svcalls">15. Structural variant survey (indel/SNP was not the whole story)</a></li>
-      <li><a href="#methods">16. Methods &amp; reproducibility</a></li>
+      <li><a href="#synthesis">16. Mechanistic synthesis: structure &rarr; phenotype</a></li>
+      <li><a href="#methods">17. Methods &amp; reproducibility</a></li>
     </ol>
   </nav>
 
@@ -688,6 +692,39 @@ a{color:var(--teal-ink);}
           <div class="cap-body">R27 (WT4, purple) vs F27 (HS6, red). High-confidence region (pLDDT 96&ndash;97) &mdash; this local view is on solid ground.</div>
         </div>
       </div>
+      <div class="struct-fig-subhead">D &middot; surface charge, whole protein (functional-shift lens)</div>
+      <div class="struct-fig-row-2" style="grid-template-columns:1fr;">
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g6423_D_charge_global.png" alt="g6423 whole-protein surface colored by residue charge class" loading="lazy">
+          <div class="cap-body">WT4 (left) / HS6 (right), surface colored by residue charge class (blue=basic, red=acidic, white=neutral). The characteristic alternating charge stripes are this protein's LRR repeat architecture.</div>
+        </div>
+      </div>
+      <div class="struct-fig-subhead">E &middot; surface charge, local patch around residue 27</div>
+      <div class="struct-fig-row-2">
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g6423_E_charge_local_WT4.png" alt="g6423 WT4 local surface charge around residue 27" loading="lazy">
+          <div class="cap-title">WT4 (R27)</div>
+        </div>
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g6423_E_charge_local_HS6.png" alt="g6423 HS6 local surface charge around residue 27" loading="lazy">
+          <div class="cap-title">HS6 (F27)</div>
+        </div>
+      </div>
+      <div class="struct-fig-subhead">F &middot; surface hydrophobicity, same patch</div>
+      <div class="struct-fig-row-2">
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g6423_F_hydrophobicity_local_WT4.png" alt="g6423 WT4 local surface hydrophobicity around residue 27" loading="lazy">
+          <div class="cap-title">WT4 (R27)</div>
+        </div>
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g6423_F_hydrophobicity_local_HS6.png" alt="g6423 HS6 local surface hydrophobicity around residue 27" loading="lazy">
+          <div class="cap-title">HS6 (F27)</div>
+        </div>
+      </div>
+      <div class="callout finding">
+        <span class="lbl">A visible surface property flip, right at the mutation site</span>
+        <p>Same camera angle, same patch, WT4 vs HS6: the basic (blue) bump front-and-center in the charge view (E, WT4) is gone &mdash; replaced by neutral white &mdash; in the HS6 view, and a new hydrophobic (orange) patch appears in exactly that spot in the hydrophobicity view (F, HS6), matching the shape of a phenylalanine ring. This is the surface-level signature of exactly what R27F does chemically: trading a long, positively-charged, solvent-exposed sidechain for a bulky aromatic hydrophobic one. For a domain independently identified as RanGAP-like (a nucleocytoplasmic transport regulator; see &sect;14 and the cross-referenced <a href="report2.html#04">HS6 vs. #4 report, &sect;04</a>), losing a basic surface patch at a solvent-exposed loop is exactly the kind of change that plausibly disrupts a protein-protein interaction interface &mdash; RanGAP proteins act through specific binding contacts with Ran-GTPase and transport-complex partners. This is a visual, structural guess at mechanism, not proof; see &sect;16 for how this connects to the phenotype.</p>
+      </div>
     </div>
 
     <div class="struct-fig-group">
@@ -709,6 +746,39 @@ a{color:var(--teal-ink);}
           <div class="cap-body">D511 (WT4, purple) vs A511 (HS6, red), sitting in an extended loop with no defined secondary structure. Low-confidence region (pLDDT 40&ndash;41) &mdash; treat this local view as illustrative, not conclusive.</div>
         </div>
       </div>
+      <div class="struct-fig-subhead">D &middot; surface charge, whole protein (functional-shift lens)</div>
+      <div class="struct-fig-row-2" style="grid-template-columns:1fr;">
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g11453_D_charge_global.png" alt="g11453 whole-protein surface colored by residue charge class" loading="lazy">
+          <div class="cap-body">WT4 (upper) / HS6 (lower), surface colored by residue charge class. Multi-domain, more irregular charge distribution than g6423.</div>
+        </div>
+      </div>
+      <div class="struct-fig-subhead">E &middot; surface charge, local patch around residue 511</div>
+      <div class="struct-fig-row-2">
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g11453_E_charge_local_WT4.png" alt="g11453 WT4 local surface charge around residue 511" loading="lazy">
+          <div class="cap-title">WT4 (D511)</div>
+        </div>
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g11453_E_charge_local_HS6.png" alt="g11453 HS6 local surface charge around residue 511" loading="lazy">
+          <div class="cap-title">HS6 (A511)</div>
+        </div>
+      </div>
+      <div class="struct-fig-subhead">F &middot; surface hydrophobicity, same patch</div>
+      <div class="struct-fig-row-2">
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g11453_F_hydrophobicity_local_WT4.png" alt="g11453 WT4 local surface hydrophobicity around residue 511" loading="lazy">
+          <div class="cap-title">WT4 (D511)</div>
+        </div>
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g11453_F_hydrophobicity_local_HS6.png" alt="g11453 HS6 local surface hydrophobicity around residue 511" loading="lazy">
+          <div class="cap-title">HS6 (A511)</div>
+        </div>
+      </div>
+      <div class="callout caveat">
+        <span class="lbl">Same charge-loss pattern here, but read it with the low-confidence caveat from panel C in mind</span>
+        <p>D511A also removes a negative charge (acidic Asp &rarr; neutral Ala), and the local charge view shows that loss the same way g6423's does. But this patch sits in a low-pLDDT (40&ndash;41), likely-disordered loop &mdash; ESMFold itself is not confident of any single conformation here, so this surface view is illustrative of the chemistry, not a reliable structural claim the way g6423's is.</p>
+      </div>
     </div>
     <div class="callout caveat">
       <span class="lbl">Read the two rows very differently &mdash; confidence at the mutation site changes what the number means</span>
@@ -727,6 +797,11 @@ a{color:var(--teal-ink);}
     <div class="callout caveat">
       <span class="lbl">Read this before the numbers below: draft, scaffold-level assembly changes how to interpret SV calls</span>
       <p>The HS6 reference is a scaffold-level draft assembly, not a chromosome-level one. Discordant read-pair signals between different scaffolds (delly's <code>BND</code>/translocation calls) are the classic signature of <i>either</i> a real interchromosomal rearrangement <i>or</i> a scaffold ordering/orientation artifact in the assembly itself &mdash; the two are not distinguishable from short-read data alone. Delly found <b>455 raw <code>BND</code> calls</b> (98 passing its own quality filter), heavily outnumbering every other SV type combined. These are reported for completeness but are <b>not individually interpreted as confirmed rearrangements</b> below &mdash; that would overclaim what scaffold-level short-read data can actually support. The intra-scaffold calls (DEL/DUP/INV, particularly the <code>PRECISE</code>/split-read-confirmed ones) are on much firmer ground and are the focus of this section.</p>
+    </div>
+
+    <div class="callout caveat">
+      <span class="lbl">This is a single-caller result &mdash; the project's own prior standard required two</span>
+      <p><a href="report2.html#04">report2.html &sect;04</a> records that the sequencing vendor already ran a three-tool SV screen (BreakDancer, Pindel, Delly) on this same strain pair and required agreement from &ge;2 methods before calling anything confirmed &mdash; and found nothing that cleared that bar. This section's 421kb inversion and 41.7kb deletion come from Delly alone, run fresh for this survey; they have not been cross-checked against BreakDancer or Pindel, and are exactly the kind of single-caller signal the vendor's stricter standard was designed to filter out. That doesn't make them wrong &mdash; Delly's 646-read-pair support on the inversion is unusually strong, and the deletion is split-read/<code>PRECISE</code> &mdash; but it does mean they should be held to the same bar as everything else on this site: real until the junction PCR below says otherwise, not before.</p>
     </div>
 
     <div class="stat-grid">
@@ -783,8 +858,44 @@ a{color:var(--teal-ink);}
     <p class="pending-note">Full delly VCF (all SV types, PASS and non-PASS): <a href="results/WT_vs_HS6.delly.vcf">results/WT_vs_HS6.delly.vcf</a>. Triaged/annotated SV table: <a href="results/sv_calls_summary.tsv">results/sv_calls_summary.tsv</a>. Wet-lab primer table: <a href="results/sv_validation_primers.tsv">results/sv_validation_primers.tsv</a>. Reproduction: <code>delly call -g HS6_scaf.fasta -o WT_vs_HS6.delly.bcf WT_reseq.dedup.bam</code> (Delly v0.8.3, germline mode, default parameters).</p>
   </section>
 
+  <section id="synthesis">
+    <div class="sec-head"><span class="sec-num">16</span><h2>Mechanistic synthesis: connecting structure back to the phenotype</h2></div>
+    <p class="lede">This is speculation, clearly labeled as such &mdash; a guess at mechanism built from real structural and genomic evidence, not a proven causal chain. <a href="report2.html#04">report2.html &sect;04</a> already established the puzzle this section tries to address: HS6 was bred by EMS mutagenesis for faster growth and higher DHA/lipid yield, and the transcriptome shows a coherent "make more, burn less" signature driving that &mdash; but <b>none of the genes actually doing the work (Pks13, SDP1, Actin, the myosin paralogs, CDK F-3) carry a coding mutation themselves.</b> That report proposed a <i>trans</i>-acting regulatory mutation as the likely explanation and flagged g6423's RanGAP-like domain as the first candidate. Everything below either extends that lead with new evidence or opens a second, independent one.</p>
+
+    <h3>Thread 1: nuclear transport disruption (RanGAP family) &mdash; strongest evidence</h3>
+    <div class="callout finding">
+      <span class="lbl">Four independent mutation-carrying genes now converge on the same nuclear-transport family</span>
+      <p>&sect;14's InterProScan pass found that <b>g853, g12826, and g15200</b> &mdash; three more genes carrying a confirmed missense mutation &mdash; independently hit the same <b>RAN GTPase-activating protein</b> family already flagged for g6423 in report2.html. That's four separately-mutated genes in one project converging on one transport pathway by chance-independent domain search, not by design. RanGAP drives the Ran-GTP/GDP cycle that gates nuclear import and export of proteins &mdash; including, plausibly, the <b>MYB3R transcription factor family</b> whose paralog-split expression pattern is this project's central regulatory finding (<a href="report2.html#04">report2.html</a>, Figure 2 panel a). If RanGAP-mediated transport is impaired, MYB3R (and other TFs) could show altered nuclear activity <i>without their own sequence changing at all</i> &mdash; which is exactly the shape of the mystery report2.html described.</p>
+      <p>&sect;14's structural work adds a physical mechanism for <i>how</i> g6423's mutation specifically could do this: R27F doesn't just change an amino acid on paper &mdash; the surface-charge and hydrophobicity renders above show a real, visible flip from a solvent-exposed basic patch to a hydrophobic one, at a site ESMFold predicts with very high confidence (pLDDT 96&ndash;97). Losing a charged surface patch at a protein-protein interaction protein is a textbook way to weaken or redirect a binding interface. This doesn't prove RanGAP function is impaired &mdash; that needs a binding assay &mdash; but it's a concrete, visualizable hypothesis rather than a hand-wave.</p>
+    </div>
+
+    <h3>Thread 2: cytoskeletal resource reallocation (dynein) &mdash; independent, matches a separate part of the phenotype</h3>
+    <div class="callout finding">
+      <span class="lbl">A stop-loss mutation in a dynein regulator lines up with the "resources away from cytoskeleton" half of the story</span>
+      <p><a href="report2.html#03">report2.html &sect;03</a> describes the phenotype mechanism as having two halves: upregulating DHA synthesis, <i>and</i> a broad reallocation of resources away from cytoskeletal machinery (consistent with the strong cytoskeleton-down GO enrichment, GO:0051015, p.adjust=1.7&times;10&#8315;&sup1;&sup3;, documented in &sect;4 of this report). &sect;14 found that <b>g11455</b>, whose mutation is a stop-loss (protein extension, not truncation), hits <b>Dynein regulatory complex subunit 5</b> by InterProScan. Dynein regulates cytoskeletal/flagellar dynamics directly. A structurally altered dynein regulator is a plausible direct genetic driver of exactly the cytoskeletal-investment-down theme &mdash; a separate thread from RanGAP/MYB3R, addressing the other half of the phenotype narrative.</p>
+    </div>
+
+    <h3>Thread 3: the 421kb inversion &mdash; higher potential impact, lower confidence</h3>
+    <div class="callout caveat">
+      <span class="lbl">If real, this alone could explain "cascading to hundreds of genes" &mdash; but it's the single-caller finding from &sect;15</span>
+      <p>report2.html's own phrasing for what a <i>trans</i>-acting cause would need to look like was a mutation "cascading to hundreds of downstream genes." A 421kb inversion spanning &gt;100 genes (&sect;15) would do exactly that in one structural event, and its 646-read-pair support is the strongest signal in this entire project's SV data. But per &sect;15's caveat, this call hasn't been cross-validated by a second SV method the way the vendor's own standard requires, and the HS6 assembly is scaffold-level, not chromosome-level &mdash; so this thread is flagged as <i>lower confidence, higher potential impact</i> rather than promoted to the same footing as Threads 1 and 2. The junction PCR designed in &sect;15 is the direct way to move it out of speculation.</p>
+    </div>
+
+    <h3>What would actually test these</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Hypothesis</th><th>What would confirm or kill it</th></tr></thead>
+      <tbody>
+        <tr><td>RanGAP/nuclear transport (Thread 1)</td><td>Co-IP or yeast two-hybrid between g6423/g853/g12826 and Ran-GTPase or MYB3R paralogs; nuclear/cytoplasmic fractionation of MYB3R protein in WT4 vs HS6 (does its localization actually shift?); Sanger-confirm the mutations first (&sect;14 primers already designed)</td></tr>
+        <tr><td>Dynein/cytoskeleton (Thread 2)</td><td>Sanger-confirm g11455's stop-loss (&sect;14 primer already designed); compare flagellar/motility phenotype WT4 vs HS6 directly if observable; RT-qPCR the specific dynein/cytoskeletal genes already flagged down in &sect;4's GO enrichment</td></tr>
+        <tr><td>421kb inversion (Thread 3)</td><td>The junction PCR designed in &sect;15 &mdash; a positive product on HS6 gDNA (and its absence on WT4) would be strong independent confirmation without needing long-read resequencing</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
   <section id="methods">
-    <div class="sec-head"><span class="sec-num">16</span><h2>Methods &amp; reproducibility</h2></div>
+    <div class="sec-head"><span class="sec-num">17</span><h2>Methods &amp; reproducibility</h2></div>
     <p class="lede">Every analysis in this report is reproducible from the scripts in <code>/scripts</code> against the genome/annotation/RNA-seq files described in the main comparative genomics report. Tool versions and environments used:</p>
     <div class="table-wrap">
     <table>
