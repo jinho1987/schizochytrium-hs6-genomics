@@ -1,0 +1,15 @@
+chrom	start	end	svtype	length_bp	evidence	support	genes_overlapped	notes
+Scaffolds_20	875627	1296664	INV	421037	IMPRECISE	PE=646	g6674-g6776 (>100 genes)	strongest support of any call in the dataset by far; CI +/-736bp; draft scaffold assembly, could reflect a true inversion or an assembly-ordering artifact
+Scaffolds_14	1787172	1828937	DEL	41765	PRECISE	SR=6	g2579,g2580,g2581,g2582	split-read confirmed with reconstructed consensus sequence; highest-confidence gene-overlapping call
+Scaffolds_3	271056	432472	DUP	161416	PRECISE	SR=5	g11543-g11582 (40 genes)	overlaps/adjacent to a second IMPRECISE DEL call at nearly the same start (271103-549046) -- likely a complex rearrangement in this region, not two independent simple SVs; interpret cautiously
+Scaffolds_3	271103	549046	DEL	277943	IMPRECISE	PE=4	g11543-g11630 (88 genes)	see note above -- complex region
+Scaffolds_33	32598	579275	DUP	546677	IMPRECISE	PE=3	g12826-g12961 (many genes, incl. g12826 from the missense survey)	very weak support (PE=3) for a very large call -- low confidence, treat as unconfirmed
+Scaffolds_26	27554	32596	DUP	5042	IMPRECISE	PE=6	g9732	one of 3 overlapping DUP calls in the same ~5kb window (27554-32596, PE 4-6 each) -- likely one real signal fragmented into multiple delly records, not 3 independent duplications
+Scaffolds_15	2954169	2954441	DUP	272	IMPRECISE	PE=3	g3343	small, weak support
+Scaffolds_18	22517	22847	DUP	330	IMPRECISE	PE=5	g4261	small, weak support
+Scaffolds_2	68998	70559	DEL	1561	IMPRECISE	PE=3	g6061	weak support
+Scaffolds_0	1679976	1680471	DEL	495	PRECISE	SR=3	none	no gene overlap
+Scaffolds_2	94546	94573	DEL	27	PRECISE	SR=4	none	microsatellite-scale, no gene overlap
+Scaffolds_3	1943871	1943899	DEL	28	PRECISE	SR=19	none	no gene overlap
+Scaffolds_12	228007	228035	DEL	28	PRECISE	SR=20	none	no gene overlap
+Scaffolds_33	43622	43650	DEL	28	PRECISE	SR=12	none	no gene overlap

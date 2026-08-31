@@ -136,7 +136,8 @@ a{color:var(--teal-ink);}
     <span class="pill done" id="pill-eggnog">eggNOG-mapper &mdash; done</span>
     <span class="pill done">Expression-constrained flux (draft) &mdash; done, caveated</span>
     <span class="pill done">Genome-wide missense survey &mdash; done</span>
-    <span class="pill pending">ESM structural folding &mdash; blocked, infra issue (see &sect;15)</span>
+    <span class="pill done" id="pill-esmfold">ESM structural folding &mdash; done</span>
+    <span class="pill done">Structural variant survey (Delly) &mdash; done</span>
   </div>
 
   <nav class="toc">
@@ -156,7 +157,8 @@ a{color:var(--teal-ink);}
       <li><a href="#sequences">12. Lab-ready sequences &amp; PCR primers</a></li>
       <li><a href="#qpcr">13. RT-qPCR validation panel</a></li>
       <li><a href="#missense">14. Genome-wide missense mutation survey</a></li>
-      <li><a href="#methods">15. Methods &amp; reproducibility</a></li>
+      <li><a href="#svcalls">15. Structural variant survey (indel/SNP was not the whole story)</a></li>
+      <li><a href="#methods">16. Methods &amp; reproducibility</a></li>
     </ol>
   </nav>
 
@@ -641,8 +643,71 @@ a{color:var(--teal-ink);}
     <p class="pending-note">Genome-wide scan output (all 16,088 genes, both confidence tiers): <a href="results/genomewide_missense_mild.tsv">results/genomewide_missense_mild.tsv</a>, <a href="results/genomewide_missense_nofilt.tsv">results/genomewide_missense_nofilt.tsv</a>. Reproduction script: <a href="scripts/genomewide_missense_scan.py">scripts/genomewide_missense_scan.py</a>.</p>
   </section>
 
+  <section id="svcalls">
+    <div class="sec-head"><span class="sec-num">15</span><h2>Structural variant survey</h2></div>
+    <p class="lede">Every mutation discussed elsewhere in this project &mdash; the qPCR panel (&sect;13), the genome-wide missense survey (&sect;14) &mdash; comes from exactly one small-variant caller (<code>bcftools mpileup</code>/<code>call</code>), which found <b>84 variants genome-wide</b> between WT4 and HS6: 49 SNPs and 35 small indels (none in coding regions &mdash; confirmed by direct intersection with the CDS annotation). That number is strikingly small for two lines presumed to differ by a real, phenotype-driving mutation, and small-variant callers cannot see structural variants (SVs) at all &mdash; multi-kb deletions, duplications, inversions, translocations. They were never looked for in this project until now. This section runs a dedicated SV caller (<a href="https://github.com/dellytools/delly">Delly</a>, germline mode) against the same WT4 resequencing BAM already used for the SNP/indel analysis.</p>
+
+    <div class="callout caveat">
+      <span class="lbl">Read this before the numbers below: draft, scaffold-level assembly changes how to interpret SV calls</span>
+      <p>The HS6 reference is a scaffold-level draft assembly, not a chromosome-level one. Discordant read-pair signals between different scaffolds (delly's <code>BND</code>/translocation calls) are the classic signature of <i>either</i> a real interchromosomal rearrangement <i>or</i> a scaffold ordering/orientation artifact in the assembly itself &mdash; the two are not distinguishable from short-read data alone. Delly found <b>455 raw <code>BND</code> calls</b> (98 passing its own quality filter), heavily outnumbering every other SV type combined. These are reported for completeness but are <b>not individually interpreted as confirmed rearrangements</b> below &mdash; that would overclaim what scaffold-level short-read data can actually support. The intra-scaffold calls (DEL/DUP/INV, particularly the <code>PRECISE</code>/split-read-confirmed ones) are on much firmer ground and are the focus of this section.</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card"><div class="v">31</div><div class="k">DEL calls, PASS filter</div></div>
+      <div class="stat-card"><div class="v">35</div><div class="k">DUP calls, PASS filter</div></div>
+      <div class="stat-card"><div class="v">11</div><div class="k">INV calls, PASS filter</div></div>
+      <div class="stat-card"><div class="v">98</div><div class="k">BND (translocation-type) calls, PASS filter &mdash; not individually interpreted, see caveat above</div></div>
+    </div>
+
+    <h3>Headline finding: a 421kb inversion with the strongest read support of any call in the dataset</h3>
+    <div class="callout finding">
+      <span class="lbl">Scaffolds_20:875,627&ndash;1,296,664 &mdash; 646 discordant read pairs agree</span>
+      <p>This single inversion call is supported by <b>646 independent discordant read pairs</b> &mdash; an order of magnitude more evidence than any other call in the entire dataset (most calls have 3&ndash;50 supporting pairs). That volume of concordant signal is very unlikely to be random mismapping noise, though the breakpoints themselves are IMPRECISE (&plusmn;736bp confidence interval, no split-read consensus) so exact base-pair resolution isn't available. The inverted segment spans <b>&gt;100 genes</b> (g6674&ndash;g6776), several of them DE-significant. Whether this reflects a true biological inversion in HS6 or an assembly-ordering difference in how this region of the draft genome was scaffolded cannot be resolved from this data alone &mdash; the junction PCR below is designed specifically to answer that.</p>
+    </div>
+
+    <h3>Highest-confidence gene-overlapping call: a 41.7kb split-read-confirmed deletion</h3>
+    <div class="callout finding">
+      <span class="lbl">Scaffolds_14:1,787,172&ndash;1,828,937 &mdash; PRECISE, 6 split reads, overlaps 4 genes</span>
+      <p>Unlike the inversion above, this deletion is <code>PRECISE</code>: delly reconstructed an actual consensus sequence spanning the breakpoint from split reads, giving base-pair-level confidence. It removes <b>g2579, g2580, g2581, g2582</b> entirely (g2579 has padj=0.91, not DE-significant; the other three were filtered out of the DE analysis, likely low-count). This is the strongest evidence-tier SV finding in the survey.</p>
+    </div>
+
+    <h3>Full PASS-filter SV table and lower-confidence calls</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Locus</th><th>Type</th><th>Length</th><th>Evidence</th><th>Genes overlapped</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">Scaffolds_20:875,627&ndash;1,296,664</td><td>INV</td><td>421 kb</td><td>IMPRECISE, PE=646</td><td>&gt;100 genes (g6674&ndash;g6776)</td><td>strongest support in the dataset; see finding above</td></tr>
+        <tr><td class="mono">Scaffolds_14:1,787,172&ndash;1,828,937</td><td>DEL</td><td>41.7 kb</td><td>PRECISE, SR=6</td><td>g2579, g2580, g2581, g2582</td><td>highest-confidence gene-overlapping call; see finding above</td></tr>
+        <tr><td class="mono">Scaffolds_3:271,056&ndash;432,472 / 271,103&ndash;549,046</td><td>DUP + DEL</td><td>161&ndash;278 kb</td><td>PRECISE (DUP)/IMPRECISE (DEL)</td><td>40&ndash;88 genes (g11543&ndash;g11630)</td><td>overlapping DUP and DEL calls at nearly the same start &mdash; likely one complex rearrangement, not two independent events; interpret cautiously, no primers designed yet</td></tr>
+        <tr><td class="mono">Scaffolds_33:32,598&ndash;579,275</td><td>DUP</td><td>547 kb</td><td>IMPRECISE, PE=3</td><td>g12826&ndash;g12961 (incl. g12826 from &sect;14)</td><td>very weak support for a very large call &mdash; treat as unconfirmed</td></tr>
+        <tr><td class="mono">Scaffolds_26:27,554&ndash;32,596</td><td>DUP &times;3 (overlapping)</td><td>0.4&ndash;5 kb</td><td>IMPRECISE, PE=4&ndash;6</td><td>g9732</td><td>likely one real signal fragmented into 3 delly records, not 3 independent duplications</td></tr>
+        <tr><td class="mono">5 more small PRECISE DELs (27&ndash;495bp)</td><td>DEL</td><td>&lt;500bp</td><td>PRECISE, SR=3&ndash;20</td><td>none</td><td>real, split-read confirmed, but no gene overlap &mdash; lower priority</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>Wet-lab verification: junction-spanning PCR</h3>
+    <p>Both headline calls get a concrete, orderable PCR design below &mdash; the same in-silico rigor as every other primer set on this site (BLAST against <code>HS6_scaf.fasta</code> before ordering, same caveat as &sect;12/&sect;13/&sect;14).</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Target</th><th>Strategy</th><th>Fwd primer</th><th>Rev primer</th><th>Product</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td class="gene">SV1: g2579&ndash;g2582 deletion</td><td>gap-PCR across a synthetic WT4-junction sequence (primers flank the 41.7kb deletion)</td><td class="mono">CTGAAAGAGAACCGGTCGCT</td><td class="mono">AACACACCAACAAAGCGAGC</td><td>483 bp</td><td>product = deletion present (WT4-type); no product under standard cycling = full-length (HS6-type; true product would be ~41.7kb)</td></tr>
+        <tr><td class="gene">SV2: 421kb inversion, breakpoint 1</td><td>inversion-junction PCR, predicted post-inversion sequence at Scaffolds_20:~875,627</td><td class="mono">AGCCAAAACAGCTCGACAAG</td><td class="mono">CGGTTTCAAGGGTTTGGCTG</td><td>512 bp</td><td>product = inverted allele at this breakpoint</td></tr>
+        <tr><td class="gene">SV2: 421kb inversion, breakpoint 2</td><td>inversion-junction PCR, predicted post-inversion sequence at Scaffolds_20:~1,296,664</td><td class="mono">TTGAAGTTGCAGTTTCGCCG</td><td class="mono">CCTTCATAAGACCGACGGCA</td><td>320 bp</td><td>product = inverted allele at this breakpoint</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout caveat">
+      <span class="lbl">Inversion breakpoints are IMPRECISE &mdash; verify orientation logic before ordering</span>
+      <p>The two SV2 primer pairs are designed on the <i>predicted post-inversion junction sequence</i>, not the current HS6 reference sequence as-is &mdash; they will only produce a product if the inversion hypothesis is correct. Because the breakpoints carry a &plusmn;736bp confidence interval (no split-read support), treat this as a locus-level hypothesis test rather than a base-pair-exact design, and have a second person check the primer orientation logic in this section before ordering.</p>
+    </div>
+
+    <p class="pending-note">Full delly VCF (all SV types, PASS and non-PASS): <a href="results/WT_vs_HS6.delly.vcf">results/WT_vs_HS6.delly.vcf</a>. Triaged/annotated SV table: <a href="results/sv_calls_summary.tsv">results/sv_calls_summary.tsv</a>. Wet-lab primer table: <a href="results/sv_validation_primers.tsv">results/sv_validation_primers.tsv</a>. Reproduction: <code>delly call -g HS6_scaf.fasta -o WT_vs_HS6.delly.bcf WT_reseq.dedup.bam</code> (Delly v0.8.3, germline mode, default parameters).</p>
+  </section>
+
   <section id="methods">
-    <div class="sec-head"><span class="sec-num">15</span><h2>Methods &amp; reproducibility</h2></div>
+    <div class="sec-head"><span class="sec-num">16</span><h2>Methods &amp; reproducibility</h2></div>
     <p class="lede">Every analysis in this report is reproducible from the scripts in <code>/scripts</code> against the genome/annotation/RNA-seq files described in the main comparative genomics report. Tool versions and environments used:</p>
     <div class="table-wrap">
     <table>
