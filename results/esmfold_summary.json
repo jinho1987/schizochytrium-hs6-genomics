@@ -1,0 +1,26 @@
+[
+  {
+    "name": "g6423_WT4",
+    "length": 323,
+    "mean_plddt": 0.77,
+    "seconds": 780.6
+  },
+  {
+    "name": "g6423_HS6",
+    "length": 323,
+    "mean_plddt": 0.74,
+    "seconds": 642.5
+  },
+  {
+    "name": "g11453_WT4",
+    "length": 609,
+    "mean_plddt": 0.62,
+    "seconds": 2764.0
+  },
+  {
+    "name": "g11453_HS6",
+    "length": 609,
+    "mean_plddt": 0.63,
+    "seconds": 2710.4
+  }
+]
