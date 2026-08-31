@@ -98,6 +98,16 @@ pre{background:var(--bg-raised); border:1px solid var(--line); border-radius:8px
 .pending-note{font-style:italic; color:var(--ink-faint); font-size:14px;}
 footer{margin-top:40px; padding-top:20px; border-top:1px solid var(--line); font-family:var(--mono); font-size:11px; color:var(--ink-faint);}
 a{color:var(--teal-ink);}
+.struct-fig-group{margin:18px 0 24px;}
+.struct-fig-group .group-label{font-family:var(--mono); font-size:12px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.04em; margin-bottom:8px;}
+.struct-fig-row{display:grid; grid-template-columns:1.3fr 1.3fr 1fr; gap:14px;}
+@media (max-width:820px){.struct-fig-row{grid-template-columns:1fr;}}
+.struct-fig-card{background:var(--bg-raised); border:1px solid var(--line); border-radius:10px; padding:10px; display:flex; flex-direction:column;}
+.struct-fig-card img{width:100%; height:auto; display:block; border-radius:6px; background:var(--line-soft);}
+.struct-fig-card .cap-title{font-family:var(--mono); font-size:11.5px; font-weight:700; color:var(--ink); margin-top:8px;}
+.struct-fig-card .cap-body{font-size:12.5px; color:var(--ink-soft); margin-top:2px; line-height:1.4;}
+.legend-row{display:flex; gap:16px; flex-wrap:wrap; font-size:12px; color:var(--ink-soft); margin:6px 0 16px;}
+.legend-row .sw{display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:5px; vertical-align:-1px;}
 </style>
 <link rel="stylesheet" href="assets/css/site-nav.css">
 </head>
@@ -645,6 +655,60 @@ a{color:var(--teal-ink);}
         <tr><td class="gene">g11453</td><td class="mono">p.D511A</td><td>609 aa</td><td>70 / 70</td><td>4.9 &Aring; (609 residues)</td><td>6.3 &Aring;</td><td>41 / 40 &mdash; low confidence</td></tr>
       </tbody>
     </table>
+    </div>
+
+    <p>Three resolutions per gene, low to high: <b>(A)</b> both full-length structures side by side, colored by per-residue pLDDT confidence; <b>(B)</b> WT4 and HS6 superposed after Kabsch alignment, mutated residue highlighted; <b>(C)</b> the mutation site itself zoomed in to sidechain level.</p>
+    <div class="legend-row">
+      <span><span class="sw" style="background:#0053D6"></span>pLDDT &gt;90 (very high)</span>
+      <span><span class="sw" style="background:#65CBF3"></span>70&ndash;90 (confident)</span>
+      <span><span class="sw" style="background:#FFDB13"></span>50&ndash;70 (low)</span>
+      <span><span class="sw" style="background:#FF7D45"></span>&lt;50 (very low)</span>
+      <span><span class="sw" style="background:#B0B0B0"></span>WT4 backbone</span>
+      <span><span class="sw" style="background:#1B998B"></span>HS6 backbone</span>
+      <span><span class="sw" style="background:#8A2BE2"></span>WT4 mutated residue</span>
+      <span><span class="sw" style="background:#E63946"></span>HS6 mutated residue</span>
+    </div>
+
+    <div class="struct-fig-group">
+      <div class="group-label">g6423 &mdash; p.R27F (RanGAP-like, LRR-family)</div>
+      <div class="struct-fig-row">
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g6423_A_confidence.png" alt="g6423 WT4 and HS6 structures colored by pLDDT confidence" loading="lazy">
+          <div class="cap-title">A &middot; confidence overview</div>
+          <div class="cap-body">WT4 (left) and HS6 (right), colored by per-residue pLDDT. Both alleles are predominantly high-confidence (blue/cyan).</div>
+        </div>
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g6423_B_superposed.png" alt="g6423 WT4 and HS6 superposed structures" loading="lazy">
+          <div class="cap-title">B &middot; superposed</div>
+          <div class="cap-body">WT4 (grey) and HS6 (teal) aligned by Kabsch superposition. Mutated residue 27 marked in red/purple.</div>
+        </div>
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g6423_C_mutation_zoom.png" alt="g6423 R27F mutation site zoomed to sidechain level" loading="lazy">
+          <div class="cap-title">C &middot; mutation site, sidechain-level</div>
+          <div class="cap-body">R27 (WT4, purple) vs F27 (HS6, red). High-confidence region (pLDDT 96&ndash;97) &mdash; this local view is on solid ground.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="struct-fig-group">
+      <div class="group-label">g11453 &mdash; p.D511A (unannotated)</div>
+      <div class="struct-fig-row">
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g11453_A_confidence.png" alt="g11453 WT4 and HS6 structures colored by pLDDT confidence" loading="lazy">
+          <div class="cap-title">A &middot; confidence overview</div>
+          <div class="cap-body">WT4 (upper) and HS6 (lower), colored by per-residue pLDDT. Visibly more yellow/orange (low confidence) than g6423 &mdash; consistent with its lower mean pLDDT (70) and unannotated status.</div>
+        </div>
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g11453_B_superposed.png" alt="g11453 WT4 and HS6 superposed structures" loading="lazy">
+          <div class="cap-title">B &middot; superposed</div>
+          <div class="cap-body">WT4 (grey) and HS6 (teal) aligned by Kabsch superposition. Mutated residue 511 marked in red/purple.</div>
+        </div>
+        <div class="struct-fig-card">
+          <img src="figures/esmfold/g11453_C_mutation_zoom.png" alt="g11453 D511A mutation site zoomed to sidechain level" loading="lazy">
+          <div class="cap-title">C &middot; mutation site, sidechain-level</div>
+          <div class="cap-body">D511 (WT4, purple) vs A511 (HS6, red), sitting in an extended loop with no defined secondary structure. Low-confidence region (pLDDT 40&ndash;41) &mdash; treat this local view as illustrative, not conclusive.</div>
+        </div>
+      </div>
     </div>
     <div class="callout caveat">
       <span class="lbl">Read the two rows very differently &mdash; confidence at the mutation site changes what the number means</span>
