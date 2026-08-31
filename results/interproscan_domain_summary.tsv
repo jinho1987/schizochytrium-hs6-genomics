@@ -1,0 +1,10 @@
+gene	transcript	protein_length_aa	domain_superfamily	best_functional_hit	evalue	notes
+g853	g853.t1	571	Leucine-Rich Repeat (Ribonuclease-Inhibitor-like)	RAN GTPase-activating protein 1 (PANTHER PTHR24113)	9.7E-145	same family as g6423
+g12826	g12826.t1	637	Leucine-Rich Repeat (Ribonuclease-Inhibitor-like)	RAN GTPase-activating protein 1 (PANTHER PTHR24113)	7.0E-93	same family as g6423
+g15200	g15200.t1	608	Leucine-Rich Repeat (Ribonuclease-Inhibitor-like)	RAN GTPase-activating protein 1 (PANTHER PTHR24113)	4.7E-73	RanGAP-adjacent
+g10614	g10614.t1	704	Leucine-Rich Repeat (Ribonuclease-Inhibitor-like)	Leucine Rich Repeat family protein (PANTHER PTHR24114)	5.2E-155	22-exon gene
+g1759	g1759.t1	603	Leucine-Rich Repeat (Ribonuclease-Inhibitor-like)	Leucine Rich Repeat family protein (PANTHER PTHR24114)	1.3E-189	-
+g6055	g6055.t1	506	Leucine-Rich Repeat (Ribonuclease-Inhibitor-like)	Leucine-rich repeat-containing protein 34 (PANTHER PTHR24111)	5.4E-66	strongest DE-significant hit, padj=0.0094
+g10298	g10298.t1	131	Leucine-Rich Repeat (Ribonuclease-Inhibitor-like)	generic LRR domain (Gene3D/SUPERFAMILY only, no PANTHER hit)	1.0E-11	short protein
+g11455	g11455.t1	420	Leucine-Rich Repeat (Ribonuclease-Inhibitor-like)	Dynein regulatory complex subunit 5 (PANTHER PTHR24107)	5.9E-106	stop-loss gene; connects to cytoskeleton-down GO enrichment theme
+g1664	g1664.t1	417	Armadillo repeat (different fold; also a nuclear-transport-associated scaffold, core fold of importin-alpha)	LRRK2 ARM-repeat-like (Pfam PF23744)	1.3E-7 / 3.4E-10	strongest new DE-significant missense hit, padj=0.0144

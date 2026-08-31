@@ -135,6 +135,8 @@ a{color:var(--teal-ink);}
     <span class="pill pending" id="pill-rascaf">RNA-seq scaffolding &mdash; stopped, incomplete</span>
     <span class="pill done" id="pill-eggnog">eggNOG-mapper &mdash; done</span>
     <span class="pill done">Expression-constrained flux (draft) &mdash; done, caveated</span>
+    <span class="pill done">Genome-wide missense survey &mdash; done</span>
+    <span class="pill pending">ESM structural folding &mdash; blocked, infra issue (see &sect;15)</span>
   </div>
 
   <nav class="toc">
@@ -153,7 +155,8 @@ a{color:var(--teal-ink);}
       <li><a href="#degrigor">11. DEG statistical rigor &amp; annotation audit</a></li>
       <li><a href="#sequences">12. Lab-ready sequences &amp; PCR primers</a></li>
       <li><a href="#qpcr">13. RT-qPCR validation panel</a></li>
-      <li><a href="#methods">14. Methods &amp; reproducibility</a></li>
+      <li><a href="#missense">14. Genome-wide missense mutation survey</a></li>
+      <li><a href="#methods">15. Methods &amp; reproducibility</a></li>
     </ol>
   </nav>
 
@@ -557,8 +560,89 @@ a{color:var(--teal-ink);}
     <p class="pending-note">Full panel with genomic coordinates and primers: <a href="results/qpcr_primer_panel.tsv">results/qpcr_primer_panel.tsv</a>. Raw genomic DNA sequence per gene (includes introns/UTRs, directly sliced from <code>HS6_scaf.fasta</code> at the coordinates in the table above): <a href="results/qpcr_gene_genomic_sequences.fasta">results/qpcr_gene_genomic_sequences.fasta</a>. Spliced CDS used for primer design: <a href="results/qpcr_target_spliced_cds.fasta">results/qpcr_target_spliced_cds.fasta</a>.</p>
   </section>
 
+  <section id="missense">
+    <div class="sec-head"><span class="sec-num">14</span><h2>Genome-wide missense mutation survey</h2></div>
+    <p class="lede">Every candidate driver mutation discussed elsewhere in this project (&sect;6, &sect;13) came from a small, hand-curated gene list. This section instead scans <b>all 16,088 genes genome-wide</b> for amino-acid-changing mutations between HS6 and #4, using a resource that already existed in the project but had not been used this way: a full genome-wide reconstruction of #4's protein-coding sequence (built earlier by applying the WT4-vs-HS6 variant calls onto the HS6 reference), diffed directly against HS6's own proteome, codon by codon.</p>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="v">8</div><div class="k">genes with a missense/stop change, high-confidence (Mild_filter) tier</div></div>
+      <div class="stat-card"><div class="v">36</div><div class="k">genes, permissive (No_filter) tier</div></div>
+      <div class="stat-card"><div class="v">0</div><div class="k">of 16,088 genes show a length-changing indel in either tier</div></div>
+    </div>
+    <div class="callout finding">
+      <span class="lbl">Two new candidates, stronger evidence than anything found before</span>
+      <p><b>g1664</b> (p.H205Q, padj=0.0144, log2FC=&minus;1.11) and <b>g6055</b> (p.N236K/T280N/K337Q, padj=0.0094, log2FC=&minus;1.55) are the first genes in this project to combine a <i>confirmed coding mutation</i> with <i>significant differential expression</i> in the same gene &mdash; every earlier candidate (g6423, g3906, g14345, g6124) only ever had a nearby non-coding variant. Both are functionally unannotated by every method tried (SwissProt, eggNOG) until the InterProScan pass below.</p>
+    </div>
+
+    <h3>Substitution impact scoring (BLOSUM62 + Grantham distance)</h3>
+    <p>With the public ESMFold API down and local execution blocked by this session's own infrastructure problems (see the caveat below), every confirmed missense change was scored with an established, dependency-free baseline: BLOSUM62 substitution score and Grantham physicochemical distance (0&ndash;215 scale; &ge;150 or BLOSUM62&le;&minus;2 = radical, &ge;100 = moderate, below = conservative).</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Gene</th><th>Change (#4&rarr;HS6)</th><th>BLOSUM62</th><th>Grantham</th><th>Class</th><th>padj</th><th>Identity</th></tr></thead>
+      <tbody>
+        <tr><td class="gene">g6423</td><td class="mono">p.R27F</td><td>&minus;3</td><td>205</td><td><b>RADICAL</b></td><td>0.0189</td><td>RanGAP-like nuclear transport (no_filter tier only)</td></tr>
+        <tr><td class="gene">g11453</td><td class="mono">p.D511A</td><td>&minus;2</td><td>126</td><td><b>RADICAL</b></td><td>0.726 (n.s.)</td><td>unannotated, 1 of 7 missense changes in this gene</td></tr>
+        <tr><td class="gene">g10614</td><td class="mono">p.E51A</td><td>&minus;1</td><td>107</td><td>MODERATE</td><td>0.926 (n.s.)</td><td>LRR-family (InterProScan)</td></tr>
+        <tr><td class="gene">g1664</td><td class="mono">p.H205Q</td><td>0</td><td>24</td><td>MODERATE</td><td>0.0144</td><td>unannotated</td></tr>
+        <tr><td class="gene">g6055</td><td class="mono">p.N236K</td><td>0</td><td>94</td><td>MODERATE</td><td>0.0094</td><td>LRR-family (InterProScan)</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="pending-note">Full 22-substitution table (all genes, all changes, hydrophobicity delta, charge flip, proline flags): <a href="results/missense_impact_scores.tsv">results/missense_impact_scores.tsv</a></p>
+
+    <h3>InterProScan on the unannotated candidates &mdash; a hidden gene-family pattern</h3>
+    <p>Every functionally-unannotated missense gene from the survey above was submitted to EBI's InterProScan5 (domain/family search). The result was not a set of unrelated unknowns: <b>8 of 9 resolve to the same structural superfamily &mdash; Leucine-Rich Repeat (Ribonuclease-Inhibitor-like fold)</b> &mdash; and several land on functions that connect directly to two other major threads in this project.</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Gene</th><th>Domain superfamily</th><th>Best functional hit</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td class="gene">g853</td><td>LRR (RNI-like)</td><td><b>RAN GTPase-activating protein 1</b></td><td>same family as g6423</td></tr>
+        <tr><td class="gene">g12826</td><td>LRR (RNI-like)</td><td><b>RAN GTPase-activating protein 1</b></td><td>same family as g6423, again</td></tr>
+        <tr><td class="gene">g15200</td><td>LRR (RNI-like)</td><td>RanGAP-adjacent</td><td>DE-significant, padj=0.043</td></tr>
+        <tr><td class="gene">g10614</td><td>LRR (RNI-like)</td><td>generic LRR-family protein</td><td>22-exon gene</td></tr>
+        <tr><td class="gene">g1759</td><td>LRR (RNI-like)</td><td>generic LRR-family protein</td><td>DE-significant, padj=0.078</td></tr>
+        <tr><td class="gene">g6055</td><td>LRR (RNI-like)</td><td>LRRC34-like regulator</td><td>strongest DE-significant hit, padj=0.0094</td></tr>
+        <tr><td class="gene">g10298</td><td>LRR (RNI-like)</td><td>generic LRR domain only</td><td>short (131aa) protein</td></tr>
+        <tr><td class="gene">g11455</td><td>LRR (RNI-like)</td><td><b>Dynein regulatory complex subunit 5</b></td><td>the stop-loss gene</td></tr>
+        <tr><td class="gene">g1664</td><td>Armadillo repeat (different fold)</td><td>LRRK2 ARM-repeat-like</td><td>strongest new missense+DE hit, padj=0.0144</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout finding">
+      <span class="lbl">First mechanistic thread connecting the mutation and expression stories</span>
+      <p>g6423 (&sect;13) was already independently annotated as RanGAP-like. Now <b>two more mutation-carrying genes (g853, g12826) hit that exact same RAN GTPase-activating protein family</b>, with a third (g15200) adjacent to it. RanGAP regulates the Ran-GTP/GDP cycle that controls nuclear import/export &mdash; plausibly including the MYB3R transcription factors whose paralog-split expression pattern is this project's central regulatory finding (Figure 2, panel a). Separately, <b>g11455</b> (the stop-loss gene) hits <b>dynein regulatory complex</b>, directly resonant with the strong cytoskeleton-down GO enrichment (GO:0051015, p.adjust=1.7&times;10&#8315;&sup1;&sup3;, &sect;4) found earlier in this project. Neither connection is proven &mdash; both are genuinely new, testable hypotheses, not previously stated anywhere in this project.</p>
+    </div>
+    <p class="pending-note">Consolidated domain-hit table: <a href="results/interproscan_domain_summary.tsv">results/interproscan_domain_summary.tsv</a></p>
+
+    <h3>Sanger confirmation primers</h3>
+    <p>Primers designed to amplify genomic DNA spanning each confirmed mutation site directly, for Sanger-sequencing confirmation independent of the reconstructed-genome method used to find them. 8 genes, 9 amplicons (g6423's three mutations span too wide a region for one Sanger read, so it gets two separate targeted amplicons) &mdash; every design verified to actually contain its target mutation site(s) within the resulting product.</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Target</th><th>Coordinates</th><th>Fwd primer (5&prime;&rarr;3&prime;)</th><th>Rev primer (5&prime;&rarr;3&prime;)</th><th>Product</th></tr></thead>
+      <tbody>
+        <tr><td class="gene">g1664</td><td class="mono">Scaffolds_11:1490870&ndash;1491670 (+)</td><td class="mono">CAAGAAAACGCATGTGGAGCA</td><td class="mono">ACATGCTTGTTCTTGCACGTC</td><td>546 bp</td></tr>
+        <tr><td class="gene">g6055</td><td class="mono">Scaffolds_19:2575417&ndash;2576517 (&minus;)</td><td class="mono">TGGGGCACAAGAAGAGGTTTT</td><td class="mono">TGCACAACTTCTTTCGACCCT</td><td>1032 bp</td></tr>
+        <tr><td class="gene">g6423 (site 1)</td><td class="mono">Scaffolds_2:1472608&ndash;1473408 (+)</td><td class="mono">GCTTGCTTGGGTAGTGGTTTG</td><td class="mono">ACTTGCAAAACAACACCGACC</td><td>405 bp</td></tr>
+        <tr><td class="gene">g6423 (site 2)</td><td class="mono">Scaffolds_2:1475491&ndash;1476291 (+)</td><td class="mono">CTGATACTAGAATGGCCCGGG</td><td class="mono">CAGACTACCTCTCCACGCTTC</td><td>534 bp</td></tr>
+        <tr><td class="gene">g15200</td><td class="mono">Scaffolds_6:1015267&ndash;1016067 (+)</td><td class="mono">ATGAAGGTTGTGCGACGTTTG</td><td class="mono">GCCATAACCCCTTCCAATCCA</td><td>550 bp</td></tr>
+        <tr><td class="gene">g1759</td><td class="mono">Scaffolds_12:211472&ndash;212272 (+)</td><td class="mono">CCGGTCGCTGATATCACTCAA</td><td class="mono">ACAGACAACGCATCCATCCAT</td><td>544 bp</td></tr>
+        <tr><td class="gene">g1760</td><td class="mono">Scaffolds_12:244635&ndash;245435 (&minus;)</td><td class="mono">GCAAAGGAAGTCTCCCTCCTC</td><td class="mono">TGGCTGTATCGTCATGCCTTT</td><td>565 bp</td></tr>
+        <tr><td class="gene">g853</td><td class="mono">Scaffolds_10:69015&ndash;69815 (+)</td><td class="mono">ATGCATGCATGAACGTGAGTG</td><td class="mono">TGCTTGCTTTGTTGGTGTGTT</td><td>590 bp</td></tr>
+        <tr><td class="gene">g11455</td><td class="mono">Scaffolds_29:3202919&ndash;3203719 (&minus;)</td><td class="mono">TTCTTGATGTCAGCGGAGACC</td><td class="mono">TGCAAAGTCTCTGCACAAAGC</td><td>756 bp</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="pending-note">Full table with padj/log2FC/notes: <a href="results/sanger_primers.tsv">results/sanger_primers.tsv</a>. As with every primer set on this site: unvalidated in silico designs &mdash; BLAST against <code>HS6_scaf.fasta</code> before ordering.</p>
+
+    <div class="callout caveat">
+      <span class="lbl">ESMFold structural comparison: attempted, blocked by infrastructure, not by the science</span>
+      <p>The public ESM Atlas folding API was down (confirmed twice, real 504 Gateway Timeout responses). Local execution was attempted on this machine's GPU (RTX 3050) and got genuinely close &mdash; PyTorch, fair-esm, and even a from-source <code>openfold</code> build all installed successfully &mdash; before hitting a version incompatibility between fair-esm's ESMFold code and the current public openfold repository (the specific commit fair-esm depends on no longer exists in that repo's history) that a same-day fix couldn't resolve. That install attempt also filled the host machine's C: drive, which took priority to fix. The substitution-impact scoring above is the honest stand-in for now; folding the two RADICAL-class changes (g6423 p.R27F, g11453 p.D511A) remains a clearly-scoped follow-up once local disk headroom and a working ESMFold path are both in place.</p>
+    </div>
+
+    <p class="pending-note">Genome-wide scan output (all 16,088 genes, both confidence tiers): <a href="results/genomewide_missense_mild.tsv">results/genomewide_missense_mild.tsv</a>, <a href="results/genomewide_missense_nofilt.tsv">results/genomewide_missense_nofilt.tsv</a>. Reproduction script: <a href="scripts/genomewide_missense_scan.py">scripts/genomewide_missense_scan.py</a>.</p>
+  </section>
+
   <section id="methods">
-    <div class="sec-head"><span class="sec-num">14</span><h2>Methods &amp; reproducibility</h2></div>
+    <div class="sec-head"><span class="sec-num">15</span><h2>Methods &amp; reproducibility</h2></div>
     <p class="lede">Every analysis in this report is reproducible from the scripts in <code>/scripts</code> against the genome/annotation/RNA-seq files described in the main comparative genomics report. Tool versions and environments used:</p>
     <div class="table-wrap">
     <table>

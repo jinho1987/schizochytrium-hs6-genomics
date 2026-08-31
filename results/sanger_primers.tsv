@@ -1,0 +1,10 @@
+target	scaffold	window_start	window_end	strand	padj	log2FC	note	fwd_primer	fwd_tm	rev_primer	rev_tm	product_size_bp	covers_all_mutation_sites
+g1664	Scaffolds_11	1490870	1491670	+	0.0144	-1.109	p.H205Q; strongest DE-significant missense hit, mild_filter tier	CAAGAAAACGCATGTGGAGCA	60.0	ACATGCTTGTTCTTGCACGTC	60.0	546	True
+g6055	Scaffolds_19	2575417	2576517	-	0.0094	-1.554	3 missense changes spanning 773bp, no_filter tier	TGGGGCACAAGAAGAGGTTTT	60.0	TGCACAACTTCTTTCGACCCT	60.0	1032	True
+g6423_site1	Scaffolds_2	1472608	1473408	+	0.0189	-1.109	p.[27,30] cluster, no_filter tier	GCTTGCTTGGGTAGTGGTTTG	60.0	ACTTGCAAAACAACACCGACC	60.0	405	True
+g6423_site2	Scaffolds_2	1475491	1476291	+	0.0189	-1.109	p.280, no_filter tier	CTGATACTAGAATGGCCCGGG	60.0	CAGACTACCTCTCCACGCTTC	60.0	534	True
+g15200	Scaffolds_6	1015267	1016067	+	0.0426	-0.987	1 missense, no_filter tier	ATGAAGGTTGTGCGACGTTTG	60.0	GCCATAACCCCTTCCAATCCA	60.0	550	True
+g1759	Scaffolds_12	211472	212272	+	0.0777	-0.896	2 missense, no_filter tier	CCGGTCGCTGATATCACTCAA	60.0	ACAGACAACGCATCCATCCAT	60.0	544	True
+g1760	Scaffolds_12	244635	245435	-	0.2571	-0.965	p.T894A; G-type lectin receptor kinase, mild_filter tier	GCAAAGGAAGTCTCCCTCCTC	60.0	TGGCTGTATCGTCATGCCTTT	60.0	565	True
+g853	Scaffolds_10	69015	69815	+	0.5544	-0.508	1 missense, mild_filter tier	ATGCATGCATGAACGTGAGTG	60.0	TGCTTGCTTTGTTGGTGTGTT	60.0	590	True
+g11455	Scaffolds_29	3202919	3203719	-	0.5907	-0.652	stop-codon change, mild_filter tier	TTCTTGATGTCAGCGGAGACC	60.0	TGCAAAGTCTCTGCACAAAGC	60.0	756	True
