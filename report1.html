@@ -739,6 +739,97 @@ footer p{max-width:none; color:var(--ink-faint);}
   </div>
 
   <p style="font-size:13px;color:var(--ink-faint);">ELOVL6 protein sequence, #7 annotation (LOCUS_004835-RA) and cross-BLAST results against both proteomes (#7 self-search, reciprocal HS6 search) available on request. ESMFold reproduction: same pipeline as documented in the HS6-vs-#4 project&#8217;s report4.html Methods section.</p>
+
+  <h3>Expression: #4 (WT) vs. HS6 (MT), all three time-course points</h3>
+  <div class="chart-card">
+    <div class="chart-title">g12225 / ELOVL6, DESeq2-normalized counts</div>
+    <div class="chart-sub">A consistent directional trend (lower in HS6 at all 3 timepoints, strongest early/mid, fading by 68h) that does not clear statistical significance after correction &mdash; reported as a real trend, not a confirmed difference.</div>
+    <svg viewBox="0 0 560 335" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, monospace">
+  <!-- data: WT(#4)=teal, MT(HS6)=rust; values are DESeq2-normalized counts -->
+  <!-- 20h: WT=2583.13 MT=1688.55 | 44h: WT=1858.85 MT=1222.39 | 68h: WT=1707.71 MT=1540.95 -->
+  <defs>
+    <style>
+      .axis{stroke:#7c8a8d; stroke-width:1;}
+      .gridline{stroke:#d7e0de; stroke-width:1; stroke-dasharray:3,3;}
+      .bar-wt{fill:#1f6f68;}
+      .bar-mt{fill:#a2432f;}
+      .lbl{font-size:11px; fill:#152025;}
+      .val{font-size:10px; fill:#455055;}
+      .axislbl{font-size:11px; fill:#7c8a8d;}
+      .title{font-size:12px; fill:#152025; font-weight:700;}
+    </style>
+  </defs>
+
+  <text x="10" y="18" class="title">g12225 / ELOVL6 &#8212; DESeq2-normalized expression, HS6 (MT) vs #4 (WT)</text>
+
+  <!-- y-axis gridlines + labels, scale 0-2800, 4 gridlines -->
+  <line x1="60" y1="270" x2="540" y2="270" class="axis"/>
+  <g>
+    <line x1="60" y1="270" x2="540" y2="270" class="gridline"/>
+    <line x1="60" y1="203" x2="540" y2="203" class="gridline"/>
+    <line x1="60" y1="136" x2="540" y2="136" class="gridline"/>
+    <line x1="60" y1="69"  x2="540" y2="69"  class="gridline"/>
+    <text x="52" y="273" text-anchor="end" class="axislbl">0</text>
+    <text x="52" y="206" text-anchor="end" class="axislbl">700</text>
+    <text x="52" y="139" text-anchor="end" class="axislbl">1400</text>
+    <text x="52" y="72"  text-anchor="end" class="axislbl">2100</text>
+  </g>
+
+  <!-- bars: scale factor = 200px / 2800 = 0.0714px per unit, baseline y=270 -->
+  <!-- 20h group -->
+  <rect x="110" y="86.6" width="34" class="bar-wt" height="184.5"/>
+  <text x="127" y="80" text-anchor="middle" class="val">2583</text>
+  <rect x="150" y="149.4" width="34" class="bar-mt" height="120.6"/>
+  <text x="167" y="143" text-anchor="middle" class="val">1689</text>
+  <text x="147" y="292" text-anchor="middle" class="lbl">20h</text>
+
+  <!-- 44h group -->
+  <rect x="250" y="137.3" width="34" class="bar-wt" height="132.7"/>
+  <text x="267" y="131" text-anchor="middle" class="val">1859</text>
+  <rect x="290" y="182.7" width="34" class="bar-mt" height="87.3"/>
+  <text x="307" y="176" text-anchor="middle" class="val">1222</text>
+  <text x="287" y="292" text-anchor="middle" class="lbl">44h</text>
+
+  <!-- 68h group -->
+  <rect x="390" y="147.1" width="34" class="bar-wt" height="122.9"/>
+  <text x="407" y="141" text-anchor="middle" class="val">1708</text>
+  <rect x="430" y="159.9" width="34" class="bar-mt" height="110.1"/>
+  <text x="447" y="153" text-anchor="middle" class="val">1541</text>
+  <text x="427" y="292" text-anchor="middle" class="lbl">68h</text>
+
+  <!-- legend -->
+  <rect x="150" y="310" width="12" height="12" class="bar-wt"/>
+  <text x="167" y="320" class="lbl">#4 (WT)</text>
+  <rect x="270" y="310" width="12" height="12" class="bar-mt"/>
+  <text x="287" y="320" class="lbl">HS6 (MT)</text>
+</svg>
+
+  </div>
+  <p>Overall genotype effect: log2FC=&minus;0.46 (down in HS6), padj=0.18 (not significant). Per-timepoint: 20h log2FC=&minus;0.61, 44h=&minus;0.60, 68h=&minus;0.15. Formal genotype&times;time interaction test: padj&gt;0.99 (not significant) &mdash; the fading pattern is descriptive, not a statistically confirmed interaction.</p>
+
+  <div class="callout gold">
+    <div class="ctitle">What a knockout would actually establish, given this data</div>
+    <p>Since ELOVL6&#8217;s protein sequence doesn&#8217;t differ between strains, a knockout tests something a natural mutation can&#8217;t: whether the enzyme is functionally <em>necessary</em>, not whether some existing difference already disrupted it. Two things from this project&#8217;s own data bear directly on interpreting a knockout phenotype: (1) three other elongase-family paralogs exist in this genome (below) &mdash; if any are functionally redundant with ELOVL6, the knockout phenotype could be partially masked; (2) this report&#8217;s own KEGG analysis (Section 7) already established that this organism&#8217;s DHA synthesis runs through a PKS-based route, not the classical ELOVL/desaturase elongation-desaturation cycle &mdash; so a knockout&#8217;s clearest effect is more likely to show up in membrane/storage lipid chain-length composition (C16&rarr;C18 conversion) than in DHA yield directly, absent evidence of pathway crosstalk.</p>
+  </div>
+
+  <h3>The full ELOVL family in this genome: 4 paralogs, verified by direct BLAST rather than trusted from automated labels</h3>
+  <p>Automated annotation across three independent sources (#7&#8217;s PGD pipeline, HS6&#8217;s eggNOG, HS6&#8217;s SwissProt/KEGG table) gave <em>inconsistent</em> names for the non-ELOVL6 genes in this family &mdash; e.g. the same gene called &#8220;fatty acid elongase 1&#8221; by one method and &#8220;elongase 3&#8221; by another, both pulling from different reference-organism naming conventions. Resolved here by direct pairwise BLAST against the confirmed ELOVL6 sequence and against #7&#8217;s whole proteome, rather than trusting any single label:</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>HS6 gene</th><th>#7 ortholog</th><th>Identity to true ELOVL6</th><th>Verified identity</th></tr></thead>
+    <tbody>
+      <tr><td class="gene">g12225</td><td>LOCUS_004835-RA</td><td class="num">100%</td><td><b>ELOVL6</b> (this gene)</td></tr>
+      <tr><td class="gene">g12221</td><td>LOCUS_004830-RA</td><td class="num">n/a (distinct gene)</td><td>ELOVL1/4-like &mdash; KEGG KO call ambiguous (K10247=ELOVL1 / K10249=ELOVL4, both assigned)</td></tr>
+      <tr><td class="gene">g1554</td><td>LOCUS_010826-RA</td><td class="num">36.3%</td><td>Distinct paralog (&#8220;Baldspot&#8221;-type) &mdash; eggNOG&#8217;s automated KO call of K10203/ELOVL6 for this gene is imprecise at this identity level</td></tr>
+      <tr><td class="gene">g7382</td><td>LOCUS_005399-RA</td><td class="num">34.8%</td><td><b>ELOVL4</b>, confirmed directly (98.8% identical to #7&#8217;s own ELOVL4 ortholog) &mdash; the 1,234&nbsp;aa length that first flagged this gene as an outlier is a real multi-domain fusion, not an annotation artifact</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout rust">
+    <div class="ctitle">A correction to Section 7&#8217;s KEGG map: the confirmed ELOVL6 gene has no KO assignment at all</div>
+    <p>Section 7&#8217;s ko01040 map cites &#8220;ELOVL3/6&#8221; as present in this genome&#8217;s fatty-acid unsaturation machinery. Checked directly against this section&#8217;s findings: <span class="gene">g12225</span> &mdash; the gene verified here as the actual, 100%-conserved ELOVL6 &mdash; <b>has no KEGG_ko field in the eggNOG annotation at all.</b> That map&#8217;s KO hit almost certainly traces to <span class="gene">g12221</span>&#8217;s ambiguous K10247/K10249 call or <span class="gene">g1554</span>&#8217;s K10203 call, not to the confirmed ELOVL6 gene itself. The biology (an elongase-family gene present in this pathway region) isn&#8217;t wrong, but the specific gene identity behind that KEGG box needs this correction &mdash; a good example of why this whole section verifies gene identity by direct sequence comparison rather than trusting a single annotation pipeline&#8217;s label, consistent with the rest of this report&#8217;s approach.</p>
+  </div>
 </section>
 
 
