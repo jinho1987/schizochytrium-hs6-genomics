@@ -64,6 +64,9 @@ p.subdek{font-size:16px; color:var(--ink-soft); max-width:70ch; margin:0 0 22px;
 .pill{font-family:var(--mono); font-size:11px; padding:4px 10px; border-radius:99px; border:1px solid var(--line);}
 .pill.done{background:var(--good-tint); color:var(--good); border-color:transparent;}
 .pill.pending{background:var(--gold-tint); color:var(--gold-ink); border-color:transparent;}
+.pill.retracted{background:#fdf1f2; color:#c0293c; border-color:transparent;}
+:root:not([data-theme="light"]) .pill.retracted{background:#2a1215;}
+:root[data-theme="dark"] .pill.retracted{background:#2a1215;}
 nav.toc{background:var(--bg-raised); border:1px solid var(--line); border-radius:10px; padding:18px 22px; margin-bottom:40px; box-shadow:var(--shadow);}
 nav.toc .k{font-family:var(--mono); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:8px; display:block;}
 nav.toc ol{margin:0; padding-left:20px; columns:2; column-gap:28px;}
@@ -152,10 +155,10 @@ a{color:var(--teal-ink);}
     <span class="pill pending" id="pill-rascaf">RNA-seq scaffolding &mdash; stopped, incomplete</span>
     <span class="pill done" id="pill-eggnog">eggNOG-mapper &mdash; done</span>
     <span class="pill done">Expression-constrained flux (draft) &mdash; done, caveated</span>
-    <span class="pill done">Genome-wide missense survey &mdash; done</span>
+    <span class="pill retracted">Genome-wide missense survey &mdash; retracted, see &sect;14</span>
     <span class="pill done" id="pill-esmfold">ESM structural folding &mdash; done</span>
     <span class="pill done">Structural variant survey (Delly) &mdash; done</span>
-    <span class="pill pending">Mechanistic synthesis &mdash; hypotheses only, not tested</span>
+    <span class="pill pending">Mechanistic synthesis &mdash; revised after retraction, hypotheses only, not tested</span>
   </div>
 
   <nav class="toc">
@@ -174,7 +177,7 @@ a{color:var(--teal-ink);}
       <li><a href="#degrigor">11. DEG statistical rigor &amp; annotation audit</a></li>
       <li><a href="#sequences">12. Lab-ready sequences &amp; PCR primers</a></li>
       <li><a href="#qpcr">13. RT-qPCR validation panel</a></li>
-      <li><a href="#missense">14. Genome-wide missense mutation survey</a></li>
+      <li><a href="#missense">14. Genome-wide missense mutation survey <span style="color:#c0293c;">(retracted)</span></a></li>
       <li><a href="#svcalls">15. Structural variant survey (indel/SNP was not the whole story)</a></li>
       <li><a href="#synthesis">16. Mechanistic synthesis: structure &rarr; phenotype</a></li>
       <li><a href="#methods">17. Methods &amp; reproducibility</a></li>
@@ -587,8 +590,10 @@ a{color:var(--teal-ink);}
     <div class="callout retracted">
       <span class="lbl">Retracted: this section's mutation calls do not survive verification against the raw reads</span>
       <p>Everything below was built on a genome-wide reconstruction of #4's protein sequence (<code>HS4_mild_filt_prot.fasta</code> / <code>HS4_no_filt_prot.fasta</code>, built via <code>bcftools consensus</code> earlier in this project). That reconstruction's own input VCF is no longer present in the project folder &mdash; only the output FASTAs survived. When each of the 99 claimed mutation positions across the 11 genes this section (and &sect;16) leaned on most heavily was checked directly against the actual WT4 resequencing reads (<code>samtools mpileup</code> at each exact coordinate, requiring &ge;80% of reads to support the claimed allele), <b>only 1 of 99 held up</b> &mdash; and that one (g14345, intronic, not a missense change) was already independently validated elsewhere in this project (<a href="report2.html#04">report2.html &sect;04</a>) through the correct, haploid-model <code>bcftools call</code> pipeline. The rest showed either a mixed/ambiguous signal or reads that mostly matched the HS6 reference, directly contradicting the claimed WT4 mutation.</p>
-      <p>Cross-checking this project's own already-validated variant set (84 variants genome-wide, haploid <code>bcftools call</code>, the same pipeline behind &sect;15's SV survey and report2.html's "rigorous rerun") directly against the CDS annotation confirms it independently: <b>zero of those 84 variants fall in a coding region.</b> A further maximally-permissive scan (quality/mapping-quality thresholds fully disabled, every CDS base genome-wide checked directly) was run specifically to test whether relaxing the filter further would recover any real missense signal &mdash; see the result and full reasoning in <a href="#synthesis">&sect;16</a>, which replaces the mechanistic synthesis this section originally fed.</p>
+      <p>Cross-checking this project's own already-validated variant set (84 variants genome-wide, haploid <code>bcftools call</code>, the same pipeline behind &sect;15's SV survey and report2.html's "rigorous rerun") directly against the CDS annotation confirms it independently: <b>zero of those 84 variants fall in a coding region.</b></p>
+      <p>To directly answer "does relaxing the filter change this": a maximally permissive rescan was run with all quality/mapping-quality thresholds fully disabled (<code>-Q 0 -q 0</code>), checking every base of every CDS genome-wide (30,786 CDS features) directly against the WT4 reads. <b>37 candidate sites appear &mdash; and every single one is the same artifact type</b>: a multi-base indel inside a tandem microsatellite repeat (AAG-repeats, CAT-repeats, AGC-repeats, GT-repeats and similar STR motifs), with zero reads supporting the reference allele at any of them (the classic PCR/sequencing-slippage signature in repetitive DNA, not a real biological difference) and uniformly low QUAL scores even with no threshold applied at all. None are SNPs; none are missense-capable. This is exactly the artifact class that base/mapping-quality filtering exists to remove &mdash; relaxing the filter doesn't recover real signal, it recovers more of this same noise. The answer to "no matter how much we relax the filter" is now a tested one, not a guess: no.</p>
       <p><b>What's unaffected:</b> the structural variant survey (&sect;15) was built directly from BAM alignment, independent of this reconstruction, and separately cross-validated against SKKU's own HS6 assembly data (multi-assembler consistency + raw HiFi read alignment) &mdash; that finding stands. The ESMFold pipeline itself (&sect;ESMFold figures below) executed correctly and the method is sound; it was simply pointed at candidate mutations that turned out not to be real. Per this site's standing convention, the original content is kept below (visually marked, not deleted) rather than erased.</p>
+      <p class="pending-note">Permissive-scan VCF (Q0/q0, all CDS genome-wide, the 37-candidate result above): <a href="results/permissive_cds_Q0q0.vcf.gz">results/permissive_cds_Q0q0.vcf.gz</a>. The validated 84-variant &rarr; DE-gene cis-regulatory analysis that replaces this section's conclusions is in <a href="#synthesis">&sect;16</a>.</p>
     </div>
 
     <div class="retracted-block">
