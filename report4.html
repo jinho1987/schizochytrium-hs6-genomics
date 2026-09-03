@@ -976,6 +976,32 @@ a{color:var(--teal-ink);}
       <span class="lbl">RT-qPCR: not new wet-lab primers, but the target list is worth stating plainly</span>
       <p>RNA-seq already provides expression-level evidence for all 5 genes above (that's how they were identified as DE-significant in the first place), so a dedicated RT-qPCR primer set isn't the priority the way Sanger confirmation of the DNA variants themselves is. If independent qPCR validation of the RNA-seq calls is wanted, the targets are exactly the 5 genes in the table above: <b>g6124, g568, g8342, g8869, g14345</b> &mdash; the same panel-design approach as &sect;13's existing 27-gene RT-qPCR panel would apply directly.</p>
     </div>
+
+    <h3>Can a non-coding variant change the adjacent gene's protein fold? No &mdash; but here's the mechanism that's actually plausible</h3>
+    <p>Worth stating precisely, since it's easy to conflate with the structural work above: translation reads the mRNA's coding sequence codon-by-codon, so if a variant never touches that sequence, the resulting protein &mdash; and its fold &mdash; is necessarily identical. This is a hard mechanistic boundary, not an untested possibility. It rules out any "folding shift" for the four intergenic candidates (g6124, g568, g8342, g8869) by construction: same protein, only the expression level differs.</p>
+    <p>The one case where a structural argument is even worth checking is g14345, since its variant sits <i>inside</i> the gene (intronic). Introns are transcribed before being spliced out, so a variant there could in principle produce a genuinely different protein isoform &mdash; but only by disrupting canonical splice-site recognition (the GT&hellip;AG boundaries and branch point), not by any other route. Checked directly against g14345's exon structure: the variant (Scaffolds_4:2,843,502) sits <b>134bp from the nearest 5&prime; donor site and 172bp from the 3&prime; acceptor</b>, squarely in the intron's interior rather than near either canonical splice boundary or the branch-point zone (typically only 18&ndash;40bp upstream of the acceptor). Splicing disruption is therefore not well-supported for this variant specifically.</p>
+    <div class="callout finding">
+      <span class="lbl">A better-fitting mechanism already established elsewhere on this site: intron-mediated enhancement (IME)</span>
+      <p>&sect;2 of this report already documents native introns boosting transcript output in this organism through spliceosome-associated recruitment &mdash; a real mechanism that changes expression level, not splice-site fidelity or protein sequence. That fits g14345 far better than a splicing-disruption story: the gene is <i>up</i> in HS6 (log2FC=+0.76), exactly the direction an altered IME element would produce, and requires no change to the protein at all. This remains a hypothesis, not a confirmed mechanism &mdash; distinguishing "true IME change" from "linked to some other regulatory element nearby" needs the same RT-PCR-across-the-intron test already proposed for the splicing question.</p>
+    </div>
+
+    <h3>Structural characterization of g6124: does the fold actually look like a kinase?</h3>
+    <p>g6124 carries no coding mutation (confirmed above), so there's no WT4-vs-HS6 structural comparison to make here the way &sect;14 originally attempted for g6423/g11453 &mdash; this is a single-structure characterization testing whether the eggNOG "Ribosomal protein S6 kinase alpha-2" annotation is structurally plausible, which matters because that identity is what makes the nearby cis-regulatory variant a meaningful growth-phenotype candidate in the first place.</p>
+    <div class="struct-fig-row" style="grid-template-columns:1.4fr 1fr;">
+      <div class="struct-fig-card">
+        <img src="figures/esmfold/g6124_kinase_confidence.png" alt="g6124 predicted structure colored by pLDDT confidence with catalytic motif residues highlighted" loading="lazy">
+        <div class="cap-title">g6124, confidence-colored (pLDDT 66, mean)</div>
+        <div class="cap-body">The classic bilobal protein kinase fold: a &beta;-sheet-rich N-lobe and an &alpha;-helical C-lobe, with the three catalytic motifs found directly in the sequence &mdash; the HRD-like catalytic loop (H<sup>276</sup>ADLKPEN<sup>283</sup>), the DFG motif (D<sup>296</sup>FGLSVF<sup>302</sup>), and the APE motif (S<sup>328</sup>APE<sup>331</sup>) &mdash; shown as red sticks. All three cluster at the interlobe cleft, exactly where kinase catalysis happens. That's independent structural support for the annotation, on top of the sequence motifs alone.</div>
+      </div>
+      <div class="struct-fig-card">
+        <img src="figures/esmfold/g3557_rps6_confidence.png" alt="g3557 (RPS6) predicted structure colored by pLDDT confidence" loading="lazy">
+        <div class="cap-title">g3557, this organism's native RPS6 (pLDDT 70, mean)</div>
+        <div class="cap-body">The predicted physiological substrate &mdash; SKKU's own eggNOG annotation flagged g3557 as Ribosomal protein S6, so this is an organism-specific docking partner rather than a cross-species surrogate. Compact globular core with an extended, lower-confidence terminal tail, consistent with known RPS6 architecture (the tail threads through rRNA in the assembled ribosome).</div>
+      </div>
+    </div>
+
+    <h3>Docking g6124 against g3557: in progress</h3>
+    <p class="pending-note">A full blind protein-protein docking run (LightDock, 635 swarms covering the entire molecular surface, DFIRE scoring, 100 steps/swarm) is running at the time of writing. This tests whether the top-ranked binding poses cluster near the kinase's catalytic cleft (supporting substrate engagement) or scatter randomly across the surface (which would undermine the annotation). Results will be posted here once complete, with the important caveat already noted above: this tests the <i>annotation's</i> plausibility, not a WT4-vs-HS6 difference &mdash; g6124 and g3557 are both sequence-identical between genotypes.</p>
   </section>
 
   <section id="methods">
