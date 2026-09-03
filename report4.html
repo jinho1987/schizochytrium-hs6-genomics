@@ -93,6 +93,11 @@ td.mono, .gene{font-family:var(--mono); font-size:12.5px;}
 .callout.caveat{border-left:3px solid var(--rust);} .callout.caveat .lbl{color:var(--rust);}
 .callout.finding{border-left:3px solid var(--teal);} .callout.finding .lbl{color:var(--teal);}
 .callout.method{border-left:3px solid var(--gold);} .callout.method .lbl{color:var(--gold-ink);}
+.callout.retracted{border-left:4px solid #c0293c; background:#fdf1f2;} .callout.retracted .lbl{color:#c0293c;}
+:root:not([data-theme="light"]) .callout.retracted{background:#2a1215;}
+:root[data-theme="dark"] .callout.retracted{background:#2a1215;}
+.retracted-block{opacity:.55; filter:grayscale(.3); position:relative;}
+.retracted-block::before{content:"RETRACTED \2014 kept for the record, see box above"; display:block; font-family:var(--mono); font-size:11px; font-weight:700; color:#c0293c; letter-spacing:.05em; text-transform:uppercase; margin-bottom:10px;}
 code, .code{font-family:var(--mono); font-size:.88em; background:var(--line-soft); padding:1px 5px; border-radius:4px;}
 pre{background:var(--bg-raised); border:1px solid var(--line); border-radius:8px; padding:14px 16px; overflow-x:auto; font-family:var(--mono); font-size:12.5px;}
 .pending-note{font-style:italic; color:var(--ink-faint); font-size:14px;}
@@ -577,7 +582,16 @@ a{color:var(--teal-ink);}
   </section>
 
   <section id="missense">
-    <div class="sec-head"><span class="sec-num">14</span><h2>Genome-wide missense mutation survey</h2></div>
+    <div class="sec-head"><span class="sec-num">14</span><h2>Genome-wide missense mutation survey <span style="color:#c0293c;">&mdash; RETRACTED</span></h2></div>
+
+    <div class="callout retracted">
+      <span class="lbl">Retracted: this section's mutation calls do not survive verification against the raw reads</span>
+      <p>Everything below was built on a genome-wide reconstruction of #4's protein sequence (<code>HS4_mild_filt_prot.fasta</code> / <code>HS4_no_filt_prot.fasta</code>, built via <code>bcftools consensus</code> earlier in this project). That reconstruction's own input VCF is no longer present in the project folder &mdash; only the output FASTAs survived. When each of the 99 claimed mutation positions across the 11 genes this section (and &sect;16) leaned on most heavily was checked directly against the actual WT4 resequencing reads (<code>samtools mpileup</code> at each exact coordinate, requiring &ge;80% of reads to support the claimed allele), <b>only 1 of 99 held up</b> &mdash; and that one (g14345, intronic, not a missense change) was already independently validated elsewhere in this project (<a href="report2.html#04">report2.html &sect;04</a>) through the correct, haploid-model <code>bcftools call</code> pipeline. The rest showed either a mixed/ambiguous signal or reads that mostly matched the HS6 reference, directly contradicting the claimed WT4 mutation.</p>
+      <p>Cross-checking this project's own already-validated variant set (84 variants genome-wide, haploid <code>bcftools call</code>, the same pipeline behind &sect;15's SV survey and report2.html's "rigorous rerun") directly against the CDS annotation confirms it independently: <b>zero of those 84 variants fall in a coding region.</b> A further maximally-permissive scan (quality/mapping-quality thresholds fully disabled, every CDS base genome-wide checked directly) was run specifically to test whether relaxing the filter further would recover any real missense signal &mdash; see the result and full reasoning in <a href="#synthesis">&sect;16</a>, which replaces the mechanistic synthesis this section originally fed.</p>
+      <p><b>What's unaffected:</b> the structural variant survey (&sect;15) was built directly from BAM alignment, independent of this reconstruction, and separately cross-validated against SKKU's own HS6 assembly data (multi-assembler consistency + raw HiFi read alignment) &mdash; that finding stands. The ESMFold pipeline itself (&sect;ESMFold figures below) executed correctly and the method is sound; it was simply pointed at candidate mutations that turned out not to be real. Per this site's standing convention, the original content is kept below (visually marked, not deleted) rather than erased.</p>
+    </div>
+
+    <div class="retracted-block">
     <p class="lede">Every candidate driver mutation discussed elsewhere in this project (&sect;6, &sect;13) came from a small, hand-curated gene list. This section instead scans <b>all 16,088 genes genome-wide</b> for amino-acid-changing mutations between HS6 and #4, using a resource that already existed in the project but had not been used this way: a full genome-wide reconstruction of #4's protein-coding sequence (built earlier by applying the WT4-vs-HS6 variant calls onto the HS6 reference), diffed directly against HS6's own proteome, codon by codon.</p>
     <div class="stat-grid">
       <div class="stat-card"><div class="v">8</div><div class="k">genes with a missense/stop change, high-confidence (Mild_filter) tier</div></div>
@@ -788,6 +802,7 @@ a{color:var(--teal-ink);}
     <p class="pending-note">Per-sequence pLDDT and fold times: <a href="results/esmfold_summary.json">results/esmfold_summary.json</a>. Predicted structures (PDB): <a href="results/g6423_WT4.pdb">g6423_WT4</a>, <a href="results/g6423_HS6.pdb">g6423_HS6</a>, <a href="results/g11453_WT4.pdb">g11453_WT4</a>, <a href="results/g11453_HS6.pdb">g11453_HS6</a>. Reproduction script: <a href="scripts/run_esmfold.py">scripts/run_esmfold.py</a>.</p>
 
     <p class="pending-note">Genome-wide scan output (all 16,088 genes, both confidence tiers): <a href="results/genomewide_missense_mild.tsv">results/genomewide_missense_mild.tsv</a>, <a href="results/genomewide_missense_nofilt.tsv">results/genomewide_missense_nofilt.tsv</a>. Reproduction script: <a href="scripts/genomewide_missense_scan.py">scripts/genomewide_missense_scan.py</a>.</p>
+    </div>
   </section>
 
   <section id="svcalls">
@@ -878,25 +893,45 @@ a{color:var(--teal-ink);}
 
   <section id="synthesis">
     <div class="sec-head"><span class="sec-num">16</span><h2>Mechanistic synthesis: connecting structure back to the phenotype</h2></div>
-    <p class="lede">This is speculation, clearly labeled as such &mdash; a guess at mechanism built from real structural and genomic evidence, not a proven causal chain. <a href="report2.html#04">report2.html &sect;04</a> already established the puzzle this section tries to address: HS6 was bred by EMS mutagenesis for faster growth and higher DHA/lipid yield, and the transcriptome shows a coherent "make more, burn less" signature driving that &mdash; but <b>none of the genes actually doing the work (Pks13, SDP1, Actin, the myosin paralogs, CDK F-3) carry a coding mutation themselves.</b> That report proposed a <i>trans</i>-acting regulatory mutation as the likely explanation and flagged g6423's RanGAP-like domain as the first candidate. Everything below either extends that lead with new evidence or opens a second, independent one.</p>
+    <p class="lede">This is speculation, clearly labeled as such &mdash; a guess at mechanism built from validated genomic evidence, not a proven causal chain. <a href="report2.html#04">report2.html &sect;04</a> established the puzzle this section addresses: HS6 was bred by EMS mutagenesis for faster growth and higher DHA/lipid yield, and the transcriptome shows a coherent "make more, burn less" signature driving that &mdash; but <b>none of the genes actually doing the work (Pks13, SDP1, Actin, the myosin paralogs, CDK F-3) carry a coding mutation themselves.</b></p>
 
-    <h3>Thread 1: nuclear transport disruption (RanGAP family) &mdash; strongest evidence</h3>
-    <div class="callout finding">
-      <span class="lbl">Four independent mutation-carrying genes now converge on the same nuclear-transport family</span>
-      <p>&sect;14's InterProScan pass found that <b>g853, g12826, and g15200</b> &mdash; three more genes carrying a confirmed missense mutation &mdash; independently hit the same <b>RAN GTPase-activating protein</b> family already flagged for g6423 in report2.html. That's four separately-mutated genes in one project converging on one transport pathway by chance-independent domain search, not by design. RanGAP drives the Ran-GTP/GDP cycle that gates nuclear import and export of proteins &mdash; including, plausibly, the <b>MYB3R transcription factor family</b> whose paralog-split expression pattern is this project's central regulatory finding (<a href="report2.html#04">report2.html</a>, Figure 2 panel a). If RanGAP-mediated transport is impaired, MYB3R (and other TFs) could show altered nuclear activity <i>without their own sequence changing at all</i> &mdash; which is exactly the shape of the mystery report2.html described.</p>
-      <p>&sect;14's structural work adds a physical mechanism for <i>how</i> g6423's mutation specifically could do this: R27F doesn't just change an amino acid on paper &mdash; the surface-charge and hydrophobicity renders above show a real, visible flip from a solvent-exposed basic patch to a hydrophobic one, at a site ESMFold predicts with very high confidence (pLDDT 96&ndash;97). Losing a charged surface patch at a protein-protein interaction protein is a textbook way to weaken or redirect a binding interface. This doesn't prove RanGAP function is impaired &mdash; that needs a binding assay &mdash; but it's a concrete, visualizable hypothesis rather than a hand-wave.</p>
+    <div class="callout retracted">
+      <span class="lbl">This section previously proposed two threads (RanGAP/nuclear-transport, dynein/cytoskeleton) built on &sect;14's missense survey. Both are retracted along with it.</span>
+      <p>Neither g6423's R27F nor g11455's stop-loss &mdash; nor any of the other genes those threads leaned on &mdash; survives direct verification against the WT4 sequencing reads (see &sect;14's retraction notice for the full accounting: 1 of 99 checked positions held up). The RanGAP and dynein hypotheses are not being carried forward. What follows instead is built entirely on this project's already-validated 84-variant set, cross-referenced directly against the RNA-seq differential-expression results &mdash; the same rigor standard as everywhere else on this site.</p>
     </div>
 
-    <h3>Thread 2: cytoskeletal resource reallocation (dynein) &mdash; independent, matches a separate part of the phenotype</h3>
-    <div class="callout finding">
-      <span class="lbl">A stop-loss mutation in a dynein regulator lines up with the "resources away from cytoskeleton" half of the story</span>
-      <p><a href="report2.html#03">report2.html &sect;03</a> describes the phenotype mechanism as having two halves: upregulating DHA synthesis, <i>and</i> a broad reallocation of resources away from cytoskeletal machinery (consistent with the strong cytoskeleton-down GO enrichment, GO:0051015, p.adjust=1.7&times;10&#8315;&sup1;&sup3;, documented in &sect;4 of this report). &sect;14 found that <b>g11455</b>, whose mutation is a stop-loss (protein extension, not truncation), hits <b>Dynein regulatory complex subunit 5</b> by InterProScan. Dynein regulates cytoskeletal/flagellar dynamics directly. A structurally altered dynein regulator is a plausible direct genetic driver of exactly the cytoskeletal-investment-down theme &mdash; a separate thread from RanGAP/MYB3R, addressing the other half of the phenotype narrative.</p>
+    <h3>The corrected picture: coding mutations are off the table; cis-regulatory candidates are what's left</h3>
+    <p>Cross-checking the CDS annotation against the validated 84-variant set directly confirms what report2.html's earlier "rigorous rerun" already found: <b>zero of the 84 variants fall in a coding region.</b> Of the 84, only <b>one</b> (g14345) sits inside a gene body at all (intronic) &mdash; every other variant is genuinely intergenic, at distances from 146bp to over 25kb from the nearest gene. So the search this section runs is the one report2.html's own puzzle actually calls for: not "which protein changed," but <b>which real, validated mutations sit near a gene whose expression significantly changed</b> &mdash; a cis-regulatory candidate search, not a missense one.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card"><div class="v">84</div><div class="k">validated variants genome-wide</div></div>
+      <div class="stat-card"><div class="v">0</div><div class="k">fall in a coding region</div></div>
+      <div class="stat-card"><div class="v">5</div><div class="k">genes where the nearest validated variant sits near a DE-significant gene (padj&lt;0.05)</div></div>
     </div>
 
-    <h3>Thread 3: the 421kb inversion &mdash; higher potential impact, improving confidence</h3>
+    <h3>Candidate cis-regulatory links, ranked by DE significance</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Gene</th><th>Location</th><th>Distance</th><th>padj</th><th>log2FC</th><th>Identity</th></tr></thead>
+      <tbody>
+        <tr><td class="gene">g8342</td><td>intergenic</td><td>3.9&ndash;3.9kb (3 variants)</td><td>0.0008</td><td>&minus;1.15</td><td>unannotated</td></tr>
+        <tr><td class="gene">g568</td><td>intergenic</td><td>2.2kb (2 variants)</td><td>0.0106</td><td>+0.97</td><td>Uracil-regulated protein 1</td></tr>
+        <tr><td class="gene">g6124</td><td>intergenic</td><td>0.85&ndash;2.2kb (3 variants)</td><td>0.0174</td><td>&minus;0.59</td><td><b>Ribosomal protein S6 kinase alpha-2</b></td></tr>
+        <tr><td class="gene">g8869</td><td>intergenic</td><td>3.1kb</td><td>0.0228</td><td>&minus;1.60</td><td>unannotated</td></tr>
+        <tr><td class="gene">g14345</td><td><b>intronic</b></td><td>0bp (inside the gene)</td><td>0.0330</td><td>+0.76</td><td>unannotated; matches EMS's C&rarr;T signature (report2.html &sect;04)</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout finding">
+      <span class="lbl">g6124 &mdash; Ribosomal protein S6 kinase alpha-2, a real candidate for the growth axis specifically</span>
+      <p>S6 kinase (S6K) is the canonical downstream effector of TOR (target-of-rapamycin) growth signaling &mdash; it directly links nutrient/growth-factor signaling to ribosome biogenesis and cell growth across eukaryotes, from yeast to plants to animals. Three validated variants sit 850bp&ndash;2.2kb from this gene, and it's significantly downregulated (padj=0.017, log2FC=&minus;0.59). This is exactly the kind of gene a "faster growth" phenotype search should be looking at &mdash; a cis-regulatory variant near a core growth-signaling kinase is a substantially more direct hypothesis than the retracted RanGAP thread ever was, precisely because every piece of it (the variant, the DE call, the CDS-exclusion) now comes from the validated pipeline. The direction (down, not up) is counterintuitive for a faster-growing strain and is not explained here &mdash; a real open question, not glossed over. Whether the nearby variant is actually driving the expression change (vs. just being the nearest gene to an unrelated regulatory element) is untested.</p>
+    </div>
+
+    <h3>The 421kb inversion &mdash; independently supported, unaffected by the retraction</h3>
     <div class="callout caveat">
-      <span class="lbl">If real, this alone could explain "cascading to hundreds of genes" &mdash; upgraded from single-caller to independently cross-checked, still short of PCR-confirmed</span>
-      <p>report2.html's own phrasing for what a <i>trans</i>-acting cause would need to look like was a mutation "cascading to hundreds of downstream genes." A 421kb inversion spanning &gt;100 genes (&sect;15) would do exactly that in one structural event, and its 646-read-pair support is the strongest signal in this entire project's SV data. This call started as a single-caller (Delly-only) finding, not cross-validated the way the vendor's own BreakDancer/Pindel/Delly standard required &mdash; but &sect;15 now has two independent checks against SKKU's own HS6 data (multi-assembler consistency and direct raw HiFi read alignment) that both rule out the main alternative explanation, an HS6 assembly artifact. That's real progress, not proof: it still doesn't confirm the inversion is present in WT4, since WT4 has no assembly of its own to check the same way. The junction PCR designed in &sect;15 remains the step that would actually confirm it.</p>
+      <span class="lbl">If real, this alone could explain "cascading to hundreds of genes" &mdash; built on &sect;15's SV survey, not the retracted missense work</span>
+      <p>report2.html's own phrasing for what a <i>trans</i>-acting cause would need to look like was a mutation "cascading to hundreds of downstream genes." A 421kb inversion spanning &gt;100 genes (&sect;15) would do exactly that in one structural event, and its 646-read-pair support is the strongest signal in this entire project's SV data. This finding is built entirely from BAM alignment (Delly) and cross-validated against SKKU's own HS6 assembly data (multi-assembler consistency and direct raw HiFi read alignment, &sect;15) &mdash; completely independent of the retracted missense reconstruction, so it carries forward unaffected. It still doesn't confirm the inversion is present in WT4, since WT4 has no assembly of its own to check the same way. The junction PCR designed in &sect;15 remains the step that would actually confirm it.</p>
     </div>
 
     <h3>What would actually test these</h3>
@@ -904,11 +939,37 @@ a{color:var(--teal-ink);}
     <table>
       <thead><tr><th>Hypothesis</th><th>What would confirm or kill it</th></tr></thead>
       <tbody>
-        <tr><td>RanGAP/nuclear transport (Thread 1)</td><td>Co-IP or yeast two-hybrid between g6423/g853/g12826 and Ran-GTPase or MYB3R paralogs; nuclear/cytoplasmic fractionation of MYB3R protein in WT4 vs HS6 (does its localization actually shift?); Sanger-confirm the mutations first (&sect;14 primers already designed)</td></tr>
-        <tr><td>Dynein/cytoskeleton (Thread 2)</td><td>Sanger-confirm g11455's stop-loss (&sect;14 primer already designed); compare flagellar/motility phenotype WT4 vs HS6 directly if observable; RT-qPCR the specific dynein/cytoskeletal genes already flagged down in &sect;4's GO enrichment</td></tr>
-        <tr><td>421kb inversion (Thread 3)</td><td>The junction PCR designed in &sect;15 &mdash; a positive product on HS6 gDNA (and its absence on WT4) would be strong independent confirmation without needing long-read resequencing</td></tr>
+        <tr><td>g6124 (S6 kinase) cis-regulatory link</td><td>RT-qPCR to independently confirm the DE call; 5&prime;/3&prime; RACE or promoter-proximal ATAC to check whether the nearby variants actually sit in a regulatory element; Sanger-confirm the 3 variants themselves (below)</td></tr>
+        <tr><td>g568 / g8342 / g8869 links</td><td>Same approach &mdash; RT-qPCR confirmation plus Sanger-confirm each variant; g8342 and g8869 are unannotated, so a regulatory role is speculative until a motif or chromatin mark is found nearby</td></tr>
+        <tr><td>g14345 (intronic, EMS-matching)</td><td>Already the strongest single candidate in the project per report2.html &sect;04 &mdash; Sanger-confirm, then test whether the intronic position affects splicing (RT-PCR across the intron, WT4 vs HS6)</td></tr>
+        <tr><td>421kb inversion</td><td>The junction PCR designed in &sect;15 &mdash; a positive product on HS6 gDNA (and its absence on WT4) would be strong independent confirmation without needing long-read resequencing</td></tr>
       </tbody>
     </table>
+    </div>
+
+    <h3>Sanger confirmation targets for the cis-regulatory candidate genes</h3>
+    <p>Primers designed with &ge;500bp of flanking sequence on each side of every variant (substantially wider than this site's earlier primer sets, so the variant sits well clear of the lower-quality read stretch near each primer), each primer pair excluded from a zone centered on its target variant. g6124's two variant clusters (850bp apart) get separate amplicons rather than one primer pair spanning both.</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Target</th><th>Coordinates</th><th>Fwd primer</th><th>Rev primer</th><th>Product</th><th>Flanking (fwd / rev)</th></tr></thead>
+      <tbody>
+        <tr><td class="gene">g8342</td><td class="mono">Scaffolds_22:2083254&ndash;2083281</td><td class="mono">GAAGCCTGCAAACGGTTCTG</td><td class="mono">GCCATCCCACACAAACACAC</td><td>1150 bp</td><td>575 / 547 bp</td></tr>
+        <tr><td class="gene">g6124 (site 1)</td><td class="mono">Scaffolds_2:336298&ndash;336322</td><td class="mono">CTTGGCCTCCAGAGTCCTTG</td><td class="mono">CTTGCTCCGGCTCGAGATAG</td><td>1133 bp</td><td>604 / 504 bp</td></tr>
+        <tr><td class="gene">g6124 (site 2)</td><td class="mono">Scaffolds_2:337644</td><td class="mono">GCGGACTTTCCAACTTTGCA</td><td class="mono">GCTAAAGGTTTCCCCCGTGA</td><td>1198 bp</td><td>696 / 501 bp</td></tr>
+        <tr><td class="gene">g8869</td><td class="mono">Scaffolds_23:2124233</td><td class="mono">AGTGTACCCCGACGAAAACC</td><td class="mono">TTGCTGGAGATTGGTGCGAT</td><td>1104 bp</td><td>480 / 623 bp</td></tr>
+        <tr><td class="gene">g14345</td><td class="mono">Scaffolds_4:2843502</td><td class="mono">TTCTTCGCCGTGATGAGAGG</td><td class="mono">CTGCTTGCTTGCTTGCTCAA</td><td>1244 bp</td><td>637 / 606 bp</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout caveat">
+      <span class="lbl">g568: no reliable primer design possible &mdash; reported honestly, not forced</span>
+      <p>g568's two variants (Scaffolds_1:369524&ndash;369525) sit inside a long TC/TTC microsatellite repeat stretch spanning most of the surrounding kilobase. Primer3 could not find a specific primer pair under standard specificity constraints, and forcing one against a repetitive template would risk off-target amplification or ambiguous Sanger traces. This gene's cis-regulatory link (padj=0.011, log2FC=+0.97, "Uracil-regulated protein 1") is real per the validated variant set, but wet-lab confirmation of the exact variant will need a different approach (e.g. long-range PCR with primers well outside the repeat, or targeted long-read sequencing) rather than a standard Sanger amplicon.</p>
+    </div>
+    <p class="pending-note">Full table with padj/log2FC/flanking distances: <a href="results/cis_regulatory_sanger_primers.tsv">results/cis_regulatory_sanger_primers.tsv</a>. As with every primer set on this site: unvalidated in silico designs &mdash; BLAST against <code>HS6_scaf.fasta</code> before ordering.</p>
+
+    <div class="callout method">
+      <span class="lbl">RT-qPCR: not new wet-lab primers, but the target list is worth stating plainly</span>
+      <p>RNA-seq already provides expression-level evidence for all 5 genes above (that's how they were identified as DE-significant in the first place), so a dedicated RT-qPCR primer set isn't the priority the way Sanger confirmation of the DNA variants themselves is. If independent qPCR validation of the RNA-seq calls is wanted, the targets are exactly the 5 genes in the table above: <b>g6124, g568, g8342, g8869, g14345</b> &mdash; the same panel-design approach as &sect;13's existing 27-gene RT-qPCR panel would apply directly.</p>
     </div>
   </section>
 

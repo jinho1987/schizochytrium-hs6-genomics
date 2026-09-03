@@ -1,0 +1,85 @@
+chrom	pos	ref	alt	gene	location	distance_bp	padj	log2FC	identity
+Scaffolds_22	2083254	C	A	g8342	intergenic	3852	0.000751414785125996	-1.14789324999743	NA
+Scaffolds_22	2083273	C	A	g8342	intergenic	3871	0.000751414785125996	-1.14789324999743	NA
+Scaffolds_22	2083281	C	A	g8342	intergenic	3879	0.000751414785125996	-1.14789324999743	NA
+Scaffolds_1	369524	cttctttcttcttttt	ctt	g568	intergenic	2175	0.0106095769076731	0.965463045981691	Uracil-regulated protein 1
+Scaffolds_1	369525	ttctttcttct	tt	g568	intergenic	2176	0.0106095769076731	0.965463045981691	Uracil-regulated protein 1
+Scaffolds_2	336298	A	G	g6124	intergenic	852	0.0174461064932329	-0.590345016007827	Ribosomal protein S6 kinase alpha-2
+Scaffolds_2	336322	GAAA	GAA	g6124	intergenic	876	0.0174461064932329	-0.590345016007827	Ribosomal protein S6 kinase alpha-2
+Scaffolds_2	337644	tcc	tc	g6124	intergenic	2198	0.0174461064932329	-0.590345016007827	Ribosomal protein S6 kinase alpha-2
+Scaffolds_23	2124233	C	T	g8869	intergenic	3120	0.0228185135070593	-1.60014083516426	NA
+Scaffolds_4	2843502	T	C	g14345	intron	0	0.0329767929458793	0.761357003778416	NA
+Scaffolds_0	997279	agaaag	a	g245	intergenic	1259	0.313396913572701	0.459837388736358	Calcium-dependent protein kinase 5
+Scaffolds_10	1688926	TAGGTAAGGTAAGGT	TAGGTAAGGT	g1296	intergenic	18100	0.625434519693604	-0.394608810738354	NA
+Scaffolds_29	3196437	G	C	g11453	intergenic	1277	0.726378837902664	0.276390423737701	NA
+Scaffolds_29	3196439	A	T	g11453	intergenic	1279	0.726378837902664	0.276390423737701	NA
+Scaffolds_29	3196445	C	G	g11453	intergenic	1285	0.726378837902664	0.276390423737701	NA
+Scaffolds_29	3196503	A	G	g11453	intergenic	1343	0.726378837902664	0.276390423737701	NA
+Scaffolds_18	49893	G	C	g4265	intergenic	223	0.757668190228066	0.368893000088976	NA
+Scaffolds_18	49906	GT	G	g4265	intergenic	236	0.757668190228066	0.368893000088976	NA
+Scaffolds_2	1355608	A	C	g6390	intergenic	5682	0.824645231293491	0.229478767804512	NA
+Scaffolds_15	1300274	TTCT	TT	g2922	intergenic	2324	0.829709469224072	-0.290975531578615	Chloronitrobenzene nitroreductase
+Scaffolds_15	1300614	CTTTT	CTTT	g2922	intergenic	2664	0.829709469224072	-0.290975531578615	Chloronitrobenzene nitroreductase
+Scaffolds_15	1300923	TTCTCT	TTCT	g2922	intergenic	2973	0.829709469224072	-0.290975531578615	Chloronitrobenzene nitroreductase
+Scaffolds_15	1300981	TTCTCT	TTCT	g2922	intergenic	3031	0.829709469224072	-0.290975531578615	Chloronitrobenzene nitroreductase
+Scaffolds_15	1300983	CT	CTTT	g2922	intergenic	3033	0.829709469224072	-0.290975531578615	Chloronitrobenzene nitroreductase
+Scaffolds_15	1301017	CTTTTTTTT	CTTT	g2922	intergenic	3067	0.829709469224072	-0.290975531578615	Chloronitrobenzene nitroreductase
+Scaffolds_15	1301018	TTT	TTTCTT	g2922	intergenic	3068	0.829709469224072	-0.290975531578615	Chloronitrobenzene nitroreductase
+Scaffolds_17	43805	C	A	g3778	intergenic	5740	0.863452974526198	-0.303398017748398	G-type lectin S-receptor-like serine/threonine-protein kinase RLK1
+Scaffolds_17	43808	T	C	g3778	intergenic	5743	0.863452974526198	-0.303398017748398	G-type lectin S-receptor-like serine/threonine-protein kinase RLK1
+Scaffolds_17	43822	C	T	g3778	intergenic	5757	0.863452974526198	-0.303398017748398	G-type lectin S-receptor-like serine/threonine-protein kinase RLK1
+Scaffolds_17	43833	T	A	g3778	intergenic	5768	0.863452974526198	-0.303398017748398	G-type lectin S-receptor-like serine/threonine-protein kinase RLK1
+Scaffolds_17	43862	G	C	g3778	intergenic	5797	0.863452974526198	-0.303398017748398	G-type lectin S-receptor-like serine/threonine-protein kinase RLK1
+Scaffolds_17	43866	A	T	g3778	intergenic	5801	0.863452974526198	-0.303398017748398	G-type lectin S-receptor-like serine/threonine-protein kinase RLK1
+Scaffolds_2	370897	CCCTCCCCCCCCCCTCC	CCC	g6131	intergenic	299	0.905804147961	-0.316702329123989	NA
+Scaffolds_29	35526	C	A	g10614	intergenic	5723	0.926184758906906	0.101153372643862	NA
+Scaffolds_24	1064520	GGTG	GG	g9139	intergenic	624	0.947443220550399	0.0834871311960979	NA
+Scaffolds_15	526	A	T	g2587	intergenic	25139	0.948613189868139	-0.115411032962117	NA
+Scaffolds_28	887566	T	G	g10566	intergenic	1696	0.950857093641451	-0.128152270692849	NA
+Scaffolds_28	887567	C	A	g10566	intergenic	1695	0.950857093641451	-0.128152270692849	NA
+Scaffolds_28	887578	G	A	g10566	intergenic	1684	0.950857093641451	-0.128152270692849	NA
+Scaffolds_28	887584	G	T	g10566	intergenic	1678	0.950857093641451	-0.128152270692849	NA
+Scaffolds_28	887588	G	A	g10566	intergenic	1674	0.950857093641451	-0.128152270692849	NA
+Scaffolds_28	887615	T	A	g10566	intergenic	1647	0.950857093641451	-0.128152270692849	NA
+Scaffolds_2	58648	A	T	g6060	intergenic	7321	None	None	
+Scaffolds_2	1171682	TTCT	TT	g6344	intergenic	1626	None	0.519667208406696	NA
+Scaffolds_3	1269653	gaaaa	gaaa	g11818	intergenic	996	None	None	
+Scaffolds_3	1270221	gaaaa	gaaa	g11818	intergenic	428	None	None	
+Scaffolds_10	438672	ACCCCCCCCCCC	ACCCCCCCCCCCCCC	g942	intergenic	146	None	None	
+Scaffolds_14	1810835	TAAAAAAAAAAAAAAA	TAAAAAAAAAAAAA	g2580	intergenic	1322	None	None	
+Scaffolds_15	2192215	ACCCCCCCCCCCCCCCCCC	ACCCCCCCCCCCCCCC	g3136	intergenic	2505	None	0.779801786941962	Cyclin-dependent kinase 4 inhibitor B
+Scaffolds_15	2978937	C	T	g3345	intergenic	16052	None	None	
+Scaffolds_15	2979111	T	G	g3345	intergenic	16226	None	None	
+Scaffolds_15	2979114	T	C	g3345	intergenic	16229	None	None	
+Scaffolds_17	488558	G	A	g3905	intergenic	186	None	2.65992554560097	NA
+Scaffolds_20	2173536	CTTT	CT	g7021	intergenic	1407	None	None	
+Scaffolds_20	2312676	T	A	g7049	intergenic	19618	None	None	
+Scaffolds_22	116	GA	GATA	g7768	intergenic	12795	None	-1.79273231867951	NA
+Scaffolds_22	254	GAA	GAAA	g7768	intergenic	12657	None	-1.79273231867951	NA
+Scaffolds_22	255	A	AC	g7768	intergenic	12656	None	-1.79273231867951	NA
+Scaffolds_22	256	A	AC	g7768	intergenic	12655	None	-1.79273231867951	NA
+Scaffolds_22	329	GAAAAA	GAAA	g7768	intergenic	12582	None	-1.79273231867951	NA
+Scaffolds_22	383	GA	GAAA	g7768	intergenic	12528	None	-1.79273231867951	NA
+Scaffolds_22	421	GAA	GAAA	g7768	intergenic	12490	None	-1.79273231867951	NA
+Scaffolds_23	800133	G	C	g8541	intergenic	2300	None	-0.753519987178464	NA
+Scaffolds_23	800149	A	G	g8541	intergenic	2316	None	-0.753519987178464	NA
+Scaffolds_23	800170	A	G	g8541	intergenic	2337	None	-0.753519987178464	NA
+Scaffolds_23	800189	G	A	g8541	intergenic	2356	None	-0.753519987178464	NA
+Scaffolds_23	800202	C	T	g8541	intergenic	2369	None	-0.753519987178464	NA
+Scaffolds_23	800204	A	G	g8541	intergenic	2371	None	-0.753519987178464	NA
+Scaffolds_23	800224	C	T	g8541	intergenic	2391	None	-0.753519987178464	NA
+Scaffolds_24	1729	G	T	g8879	intergenic	17663	None	None	
+Scaffolds_24	7731	C	A	g8879	intergenic	11661	None	None	
+Scaffolds_24	7732	A	G	g8879	intergenic	11660	None	None	
+Scaffolds_24	7755	T	C	g8879	intergenic	11637	None	None	
+Scaffolds_24	7758	C	G	g8879	intergenic	11634	None	None	
+Scaffolds_24	7761	T	C	g8879	intergenic	11631	None	None	
+Scaffolds_24	7763	G	A	g8879	intergenic	11629	None	None	
+Scaffolds_24	7767	T	A	g8879	intergenic	11625	None	None	
+Scaffolds_25	274789	T	A	g9399	intergenic	273	None	None	
+Scaffolds_29	344807	CTTTT	CTTT	g10698	intergenic	9049	None	-0.147349115158496	NA
+Scaffolds_29	344808	TTT	TTTCTT	g10698	intergenic	9050	None	-0.147349115158496	NA
+Scaffolds_29	345030	CTT	CTTT	g10698	intergenic	9272	None	-0.147349115158496	NA
+Scaffolds_29	2712136	TTCTCT	TT	g11316	intergenic	828	None	None	
+Scaffolds_29	3196646	A	G	g11454	intergenic	1485	None	-0.776261350576193	NA
+Scaffolds_32	179995	CAAAAA	CAAAAAAA	g12577	intergenic	826	None	None	
