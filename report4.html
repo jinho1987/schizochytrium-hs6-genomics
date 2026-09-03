@@ -856,6 +856,24 @@ a{color:var(--teal-ink);}
     </div>
 
     <p class="pending-note">Full delly VCF (all SV types, PASS and non-PASS): <a href="results/WT_vs_HS6.delly.vcf">results/WT_vs_HS6.delly.vcf</a>. Triaged/annotated SV table: <a href="results/sv_calls_summary.tsv">results/sv_calls_summary.tsv</a>. Wet-lab primer table: <a href="results/sv_validation_primers.tsv">results/sv_validation_primers.tsv</a>. Reproduction: <code>delly call -g HS6_scaf.fasta -o WT_vs_HS6.delly.bcf WT_reseq.dedup.bam</code> (Delly v0.8.3, germline mode, default parameters).</p>
+
+    <h3>Independent check: is this an HS6 assembly artifact, or real? Two lines of evidence say assembly artifact is now unlikely</h3>
+    <p>The caveat above leaves two possible explanations for the two headline calls: a real difference between WT4 and HS6, or a misassembly in the HS6 reference itself that Delly's short-read mapping is picking up as a false discordant signal. Both can be checked directly using data already on hand at SKKU &mdash; the HS6 genome was assembled four independent ways from the same underlying PacBio HiFi reads (flye, hifiasm, masurca, nextdenovo, all in <code>working_files/2.assembly/</code>), and the raw HiFi reads themselves are archived separately from this project folder.</p>
+
+    <div class="callout finding">
+      <span class="lbl">1. Cross-assembly consistency: 3 independent assemblers agree with the reference at both loci</span>
+      <p>The sequence flanking each breakpoint was aligned (minimap2) against all four independently-assembled genomes. At the <b>421kb inversion</b>, flye and masurca both place the two breakpoint-flanking regions on the same single contig, in the same relative order and at the same ~420kb spacing as the hifiasm-derived reference &mdash; i.e., three separate assembly algorithms, built purely from HS6's own reads with no WT4 data involved, agree on this locus's architecture (nextdenovo split the region across two contigs and is uninformative here, neither confirming nor contradicting). At the <b>41.7kb deletion</b>, all three checked assemblers (flye, masurca, nextdenovo) show HS6 possessing continuous, unbroken sequence across the whole locus on a single contig each &mdash; confirming HS6 genuinely has this full-length sequence, consistent with WT4 specifically being the one missing it.</p>
+    </div>
+
+    <div class="callout finding">
+      <span class="lbl">2. Direct long-read support: HS6's own raw HiFi reads span every breakpoint cleanly</span>
+      <p>HS6's raw PacBio HiFi reads (1.9GB, archived separately from this project folder) were aligned directly against the reference (minimap2 <code>map-hifi</code>). Coverage at all four breakpoint positions is normal (37&ndash;50&times;, matching the genome-wide average of 38&times;) &mdash; no dropouts, no discontinuities. Between 41 and 75 individual long reads span each exact breakpoint coordinate with a single continuous alignment, not a split one. Checking specifically for split/supplementary alignments (the direct long-read signature of a real misassembly) turned up exactly one, out of dozens of reads covering that locus, and its CIGAR string is riddled with dozens of scattered small indels &mdash; the signature of one read struggling through a repetitive stretch, not an independent corroborating signal.</p>
+    </div>
+
+    <div class="callout caveat">
+      <span class="lbl">Read this result the right way round: it makes the SVs more credible, not less</span>
+      <p>This does <b>not</b> confirm the inversion or deletion are present in WT4 &mdash; that still requires the junction PCR above, since WT4 has no genome assembly of its own to check directly (&sect;16 discusses this asymmetry). What it does is close off the specific alternative explanation that would let these calls be dismissed as noise: HS6's own reference sequence, checked two independent ways (multi-assembler consistency and direct long-read alignment), is solidly and correctly assembled at both loci. That leaves the Delly signal from WT4's short reads standing on its own merits, not explained away by an HS6 assembly error &mdash; which makes it <i>more</i> likely, not less, that these reflect real WT4-vs-HS6 differences.</p>
+    </div>
   </section>
 
   <section id="synthesis">
@@ -875,10 +893,10 @@ a{color:var(--teal-ink);}
       <p><a href="report2.html#03">report2.html &sect;03</a> describes the phenotype mechanism as having two halves: upregulating DHA synthesis, <i>and</i> a broad reallocation of resources away from cytoskeletal machinery (consistent with the strong cytoskeleton-down GO enrichment, GO:0051015, p.adjust=1.7&times;10&#8315;&sup1;&sup3;, documented in &sect;4 of this report). &sect;14 found that <b>g11455</b>, whose mutation is a stop-loss (protein extension, not truncation), hits <b>Dynein regulatory complex subunit 5</b> by InterProScan. Dynein regulates cytoskeletal/flagellar dynamics directly. A structurally altered dynein regulator is a plausible direct genetic driver of exactly the cytoskeletal-investment-down theme &mdash; a separate thread from RanGAP/MYB3R, addressing the other half of the phenotype narrative.</p>
     </div>
 
-    <h3>Thread 3: the 421kb inversion &mdash; higher potential impact, lower confidence</h3>
+    <h3>Thread 3: the 421kb inversion &mdash; higher potential impact, improving confidence</h3>
     <div class="callout caveat">
-      <span class="lbl">If real, this alone could explain "cascading to hundreds of genes" &mdash; but it's the single-caller finding from &sect;15</span>
-      <p>report2.html's own phrasing for what a <i>trans</i>-acting cause would need to look like was a mutation "cascading to hundreds of downstream genes." A 421kb inversion spanning &gt;100 genes (&sect;15) would do exactly that in one structural event, and its 646-read-pair support is the strongest signal in this entire project's SV data. But per &sect;15's caveat, this call hasn't been cross-validated by a second SV method the way the vendor's own standard requires, and the HS6 assembly is scaffold-level, not chromosome-level &mdash; so this thread is flagged as <i>lower confidence, higher potential impact</i> rather than promoted to the same footing as Threads 1 and 2. The junction PCR designed in &sect;15 is the direct way to move it out of speculation.</p>
+      <span class="lbl">If real, this alone could explain "cascading to hundreds of genes" &mdash; upgraded from single-caller to independently cross-checked, still short of PCR-confirmed</span>
+      <p>report2.html's own phrasing for what a <i>trans</i>-acting cause would need to look like was a mutation "cascading to hundreds of downstream genes." A 421kb inversion spanning &gt;100 genes (&sect;15) would do exactly that in one structural event, and its 646-read-pair support is the strongest signal in this entire project's SV data. This call started as a single-caller (Delly-only) finding, not cross-validated the way the vendor's own BreakDancer/Pindel/Delly standard required &mdash; but &sect;15 now has two independent checks against SKKU's own HS6 data (multi-assembler consistency and direct raw HiFi read alignment) that both rule out the main alternative explanation, an HS6 assembly artifact. That's real progress, not proof: it still doesn't confirm the inversion is present in WT4, since WT4 has no assembly of its own to check the same way. The junction PCR designed in &sect;15 remains the step that would actually confirm it.</p>
     </div>
 
     <h3>What would actually test these</h3>
