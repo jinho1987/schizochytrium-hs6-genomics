@@ -843,6 +843,11 @@ a{color:var(--teal-ink);}
       <p>Unlike the inversion above, this deletion is <code>PRECISE</code>: delly reconstructed an actual consensus sequence spanning the breakpoint from split reads, giving base-pair-level confidence. It removes <b>g2579, g2580, g2581, g2582</b> entirely (g2579 has padj=0.91, not DE-significant; the other three were filtered out of the DE analysis, likely low-count). This is the strongest evidence-tier SV finding in the survey.</p>
     </div>
 
+    <div class="callout retracted">
+      <span class="lbl">Contradicted by independent depth verification &mdash; not retracted outright, but no longer "highest-confidence"</span>
+      <p>As part of a systematic depth-verification sweep of every PASS-filter SV in the independently re-called set (below), this exact locus was checked directly: <b>mean depth across the deletion span is 157.4&times;, essentially identical to the ~127&times; genome-wide baseline &mdash; no drop at all.</b> A true deletion present in the sequenced sample should show depth collapsing toward zero across the deleted span; it doesn't. The independent re-call still found split-read support here (SR=4, close to the original SR=6), so this isn't a case of the signal vanishing &mdash; it's a case where <code>PRECISE</code> split-read support and normal flanking-matched depth can both occur together when the "breakpoint-spanning" reads are actually artifacts of a repetitive or paralogous sequence elsewhere in the genome, not a real structural junction. The wet-lab primers below remain designed and orderable if independent confirmation is still wanted, but this call should now be treated as unconfirmed pending that result, not as the survey's strongest finding.</p>
+    </div>
+
     <h3>Full PASS-filter SV table and lower-confidence calls</h3>
     <div class="table-wrap">
     <table>
@@ -863,13 +868,38 @@ a{color:var(--teal-ink);}
       <p>An independent fresh <code>delly</code> re-run (same raw-FASTQ re-alignment described in &sect;16) called an overlapping pair at this same locus &mdash; a ~1.3Mb duplication signal (271,066&ndash;1,570,161, spanning hundreds of genes including <i>MYB3R-3</i>) and a ~167kb deletion signal (104,153&ndash;271,054) &mdash; large enough, and touching enough DE-significant genes, to be worth checking directly rather than trusting the caller. Read depth was computed across each candidate region and against two unrelated baseline scaffolds: <b>126.8&times; inside the "duplication," 126.9&times; inside the "deletion," vs. 126.9&times;/127.9&times; genome-wide baseline and 130.2&times; immediately flanking</b> &mdash; no elevation, no drop, indistinguishable from background. A real duplication reads at roughly double baseline depth (exactly how &sect;5's MVK finding was confirmed); a real deletion reads near zero. Neither happened here. This large complex signal is very likely a discordant-read-pair artifact from a repetitive or structurally complex region, not a genuine copy-number event &mdash; downgraded from "interpret cautiously" to "likely artifact," and not pursued with primers.</p>
     </div>
 
+    <h3>Full depth-verification sweep: every PASS DEL/DUP/INV/INS call checked directly</h3>
+    <p>The Scaffolds_3 spot-check above was worth generalizing: rather than trust the caller's own PASS filter, every intra-scaffold DEL/DUP/INV/INS call that cleared it (36 total, from the same independent re-call used throughout &sect;16) was checked against read depth &mdash; DEL calls should collapse toward zero across the deleted span if real, DUP calls should roughly double; BND and the tiny 27bp INS call aren't depth-testable and were excluded (methodology and full per-locus table: <a href="results/sv_depth_verification.tsv">results/sv_depth_verification.tsv</a>).</p>
+
+    <div class="stat-grid">
+      <div class="stat-card"><div class="v">0/23</div><div class="k">DEL calls confirmed by depth &mdash; every single one, including the 41.7kb "highest-confidence" call above, shows normal flanking-matched depth</div></div>
+      <div class="stat-card"><div class="v">2/10</div><div class="k">DUP calls confirmed (~2&times; baseline depth)</div></div>
+      <div class="stat-card"><div class="v">3/10</div><div class="k">DUP calls ambiguous (elevated but short of 2&times;)</div></div>
+      <div class="stat-card"><div class="v">5/10</div><div class="k">DUP calls artifact (no depth rise)</div></div>
+    </div>
+
+    <div class="callout finding">
+      <span class="lbl">Deletion calls do not survive this dataset's SV pipeline &mdash; zero for 23</span>
+      <p>Every PASS-filter DEL call checked, from the smallest (27bp) to the largest (the 41.7kb locus above), shows depth indistinguishable from genome-wide baseline (~127&times;) across its span. This is a clean, unambiguous result: whatever combination of scaffold-level assembly and short-read mapping produced these discordant-pair/split-read signals, none of them correspond to a real absence of WT4 sequence at that locus. Treat every DEL-type call from this pipeline as unconfirmed by default, the 41.7kb one included &mdash; it isn't a special case, it's the largest example of a pattern that holds across the entire call set.</p>
+    </div>
+
+    <div class="callout finding">
+      <span class="lbl">Two duplications look genuinely real, but neither maps onto a DE-significant gene</span>
+      <p><b>Scaffolds_10:1,024,957&ndash;1,025,217</b> (depth 222.5&times;, ~1.75&times; baseline) overlaps no annotated gene. <b>Scaffolds_26:28,176&ndash;28,722</b> (depth 208.6&times;, ~1.6&times; baseline) overlaps <b>g9732</b>, which is not DE-significant (padj=0.825, log2FC=+0.283). A third, larger record at the same Scaffolds_26 locus (27,538&ndash;32,609, depth 155.5&times;, ambiguous) also overlaps g9732 and is very likely delly fragmenting one real duplication into multiple overlapping records rather than a second independent event. Two other ambiguous DUP calls overlap <b>g1759</b> (Scaffolds_12:213,583&ndash;214,257; padj=0.078, borderline but not significant) and <b>g3343</b> (Scaffolds_15:2,954,169&ndash;2,954,447; padj=0.726, not significant). None of these three genes clear the DE-significance bar used elsewhere on this site, so even the two confirmed-real duplications don't currently connect to an expression-level phenotype story &mdash; they're reported here as genuine structural differences worth having on record, not as new candidate mechanisms.</p>
+    </div>
+
+    <div class="callout caveat">
+      <span class="lbl">A second inversion candidate turned up &mdash; and it's exactly the kind of signal the 421kb one is not</span>
+      <p>The same re-call that reproduced the 421kb inversion (PE=688 in this independent run, closely matching the original 646) also called a second, much larger one: <b>Scaffolds_22:101,041&ndash;1,029,151 (~928kb), but with PE=0 and only SR=5</b> &mdash; two orders of magnitude less support than the 421kb call, and inversions aren't depth-testable so there's no independent check available the way there is for DEL/DUP. This is reported for completeness, not pursued further: on support alone it reads as noise, in sharp contrast to the headline inversion's unusually strong 646/688-pair signal.</p>
+    </div>
+
     <h3>Wet-lab verification: junction-spanning PCR</h3>
     <p>Both headline calls get a concrete, orderable PCR design below &mdash; the same in-silico rigor as every other primer set on this site (BLAST against <code>HS6_scaf.fasta</code> before ordering, same caveat as &sect;12/&sect;13/&sect;14).</p>
     <div class="table-wrap">
     <table>
       <thead><tr><th>Target</th><th>Strategy</th><th>Fwd primer</th><th>Rev primer</th><th>Product</th><th>Interpretation</th></tr></thead>
       <tbody>
-        <tr><td class="gene">SV1: g2579&ndash;g2582 deletion</td><td>gap-PCR across a synthetic WT4-junction sequence (primers flank the 41.7kb deletion)</td><td class="mono">CTGAAAGAGAACCGGTCGCT</td><td class="mono">AACACACCAACAAAGCGAGC</td><td>483 bp</td><td>product = deletion present (WT4-type); no product under standard cycling = full-length (HS6-type; true product would be ~41.7kb)</td></tr>
+        <tr><td class="gene">SV1: g2579&ndash;g2582 deletion</td><td>gap-PCR across a synthetic WT4-junction sequence (primers flank the 41.7kb deletion)</td><td class="mono">CTGAAAGAGAACCGGTCGCT</td><td class="mono">AACACACCAACAAAGCGAGC</td><td>483 bp</td><td>product = deletion present (WT4-type); no product under standard cycling = full-length (HS6-type; true product would be ~41.7kb). <b>Note: depth verification above now contradicts this deletion being real &mdash; this PCR, if run, is expected to show no deletion product.</b></td></tr>
         <tr><td class="gene">SV2: 421kb inversion, breakpoint 1</td><td>inversion-junction PCR, predicted post-inversion sequence at Scaffolds_20:~875,627</td><td class="mono">AGCCAAAACAGCTCGACAAG</td><td class="mono">CGGTTTCAAGGGTTTGGCTG</td><td>512 bp</td><td>product = inverted allele at this breakpoint</td></tr>
         <tr><td class="gene">SV2: 421kb inversion, breakpoint 2</td><td>inversion-junction PCR, predicted post-inversion sequence at Scaffolds_20:~1,296,664</td><td class="mono">TTGAAGTTGCAGTTTCGCCG</td><td class="mono">CCTTCATAAGACCGACGGCA</td><td>320 bp</td><td>product = inverted allele at this breakpoint</td></tr>
       </tbody>
@@ -898,6 +928,7 @@ a{color:var(--teal-ink);}
     <div class="callout caveat">
       <span class="lbl">Read this result the right way round: it makes the SVs more credible, not less</span>
       <p>This does <b>not</b> confirm the inversion or deletion are present in WT4 &mdash; that still requires the junction PCR above, since WT4 has no genome assembly of its own to check directly (&sect;16 discusses this asymmetry). What it does is close off the specific alternative explanation that would let these calls be dismissed as noise: HS6's own reference sequence, checked two independent ways (multi-assembler consistency and direct long-read alignment), is solidly and correctly assembled at both loci. That leaves the Delly signal from WT4's short reads standing on its own merits, not explained away by an HS6 assembly error &mdash; which makes it <i>more</i> likely, not less, that these reflect real WT4-vs-HS6 differences.</p>
+      <p><b>Update:</b> the depth-verification sweep further down this section has since directly tested the specific claim "WT4 lacks this sequence" for the 41.7kb deletion, and it fails &mdash; WT4 reads map across the span at full baseline depth. Ruling out an HS6 assembly error and confirming WT4 actually lacks the sequence are two different questions; this analysis only answers the first one. For the deletion, both questions now have answers, and they point in different directions &mdash; treat the deletion as unconfirmed per the callout below despite HS6's reference being solid there. The 421kb inversion is not affected: inversions aren't depth-testable, so this cross-assembly/long-read check remains its only independent corroboration, and it still stands.</p>
     </div>
   </section>
 
