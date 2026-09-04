@@ -317,8 +317,131 @@ footer p{max-width:none; color:var(--ink-faint);}
   <p style="font-size:13px;color:var(--ink-faint);">Full KEGG Mapper comparison (8 pathway maps, HS6 vs #7 independent KO calls) is in the <a href="report1.html#keggmaps">main comparative genomics report, Section 7</a>.</p>
 </section>
 
+<section id="pathwaymap">
+  <div class="sec-head"><span class="sec-num">05</span><h2>A custom fatty-acid pathway map, with verified strain-wise gene presence</h2></div>
+  <p class="dek">KEGG's generic maps can't represent the PKS-based PUFA synthase route at all (Section 2), and even where they can, they show presence/absence per KO term, not per-gene sequence identity across strains. Built directly instead: every gene in this page's scope, laid out by pathway role, each with its own verified 3-strain conservation status &mdash; not inferred, not assumed.</p>
+
+  <div class="callout">
+    <div class="ctitle">How "presence" was verified here, gene by gene</div>
+    <p><b>HS6 vs #4</b>: checked against this project's independently re-run, rigorous variant call (raw FASTQ realigned from scratch, Q20/q20 haploid <code>bcftools</code>, see the HS6-vs-#4 project's report4.html &sect;16) &mdash; every gene below has <b>zero variants anywhere in its gene body</b>, CDS or intron. <b>HS6 vs #7</b>: direct BLASTp against #7's independently predicted proteome (not transferred via ortholog mapping). Every number on this map is a real, checked result, not an assumption carried over from one gene to the rest.</p>
+  </div>
+
+  <div class="pathway-diagram">
+    <style>
+      .pathway-diagram{font-family:var(--sans);margin:20px 0;}
+      .pw-row{display:flex;gap:16px;align-items:stretch;flex-wrap:wrap;justify-content:center;margin-bottom:8px;}
+      .pw-node{background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:170px;max-width:220px;box-shadow:var(--shadow);}
+      .pw-node.pool{background:var(--teal-tint);border-color:var(--teal);text-align:center;font-weight:700;color:var(--teal-ink);min-width:260px;}
+      .pw-node.sink{background:var(--gold-tint);border-color:var(--gold);text-align:center;font-weight:700;color:var(--gold-ink);}
+      .pw-gene{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink);}
+      .pw-func{font-size:12px;color:var(--ink-soft);margin:3px 0 8px;line-height:1.35;}
+      .pw-strains{display:flex;gap:4px;flex-wrap:wrap;font-size:10.5px;font-family:var(--mono);}
+      .pw-badge{padding:2px 6px;border-radius:5px;font-weight:700;}
+      .pw-badge.b100{background:var(--good-tint);color:var(--good);}
+      .pw-badge.bhi{background:var(--teal-tint);color:var(--teal-ink);}
+      .pw-badge.blo{background:var(--rust-tint);color:var(--rust);}
+      .pw-arrow{display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--ink-faint);min-width:30px;}
+      .pw-arrow-down{text-align:center;font-size:22px;color:var(--ink-faint);width:100%;margin:2px 0;}
+      .pw-branch-label{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint);text-align:center;width:100%;margin:14px 0 6px;}
+    </style>
+
+    <div class="pw-row">
+      <div class="pw-node pool">Acetyl-CoA / Malonyl-CoA precursor pool</div>
+    </div>
+    <div class="pw-arrow-down">&darr;&darr;&darr;</div>
+
+    <div class="pw-branch-label">Classical elongation cycle (SFA/MUFA route &mdash; ELOVL6 KO target)</div>
+    <div class="pw-row">
+      <div class="pw-node">
+        <div class="pw-gene">g12225 &middot; ELOVL6</div>
+        <div class="pw-func">C16&rarr;C18 elongase. Current #7 knockout target.</div>
+        <div class="pw-strains"><span class="pw-badge b100">#4: 100%</span><span class="pw-badge b100">#7: 100%</span></div>
+      </div>
+      <div class="pw-node">
+        <div class="pw-gene">g12221 &middot; ELOVL1/4-like</div>
+        <div class="pw-func">Adjacent paralog, KO call ambiguous (K10247/K10249)</div>
+        <div class="pw-strains"><span class="pw-badge b100">#4: 100%</span><span class="pw-badge bhi">#7: ortholog confirmed</span></div>
+      </div>
+      <div class="pw-node">
+        <div class="pw-gene">g1554 &middot; Baldspot-type</div>
+        <div class="pw-func">Distant paralog, own KO call imprecise (K10203)</div>
+        <div class="pw-strains"><span class="pw-badge b100">#4: 100%</span><span class="pw-badge blo">#7: 36%</span></div>
+      </div>
+      <div class="pw-node">
+        <div class="pw-gene">g7382 &middot; ELOVL4</div>
+        <div class="pw-func">Very-long-chain elongase, confirmed multidomain fusion</div>
+        <div class="pw-strains"><span class="pw-badge b100">#4: 100%</span><span class="pw-badge bhi">#7: 98.8%</span></div>
+      </div>
+    </div>
+
+    <div class="pw-branch-label">PKS-based PUFA synthase (DHA/EPA route &mdash; bypasses KEGG's classical map entirely)</div>
+    <div class="pw-row">
+      <div class="pw-node">
+        <div class="pw-gene">g9189 &middot; pfaA</div>
+        <div class="pw-func">KS+AT+5&times;ACP+KR, 2,911 aa in the literature reference</div>
+        <div class="pw-strains"><span class="pw-badge b100">#4: 100%</span><span class="pw-badge bhi">#7: 83.1%</span></div>
+      </div>
+      <div class="pw-arrow">&rarr;</div>
+      <div class="pw-node">
+        <div class="pw-gene">g9191 &middot; pfaB</div>
+        <div class="pw-func">AT domain; 13kb from pfaA on the same scaffold</div>
+        <div class="pw-strains"><span class="pw-badge b100">#4: 100%</span><span class="pw-badge bhi">#7: 75.6%</span></div>
+      </div>
+      <div class="pw-arrow">&rarr;</div>
+      <div class="pw-node">
+        <div class="pw-gene">g1343 &middot; pfaC</div>
+        <div class="pw-func">KS+CLF+2&times;DH; different scaffold from A/B</div>
+        <div class="pw-strains"><span class="pw-badge b100">#4: 100%</span><span class="pw-badge bhi">#7: 80.6%</span></div>
+      </div>
+      <div class="pw-arrow">&rarr;</div>
+      <div class="pw-node sink">DHA / EPA</div>
+    </div>
+
+    <div class="pw-arrow-down">&darr; &nbsp; both routes converge &nbsp; &darr;</div>
+    <div class="pw-row">
+      <div class="pw-node sink">Membrane phospholipids / TAG storage</div>
+    </div>
+    <div class="pw-arrow-down">&darr;</div>
+    <div class="pw-row">
+      <div class="pw-node">
+        <div class="pw-gene">g4538 &middot; PLD1</div>
+        <div class="pw-func">Phospholipase D zeta 1. Already knocked out on #4.</div>
+        <div class="pw-strains"><span class="pw-badge b100">#4: 100%</span><span class="pw-badge b100">#7: 99.8%</span></div>
+      </div>
+      <div class="pw-node">
+        <div class="pw-gene">g4070 &middot; ACOX1</div>
+        <div class="pw-func">Peroxisomal acyl-CoA oxidase, &beta;-oxidation entry point</div>
+        <div class="pw-strains"><span class="pw-badge b100">#4: 100%</span><span class="pw-badge b100">#7: 99.6%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Gene</th><th>Role</th><th>HS6 location</th><th>HS6 vs #4</th><th>HS6 vs #7</th><th>#7 ortholog</th></tr></thead>
+    <tbody>
+      <tr><td class="gene">g12225</td><td>ELOVL6, C16&rarr;C18 (KO target)</td><td>Scaffolds_31:162,976&ndash;164,202</td><td class="num">100% (0 variants)</td><td class="num">100%</td><td>LOCUS_004835-RA</td></tr>
+      <tr><td class="gene">g12221</td><td>ELOVL1/4-like paralog</td><td>Scaffolds_31:149,702&ndash;151,179</td><td class="num">100% (0 variants)</td><td class="num">ortholog confirmed</td><td>LOCUS_004830-RA</td></tr>
+      <tr><td class="gene">g1554</td><td>Baldspot-type paralog</td><td>Scaffolds_11:1,077,204&ndash;1,078,292</td><td class="num">100% (0 variants)</td><td class="num">36.2%</td><td>LOCUS_010826-RA</td></tr>
+      <tr><td class="gene">g7382</td><td>ELOVL4, VLCFA elongase</td><td>Scaffolds_21:1,290,170&ndash;1,294,261</td><td class="num">100% (0 variants)</td><td class="num">98.8% / 87.1%</td><td>LOCUS_005399-RA</td></tr>
+      <tr><td class="gene">g9189</td><td>pfaA, PUFA synthase</td><td>Scaffolds_24:1,345,047&ndash;1,354,067</td><td class="num">100% (0 variants)</td><td class="num">83.1% / 81.5%</td><td>LOCUS_009783-RA</td></tr>
+      <tr><td class="gene">g9191</td><td>pfaB, PUFA synthase</td><td>Scaffolds_24:1,367,104&ndash;1,373,208</td><td class="num">100% (0 variants)</td><td class="num">75.6%</td><td>LOCUS_009784-RA</td></tr>
+      <tr><td class="gene">g1343</td><td>pfaC, PUFA synthase</td><td>Scaffolds_11:240,403&ndash;245,811</td><td class="num">100% (0 variants)</td><td class="num">80.6%</td><td>LOCUS_010992-RA</td></tr>
+      <tr><td class="gene">g4538</td><td>PLD1 (KO'd on #4)</td><td>Scaffolds_18:1,088,998&ndash;1,093,149</td><td class="num">100% (0 variants)</td><td class="num">99.8%</td><td>LOCUS_001103-RA</td></tr>
+      <tr><td class="gene">g4070</td><td>ACOX1, &beta;-oxidation</td><td>Scaffolds_17:1,057,529&ndash;1,059,013</td><td class="num">100% (0 variants)</td><td class="num">99.6%</td><td>LOCUS_011301-RA</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout rust">
+    <div class="ctitle">A real pattern, not noise: HS6-vs-#4 is uniformly perfect; HS6-vs-#7 varies by gene</div>
+    <p>Every single gene above is 100% identical between HS6 and #4 &mdash; consistent with this project's central finding that no coding-sequence differences survive verification anywhere in that comparison. HS6-vs-#7 is a genuinely different story: ELOVL6, PLD1, and ACOX1 sit at 98.8&ndash;100% (essentially fully conserved between independently-isolated strains), while the PUFA synthase subunits sit at 75&ndash;83%, and the Baldspot-type paralog at just 36%. That spread is real evolutionary divergence between two independent isolates, not a measurement artifact &mdash; and it's worth noting the genes under the tightest constraint (ELOVL6, PLD1, ACOX1) are also the ones with the clearest single, unambiguous function, while the more divergent ones (pfa cluster, Baldspot) sit in more complex, multi-paralog, or multi-domain contexts.</p>
+  </div>
+</section>
+
+
 <section id="elovl6">
-  <div class="sec-head"><span class="sec-num">05</span><h2>ELOVL6 &mdash; the current #7 knockout target</h2></div>
+  <div class="sec-head"><span class="sec-num">06</span><h2>ELOVL6 &mdash; the current #7 knockout target</h2></div>
   <p class="dek">Full write-up: copy number, cross-strain structure, expression, the ELOVL family, and the KEGG annotation correction. (Migrated here from report1.html &sect;11.5 &mdash; a short pointer remains there.)</p>
 <h3>11.5 — ELOVL6 knockout target: copy number, structure, expression</h3>
   <p>Requested follow-up on <span class="gene">ELOVL6</span> (elongation of very long chain fatty acids protein 6), a live knockout target in strain #7. This directly follows up on Section 11.2&#8217;s blocked ESMFold attempt above &mdash; the same local ESMFold pipeline built for the HS6-vs-#4 project (public API down, local execution via HuggingFace <code>transformers</code>&#8217; <code>facebook/esmfold_v1</code>) was reused here successfully.</p>
@@ -457,7 +580,7 @@ footer p{max-width:none; color:var(--ink-faint);}
 </section>
 
 <section id="pld1">
-  <div class="sec-head"><span class="sec-num">06</span><h2>PLD1 (Phospholipase D zeta 1) &mdash; knockout already performed on #4</h2></div>
+  <div class="sec-head"><span class="sec-num">07</span><h2>PLD1 (Phospholipase D zeta 1) &mdash; knockout already performed on #4</h2></div>
   <p class="dek">Unlike ELOVL6 (a planned #7 knockout), PLD1's KO was already carried out on strain #4, with the same stated goal: modulating fatty acid composition. Verified here against this project's genome/expression data.</p>
 
   <div class="callout gold">
@@ -534,7 +657,7 @@ footer p{max-width:none; color:var(--ink-faint);}
 
 
 <section id="methods-note">
-  <div class="sec-head"><span class="sec-num">07</span><h2>Notes on this page</h2></div>
+  <div class="sec-head"><span class="sec-num">08</span><h2>Notes on this page</h2></div>
   <p>Structure predictions: local ESMFold (<code>facebook/esmfold_v1</code> via HuggingFace <code>transformers</code>), same pipeline as the HS6-vs-#4 project. Cross-strain sequence comparisons: BLASTp against each strain's independently predicted proteome (not transferred via ortholog mapping). PUFA synthase identification: BLASTp against literature reference sequences (Metz et al. 2001, GenBank AAK72879&ndash;81.2), not domain-architecture inference alone. This page will grow as more KO targets are characterized &mdash; next candidates identified in Section 3's target table.</p>
   <p style="font-size:13px;color:var(--ink-faint);">Part of the <a href="index.html">Schizochytrium HS6 comparative genomics site</a>. See also: <a href="report1.html">HS6 vs #7 Comparative Genomics</a>, <a href="report4.html">HS6 vs #4 Extended Analyses</a>.</p>
 </section>
