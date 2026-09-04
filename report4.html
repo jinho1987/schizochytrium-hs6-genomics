@@ -850,12 +850,17 @@ a{color:var(--teal-ink);}
       <tbody>
         <tr><td class="mono">Scaffolds_20:875,627&ndash;1,296,664</td><td>INV</td><td>421 kb</td><td>IMPRECISE, PE=646</td><td>&gt;100 genes (g6674&ndash;g6776)</td><td>strongest support in the dataset; see finding above</td></tr>
         <tr><td class="mono">Scaffolds_14:1,787,172&ndash;1,828,937</td><td>DEL</td><td>41.7 kb</td><td>PRECISE, SR=6</td><td>g2579, g2580, g2581, g2582</td><td>highest-confidence gene-overlapping call; see finding above</td></tr>
-        <tr><td class="mono">Scaffolds_3:271,056&ndash;432,472 / 271,103&ndash;549,046</td><td>DUP + DEL</td><td>161&ndash;278 kb</td><td>PRECISE (DUP)/IMPRECISE (DEL)</td><td>40&ndash;88 genes (g11543&ndash;g11630)</td><td>overlapping DUP and DEL calls at nearly the same start &mdash; likely one complex rearrangement, not two independent events; interpret cautiously, no primers designed yet</td></tr>
+        <tr><td class="mono">Scaffolds_3:271,056&ndash;432,472 / 271,103&ndash;549,046</td><td>DUP + DEL</td><td>161&ndash;278 kb</td><td>PRECISE (DUP)/IMPRECISE (DEL)</td><td>40&ndash;88 genes (g11543&ndash;g11630)</td><td>overlapping DUP and DEL calls at nearly the same start &mdash; likely one complex rearrangement, not two independent events; <b>depth-checked and likely artifact, see below</b></td></tr>
         <tr><td class="mono">Scaffolds_33:32,598&ndash;579,275</td><td>DUP</td><td>547 kb</td><td>IMPRECISE, PE=3</td><td>g12826&ndash;g12961 (incl. g12826 from &sect;14)</td><td>very weak support for a very large call &mdash; treat as unconfirmed</td></tr>
         <tr><td class="mono">Scaffolds_26:27,554&ndash;32,596</td><td>DUP &times;3 (overlapping)</td><td>0.4&ndash;5 kb</td><td>IMPRECISE, PE=4&ndash;6</td><td>g9732</td><td>likely one real signal fragmented into 3 delly records, not 3 independent duplications</td></tr>
         <tr><td class="mono">5 more small PRECISE DELs (27&ndash;495bp)</td><td>DEL</td><td>&lt;500bp</td><td>PRECISE, SR=3&ndash;20</td><td>none</td><td>real, split-read confirmed, but no gene overlap &mdash; lower priority</td></tr>
       </tbody>
     </table>
+    </div>
+
+    <div class="callout caveat">
+      <span class="lbl">Scaffolds_3 DUP+DEL: read-depth check says artifact, not a real event</span>
+      <p>An independent fresh <code>delly</code> re-run (same raw-FASTQ re-alignment described in &sect;16) called an overlapping pair at this same locus &mdash; a ~1.3Mb duplication signal (271,066&ndash;1,570,161, spanning hundreds of genes including <i>MYB3R-3</i>) and a ~167kb deletion signal (104,153&ndash;271,054) &mdash; large enough, and touching enough DE-significant genes, to be worth checking directly rather than trusting the caller. Read depth was computed across each candidate region and against two unrelated baseline scaffolds: <b>126.8&times; inside the "duplication," 126.9&times; inside the "deletion," vs. 126.9&times;/127.9&times; genome-wide baseline and 130.2&times; immediately flanking</b> &mdash; no elevation, no drop, indistinguishable from background. A real duplication reads at roughly double baseline depth (exactly how &sect;5's MVK finding was confirmed); a real deletion reads near zero. Neither happened here. This large complex signal is very likely a discordant-read-pair artifact from a repetitive or structurally complex region, not a genuine copy-number event &mdash; downgraded from "interpret cautiously" to "likely artifact," and not pursued with primers.</p>
     </div>
 
     <h3>Wet-lab verification: junction-spanning PCR</h3>
@@ -903,6 +908,17 @@ a{color:var(--teal-ink);}
     <div class="callout retracted">
       <span class="lbl">This section previously proposed two threads (RanGAP/nuclear-transport, dynein/cytoskeleton) built on &sect;14's missense survey. Both are retracted along with it.</span>
       <p>Neither g6423's R27F nor g11455's stop-loss &mdash; nor any of the other genes those threads leaned on &mdash; survives direct verification against the WT4 sequencing reads (see &sect;14's retraction notice for the full accounting: 1 of 99 checked positions held up). The RanGAP and dynein hypotheses are not being carried forward. What follows instead is built entirely on this project's already-validated 84-variant set, cross-referenced directly against the RNA-seq differential-expression results &mdash; the same rigor standard as everywhere else on this site.</p>
+    </div>
+
+    <div class="callout finding">
+      <span class="lbl">Independent re-verification (fresh pipeline, raw reads): the 84-variant set reproduces almost exactly</span>
+      <p>As a cross-check, this section's validated variant set was reproduced completely independently &mdash; not by re-filtering the existing calls, but by re-aligning WT4's raw genomic FASTQ from scratch (<code>bwa mem</code> against the current <code>HS6_scaf.fasta</code>, proper <code>fixmate</code>&rarr;<code>markdup</code> duplicate removal, <code>bcftools mpileup</code>/<code>call</code> at the same Q20/q20 haploid settings) on a separate machine, with no access to the original pipeline's intermediate files. Result: <b>88 variants genome-wide</b>, essentially the same population as the established 84. Zero fall in a coding region, matching the finding above exactly. The single gene-body hit is again <b>g14345</b>, at the same position (Scaffolds_4:2,843,502) &mdash; independently reproducing this project's own strongest candidate. A fresh <code>delly</code> SV call from the same re-alignment also reproduces the 421kb inversion below at matching coordinates. Two independently-run pipelines landing on the same variant set, the same top candidate, and the same headline SV is meaningful convergent validation.</p>
+    </div>
+
+    <div class="callout">
+      <div class="ctitle">The RanGAP thread, revisited and closed more thoroughly than before</div>
+      <p>The retracted RanGAP hypothesis above was built on a single coding-mutation candidate (g6423's R27F). Worth checking whether a broader, expression-only version could still hold: g6423 turns out to belong to a small paralog family sharing the same Leucine-Rich-Repeat + GTPase-activator domain architecture (InterProScan: PANTHER PTHR24113/24111, GO:0005096) &mdash; <span class="gene">g6055</span> and <span class="gene">g845</span> &mdash; and all three are significantly down in HS6 (g6055 log2FC=&minus;1.55 padj=0.0094; g6423 log2FC=&minus;1.11 padj=0.019; g845 log2FC=&minus;1.29 padj=0.049). A coordinately-dysregulated RanGAP-family cluster is a real expression pattern. But the independent re-verification above checked all three genes' full gene bodies (CDS and introns) against the fresh variant call: <b>zero variants in any of the three, at any position.</b> Unlike g6124 or the cis-regulatory candidates below, there isn't even a nearby intergenic variant to hang a mechanism on. This closes the RanGAP thread more thoroughly than the original retraction did &mdash; it's now a clean expression correlation with no supporting DNA-level evidence of any kind, coding or regulatory.</p>
+      <p style="margin-top:8px;">For completeness, all three RanGAP paralogs and this organism's Ran GTPase ortholog (<span class="gene">g278</span>, eggNOG: GSP1/K07936) were folded with ESMFold (g278 pLDDT 0.82, g6423 pLDDT 0.74, g6055 pLDDT 0.79, g845 pLDDT 0.81 &mdash; all confidently folded), giving a defined receptor/substrate pair should this expression pattern warrant a docking-level follow-up later. No docking was run: with no variant-based rationale surviving, there is no HS6-vs-WT4 structural question left for docking to answer &mdash; g6423/g6055/g845/g278 are, like g6124, identical between genotypes at the sequence level.</p>
     </div>
 
     <h3>The corrected picture: coding mutations are off the table; cis-regulatory candidates are what's left</h3>
@@ -983,6 +999,21 @@ a{color:var(--teal-ink);}
     <div class="callout finding">
       <span class="lbl">A better-fitting mechanism already established elsewhere on this site: intron-mediated enhancement (IME)</span>
       <p>&sect;2 of this report already documents native introns boosting transcript output in this organism through spliceosome-associated recruitment &mdash; a real mechanism that changes expression level, not splice-site fidelity or protein sequence. That fits g14345 far better than a splicing-disruption story: the gene is <i>up</i> in HS6 (log2FC=+0.76), exactly the direction an altered IME element would produce, and requires no change to the protein at all. This remains a hypothesis, not a confirmed mechanism &mdash; distinguishing "true IME change" from "linked to some other regulatory element nearby" needs the same RT-PCR-across-the-intron test already proposed for the splicing question.</p>
+    </div>
+
+    <h3>g14345's protein: what does the unannotated candidate actually look like?</h3>
+    <p>g14345 has no hit in SwissProt, eggNOG, or InterProScan &mdash; genuinely unannotated by every method available. Since a coding-level structural argument doesn't apply here (the variant is intronic, see above), this fold was run purely to see whether structure could recover a functional clue that sequence homology missed entirely.</p>
+    <div class="struct-fig-row" style="grid-template-columns:1fr;max-width:520px;">
+      <div class="struct-fig-card">
+        <img src="figures/esmfold/g14345_confidence.png" alt="g14345 predicted structure colored by pLDDT confidence, showing a low-confidence multi-helix bundle" loading="lazy">
+        <div class="cap-title">g14345, confidence-colored (pLDDT 0.37, mean &mdash; low)</div>
+        <div class="cap-body">An organized multi-helix bundle, but colored almost entirely orange/yellow (pLDDT&lt;0.7) even within the helices &mdash; low confidence throughout, not just at the termini/loops as is typical for an otherwise well-resolved fold.</div>
+      </div>
+    </div>
+    <div class="callout caveat">
+      <span class="lbl">Low-confidence fold (pLDDT 0.37) &mdash; suggestive, not diagnostic</span>
+      <p>ESMFold predicts an organized multi-helix bundle (several long &alpha;-helices packing together) rather than a fully extended, disordered-looking chain &mdash; but confidence stays low (mean pLDDT 0.37) throughout, including within the helices themselves. That combination doesn't cleanly resolve to either interpretation: it could be a real but poorly-characterized fold (helix bundles are a common protein-protein-interaction/scaffolding motif) that the model has little training data for given no homolog was found anywhere, or a genuinely flexible protein for which this bundle is just one low-confidence guess among several plausible conformations.</p>
+      <p style="margin-top:8px;">A heptad-repeat scan (hydrophobicity enrichment at the coiled-coil "a/d" register, all 7 reading frames) was run to check for a coiled-coil specifically, since that would meaningfully narrow down a scaffolding/protein-interaction role. Result: inconclusive. The best-scoring window (residues 225&ndash;252) is only ~2&times; the sequence's own background score &mdash; well short of the sharp, decisive signal a real coiled-coil gives with a properly trained tool (COILS/Paircoil2, neither available in this environment) &mdash; and it doesn't spatially coincide with the helices ESMFold actually formed. g14345's identity remains an open question after this structural pass, reported honestly as unresolved rather than forced toward either conclusion.</p>
     </div>
 
     <h3>Structural characterization of g6124: does the fold actually look like a kinase?</h3>
