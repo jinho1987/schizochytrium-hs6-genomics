@@ -365,7 +365,7 @@ footer p{max-width:none; color:var(--ink-faint);}
       <div class="pw-node">
         <div class="pw-gene">g1554 &middot; Baldspot-type</div>
         <div class="pw-func">Distant paralog, own KO call imprecise (K10203)</div>
-        <div class="pw-strains"><span class="pw-badge b100">#4: 100%</span><span class="pw-badge blo">#7: 36%</span></div>
+        <div class="pw-strains"><span class="pw-badge b100">#4: 100%</span><span class="pw-badge b100">#7: 99.7%</span></div>
       </div>
       <div class="pw-node">
         <div class="pw-gene">g7382 &middot; ELOVL4</div>
@@ -422,7 +422,7 @@ footer p{max-width:none; color:var(--ink-faint);}
     <tbody>
       <tr><td class="gene">g12225</td><td>ELOVL6, C16&rarr;C18 (KO target)</td><td>Scaffolds_31:162,976&ndash;164,202</td><td class="num">100% (0 variants)</td><td class="num">100%</td><td>LOCUS_004835-RA</td></tr>
       <tr><td class="gene">g12221</td><td>ELOVL1/4-like paralog</td><td>Scaffolds_31:149,702&ndash;151,179</td><td class="num">100% (0 variants)</td><td class="num">99.2%</td><td>LOCUS_004830-RA</td></tr>
-      <tr><td class="gene">g1554</td><td>Baldspot-type paralog</td><td>Scaffolds_11:1,077,204&ndash;1,078,292</td><td class="num">100% (0 variants)</td><td class="num">36.2%</td><td>LOCUS_010826-RA</td></tr>
+      <tr><td class="gene">g1554</td><td>Baldspot-type paralog</td><td>Scaffolds_11:1,077,204&ndash;1,078,292</td><td class="num">100% (0 variants)</td><td class="num">99.7%</td><td>LOCUS_010826-RA</td></tr>
       <tr><td class="gene">g7382</td><td>ELOVL4, VLCFA elongase</td><td>Scaffolds_21:1,290,170&ndash;1,294,261</td><td class="num">100% (0 variants)</td><td class="num">98.8% / 87.1%</td><td>LOCUS_005399-RA</td></tr>
       <tr><td class="gene">g9189</td><td>pfaA, PUFA synthase</td><td>Scaffolds_24:1,345,047&ndash;1,354,067</td><td class="num">100% (0 variants)</td><td class="num">99.2%</td><td>LOCUS_009783-RA</td></tr>
       <tr><td class="gene">g9191</td><td>pfaB, PUFA synthase</td><td>Scaffolds_24:1,367,104&ndash;1,373,208</td><td class="num">100% (0 variants)</td><td class="num">99.8%</td><td>LOCUS_009784-RA</td></tr>
@@ -434,8 +434,8 @@ footer p{max-width:none; color:var(--ink-faint);}
   </div>
 
   <div class="callout rust">
-    <div class="ctitle">A real pattern, not noise: near-total conservation, with one clear outlier</div>
-    <p>Every single gene above is 100% identical between HS6 and #4 &mdash; consistent with this project's central finding that no coding-sequence differences survive verification anywhere in that comparison. HS6-vs-#7 tells a different but equally clean story: eight of the nine genes &mdash; ELOVL6, the ELOVL1/4-like paralog, ELOVL4, all three PUFA synthase subunits (pfaA/B/C), PLD1, and ACOX1 &mdash; sit at 98.8&ndash;100% identity, essentially fully conserved between two independently-isolated strains. The one real outlier is the Baldspot-type paralog (g1554) at just 36%, a genuinely distant relative rather than a close ortholog. That sharp split (near-total conservation vs. one clear outlier, not a smooth gradient) is itself informative: it's consistent with strong purifying selection across essentially this entire pathway, with g1554 sitting far enough outside the pathway's core function that it isn't held to the same standard &mdash; worth remembering that its own KEGG KO call (K10203) was already flagged elsewhere on this page as imprecise at this identity level. The genes under the tightest constraint are also the ones with the clearest single, unambiguous function, while g1554's own annotation remains the most ambiguous of the nine.</p>
+    <div class="ctitle">A real pattern, not noise: this entire pathway is under strong, near-uniform conservation</div>
+    <p>Every single gene on this map &mdash; all nine of them &mdash; sits at 98.8&ndash;100% identity in <b>both</b> cross-strain comparisons: 100% for every gene between HS6 and #4 (consistent with this project's central finding that no coding-sequence differences survive verification anywhere in that comparison), and 98.8&ndash;100% between HS6 and #7, two independently-isolated strains. That includes genes initially flagged elsewhere on this page as "distant" or "ambiguous" by other measures &mdash; g1554 (Baldspot-type) looked like only a 36% match when compared against the <i>ELOVL6 reference protein</i> (a different question: "is this gene actually ELOVL6?"), but its own direct ortholog in #7 is 99.7% identical. Worth stating plainly: no gene checked in this entire fatty-acid pathway shows meaningful sequence divergence between any two of the three strains. Whatever engineering outcome a knockout produces here, it won't be because the target enzyme itself differs between strains &mdash; every one of them is, functionally, the same protein everywhere it's been checked.</p>
   </div>
 </section>
 
