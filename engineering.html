@@ -290,13 +290,17 @@ footer p{max-width:none; color:var(--ink-faint);}
   <table>
     <thead><tr><th>Goal</th><th>Gene</th><th>Mechanism</th><th>Confidence</th></tr></thead>
     <tbody>
-      <tr><td rowspan="2"><b>Increase SFA</b></td><td class="gene">ELOVL6 / g12225</td><td>Blocks C16&rarr;C18 saturated/monounsaturated elongation &mdash; C16:0 should accumulate at the expense of C18 products. Current #7 KO target (Section 4).</td><td>Mechanistically direct; KO not yet built</td></tr>
-      <tr><td>Stearoyl-CoA 9-desaturase (KO K22770)</td><td>Would block C18:0&rarr;C18:1 desaturation directly &mdash; the single most direct SFA-increasing step. Flagged as an HS6-specific KEGG hit on the ko01040 map, but not yet mapped to a specific HS6 gene ID.</td><td>Gene ID not yet located &mdash; priority follow-up</td></tr>
+      <tr><td><b>Increase SFA</b></td><td class="gene">ELOVL6 / g12225</td><td>Blocks C16&rarr;C18 saturated/monounsaturated elongation &mdash; C16:0 should accumulate at the expense of C18 products. Current #7 KO target (Section 5).</td><td>Mechanistically direct; KO not yet built</td></tr>
       <tr><td rowspan="3"><b>Increase PUFA (DHA/EPA)</b></td><td class="gene">ELOVL6 / g12225 (dual candidate)</td><td>If ELOVL6 competes with the pfa cluster for shared malonyl-CoA/acyl-CoA precursors, knocking it out could redirect flux toward PUFA synthesis rather than away from it &mdash; the opposite framing of the same gene above. Genuinely open which effect dominates.</td><td>Speculative, not mutually exclusive with the SFA framing</td></tr>
       <tr><td class="gene">g4070 (ACOX1, KO K00232)</td><td>Rate-limiting first step of peroxisomal &beta;-oxidation. Knockout could reduce degradation of long-chain/unsaturated species, increasing PUFA retention &mdash; an established strategy in oleaginous-microbe engineering.</td><td>Mechanistically plausible, not HS6-tested</td></tr>
-      <tr><td class="gene">PLD1 / g4538</td><td>Already knocked out on #4 for stated composition-modulation goals (Section 5). Directional mechanism (toward SFA or PUFA) not yet established from literature or this project's data.</td><td>Outcome-confirmed KO exists; direction unresolved</td></tr>
+      <tr><td class="gene">PLD1 / g4538</td><td>Already knocked out on #4 for stated composition-modulation goals (Section 6). Directional mechanism (toward SFA or PUFA) not yet established from literature or this project's data.</td><td>Outcome-confirmed KO exists; direction unresolved</td></tr>
     </tbody>
   </table>
+  </div>
+
+  <div class="callout rust">
+    <div class="ctitle">Ruled out: stearoyl-CoA 9-desaturase (KO K22770) is not a real HS6 ortholog</div>
+    <p>The original comparative-genomics KEGG map (report1.html &sect;07) flagged an HS6-specific hit to K22770 without characterizing it further. Followed up here: pulled the actual reference protein behind that KO (<i>M. tuberculosis</i> Rv3230c) and BLASTed it directly against HS6's proteome. The two hits that came back (<span class="gene">g71</span>, <span class="gene">g15628</span>) are both only ~27% identity at ~57&ndash;59% coverage &mdash; well below a confident ortholog call &mdash; and both are independently annotated by eggNOG as <b>flavohemoglobins</b> (nitric-oxide dioxygenase family, KO K05916/K02613), not desaturase-system components. The weak BLAST similarity traces to a generic shared FAD/NAD-binding reductase domain, not real functional homology. This looks like the same low-confidence cross-reference artifact this project has hit before (ELOVL6's paralog confusion, the retracted missense survey) &mdash; reported here as tested and excluded, not left as an open lead. A genuine HS6 stearoyl-CoA desaturase, if one exists, has not yet been identified.</p>
   </div>
 </section>
 
