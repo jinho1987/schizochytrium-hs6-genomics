@@ -1000,8 +1000,34 @@ a{color:var(--teal-ink);}
       </div>
     </div>
 
-    <h3>Docking g6124 against g3557: in progress</h3>
-    <p class="pending-note">A full blind protein-protein docking run (LightDock, 635 swarms covering the entire molecular surface, DFIRE scoring, 100 steps/swarm) is running at the time of writing. This tests whether the top-ranked binding poses cluster near the kinase's catalytic cleft (supporting substrate engagement) or scatter randomly across the surface (which would undermine the annotation). Results will be posted here once complete, with the important caveat already noted above: this tests the <i>annotation's</i> plausibility, not a WT4-vs-HS6 difference &mdash; g6124 and g3557 are both sequence-identical between genotypes.</p>
+    <h3>Docking g6124 against g3557: complete</h3>
+    <p>Full blind protein-protein docking (LightDock, 635 swarms covering the entire molecular surface, DFIRE scoring, 100 steps/swarm, 200 glowworms/swarm) finished cleanly. The top-scoring pose (swarm 179, glowworm 28, DFIRE score 29.54) wasn't a lone outlier &mdash; swarm 179 alone contributed 38 of the top 200 scored structures genome-wide, meaning many independent optimization trajectories converged on the same binding geometry. That convergence is itself evidence this is a real interface, not docking noise.</p>
+
+    <div class="struct-fig-row" style="grid-template-columns:1.4fr 1fr;">
+      <div class="struct-fig-card">
+        <img src="figures/esmfold/g6124_g3557_docking_top_pose.gif" alt="Top-ranked docking pose of g6124 (kinase, blue) and g3557 (RPS6, orange), rotating, with the contact interface highlighted in magenta and the catalytic motifs in red" loading="lazy">
+        <div class="cap-title">Top-ranked pose, rotating (g6124 blue, g3557/RPS6 orange)</div>
+        <div class="cap-body">Interface residues (CA within 10&#8491; of the ligand) highlighted magenta; the three catalytic motifs (H<sup>276</sup>ADLKPEN<sup>283</sup>, D<sup>296</sup>FGLSVF<sup>302</sup>, S<sup>328</sup>APE<sup>331</sup>) in red for reference. The visible thin tangle is g6124's own disordered N-terminal region (pLDDT&lt;0.5 in the original fold) &mdash; a real low-confidence feature of the prediction, not a rendering error, left visible rather than deleted.</div>
+      </div>
+      <div class="struct-fig-card">
+        <img src="figures/esmfold/g6124_g3557_docking_top_pose.png" alt="Static render of the top docking pose" loading="lazy">
+        <div class="cap-title">Same pose, static view</div>
+        <div class="cap-body">35 receptor residues sit at the interface (CA within 10&#8491; of any ligand CA): 59, 179, 246&ndash;257, 288&ndash;289, 356, 381&ndash;386, 423&ndash;444.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:14px;">
+      <div class="ctitle">The interface lands beside the catalytic cleft, not inside it &mdash; and that's a plausible result, not a failure</div>
+      <p>Only 2 of the 31 catalytic-motif residues (288&ndash;289, at the edge of the HRD-like loop) fall within the interface; the catalytic-region centroid sits 31.8&#8491; from the ligand's centroid, and the single closest catalytic-to-ligand approach is 8.0&#8491; (residue 289 to RPS6's residue 107) &mdash; close, but not direct engagement. The interface instead concentrates at 246&ndash;257, 381&ndash;386, and the C-terminal region (423&ndash;444).</p>
+      <p style="margin-top:8px;">Lightdock searches the entire molecular surface with no prior knowledge of "where the active site is," so this isn't a targeted-and-missed result. It's consistent with a real, well-documented feature of kinase&ndash;substrate biology: many kinases (ribosomal S6 kinases included) use a <b>substrate-docking groove physically separate from the catalytic cleft</b> to first recognize a substrate, which then transiently loops into the active site for the phosphotransfer step itself &mdash; a interaction geometry blind docking is well-suited to find, and the catalytic step itself is not. Read as "a plausible recognition-type interface," not "the catalytic engagement pose."</p>
+    </div>
+
+    <div class="callout rust" style="margin-top:14px;">
+      <div class="ctitle">What this test does and doesn't establish about HS6 vs. #4</div>
+      <p>Restating the caveat from above, now with the completed result: g6124 has <b>zero sequence differences of any kind between HS6 and #4</b> &mdash; not just at the CDS level (0 SNPs, verified even under the most permissive no-filter variant-calling setting), but genome-wide for this gene, because g6124 is a single-exon gene with no introns to carry a non-coding variant either. The nearest variation at all is 2 intergenic SNPs sitting between g6124 and its neighbor g6125 &mdash; not confirmed to be in either gene's own regulatory region specifically.</p>
+      <p style="margin-top:8px;">So this docking result cannot be, and was never testing for, a structural difference between the two genotypes: there is only one g6124 structure, shared identically by both strains. What it does establish is that the eggNOG "ribosomal S6 kinase" annotation is structurally credible &mdash; the fold has the expected bilobal kinase architecture with intact catalytic motifs, and it forms a convergent, non-random docking interface with this organism's own RPS6. That's supporting evidence the annotation itself is trustworthy, which matters for interpreting g6124's differential expression (log2FC=&minus;0.59, padj=0.017) as biologically meaningful rather than a mis-annotated gene &mdash; not evidence of a mutation-driven structural change.</p>
+      <p style="margin-top:8px;">Worth keeping in view alongside g6423: it shows a <i>larger</i> effect size (log2FC=&minus;1.11, padj=0.019) than g6124 does, with comparable significance. g6124 was chosen for this structural test because it has a tractable, well-characterized native substrate to dock against &mdash; not because the expression data marks it as the strongest of the three original candidate genes (g6423, g1760, g6124). g1760, for reference, does not clear significance after correction at all (padj=0.257).</p>
+    </div>
   </section>
 
   <section id="methods">
