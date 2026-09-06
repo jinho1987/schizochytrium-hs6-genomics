@@ -163,12 +163,33 @@ a{color:var(--teal-ink);}
     <span class="pill retracted">RanGAP-family LightDock docking &mdash; paused at 148/349 swarms, 2026-09-07: built on the retracted &sect;14 missense list, not resumed</span>
     <span class="pill retracted">SV-vs-CDS overlap audit &mdash; all 21 candidates retracted, 2026-09-07: see below</span>
     <span class="pill retracted">34-gene WT4-vs-HS6 ESMFold batch sweep &mdash; paused at 25/68, 2026-09-07: same reason, no confirmed missense target remains</span>
+    <span class="pill done">Baseline structure/docking figures (g6124/g3557) &mdash; done, 2026-09-07: docking render bug found &amp; fixed, see &sect;16</span>
+    <span class="pill done">g14345 RNA-fold visualization &mdash; done, 2026-09-07: identical structure confirmed visually, pairing detail corrected</span>
   </div>
 
   <div class="callout retracted" style="margin-top:16px;">
     <span class="lbl">Headline, stated plainly: this project has found zero confirmed missense (protein-coding) mutations between HS6 and #4</span>
     <p>Every mutation class has now been tested &mdash; SNPs, indels, and structural variants &mdash; and none produce a validated coding-sequence difference. &sect;14 checked 99 originally-claimed missense positions directly against WT4 reads: <b>1 of 99 held up, and that one (g14345) is intronic, not missense.</b> A follow-up session (2026-09-07) extended the same rigor to structural variants: 21 candidate genes where a delly SV call appeared to overlap a CDS were checked against actual sample genotypes (not just site-level <code>FILTER=PASS</code>) &mdash; <b>20 of 21 were never actually genotyped as present in the sample</b> despite passing quality filters, and the one that was (a duplication near <span class="gene">g6061</span>) showed a read-depth pattern opposite to a real duplication (lower depth inside the "duplicated" span than in flanking DNA) plus the same repeat-driven multi-mapping signature documented for other retracted candidates below &mdash; i.e. also an artifact, not a real variant.</p>
     <p><b>The only DNA-level variant that survives every check applied &mdash; independently reproduced by two separate pipelines on two separate machines &mdash; is g14345, and it sits in an intron.</b> No protein sequence changes as a result. Per this project's own standing rule (protein folding is only warranted for a confirmed missense change, since a non-coding variant cannot alter a protein's sequence or fold by construction &mdash; see &sect;16), <b>no gene currently qualifies for ESMFold/AlphaFold comparison or docking</b>. The batch folding and docking jobs below were paused rather than completed for exactly this reason, not from a resource or time constraint.</p>
+  </div>
+
+  <div class="callout" style="margin-top:16px;">
+    <span class="lbl">Direct answer (2026-09-07): given no missense mutations, are there regulatory mutations supported by RNA-seq?</span>
+    <p><b>Yes.</b> Five real, independently re-confirmed DNA variants sit near a gene &mdash; not inside its coding sequence, but close enough in cis to plausibly affect its expression &mdash; and all five of those genes are significant differential-expression (DE) hits in the RNA-seq data (padj&lt;0.05, DESeq2 genotype term). That's the full candidate list this project has produced for "how might HS6's genome explain its expression differences," now cross-checked directly against the DEG table rather than asserted from the variant list alone:</p>
+    <div class="table-wrap" style="margin-top:8px;">
+    <table>
+      <thead><tr><th>Gene</th><th>Variant location</th><th>log2FC (genotype)</th><th>padj</th><th>Direction across 20h/44h/68h</th><th>Annotation</th></tr></thead>
+      <tbody>
+        <tr><td class="gene">g8342</td><td>intergenic</td><td>&minus;1.15</td><td>0.00075</td><td>down at all 3 timepoints</td><td>unannotated</td></tr>
+        <tr><td class="gene">g568</td><td>intergenic, TC/CTT microsatellite</td><td>+0.97</td><td>0.011</td><td>up at all 3 timepoints by point estimate, but flagged "inconsistent" by this project's own stricter per-timepoint significance rule &mdash; see caveat below</td><td>Uracil-regulated protein 1</td></tr>
+        <tr><td class="gene">g6124</td><td>intergenic, AAAG microsatellite (2 variants, 0.85&ndash;2.2kb away)</td><td>&minus;0.59</td><td>0.017</td><td>down at all 3 timepoints</td><td>Ribosomal protein S6 kinase alpha-2</td></tr>
+        <tr><td class="gene">g8869</td><td>intergenic</td><td>&minus;1.6</td><td>0.023</td><td>down at all 3 timepoints</td><td>unannotated</td></tr>
+        <tr><td class="gene">g14345</td><td><b>intronic</b> (inside the gene body)</td><td>+0.76</td><td>0.033</td><td>up at all 3 timepoints</td><td>unannotated; only variant to survive independent re-verification with a mechanism this thorough (see &sect;16)</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="margin-top:8px;">Caveat on g568, stated plainly rather than smoothed over: this project's DEG table classifies each gene's cross-timepoint behavior with a stricter rule than "same sign at all three timepoints" (it also weighs per-timepoint significance), and g568 fails that stricter test even though its log2FC is positive at 20h, 44h, and 68h alike. Treat g568 as the weakest of the five on that basis specifically &mdash; still DE-significant overall (padj=0.011), just less consistently so than the other four.</p>
+    <p style="margin-top:8px;">This is genuine cis-regulatory-candidate evidence, not proof of causation: none of these five variant&ndash;expression pairings has been mechanistically confirmed (no ATAC/promoter assay, no RT-PCR splicing check beyond g14345's own structural analysis below, no Sanger confirmation of the variants themselves yet &mdash; primers are designed in &sect;16). What's established is a real, non-coding DNA difference in cis with a real, significant expression difference, for a small but complete list of 5 genes &mdash; the honest current state of "genomics explains HS6's expression shift," not the coding-mutation story originally proposed.</p>
   </div>
 
   <nav class="toc">
@@ -1080,7 +1101,22 @@ a{color:var(--teal-ink);}
         <div class="stat-card"><div class="v">1,638 / 1,638</div><div class="k">structural positions identical between alleles</div></div>
         <div class="stat-card"><div class="v">&minus;491.3 vs &minus;493.1</div><div class="k">MFE, kcal/mol (HS6 vs WT4) &mdash; &Delta;&Delta;G&asymp;1.8</div></div>
       </div>
-      <p style="margin-top:8px;">The base-pairing pattern is <b>completely identical</b> across the entire transcript &mdash; not approximately similar, exactly the same dot-bracket structure at all 1,638 positions. The small MFE difference reflects the substituted base&#8217;s own local stacking contribution, not a structural rearrangement. This isn&#8217;t surprising in hindsight: the variant sits in the middle of a 15+ nt poly-A homopolymer run (context: <code>AAACAAAAACAAAAA[T/C]AAAAAATAAGTTTTT</code>), and both RNAfold calls leave that entire stretch unpaired in both alleles &mdash; poly-A tracts don&#8217;t form stable secondary structure regardless of the exact base at any one position. RNA-structure disruption is now ruled out the same way splice-site disruption was above, leaving primary-sequence-based regulatory recognition (the IME mechanism proposed here) as the most parsimonious explanation still standing, by elimination rather than by direct confirmation.</p>
+      <p style="margin-top:8px;">The base-pairing pattern is <b>completely identical</b> across the entire transcript &mdash; not approximately similar, exactly the same dot-bracket structure at all 1,638 positions, independently re-verified in this 2026-09-07 session by re-running the diff directly on both RNAfold outputs. The variant sits in a run of mixed A/U bases (context: <code>AAACAAAAACAAAAA[U/C]AAAAAAUAAGUUUUU</code>) that is <i>mostly</i>, not entirely, unpaired &mdash; a correction to this section's earlier description. Position 626 itself base-pairs with position 636, six bases into a short local stem: <b>a canonical C&ndash;G Watson-Crick pair in WT4, downgraded to a G&ndash;U wobble pair in HS6</b>, with the identical dot-bracket topology preserved on both sides. That single pair-type swap, not a poly-A tract being agnostic to sequence, is what accounts for the &Delta;&Delta;G&asymp;1.8&nbsp;kcal/mol (G&ndash;U wobble pairs are thermodynamically weaker than G&ndash;C by almost exactly this margin) &mdash; a more precise, mechanistically satisfying explanation than "local stacking contribution," and one that still supports the same conclusion: no structural rearrangement, anywhere in the transcript.</p>
+    </div>
+
+    <div class="struct-fig-row" style="grid-template-columns:1fr;">
+      <div class="struct-fig-card">
+        <img src="figures/esmfold/g14345_rnafold_side_by_side.png" alt="Side-by-side RNAfold secondary structure diagrams of the g14345 pre-mRNA for HS6 and WT4, with the mutation position circled in red at an identical location in both" loading="lazy">
+        <div class="cap-title">Full pre-mRNA fold, both alleles &mdash; baseline comparison, structure is identical</div>
+        <div class="cap-body">RNAplot (ViennaRNA 2.7.2) renderings of the full 1,638&nbsp;nt fold for both alleles, laid out independently by the same naview algorithm. The mutation site (circled red, position 626) lands at pixel-identical coordinates in both renderings &mdash; a direct visual confirmation that every branch, stem, and loop of this structure is unchanged between HS6 and WT4, not just the dot-bracket string.</div>
+      </div>
+    </div>
+    <div class="struct-fig-row" style="grid-template-columns:1fr;max-width:900px;">
+      <div class="struct-fig-card">
+        <img src="figures/esmfold/g14345_rnafold_zoom.png" alt="Zoomed view of the local stem-loop around position 626 for both alleles, showing the G-U wobble pair in HS6 versus the canonical C-G pair in WT4" loading="lazy">
+        <div class="cap-title">Zoomed to the local stem: same fold, one pair downgraded from C&ndash;G to G&ndash;U</div>
+        <div class="cap-body">The base actually pairs (with position 636) rather than sitting in an unpaired loop as originally described. Same partner, same stem, same overall shape &mdash; only the pair chemistry changes.</div>
+      </div>
     </div>
 
     <h3>g14345's protein: what does the unannotated candidate actually look like?</h3>
@@ -1099,6 +1135,10 @@ a{color:var(--teal-ink);}
     </div>
 
     <h3>Structural characterization of g6124: does the fold actually look like a kinase?</h3>
+    <div class="callout" style="margin-bottom:10px;">
+      <span class="lbl">Baseline visualization, labeled plainly: one structure, shared identically by both strains</span>
+      <p>g6124 carries zero sequence differences of any kind between HS6 and #4 (confirmed above and again in &sect;16's independent re-call), so every image below &mdash; the fold, the docking pose, all of it &mdash; is <b>the same single structure for both genotypes</b>, not a HS6-vs-WT4 comparison. These figures establish that the eggNOG kinase annotation is structurally credible (baseline for interpreting the expression change), not that HS6's structure differs from #4's. There is no version of this figure to show "for WT4" separately &mdash; it would be pixel-identical.</p>
+    </div>
     <p>g6124 carries no coding mutation (confirmed above), so there's no WT4-vs-HS6 structural comparison to make here the way &sect;14 originally attempted for g6423/g11453 &mdash; this is a single-structure characterization testing whether the eggNOG "Ribosomal protein S6 kinase alpha-2" annotation is structurally plausible, which matters because that identity is what makes the nearby cis-regulatory variant a meaningful growth-phenotype candidate in the first place.</p>
     <div class="struct-fig-row" style="grid-template-columns:1.4fr 1fr;">
       <div class="struct-fig-card">
@@ -1119,8 +1159,8 @@ a{color:var(--teal-ink);}
     <div class="struct-fig-row" style="grid-template-columns:1.4fr 1fr;">
       <div class="struct-fig-card">
         <img src="figures/esmfold/g6124_g3557_docking_top_pose.gif" alt="Top-ranked docking pose of g6124 (kinase, blue) and g3557 (RPS6, orange), rotating, with the contact interface highlighted in magenta and the catalytic motifs in red" loading="lazy">
-        <div class="cap-title">Top-ranked pose, rotating (g6124 blue, g3557/RPS6 orange)</div>
-        <div class="cap-body">Interface residues (CA within 10&#8491; of the ligand) highlighted magenta; the three catalytic motifs (H<sup>276</sup>ADLKPEN<sup>283</sup>, D<sup>296</sup>FGLSVF<sup>302</sup>, S<sup>328</sup>APE<sup>331</sup>) in red for reference. The visible thin tangle is g6124's own disordered N-terminal region (pLDDT&lt;0.5 in the original fold) &mdash; a real low-confidence feature of the prediction, not a rendering error, left visible rather than deleted.</div>
+        <div class="cap-title">Top-ranked pose, rotating (g6124 blue, g3557/RPS6 orange) &mdash; re-rendered 2026-09-07</div>
+        <div class="cap-body">Interface residues (CA within 10&#8491; of the ligand) highlighted magenta; the three catalytic motifs (H<sup>276</sup>ADLKPEN<sup>283</sup>, D<sup>296</sup>FGLSVF<sup>302</sup>, S<sup>328</sup>APE<sup>331</sup>) in red for reference. <b>Correction:</b> the original version of this figure showed a chaotic scatter of disconnected rods across the whole frame, captioned at the time as g6124's real disordered N-terminal region left visible rather than deleted. That explanation was wrong. Direct diagnosis found the actual cause: the LightDock output PDB gives receptor and ligand the <i>same</i> chain ID with overlapping residue numbers (both start at residue 1), and PyMOL's default atom ordering (<code>retain_order=0</code>) re-sorts atoms by (chain, residue, atom name) rather than file order &mdash; so an atom-index-based chain split silently interleaved ligand residues into the "receptor" selection. Re-rendered here with <code>retain_order=1</code> (preserves file order) and explicit secondary-structure assignment (<code>dss()</code>, since the LightDock PDB carries no HELIX/SHEET records); the scatter is gone. g6124's N-terminal ~167 residues genuinely are low-confidence in the standalone fold (pLDDT&lt;0.5, verified directly from the PDB B-factor column) and still render as loose coil at the periphery here &mdash; that part of the original caption was directionally right &mdash; but the specific starburst artifact was a selection bug, not disorder.</div>
       </div>
       <div class="struct-fig-card">
         <img src="figures/esmfold/g6124_g3557_docking_top_pose.png" alt="Static render of the top docking pose" loading="lazy">
