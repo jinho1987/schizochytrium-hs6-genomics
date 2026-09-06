@@ -277,6 +277,14 @@ footer p{max-width:none; color:var(--ink-faint);}
   </div>
 </div>
 
+<div class="wrap" style="padding-top:12px;">
+  <div class="callout rust" style="margin:0 0 0 0;">
+    <div class="ctitle">⚠ Correction — 2026-09-06, post-publication</div>
+    <p><b>The Section 5 "Scaffolds_28 lead" is retracted as a phenotype-relevant, HS6-specific finding.</b> Step 2 of that section checked whether outgroup strain #7 shares the Scaffolds_28 depth anomaly (it doesn't) and concluded from that alone that "the duplication is specific to HS6's lineage" — but #4, HS6's own unmutagenized parent and the actually relevant comparison for any HS6-specific claim, was never checked. It has now been checked directly: #4's own resequencing reads, mapped to the HS6 genome, show the identical ~2× depth at Scaffolds_28 (~265× against a ~128× genome-wide baseline in that dataset) that HS6 shows against its own baseline. A genome-wide k-mer spectrum analysis (KMC + GenomeScope2 on HS6's HiFi reads: 99.95% homozygous k-mers, consistent with one small real diploid region rather than broad polyploidy) independently supports the same conclusion: Scaffolds_28 is a naturally diploid region shared across the HS6/#4 lineage, not a duplication that arose during HS6's own EMS mutagenesis.</p>
+    <p>Being different from unrelated outgroup #7 (true) is not the same as being different from HS6's own parent #4 (false) — and it's the #4 comparison that matters for any claim about what changed during HS6's mutagenesis. Since #4 already carries the same 2× state, Scaffolds_28/<span class="gene">g10519</span> (MVK) cannot explain any phenotypic difference between HS6 and #4, and <s>the Scaffolds_28/MVK lead remains the only substantive locus-level difference found anywhere in this comparison</s> (end of Section 6) no longer holds as a phenotype claim — it may still stand as a true HS6-vs-#7 genomic fact, just not one that bears on the mutagenesis-driven phenotype this project is ultimately trying to explain. Section 5's step 5/6 gene-level depth work and step 6's Scaffolds_22/30 lead are unaffected by this correction. Follow-up work (structural-variant genotyping, RNA-seq DEG cross-referencing, and protein/RNA-folding analysis of confirmed HS6-vs-#4 mutations) is in progress; see report4.html for live status.</p>
+  </div>
+</div>
+
 <div class="wrap">
 <div class="layout">
 
