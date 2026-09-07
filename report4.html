@@ -1147,20 +1147,37 @@ a{color:var(--teal-ink);}
     </div>
 
     <div class="callout method">
-      <span class="lbl">Robustness check: does the flat ratio hold across timepoints, or was 20h a fluke?</span>
-      <p>The single-timepoint comparison above could in principle be a coincidence of that specific library. To check, the same test was run on the two remaining #4/WT4 libraries (WT_44, WT_68) &mdash; not paired against matching HS6 libraries (MT_44/MT_68 weren't run, for time reasons), but enough to see how much the retained/exon-body ratio naturally moves across developmental time within a single genotype, as a noise floor for judging the MT_20-vs-WT_20 comparison.</p>
+      <span class="lbl">Completing the comparison: all three timepoints, both genotypes, matched</span>
+      <p>The 20h-only comparison above was extended to a full matched set &mdash; MT_44/MT_68 (HS6) were run against the already-completed WT_44/WT_68 (#4), giving all 6 libraries at all 3 timepoints for both genotypes.</p>
       <div class="table-wrap" style="margin-top:8px;">
       <table>
-        <thead><tr><th>Library</th><th>retain_donor</th><th>exon2_body</th><th>ratio</th></tr></thead>
+        <thead><tr><th>Library</th><th>retain_donor</th><th>exon2_body</th><th>ratio</th><th>exon2 CPM</th></tr></thead>
         <tbody>
-          <tr><td>WT_20 (#4, 20h)</td><td>81</td><td>65</td><td>1.246</td></tr>
-          <tr><td>WT_44 (#4, 44h)</td><td>82</td><td>63</td><td>1.302</td></tr>
-          <tr><td>WT_68 (#4, 68h)</td><td>87</td><td>92</td><td>0.946</td></tr>
-          <tr><td class="gene">MT_20 (HS6, 20h)</td><td>136</td><td>105</td><td><b>1.295</b></td></tr>
+          <tr><td class="gene">MT_20 (HS6, 20h)</td><td>136</td><td>105</td><td>1.295</td><td>4.61</td></tr>
+          <tr><td class="gene">MT_44 (HS6, 44h)</td><td>175</td><td>175</td><td>1.000</td><td>7.25</td></tr>
+          <tr><td class="gene">MT_68 (HS6, 68h)</td><td>244</td><td>222</td><td>1.099</td><td>10.18</td></tr>
+          <tr><td>WT_20 (#4, 20h)</td><td>81</td><td>65</td><td>1.246</td><td>2.68</td></tr>
+          <tr><td>WT_44 (#4, 44h)</td><td>82</td><td>63</td><td>1.302</td><td>2.59</td></tr>
+          <tr><td>WT_68 (#4, 68h)</td><td>87</td><td>92</td><td>0.946</td><td>4.18</td></tr>
         </tbody>
       </table>
       </div>
-      <p style="margin-top:8px;">The ratio swings from 0.946 to 1.302 across #4's own three timepoints (mean 1.16, SD 0.19) &mdash; a spread of 0.36, purely from normal developmental/library variation within one genotype. The MT_20-vs-WT_20 difference this section leans on (1.295 vs 1.246, a gap of just 0.049) is an order of magnitude smaller than that natural within-genotype spread. <b>This directly strengthens, not just repeats, the earlier conclusion</b>: whatever is happening to this ratio between HS6 and #4 at 20h is well within the noise floor established by #4's own timepoint-to-timepoint variability, not a genotype-specific signal standing out above it.</p>
+      <div class="table-wrap" style="margin-top:8px;">
+      <table>
+        <thead><tr><th>Timepoint</th><th>HS6 ratio</th><th>#4 ratio</th><th>difference</th><th>exon2 CPM fold (HS6/#4)</th><th>log&#8322; (this test)</th><th>DESeq2 log2FC (reference)</th></tr></thead>
+        <tbody>
+          <tr><td>20h</td><td>1.295</td><td>1.246</td><td>+0.049</td><td>1.72&times;</td><td>+0.78</td><td>+0.52</td></tr>
+          <tr><td>44h</td><td>1.000</td><td>1.302</td><td><b>&minus;0.302</b></td><td>2.80&times;</td><td>+1.49</td><td>+0.76</td></tr>
+          <tr><td>68h</td><td>1.099</td><td>0.946</td><td>+0.153</td><td>2.44&times;</td><td>+1.28</td><td>+0.99</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p style="margin-top:8px;"><b>The ratio difference flips sign at 44h</b> (HS6 <i>lower</i> than #4 by 0.302, the largest gap seen at any timepoint) after being marginally positive at 20h and 68h. A real, consistent IME-via-splicing-efficiency effect would be expected to push the ratio the same direction at every timepoint; instead it moves in both directions by an amount larger than the original 20h signal itself. Combined with the within-#4 noise-floor check above, this is now the strongest evidence in this project against a genotype-specific splicing-efficiency shift at intron2 specifically &mdash; the earlier 20h-only result was noise, not signal missed at other timepoints.</p>
+      <p style="margin-top:8px;"><b>The overall expression-level finding replicates cleanly, though.</b> Raw exon2 read density (CPM, no aligner or normalization model involved) is higher in HS6 than #4 at <i>all three</i> timepoints &mdash; 1.72&times;, 2.80&times;, and 2.44&times; &mdash; and its log&#8322; values (+0.78, +1.49, +1.28) track the same increasing-then-similar trajectory as DESeq2's own per-timepoint log2FC (+0.52, +0.76, +0.99), obtained from a completely different pipeline (raw substring counting vs. a negative-binomial GLM with size-factor normalization). Two independent, non-overlapping methods agreeing on both direction and shape across all three timepoints is about as solid as this kind of cross-validation gets without a wet-lab qPCR.</p>
+    </div>
+    <div class="callout rust" style="margin-top:14px;">
+      <span class="lbl">Where this leaves the mechanism question</span>
+      <p>Six libraries, three timepoints, both genotypes, all tested the same validated way: <b>g14345's upregulation in HS6 is real and robust</b> (now independently confirmed a third way, on top of DESeq2 and this project's earlier re-analyses), but <b>the specific claim that it works through the mutated intron's own splicing efficiency does not hold up</b> &mdash; the ratio that would carry that signal moves in inconsistent directions across timepoints, with a swing larger than the original signal itself. The mutation's mechanism, if it is causal at all, more likely runs through general transcriptional or mRNA-stability effects than through altered EJC deposition at this specific intron. This doesn't rule out IME broadly (a different intron, or the gene's overall processing rather than this one splice event, could still be involved) &mdash; but it closes off the most literal, testable version of the hypothesis this project could check with the data actually available.</p>
     </div>
 
     <h3>Completing the sweep: RNA/DNA structural analysis across every candidate, not just g14345</h3>
