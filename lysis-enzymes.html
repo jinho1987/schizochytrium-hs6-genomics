@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enzymatic Lysis &mdash; Structure &amp; Docking Comparison</title>
+<meta name="description" content="ESMFold structure prediction and AutoDock Vina docking comparison of 13 candidate enzymes for Schizochytrium cell-wall lysis, against canonical substrates and a modeled probe of the real wall polymer.">
+<link rel="stylesheet" href="assets/css/site-nav.css">
+<style>
+:root{
+  --bg:#f3f6f5; --bg-raised:#ffffff; --ink:#152025; --ink-soft:#455055; --ink-faint:#7c8a8d;
+  --line:#d7e0de; --line-soft:#e6ece9; --teal:#1f6f68; --teal-ink:#134f49; --teal-tint:#e4f0ee;
+  --gold:#a9762f; --gold-ink:#7d5720; --gold-tint:#f6ecdc; --rust:#a2432f; --rust-tint:#f7e7e2;
+  --good:#3c7a4f; --good-tint:#e6f0e8;
+  --shadow: 0 1px 2px rgba(21,32,37,0.06), 0 8px 24px -12px rgba(21,32,37,0.18);
+  --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", "URW Palladio L", Georgia, serif;
+  --sans: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, "Liberation Mono", monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0d1517; --bg-raised:#131e21; --ink:#e9eeec; --ink-soft:#b7c3c1; --ink-faint:#7d8c8a;
+    --line:#28393c; --line-soft:#1c2b2e; --teal:#5bb3a8; --teal-ink:#8fd0c6; --teal-tint:#132625;
+    --gold:#d9a25c; --gold-ink:#e8bb82; --gold-tint:#241c10; --rust:#d98269; --rust-tint:#26140f;
+    --good:#7ac495; --good-tint:#0f2018;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 30px -12px rgba(0,0,0,0.5);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d1517; --bg-raised:#131e21; --ink:#e9eeec; --ink-soft:#b7c3c1; --ink-faint:#7d8c8a;
+  --line:#28393c; --line-soft:#1c2b2e; --teal:#5bb3a8; --teal-ink:#8fd0c6; --teal-tint:#132625;
+  --gold:#d9a25c; --gold-ink:#e8bb82; --gold-tint:#241c10; --rust:#d98269; --rust-tint:#26140f;
+  --good:#7ac495; --good-tint:#0f2018;
+  --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 30px -12px rgba(0,0,0,0.5);
+}
+:root[data-theme="light"]{
+  --bg:#f3f6f5; --bg-raised:#ffffff; --ink:#152025; --ink-soft:#455055; --ink-faint:#7c8a8d;
+  --line:#d7e0de; --line-soft:#e6ece9; --teal:#1f6f68; --teal-ink:#134f49; --teal-tint:#e4f0ee;
+  --gold:#a9762f; --gold-ink:#7d5720; --gold-tint:#f6ecdc; --rust:#a2432f; --rust-tint:#f7e7e2;
+  --good:#3c7a4f; --good-tint:#e6f0e8;
+  --shadow: 0 1px 2px rgba(21,32,37,0.06), 0 8px 24px -12px rgba(21,32,37,0.18);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;}
+::selection{background:var(--gold-tint); color:var(--ink);}
+.page{max-width:980px; margin:0 auto; padding:0 clamp(24px, 6vw, 96px) 120px;}
+section{margin-bottom:64px; scroll-margin-top:24px;}
+.sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:6px;}
+.sec-num{font-family:var(--mono); color:var(--gold); font-size:14px; font-weight:600;}
+h2{font-family:var(--serif); font-size:26px; font-weight:600; margin:0; color:var(--ink); letter-spacing:-0.01em;}
+h3{font-family:var(--serif); font-size:19px; font-weight:600; margin:28px 0 10px; color:var(--ink);}
+.dek{color:var(--ink-faint); font-size:14.5px; margin:0 0 22px; max-width:70ch;}
+p{margin:0 0 14px; max-width:74ch; color:var(--ink-soft);}
+p b, td b, li b{color:var(--ink); font-weight:600;}
+.lede{font-size:17px; color:var(--ink); max-width:72ch;}
+a{color:var(--teal-ink);}
+code, .mono{font-family:var(--mono); font-size:0.92em;}
+.gene{font-family:var(--mono); font-size:0.92em; background:var(--line-soft); padding:1px 5px; border-radius:4px; color:var(--ink);}
+.callout{border:1px solid var(--line); border-left:4px solid var(--teal); background:var(--bg-raised); border-radius:8px; padding:20px 22px; margin:22px 0; box-shadow:var(--shadow);}
+.callout.gold{border-left-color:var(--gold);}
+.callout.rust{border-left-color:var(--rust);}
+.callout .ctitle{font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--teal-ink); font-weight:700; margin-bottom:8px; display:flex; align-items:center; gap:8px;}
+.callout.gold .ctitle{color:var(--gold-ink);}
+.callout.rust .ctitle{color:var(--rust);}
+.callout p:last-child{margin-bottom:0;}
+.finding-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin:24px 0 8px;}
+.finding{background:var(--bg-raised); border:1px solid var(--line); border-radius:10px; padding:18px 20px;}
+.finding .k{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:8px;}
+.finding .v{font-size:15px; color:var(--ink); line-height:1.5;}
+.finding .v b{color:var(--teal-ink);}
+.tbl-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:10px; margin:18px 0; box-shadow:var(--shadow);}
+table{width:100%; border-collapse:collapse; font-size:14px; background:var(--bg-raised); min-width:560px;}
+thead th{text-align:left; font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); font-weight:600; padding:12px 14px; border-bottom:1px solid var(--line); white-space:nowrap;}
+tbody td{padding:10px 14px; border-bottom:1px solid var(--line-soft); color:var(--ink-soft); vertical-align:top;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:hover{background:var(--line-soft);}
+td.num, th.num{text-align:right; font-variant-numeric:tabular-nums;}
+.pill{display:inline-block; padding:2px 9px; border-radius:99px; font-size:12px; font-weight:600; font-family:var(--mono);}
+.pill.good{background:var(--good-tint); color:var(--good);}
+.pill.gold{background:var(--gold-tint); color:var(--gold-ink);}
+.pill.rust{background:var(--rust-tint); color:var(--rust);}
+.pill.teal{background:var(--teal-tint); color:var(--teal-ink);}
+.divider{height:1px; background:var(--line); margin:56px 0;}
+ul.clean{margin:0 0 14px; padding-left:20px; color:var(--ink-soft);}
+ul.clean li{margin-bottom:7px;}
+.tag-row{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0;}
+.tag{font-family:var(--mono); font-size:12px; background:var(--line-soft); color:var(--ink-soft); padding:4px 10px; border-radius:6px;}
+footer{border-top:1px solid var(--line); margin-top:60px; padding-top:28px; font-size:13px; color:var(--ink-faint);}
+footer p{max-width:none; color:var(--ink-faint);}
+.stat-strip{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-top:24px;}
+.stat{background:var(--bg-raised); padding:18px 20px;}
+.stat .num{font-family:var(--serif); font-size:26px; font-weight:600; color:var(--teal-ink); font-variant-numeric:tabular-nums; line-height:1.1;}
+.stat .lbl{font-size:12px; color:var(--ink-faint); margin-top:4px; letter-spacing:.01em;}
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-brand" href="index.html">SCHIZOCHYTRIUM <span class="dot">&middot;</span> HS6</a>
+    <ul class="site-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><details class="site-nav-group"><summary>HS6 vs #7 <span class="car">&#9660;</span></summary><div class="site-nav-menu"><a href="report1.html">Comparative Genomics Report</a><a href="figure1.html">Metabolic Map (Figure 1)</a></div></details></li>
+      <li><details class="site-nav-group"><summary>HS6 vs #4 (WT) <span class="car">&#9660;</span></summary><div class="site-nav-menu"><a href="report2.html">RNA-seq Findings</a><a href="report3.html">Reproducibility Log</a><a href="report4.html">Extended Analyses &amp; Synbio Parts</a><a href="figure2.html">Regulatory Map (Figure 2)</a></div></details></li>
+      <li><a href="engineering.html">Metabolic Engineering</a></li>
+      <li><a href="lysis-enzymes.html" class="current">Enzymatic Lysis</a></li>
+      <li><a href="results/">Data</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+
+<section class="hero-block" style="padding:28px 0 8px;">
+  <div class="eyebrow" style="font-size:12px;letter-spacing:.06em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:8px;">Schizochytrium sp. &middot; Bioprocess Engineering</div>
+  <h1 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);margin:0 0 12px;">Enzymatic lysis: structure &amp; docking comparison</h1>
+  <p style="font-size:16px;color:var(--ink-soft);max-width:760px;line-height:1.5;">Which enzymes actually make mechanistic sense for cracking open a <i>Schizochytrium</i> cell for DHA oil extraction? A 13-enzyme panel &mdash; folded with ESMFold, docked against both their textbook substrate and a modeled probe of the real wall polymer &mdash; built to test a mismatch between what this wall is actually made of and which enzymes the literature reports as effective.</p>
+  <div class="stat-strip">
+    <div class="stat"><div class="num">13</div><div class="lbl">enzymes, 5 functional classes</div></div>
+    <div class="stat"><div class="num">26</div><div class="lbl">docking runs (2 ligands &times; 13 receptors)</div></div>
+    <div class="stat"><div class="num">0.74&ndash;0.87</div><div class="lbl">ESMFold mean pLDDT range</div></div>
+    <div class="stat"><div class="num">4</div><div class="lbl">host organisms compared for Alcalase alone</div></div>
+  </div>
+</section>
+
+<section id="framing">
+  <div class="sec-head"><span class="sec-num">01</span><h2>Framing: a composition-vs-practice mismatch</h2></div>
+  <p class="dek">Published <i>Schizochytrium</i> lysis protocols report success with cellulase, hemicellulase, lysozyme, and alkaline protease. But directly checking what this cell wall is actually built from complicates that picture.</p>
+
+  <div class="callout gold">
+    <div class="ctitle">What the wall is actually made of</div>
+    <p><i>Schizochytrium</i>'s wall is <b>not</b> chitin- or cellulose-based like a fungal wall. It's a Golgi-derived scale structure, ~21&ndash;36% carbohydrate (&gt;95% <b>L-galactose</b>, a sulfated galactan) and ~30&ndash;43% protein/glycoprotein (Kazama &amp; Kimura, <i>Cell wall composition and synthesis via Golgi-directed scale formation in Schizochytrium aggregatum</i>, Arch Microbiol). No cellulose, no chitin, no peptidoglycan &mdash; anywhere.</p>
+  </div>
+
+  <p>Yet the empirical lysis literature reports cellulase and hemicellulase as effective, and lysozyme and alkaline protease (commercially, <b>Alcalase</b>) are standard choices too (Cui et al., <i>Optimization of Enzymatic Cell Disruption for Improving Lipid Extraction from Schizochytrium sp.</i>, PubMed 29367487; see also the <i>Cell Walls of Lipid-Rich Microalgae</i> review, MDPI 2311-5637/10/12/608). Of the four, only alkaline protease has an obvious mechanistic target (the wall's substantial protein fraction) &mdash; cellulase and lysozyme's canonical substrates simply aren't present. This page tests whether structure and docking evidence can distinguish "these enzymes happen to have promiscuous affinity for the real wall polymer" from "they work by some other route entirely."</p>
+
+  <div class="callout">
+    <div class="ctitle">The panel's organizing idea: identical function, different host</div>
+    <p>"Alcalase" is itself a useful example &mdash; commercially it's subtilisin Carlsberg from <span class="gene">Bacillus licheniformis</span> (UniProt P00780), but the same catalytic function has documented origins in <span class="gene">B. subtilis</span> and <span class="gene">B. pumilus</span> too. That became the template for the whole panel: wherever possible, each enzyme class is represented by the same function expressed in different host organisms, to see whether host origin shows up as a real structural/binding difference or is functionally silent.</p>
+  </div>
+</section>
+
+<section id="panel">
+  <div class="sec-head"><span class="sec-num">02</span><h2>The 13-enzyme panel</h2></div>
+  <p class="dek">Five functional classes, each with 2&ndash;4 host-origin variants (lysozyme instead compares three structurally unrelated folds &mdash; GH22, GH24, GH25 &mdash; that converge on the same muramidase activity).</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Accession</th><th>Enzyme</th><th>Class</th><th>Host</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">P00780</td><td>Subtilisin Carlsberg</td><td><span class="pill teal">protease</span></td><td><i>B. licheniformis</i></td><td>= commercial Alcalase</td></tr>
+      <tr><td class="mono">P00782</td><td>Subtilisin BPN'</td><td><span class="pill teal">protease</span></td><td><i>B. amyloliquefaciens</i></td><td>host variant</td></tr>
+      <tr><td class="mono">P04189</td><td>Subtilisin E</td><td><span class="pill teal">protease</span></td><td><i>B. subtilis</i></td><td>host variant</td></tr>
+      <tr><td class="mono">P07518</td><td>Subtilisin (mesentericopeptidase)</td><td><span class="pill teal">protease</span></td><td><i>B. pumilus</i></td><td>host variant</td></tr>
+      <tr><td class="mono">P00698</td><td>Lysozyme C</td><td><span class="pill gold">lysozyme</span></td><td><i>Gallus gallus</i></td><td>GH22 fold</td></tr>
+      <tr><td class="mono">P00720</td><td>Endolysin</td><td><span class="pill gold">lysozyme</span></td><td>phage T4</td><td>GH24 fold</td></tr>
+      <tr><td class="mono">P25310</td><td>Lysozyme M1</td><td><span class="pill gold">lysozyme</span></td><td><i>Streptomyces globisporus</i></td><td>GH25 fold (Chalaropsis-type)</td></tr>
+      <tr><td class="mono">P07981</td><td>Endoglucanase I</td><td><span class="pill rust">cellulase</span></td><td><i>Trichoderma reesei</i></td><td>no cellulose in the wall</td></tr>
+      <tr><td class="mono">O74706</td><td>Endoglucanase B</td><td><span class="pill rust">cellulase</span></td><td><i>Aspergillus niger</i></td><td>host variant</td></tr>
+      <tr><td class="mono">G0RUP7</td><td>Xylanase 2</td><td><span class="pill">xylanase</span></td><td><i>Trichoderma reesei</i></td><td>xylose is a real (minor) wall sugar</td></tr>
+      <tr><td class="mono">P55330</td><td>Xylanase B</td><td><span class="pill">xylanase</span></td><td><i>Aspergillus niger</i></td><td>host variant</td></tr>
+      <tr><td class="mono">G0L322</td><td>&beta;-agarase A</td><td><span class="pill good">agarase</span></td><td><i>Zobellia galactanivorans</i></td><td>best mechanistic match to the real wall sugar</td></tr>
+      <tr><td class="mono">Q9RGX8</td><td>&beta;-agarase B</td><td><span class="pill good">agarase</span></td><td><i>Zobellia galactanivorans</i></td><td>isoform of above</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:13px;color:var(--ink-faint);">All sequences from UniProt (reviewed/Swiss-Prot entries only). &beta;-agarase's natural substrate (agarose) contains 3,6-anhydro-L-galactose &mdash; built from the same L-galactose backbone reported for the <i>Schizochytrium</i> wall &mdash; making it the one class in this panel with an a priori mechanistic rationale nobody had tested before.</p>
+</section>
+
+<section id="folding">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Structure prediction (ESMFold)</h2></div>
+  <p class="dek">All 13 sequences folded locally (<code>facebook/esmfold_v1</code> via HuggingFace <code>transformers</code>, single-sequence input, no MSA) &mdash; same pipeline used elsewhere on this site. One prediction per protein, no ensemble/uncertainty estimate beyond the model's own per-residue pLDDT.</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Accession</th><th>Label</th><th>Length</th><th class="num">Mean pLDDT</th><th class="num">Fold time</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">P00780</td><td>subtilisin_carlsberg</td><td>379 aa</td><td class="num">0.87</td><td class="num">18.8 min</td></tr>
+      <tr><td class="mono">P00782</td><td>subtilisin_BPN</td><td>382 aa</td><td class="num">0.86</td><td class="num">18.4 min</td></tr>
+      <tr><td class="mono">P04189</td><td>subtilisin_E</td><td>381 aa</td><td class="num">0.86</td><td class="num">19.1 min</td></tr>
+      <tr><td class="mono">P07518</td><td>subtilisin_pumilus</td><td>275 aa</td><td class="num">0.86</td><td class="num">9.3 min</td></tr>
+      <tr><td class="mono">P00698</td><td>lysozyme_C_chicken</td><td>147 aa</td><td class="num">0.79</td><td class="num">1.8 min</td></tr>
+      <tr><td class="mono">P00720</td><td>endolysin_T4</td><td>164 aa</td><td class="num">0.82</td><td class="num">2.4 min</td></tr>
+      <tr><td class="mono">P25310</td><td>lysozyme_M1_strepto</td><td>294 aa</td><td class="num">0.77</td><td class="num">10.9 min</td></tr>
+      <tr><td class="mono">P07981</td><td>endoglucanase_I_Tr</td><td>459 aa</td><td class="num">0.74</td><td class="num">32.5 min</td></tr>
+      <tr><td class="mono">O74706</td><td>endoglucanase_B_An</td><td>331 aa</td><td class="num">0.86</td><td class="num">14.0 min</td></tr>
+      <tr><td class="mono">G0RUP7</td><td>xylanase2_Tr</td><td>223 aa</td><td class="num">0.81</td><td class="num">5.4 min</td></tr>
+      <tr><td class="mono">P55330</td><td>xylanaseB_An</td><td>225 aa</td><td class="num">0.80</td><td class="num">5.3 min</td></tr>
+      <tr><td class="mono">G0L322</td><td>betaagaraseA_Zg</td><td>539 aa</td><td class="num">0.77</td><td class="num">43.0 min</td></tr>
+      <tr><td class="mono">Q9RGX8</td><td>betaagaraseB_Zg</td><td>353 aa</td><td class="num">0.74</td><td class="num">16.4 min</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>All 13 folded without failure; pLDDT sits in a reasonably-confident 0.74&ndash;0.87 range throughout, with no systematic difference by functional class or host &mdash; fold quality doesn't appear to be gating anything downstream here.</p>
+</section>
+
+<section id="docking-design">
+  <div class="sec-head"><span class="sec-num">04</span><h2>Docking design</h2></div>
+  <p class="dek">Each folded enzyme was docked (AutoDock Vina, via the <code>vina</code>/<code>meeko</code> python bindings) against two ligands: its own canonical substrate, and one shared probe representing the real wall polymer.</p>
+
+  <div class="finding-grid">
+    <div class="finding"><div class="k">Canonical substrates</div><div class="v">Suc-AAPF-pNA (protease), chitohexaose (lysozyme), cellopentaose (cellulase), xylopentaose (xylanase), neoagarohexaose (agarase) &mdash; all real PubChem-registered oligomers with established binding modes for their enzyme class.</div></div>
+    <div class="finding"><div class="k">The wall probe</div><div class="v">A modeled sulfated L-galactan disaccharide, built to match the &gt;95%-L-galactose composition reported for the real wall. <b>No solved structure of the native <i>Schizochytrium</i> wall polysaccharide exists</b> &mdash; this is an idealized approximation, not a literature-validated ligand.</div></div>
+  </div>
+
+  <div class="callout rust">
+    <div class="ctitle">Read before the results table &mdash; this is blind, exploratory docking</div>
+    <p>The search box covers the <b>entire folded protein</b> (no active-site residues were mapped for any of these 13 structures before docking), which Vina itself flagged during the run ("search space volume is greater than 27000 &Aring;&sup3;... at low exhaustiveness, it may be impossible to utilize all CPUs"). Combined with exhaustiveness=8 (moderate, not exhaustive) and Vina's scoring function not being specialized for carbohydrate chemistry, absolute affinity values here should not be read as accurate binding free energies. They're treated as a relative, hypothesis-generating signal only &mdash; see <a href="#limitations">evidence tiers</a>.</p>
+  </div>
+</section>
+
+<section id="results">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Docking results: canonical substrate vs. the wall probe</h2></div>
+  <p class="dek">Vina affinity in kcal/mol (more negative = stronger predicted binding). Gap = canonical &minus; galactan-probe affinity; a small or reversed gap means the enzyme binds the modeled wall polymer about as well as, or better than, its own textbook substrate.</p>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Accession</th><th>Enzyme</th><th>Host</th><th class="num">Canonical</th><th class="num">Galactan probe</th><th class="num">Gap</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">P25310</td><td>lysozyme_M1 (GH25)</td><td><i>S. globisporus</i></td><td class="num">&minus;6.622</td><td class="num">&minus;6.597</td><td class="num"><span class="pill good">0.03</span></td></tr>
+      <tr><td class="mono">P00698</td><td>lysozyme_C (GH22)</td><td><i>G. gallus</i></td><td class="num">&minus;6.930</td><td class="num">&minus;6.725</td><td class="num"><span class="pill good">0.21</span></td></tr>
+      <tr><td class="mono">O74706</td><td>endoglucanase B</td><td><i>A. niger</i></td><td class="num">&minus;6.754</td><td class="num">&minus;6.513</td><td class="num"><span class="pill good">0.24</span></td></tr>
+      <tr><td class="mono">P00780</td><td>subtilisin Carlsberg</td><td><i>B. licheniformis</i></td><td class="num">&minus;6.658</td><td class="num">&minus;6.342</td><td class="num"><span class="pill good">0.32</span></td></tr>
+      <tr><td class="mono">P04189</td><td>subtilisin E</td><td><i>B. subtilis</i></td><td class="num">&minus;6.359</td><td class="num">&minus;6.679</td><td class="num"><span class="pill gold">&minus;0.32 (reversed)</span></td></tr>
+      <tr><td class="mono">Q9RGX8</td><td>&beta;-agarase B</td><td><i>Z. galactanivorans</i></td><td class="num">&minus;8.022</td><td class="num">&minus;7.548</td><td class="num"><span class="pill teal">0.47</span></td></tr>
+      <tr><td class="mono">P07981</td><td>endoglucanase I</td><td><i>T. reesei</i></td><td class="num">&minus;8.220</td><td class="num">&minus;7.525</td><td class="num"><span class="pill teal">0.70</span></td></tr>
+      <tr><td class="mono">P00720</td><td>endolysin (GH24)</td><td>phage T4</td><td class="num">&minus;7.588</td><td class="num">&minus;6.672</td><td class="num">0.92</td></tr>
+      <tr><td class="mono">P07518</td><td>subtilisin (pumilus)</td><td><i>B. pumilus</i></td><td class="num">&minus;7.713</td><td class="num">&minus;6.713</td><td class="num">1.00</td></tr>
+      <tr><td class="mono">P55330</td><td>xylanase B</td><td><i>A. niger</i></td><td class="num">&minus;7.413</td><td class="num">&minus;6.369</td><td class="num">1.04</td></tr>
+      <tr><td class="mono">G0L322</td><td>&beta;-agarase A</td><td><i>Z. galactanivorans</i></td><td class="num">&minus;9.528</td><td class="num">&minus;7.803</td><td class="num">1.73</td></tr>
+      <tr><td class="mono">P00782</td><td>subtilisin BPN'</td><td><i>B. amyloliquefaciens</i></td><td class="num">&minus;8.602</td><td class="num">&minus;6.781</td><td class="num">1.82</td></tr>
+      <tr><td class="mono">G0RUP7</td><td>xylanase 2</td><td><i>T. reesei</i></td><td class="num">&minus;8.857</td><td class="num">&minus;6.740</td><td class="num">2.12</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>What stands out</h3>
+
+  <div class="callout finding">
+    <div class="ctitle">Cellulase is the surprise &mdash; near-parity with a substrate it "shouldn't" bind</div>
+    <p><span class="gene">O74706</span> (<i>A. niger</i> endoglucanase B) binds the modeled wall probe almost as well as cellopentaose itself (gap 0.24 kcal/mol) &mdash; despite the wall containing no cellulose. If this holds up under real (non-blind) docking, it's a candidate structural explanation for why cellulase empirically works on <i>Schizochytrium</i>: not because it recognizes cellulose that isn't there, but because it has promiscuous affinity for the sulfated galactan that is.</p>
+  </div>
+
+  <div class="callout finding">
+    <div class="ctitle">One reversal: subtilisin E binds the wall probe better than its own substrate</div>
+    <p><span class="gene">P04189</span> is the only enzyme in the panel where the galactan probe outscored the canonical ligand. A single data point from an unvalidated blind-docking setup shouldn't be over-read, but it's the most specific, falsifiable prediction this page makes &mdash; worth a focused (non-blind) re-dock before drawing any conclusion from it.</p>
+  </div>
+
+  <div class="callout finding">
+    <div class="ctitle">Xylanases and 3 of 4 proteases show the opposite pattern</div>
+    <p>Both xylanases and three of the four Alcalase-family proteases show the largest canonical-vs-probe gaps in the panel (&gt;1 kcal/mol) &mdash; the least support here for a direct wall-polymer-binding mechanism. For the proteases this isn't a problem: the wall is 30&ndash;43% protein, so alkaline protease has an obvious real target regardless of what this probe ligand shows.</p>
+  </div>
+
+  <div class="callout">
+    <div class="ctitle">Host-origin variation, even among near-identical proteins</div>
+    <p>The four Alcalase-family proteases &mdash; nearly the same fold, broadly similar sequence identity &mdash; span a 2.2 kcal/mol range in canonical-substrate affinity (&minus;6.36 to &minus;8.60), with <i>B. amyloliquefaciens</i> subtilisin BPN' the strongest binder by a clear margin. Host origin is not functionally silent here, at least in this blind-docking approximation.</p>
+  </div>
+</section>
+
+<section id="limitations">
+  <div class="sec-head"><span class="sec-num">06</span><h2>Evidence tiers &amp; limitations</h2></div>
+  <p>Consistent with the rest of this site: findings here sit at genuinely different confidence levels.</p>
+
+  <div class="callout tier" style="border-left-color:var(--teal);">
+    <div class="ctitle">Reasonably solid</div>
+    <p style="margin:0;">The wall-composition mismatch itself (L-galactan/protein wall vs. cellulase/lysozyme in the empirical lysis literature) &mdash; drawn directly from published compositional analysis, not this project's own modeling.</p>
+  </div>
+  <div class="callout tier" style="border-left-color:var(--gold);">
+    <div class="ctitle">Exploratory / hypothesis-generating (most of this page)</div>
+    <p style="margin:0;">Every docking affinity and gap above. Blind search box, moderate exhaustiveness, a scoring function not specialized for carbohydrates, and &mdash; for the galactan-probe ligand specifically &mdash; a modeled structure with no solved reference to validate against. Read comparisons (rankings, gaps) as more trustworthy than absolute kcal/mol values.</p>
+  </div>
+  <div class="callout tier" style="border-left-color:var(--rust);">
+    <div class="ctitle">Single data points, not yet replicated</div>
+    <p style="margin:0;">The subtilisin E reversal and the cellulase near-parity result are each based on one blind docking run against one ESMFold model. Both are concrete, falsifiable next steps (focused re-docking once an active site is identified) rather than settled findings.</p>
+  </div>
+</section>
+
+<section id="methods-note">
+  <div class="sec-head"><span class="sec-num">07</span><h2>Notes on this page</h2></div>
+  <p>Structure prediction: local ESMFold (<code>facebook/esmfold_v1</code> via HuggingFace <code>transformers</code>), single-sequence input, no MSA, GPU (RTX 3050). Docking: AutoDock Vina via the <code>vina</code> python package, exhaustiveness=8, 9 poses per run, receptor prep via Open Babel (<code>obabel</code>, rigid), ligand prep via RDKit + Meeko. Sequences: UniProt reviewed (Swiss-Prot) entries only. Full pipeline (sequences, scripts, raw PDB/PDBQT outputs, docking result JSON) is maintained alongside this project's other analysis code.</p>
+  <p style="font-size:13px;color:var(--ink-faint);">Part of the <a href="index.html">Schizochytrium HS6 comparative genomics site</a>. See also: <a href="engineering.html">Metabolic Engineering: KO Target Portfolio</a> (a related but distinct question &mdash; genetic knockouts to change lipid composition, vs. this page's external enzymes for downstream processing).</p>
+</section>
+
+</div>
+</body>
+</html>

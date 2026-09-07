@@ -126,6 +126,7 @@ title: Schizochytrium HS6 — Comparative Genomics
   <h2>Everything on this site</h2>
   <ul class="nav-list">
     <li><a href="engineering.html"><span>Metabolic Engineering: KO Target Portfolio <span class="d">Standing hub for knockout targets across #4/HS6/#7 — ELOVL6, PLD1, the PUFA synthase pathway, directional SFA/PUFA engineering rationale</span></span></a></li>
+    <li><a href="lysis-enzymes.html"><span>Enzymatic Lysis: Structure &amp; Docking Comparison <span class="d">13-enzyme panel (proteases, lysozymes, cellulases, xylanases, agarases) for downstream oil extraction — ESMFold structures and AutoDock Vina docking against canonical substrates and the real wall polymer</span></span></a></li>
     <li><a href="report1.html"><span>Comparative Genomics Report <span class="d">HS6 vs. #7 — genome relatedness, gene content, the MVK duplication, telomere/chromosome completeness</span></span></a></li>
     <li><a href="report2.html"><span>RNA-seq Findings Report <span class="d">HS6 vs. #4 — the mutation hunt, MYB3R regulatory rewiring, candidate driver genes</span></span></a></li>
     <li><a href="report3.html"><span>Analytical Reproducibility Log <span class="d">Methods, corrections made mid-project, QC, statistical rigor assessment</span></span></a></li>
