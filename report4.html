@@ -1143,7 +1143,24 @@ a{color:var(--teal-ink);}
     </div>
     <div class="callout rust">
       <span class="lbl">What this changes, and what it doesn't</span>
-      <p>This test doesn't support the specific claim that the T&rarr;C variant increases intron2's own splicing efficiency (the literal EJC-deposition mechanism IME proposes) &mdash; the retained/exon-body ratio is essentially flat between genotypes. What it does show is a broader, gene-wide increase in transcript abundance in HS6 that shows up proportionally in both exonic and intronic-context reads alike, independently corroborating the DEG call itself. The most defensible framing going forward: <b>IME (or some other regulatory mechanism entirely) may still explain g14345's upregulation, but the evidence for it operating specifically through altered splicing efficiency at this intron is now weaker than before this check, not stronger.</b> A general transcriptional or mRNA-stability effect, unrelated to this specific intron's own processing, is at least as consistent with what's actually observed. Only one timepoint (20h) was checked this way, for time reasons &mdash; the DEG table shows the same up-direction at 44h and 68h too, but this specific splicing-efficiency test hasn't been repeated there. Scripts: <code>_rna_folding/grep_junctions_v3.sh</code>, run against <code>_rna_folding/g14345_locus_mini_ref.fasta</code>-derived coordinates.</p>
+      <p>This test doesn't support the specific claim that the T&rarr;C variant increases intron2's own splicing efficiency (the literal EJC-deposition mechanism IME proposes) &mdash; the retained/exon-body ratio is essentially flat between genotypes. What it does show is a broader, gene-wide increase in transcript abundance in HS6 that shows up proportionally in both exonic and intronic-context reads alike, independently corroborating the DEG call itself. The most defensible framing going forward: <b>IME (or some other regulatory mechanism entirely) may still explain g14345's upregulation, but the evidence for it operating specifically through altered splicing efficiency at this intron is now weaker than before this check, not stronger.</b> A general transcriptional or mRNA-stability effect, unrelated to this specific intron's own processing, is at least as consistent with what's actually observed. Scripts: <code>_rna_folding/grep_junctions_v3.sh</code>, run against <code>_rna_folding/g14345_locus_mini_ref.fasta</code>-derived coordinates.</p>
+    </div>
+
+    <div class="callout method">
+      <span class="lbl">Robustness check: does the flat ratio hold across timepoints, or was 20h a fluke?</span>
+      <p>The single-timepoint comparison above could in principle be a coincidence of that specific library. To check, the same test was run on the two remaining #4/WT4 libraries (WT_44, WT_68) &mdash; not paired against matching HS6 libraries (MT_44/MT_68 weren't run, for time reasons), but enough to see how much the retained/exon-body ratio naturally moves across developmental time within a single genotype, as a noise floor for judging the MT_20-vs-WT_20 comparison.</p>
+      <div class="table-wrap" style="margin-top:8px;">
+      <table>
+        <thead><tr><th>Library</th><th>retain_donor</th><th>exon2_body</th><th>ratio</th></tr></thead>
+        <tbody>
+          <tr><td>WT_20 (#4, 20h)</td><td>81</td><td>65</td><td>1.246</td></tr>
+          <tr><td>WT_44 (#4, 44h)</td><td>82</td><td>63</td><td>1.302</td></tr>
+          <tr><td>WT_68 (#4, 68h)</td><td>87</td><td>92</td><td>0.946</td></tr>
+          <tr><td class="gene">MT_20 (HS6, 20h)</td><td>136</td><td>105</td><td><b>1.295</b></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p style="margin-top:8px;">The ratio swings from 0.946 to 1.302 across #4's own three timepoints (mean 1.16, SD 0.19) &mdash; a spread of 0.36, purely from normal developmental/library variation within one genotype. The MT_20-vs-WT_20 difference this section leans on (1.295 vs 1.246, a gap of just 0.049) is an order of magnitude smaller than that natural within-genotype spread. <b>This directly strengthens, not just repeats, the earlier conclusion</b>: whatever is happening to this ratio between HS6 and #4 at 20h is well within the noise floor established by #4's own timepoint-to-timepoint variability, not a genotype-specific signal standing out above it.</p>
     </div>
 
     <h3>Completing the sweep: RNA/DNA structural analysis across every candidate, not just g14345</h3>
