@@ -190,23 +190,23 @@ footer p{max-width:none; color:var(--ink-faint);}
   <table>
     <thead><tr><th>Accession</th><th>Label</th><th>Length</th><th class="num">Mean pLDDT</th><th class="num">Fold time</th></tr></thead>
     <tbody>
-      <tr><td class="mono">P00780</td><td>subtilisin_carlsberg</td><td>379 aa</td><td class="num">0.87</td><td class="num">18.8 min</td></tr>
-      <tr><td class="mono">P00782</td><td>subtilisin_BPN</td><td>382 aa</td><td class="num">0.86</td><td class="num">18.4 min</td></tr>
-      <tr><td class="mono">P04189</td><td>subtilisin_E</td><td>381 aa</td><td class="num">0.86</td><td class="num">19.1 min</td></tr>
-      <tr><td class="mono">P07518</td><td>subtilisin_pumilus</td><td>275 aa</td><td class="num">0.86</td><td class="num">9.3 min</td></tr>
-      <tr><td class="mono">P00698</td><td>lysozyme_C_chicken</td><td>147 aa</td><td class="num">0.79</td><td class="num">1.8 min</td></tr>
-      <tr><td class="mono">P00720</td><td>endolysin_T4</td><td>164 aa</td><td class="num">0.82</td><td class="num">2.4 min</td></tr>
-      <tr><td class="mono">P25310</td><td>lysozyme_M1_strepto</td><td>294 aa</td><td class="num">0.77</td><td class="num">10.9 min</td></tr>
-      <tr><td class="mono">P07981</td><td>endoglucanase_I_Tr</td><td>459 aa</td><td class="num">0.74</td><td class="num">32.5 min</td></tr>
-      <tr><td class="mono">O74706</td><td>endoglucanase_B_An</td><td>331 aa</td><td class="num">0.86</td><td class="num">14.0 min</td></tr>
-      <tr><td class="mono">G0RUP7</td><td>xylanase2_Tr</td><td>223 aa</td><td class="num">0.81</td><td class="num">5.4 min</td></tr>
-      <tr><td class="mono">P55330</td><td>xylanaseB_An</td><td>225 aa</td><td class="num">0.80</td><td class="num">5.3 min</td></tr>
-      <tr><td class="mono">G0L322</td><td>betaagaraseA_Zg</td><td>539 aa</td><td class="num">0.77</td><td class="num">43.0 min</td></tr>
-      <tr><td class="mono">Q9RGX8</td><td>betaagaraseB_Zg</td><td>353 aa</td><td class="num">0.74</td><td class="num">16.4 min</td></tr>
+      <tr><td class="mono">P00780</td><td>subtilisin_carlsberg</td><td>379 aa</td><td class="num">0.87</td><td class="num">2.2 min</td></tr>
+      <tr><td class="mono">P00782</td><td>subtilisin_BPN</td><td>382 aa</td><td class="num">0.86</td><td class="num">2.7 min</td></tr>
+      <tr><td class="mono">P04189</td><td>subtilisin_E</td><td>381 aa</td><td class="num">0.86</td><td class="num">1.6 min</td></tr>
+      <tr><td class="mono">P07518</td><td>subtilisin_pumilus</td><td>275 aa</td><td class="num">0.86</td><td class="num">0.6 min</td></tr>
+      <tr><td class="mono">P00698</td><td>lysozyme_C_chicken</td><td>147 aa</td><td class="num">0.79</td><td class="num">1.0 min</td></tr>
+      <tr><td class="mono">P00720</td><td>endolysin_T4</td><td>164 aa</td><td class="num">0.82</td><td class="num">0.5 min</td></tr>
+      <tr><td class="mono">P25310</td><td>lysozyme_M1_strepto</td><td>294 aa</td><td class="num">0.77</td><td class="num">0.8 min</td></tr>
+      <tr><td class="mono">P07981</td><td>endoglucanase_I_Tr</td><td>459 aa</td><td class="num">0.74</td><td class="num">3.0 min</td></tr>
+      <tr><td class="mono">O74706</td><td>endoglucanase_B_An</td><td>331 aa</td><td class="num">0.86</td><td class="num">1.0 min</td></tr>
+      <tr><td class="mono">G0RUP7</td><td>xylanase2_Tr</td><td>223 aa</td><td class="num">0.81</td><td class="num">0.5 min</td></tr>
+      <tr><td class="mono">P55330</td><td>xylanaseB_An</td><td>225 aa</td><td class="num">0.80</td><td class="num">0.3 min</td></tr>
+      <tr><td class="mono">G0L322</td><td>betaagaraseA_Zg</td><td>539 aa</td><td class="num">0.77</td><td class="num">29.7 min</td></tr>
+      <tr><td class="mono">Q9RGX8</td><td>betaagaraseB_Zg</td><td>353 aa</td><td class="num">0.74</td><td class="num">1.3 min</td></tr>
     </tbody>
   </table>
   </div>
-  <p>All 13 folded without failure; pLDDT sits in a reasonably-confident 0.74&ndash;0.87 range throughout, with no systematic difference by functional class or host &mdash; fold quality doesn't appear to be gating anything downstream here.</p>
+  <p>All 13 folded without failure; pLDDT sits in a reasonably-confident 0.74&ndash;0.87 range throughout, with no systematic difference by functional class or host &mdash; fold quality doesn't appear to be gating anything downstream here. Fold times above are from an independent end-to-end re-run of the pipeline on an RTX 5060 (faster than the RTX 3050 used originally, and VRAM-bound rather than compute-bound on the largest protein, &beta;-agarase A). Every pLDDT reproduced within 0.01 of the original run &mdash; strong evidence the original folds were real single-sequence ESMFold predictions, not fabricated &mdash; which is exactly what you'd expect, since ESMFold inference is close to deterministic. Docking, below, is a different story.</p>
 
   <h3>All 13 predicted structures</h3>
   <p class="dek">Cartoon rendering (PyMOL), colored by per-residue pLDDT &mdash; the same confidence value reported in the table above, mapped per-residue instead of averaged.</p>
@@ -250,34 +250,40 @@ footer p{max-width:none; color:var(--ink-faint);}
 
 <section id="results">
   <div class="sec-head"><span class="sec-num">05</span><h2>Docking results: canonical substrate vs. the wall probe</h2></div>
-  <p class="dek">Vina affinity in kcal/mol (more negative = stronger predicted binding). Gap = canonical &minus; galactan-probe affinity; a small or reversed gap means the enzyme binds the modeled wall polymer about as well as, or better than, its own textbook substrate.</p>
+  <p class="dek">Vina affinity in kcal/mol (more negative = stronger predicted binding). Gap = galactan-probe affinity &minus; canonical affinity; a positive gap means the enzyme's own textbook substrate binds more strongly, a small or negative gap means it binds the modeled wall polymer about as well as, or better than, that canonical substrate.</p>
+
+  <div class="callout rust">
+    <div class="ctitle">This table is from an independent re-dock &mdash; it supersedes the original numbers, and one headline finding did not survive</div>
+    <p>The table below is a completely fresh run: new ESMFold folds, new ligand prep, new Vina docking (same blind whole-protein methodology, exhaustiveness=8, 9 poses &mdash; no fixed random seed either time, so some run-to-run drift is expected). pLDDT reproduced almost exactly; docking did not. <b>The cellulase near-parity result holds up</b> &mdash; O74706's gap widened from 0.24 to 0.45 kcal/mol but stayed in the same small-gap tier, comfortably separated from the large-gap cluster. <b>The subtilisin E reversal did not hold up</b> &mdash; its gap flipped from &minus;0.32 (galactan-preferring) to +0.79 (canonical-preferring, mid-pack, unremarkable). That's a useful negative result: it shows a single blind docking run isn't enough to trust a gap this close to zero, exactly as the original evidence tiers below already warned. See the rewritten call-outs for what the new run does support.</p>
+  </div>
 
   <div class="tbl-wrap">
   <table>
     <thead><tr><th>Accession</th><th>Enzyme</th><th>Host</th><th class="num">Canonical</th><th class="num">Galactan probe</th><th class="num">Gap</th></tr></thead>
     <tbody>
-      <tr><td class="mono">P25310</td><td>lysozyme_M1 (GH25)</td><td><i>S. globisporus</i></td><td class="num">&minus;6.622</td><td class="num">&minus;6.597</td><td class="num"><span class="pill good">0.03</span></td></tr>
-      <tr><td class="mono">P00698</td><td>lysozyme_C (GH22)</td><td><i>G. gallus</i></td><td class="num">&minus;6.930</td><td class="num">&minus;6.725</td><td class="num"><span class="pill good">0.21</span></td></tr>
-      <tr><td class="mono">O74706</td><td>endoglucanase B</td><td><i>A. niger</i></td><td class="num">&minus;6.754</td><td class="num">&minus;6.513</td><td class="num"><span class="pill good">0.24</span></td></tr>
-      <tr><td class="mono">P00780</td><td>subtilisin Carlsberg</td><td><i>B. licheniformis</i></td><td class="num">&minus;6.658</td><td class="num">&minus;6.342</td><td class="num"><span class="pill good">0.32</span></td></tr>
-      <tr><td class="mono">P04189</td><td>subtilisin E</td><td><i>B. subtilis</i></td><td class="num">&minus;6.359</td><td class="num">&minus;6.679</td><td class="num"><span class="pill gold">&minus;0.32 (reversed)</span></td></tr>
-      <tr><td class="mono">Q9RGX8</td><td>&beta;-agarase B</td><td><i>Z. galactanivorans</i></td><td class="num">&minus;8.022</td><td class="num">&minus;7.548</td><td class="num"><span class="pill teal">0.47</span></td></tr>
-      <tr><td class="mono">P07981</td><td>endoglucanase I</td><td><i>T. reesei</i></td><td class="num">&minus;8.220</td><td class="num">&minus;7.525</td><td class="num"><span class="pill teal">0.70</span></td></tr>
-      <tr><td class="mono">P00720</td><td>endolysin (GH24)</td><td>phage T4</td><td class="num">&minus;7.588</td><td class="num">&minus;6.672</td><td class="num">0.92</td></tr>
-      <tr><td class="mono">P07518</td><td>subtilisin (pumilus)</td><td><i>B. pumilus</i></td><td class="num">&minus;7.713</td><td class="num">&minus;6.713</td><td class="num">1.00</td></tr>
-      <tr><td class="mono">P55330</td><td>xylanase B</td><td><i>A. niger</i></td><td class="num">&minus;7.413</td><td class="num">&minus;6.369</td><td class="num">1.04</td></tr>
-      <tr><td class="mono">G0L322</td><td>&beta;-agarase A</td><td><i>Z. galactanivorans</i></td><td class="num">&minus;9.528</td><td class="num">&minus;7.803</td><td class="num">1.73</td></tr>
-      <tr><td class="mono">P00782</td><td>subtilisin BPN'</td><td><i>B. amyloliquefaciens</i></td><td class="num">&minus;8.602</td><td class="num">&minus;6.781</td><td class="num">1.82</td></tr>
-      <tr><td class="mono">G0RUP7</td><td>xylanase 2</td><td><i>T. reesei</i></td><td class="num">&minus;8.857</td><td class="num">&minus;6.740</td><td class="num">2.12</td></tr>
+      <tr><td class="mono">P00698</td><td>lysozyme_C (GH22)</td><td><i>G. gallus</i></td><td class="num">&minus;6.561</td><td class="num">&minus;6.767</td><td class="num"><span class="pill gold">&minus;0.21 (reversed)</span></td></tr>
+      <tr><td class="mono">P25310</td><td>lysozyme_M1 (GH25)</td><td><i>S. globisporus</i></td><td class="num">&minus;6.068</td><td class="num">&minus;6.224</td><td class="num"><span class="pill gold">&minus;0.16 (reversed)</span></td></tr>
+      <tr><td class="mono">Q9RGX8</td><td>&beta;-agarase B</td><td><i>Z. galactanivorans</i></td><td class="num">&minus;6.913</td><td class="num">&minus;6.656</td><td class="num"><span class="pill good">0.26</span></td></tr>
+      <tr><td class="mono">P00720</td><td>endolysin (GH24)</td><td>phage T4</td><td class="num">&minus;7.849</td><td class="num">&minus;7.519</td><td class="num"><span class="pill good">0.33</span></td></tr>
+      <tr><td class="mono">O74706</td><td>endoglucanase B</td><td><i>A. niger</i></td><td class="num">&minus;6.382</td><td class="num">&minus;5.928</td><td class="num"><span class="pill good">0.45</span></td></tr>
+      <tr><td class="mono">P55330</td><td>xylanase B</td><td><i>A. niger</i></td><td class="num">&minus;7.195</td><td class="num">&minus;6.676</td><td class="num"><span class="pill teal">0.52</span></td></tr>
+      <tr><td class="mono">P07518</td><td>subtilisin (pumilus)</td><td><i>B. pumilus</i></td><td class="num">&minus;6.385</td><td class="num">&minus;5.823</td><td class="num"><span class="pill teal">0.56</span></td></tr>
+      <tr><td class="mono">P07981</td><td>endoglucanase I</td><td><i>T. reesei</i></td><td class="num">&minus;7.754</td><td class="num">&minus;7.160</td><td class="num"><span class="pill teal">0.59</span></td></tr>
+      <tr><td class="mono">P04189</td><td>subtilisin E</td><td><i>B. subtilis</i></td><td class="num">&minus;6.356</td><td class="num">&minus;5.565</td><td class="num">0.79</td></tr>
+      <tr><td class="mono">P00780</td><td>subtilisin Carlsberg</td><td><i>B. licheniformis</i></td><td class="num">&minus;7.353</td><td class="num">&minus;5.976</td><td class="num">1.38</td></tr>
+      <tr><td class="mono">G0RUP7</td><td>xylanase 2</td><td><i>T. reesei</i></td><td class="num">&minus;8.929</td><td class="num">&minus;7.477</td><td class="num">1.45</td></tr>
+      <tr><td class="mono">G0L322</td><td>&beta;-agarase A</td><td><i>Z. galactanivorans</i></td><td class="num">&minus;9.193</td><td class="num">&minus;6.926</td><td class="num">2.27</td></tr>
+      <tr><td class="mono">P00782</td><td>subtilisin BPN'</td><td><i>B. amyloliquefaciens</i></td><td class="num">&minus;8.722</td><td class="num">&minus;6.378</td><td class="num">2.34</td></tr>
     </tbody>
   </table>
   </div>
+  <p style="font-size:13px;color:var(--ink-faint);">Raw values: <code>results/lysis_enzymes/docking_results.json</code>. The original single-run table (kept for the record, not shown here) had lysozyme_M1 smallest at 0.03, subtilisin E reversed at &minus;0.32, and cellulase third-smallest at 0.24 &mdash; see the callout above for what changed.</p>
 
   <h3>What stands out</h3>
 
   <div class="callout finding">
-    <div class="ctitle">Cellulase is the surprise &mdash; near-parity with a substrate it "shouldn't" bind</div>
-    <p><span class="gene">O74706</span> (<i>A. niger</i> endoglucanase B) binds the modeled wall probe almost as well as cellopentaose itself (gap 0.24 kcal/mol) &mdash; despite the wall containing no cellulose. If this holds up under real (non-blind) docking, it's a candidate structural explanation for why cellulase empirically works on <i>Schizochytrium</i>: not because it recognizes cellulose that isn't there, but because it has promiscuous affinity for the sulfated galactan that is.</p>
+    <div class="ctitle">Cellulase is the surprise &mdash; near-parity with a substrate it "shouldn't" bind, and it held up on replication</div>
+    <p><span class="gene">O74706</span> (<i>A. niger</i> endoglucanase B) binds the modeled wall probe almost as well as cellopentaose itself &mdash; gap 0.45 kcal/mol on re-dock (0.24 originally), still comfortably inside the small-gap cluster and nowhere near the &gt;1.3 kcal/mol gaps that dominate the bottom of the table &mdash; despite the wall containing no cellulose. This is now a two-run result, not a single blind-docking artifact, which raises its credibility a notch: a candidate structural explanation for why cellulase empirically works on <i>Schizochytrium</i> is that it has promiscuous affinity for the sulfated galactan that's actually there, not the cellulose that isn't. Still worth a non-blind, active-site-restricted re-dock before treating this as settled.</p>
   </div>
 
   <div class="pose-fig">
@@ -286,23 +292,24 @@ footer p{max-width:none; color:var(--ink-faint);}
   </div>
 
   <div class="callout finding">
-    <div class="ctitle">One reversal: subtilisin E binds the wall probe better than its own substrate</div>
-    <p><span class="gene">P04189</span> is the only enzyme in the panel where the galactan probe outscored the canonical ligand. A single data point from an unvalidated blind-docking setup shouldn't be over-read, but it's the most specific, falsifiable prediction this page makes &mdash; worth a focused (non-blind) re-dock before drawing any conclusion from it.</p>
+    <div class="ctitle">Retracted: the subtilisin E "reversal" did not replicate &mdash; two lysozyme folds show the same pattern instead</div>
+    <p>The original screening run found <span class="gene">P04189</span> as the one enzyme where the galactan probe outscored its canonical ligand, and flagged it as this page's single most specific, falsifiable prediction. It was re-dug specifically to test that: fresh ESMFold fold, fresh docking, same blind whole-protein methodology. <b>It didn't hold up</b> &mdash; subtilisin E's gap moved to +0.79, solidly in "prefers its own substrate" territory, indistinguishable from the other three subtilisins. This is the falsifiable prediction actually getting falsified, which is a real (if less exciting) result in its own right: a gap of &minus;0.32 kcal/mol from one blind, unseeded docking run wasn't a stable signal.</p>
+    <p style="margin-bottom:0;">The re-dock did turn up a new, structurally coherent near-parity pattern, though: both chicken lysozyme (GH22, gap &minus;0.21) and <i>S. globisporus</i> lysozyme M1 (GH25, gap &minus;0.16) now show the galactan probe binding at least as well as chitohexaose &mdash; while the phage T4 endolysin (GH24 fold) doesn't (gap +0.33). Two structurally distinct lysozyme folds landing in the same place is a somewhat more interesting pattern than one protease doing it once, but it's still a single run's result and carries the identical caveat: this needs its own independent re-dock before it's trusted over the T4 endolysin's normal behavior.</p>
   </div>
 
   <div class="pose-fig">
     <img src="figures/lysis_enzymes/subtilisin_E_docking_top_pose.png" alt="Top-ranked Vina pose of subtilisin E (P04189) docked against the galactan probe" loading="lazy">
-    <figcaption><b>P04189 &middot; top-ranked pose vs. the galactan probe.</b> Static frame from the orbiting view below &mdash; <a href="figures/lysis_enzymes/subtilisin_E_docking_top_pose.gif">see the full 360&deg; rotation (GIF)</a>.</figcaption>
+    <figcaption><b>P04189 &middot; top-ranked pose vs. the galactan probe, from the re-dock.</b> This is the run that shows canonical-preferring (normal) behavior, not the reversal &mdash; kept here because it's the same enzyme the original finding was about, and the interesting result now is that the pose looks unremarkable. Static frame from the orbiting view below &mdash; <a href="figures/lysis_enzymes/subtilisin_E_docking_top_pose.gif">see the full 360&deg; rotation (GIF)</a>.</figcaption>
   </div>
 
   <div class="callout finding">
-    <div class="ctitle">Xylanases and 3 of 4 proteases show the opposite pattern</div>
-    <p>Both xylanases and three of the four Alcalase-family proteases show the largest canonical-vs-probe gaps in the panel (&gt;1 kcal/mol) &mdash; the least support here for a direct wall-polymer-binding mechanism. For the proteases this isn't a problem: the wall is 30&ndash;43% protein, so alkaline protease has an obvious real target regardless of what this probe ligand shows.</p>
+    <div class="ctitle">&beta;-agarase A, xylanase 2, and 2 of 4 proteases now anchor the large-gap end</div>
+    <p>On the re-dock, the four largest gaps belong to subtilisin BPN' (2.34), &beta;-agarase A (2.27), xylanase 2 (1.45), and subtilisin Carlsberg (1.38) &mdash; all &gt;1.3 kcal/mol, clearly preferring their own canonical substrate over the galactan probe. That &beta;-agarase A sits here is notable: it's the one enzyme in the panel whose textbook substrate (neoagarohexaose) already shares the wall's real L-galactose chemistry, so a large gap here just means it's very good at recognizing its intended substrate specifically &mdash; not evidence against the wall-binding story elsewhere in the panel. For the proteases landing in this tier, that's not a problem either: the wall is 30&ndash;43% protein, so alkaline protease has an obvious real target regardless of what this modeled carbohydrate probe shows. The other two subtilisins (E, pumilus) and the remaining xylanase (xylanase B) now sit mid-pack instead of in this large-gap tier, which is a different composition than the original single run reported.</p>
   </div>
 
   <div class="callout">
     <div class="ctitle">Host-origin variation, even among near-identical proteins</div>
-    <p>The four Alcalase-family proteases &mdash; nearly the same fold, broadly similar sequence identity &mdash; span a 2.2 kcal/mol range in canonical-substrate affinity (&minus;6.36 to &minus;8.60), with <i>B. amyloliquefaciens</i> subtilisin BPN' the strongest binder by a clear margin. Host origin is not functionally silent here, at least in this blind-docking approximation.</p>
+    <p>The four Alcalase-family proteases &mdash; nearly the same fold, broadly similar sequence identity &mdash; span a 2.37 kcal/mol range in canonical-substrate affinity (&minus;6.36 to &minus;8.72 on re-dock; &minus;6.36 to &minus;8.60 originally), with <i>B. amyloliquefaciens</i> subtilisin BPN' the strongest binder by a clear margin in both runs. Host origin is not functionally silent here, at least in this blind-docking approximation &mdash; and unlike the small-gap rankings above, this particular conclusion reproduced cleanly.</p>
   </div>
 
   <h3>Top pose vs. the galactan probe, remaining panel</h3>
@@ -334,14 +341,14 @@ footer p{max-width:none; color:var(--ink-faint);}
     <p style="margin:0;">Every docking affinity and gap above. Blind search box, moderate exhaustiveness, a scoring function not specialized for carbohydrates, and &mdash; for the galactan-probe ligand specifically &mdash; a modeled structure with no solved reference to validate against. Read comparisons (rankings, gaps) as more trustworthy than absolute kcal/mol values.</p>
   </div>
   <div class="callout tier" style="border-left-color:var(--rust);">
-    <div class="ctitle">Single data points, not yet replicated</div>
-    <p style="margin:0;">The subtilisin E reversal and the cellulase near-parity result are each based on one blind docking run against one ESMFold model. Both are concrete, falsifiable next steps (focused re-docking once an active site is identified) rather than settled findings.</p>
+    <div class="ctitle">Replicated once &mdash; one finding held up, one didn't</div>
+    <p style="margin:0;">The subtilisin E reversal and the cellulase near-parity result were originally single blind-docking data points, flagged as needing replication before being trusted. They've now had one independent re-dock (fresh ESMFold folds, fresh Vina runs, same blind whole-protein setup, no fixed seed either time): <b>cellulase's near-parity held up</b> (gap moved 0.24&rarr;0.45, same tier); <b>subtilisin E's reversal did not</b> (gap moved &minus;0.32&rarr;+0.79, now unremarkable) and should be treated as retracted. Two lysozyme folds (GH22, GH25) showed a similar near-parity/reversal pattern in the new run instead &mdash; itself a single, still-unreplicated data point carrying the same caveat. None of this is yet non-blind, active-site-restricted docking; that remains the real next step for whichever of these findings survive a second replicate.</p>
   </div>
 </section>
 
 <section id="methods-note">
   <div class="sec-head"><span class="sec-num">07</span><h2>Notes on this page</h2></div>
-  <p>Structure prediction: local ESMFold (<code>facebook/esmfold_v1</code> via HuggingFace <code>transformers</code>), single-sequence input, no MSA, GPU (originally RTX 3050; re-run on an RTX 5060 alongside the work described below, which is why fold times you'll see in the raw summary run faster than the table in section 03 implies for a 3050). Docking: AutoDock Vina via the <code>vina</code> python package, exhaustiveness=8, 9 poses per run, receptor prep via Open Babel (<code>obabel</code>, rigid), ligand prep via RDKit + Meeko. Sequences: UniProt reviewed (Swiss-Prot) entries only. Full pipeline is maintained alongside this project's other analysis code: fetch/fold/dock/render scripts in <code>scripts/</code> (<code>fetch_lysis_enzyme_sequences.sh</code>, <code>run_esmfold_lysis_panel.py</code>, <code>prep_lysis_ligands.py</code>, <code>dock_lysis_panel.py</code>, <code>render_lysis_structures.py</code>, <code>render_lysis_docking.py</code>), all 13 sequences/structures and the 6 prepped ligands under <code>results/lysis_enzymes/</code>, raw Vina PDBQT poses and per-run logs under <code>results/lysis_enzymes/docking/</code>, the compiled affinities in <code>results/lysis_enzymes/docking_results.json</code>, and the rendered figures under <code>figures/lysis_enzymes/</code>.</p>
+  <p>Structure prediction: local ESMFold (<code>facebook/esmfold_v1</code> via HuggingFace <code>transformers</code>), single-sequence input, no MSA. The results and figures on this page are from an independent re-run of the entire pipeline on an RTX 5060 (GPU-bound on the largest protein, &beta;-agarase A, at 8GB VRAM); the page originally reported a run on an RTX 3050 whose raw outputs were never saved, which is why this re-run exists at all &mdash; see the callout in Section 05 for what reproduced and what didn't. Docking: AutoDock Vina via the <code>vina</code> python package, exhaustiveness=8, 9 poses per run, no fixed random seed, receptor prep via Open Babel (<code>obabel</code>, rigid), ligand prep via RDKit + Meeko. Sequences: UniProt reviewed (Swiss-Prot) entries only. Full pipeline is now actually maintained alongside this project's other analysis code (it wasn't, for the original run): fetch/fold/dock/render scripts in <code>scripts/</code> (<code>fetch_lysis_enzyme_sequences.sh</code>, <code>run_esmfold_lysis_panel.py</code>, <code>prep_lysis_ligands.py</code>, <code>dock_lysis_panel.py</code>, <code>render_lysis_structures.py</code>, <code>render_lysis_docking.py</code>), all 13 sequences/structures and the 6 prepped ligands under <code>results/lysis_enzymes/</code>, raw Vina PDBQT poses and per-run logs under <code>results/lysis_enzymes/docking/</code>, the compiled affinities in <code>results/lysis_enzymes/docking_results.json</code>, and the rendered figures under <code>figures/lysis_enzymes/</code>.</p>
   <p style="font-size:13px;color:var(--ink-faint);">Part of the <a href="index.html">Schizochytrium HS6 comparative genomics site</a>. See also: <a href="engineering.html">Metabolic Engineering: KO Target Portfolio</a> (a related but distinct question &mdash; genetic knockouts to change lipid composition, vs. this page's external enzymes for downstream processing).</p>
 </section>
 
