@@ -1,0 +1,44 @@
+[
+  {
+    "key": "protease_substrate",
+    "description": "Suc-AAPF-pNA (succinyl-Ala-Ala-Pro-Phe-4-nitroanilide)",
+    "smiles": "CC(C(=O)NC(C)C(=O)N1CCCC1C(=O)NC(CC2=CC=CC=C2)C(=O)NC3=CC=C(C=C3)[N+](=O)[O-])NC(=O)CCC(=O)O",
+    "source": "PubChem name lookup",
+    "sdf": "/mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/protease_substrate.sdf"
+  },
+  {
+    "key": "lysozyme_substrate",
+    "description": "chitohexaose",
+    "smiles": "C(C1C(C(C(C(O1)OCC2C(C(C(C(O2)OC3C(C(C(C(O3)CO)O)OC4C(C(C(C(O4)CO)O)O)N)N)N)OC5C(C(C(C(O5)CO)O)O)N)OC6C(C(C(C(O6)CO)O)O)N)N)O)O)O",
+    "source": "PubChem name lookup",
+    "sdf": "/mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/lysozyme_substrate.sdf"
+  },
+  {
+    "key": "cellulase_substrate",
+    "description": "cellopentaose",
+    "smiles": "C(C1C(C(C(C(O1)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)OC4C(OC(C(C4O)O)OC5C(OC(C(C5O)O)O)CO)CO)CO)CO)O)O)O)O",
+    "source": "PubChem name lookup",
+    "sdf": "/mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/cellulase_substrate.sdf"
+  },
+  {
+    "key": "xylanase_substrate",
+    "description": "xylopentaose",
+    "smiles": "C1C(C(C(C(O1)OC2COC(C(C2O)O)OC3COC(C(C3O)O)OC4COC(C(C4O)O)OC(CO)C(C(C=O)O)O)O)O)O",
+    "source": "PubChem name lookup",
+    "sdf": "/mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/xylanase_substrate.sdf"
+  },
+  {
+    "key": "agarase_substrate",
+    "description": "neoagarohexaose",
+    "smiles": "C1C2C(C(O1)C(C(O2)OC3C(C(OC(C3O)OC4C5COC4C(C(O5)OC6C(C(OC(C6O)OC7C8COC7C(C(O8)OC9C(C(OC(C9O)O)CO)O)O)CO)O)O)CO)O)O)O",
+    "source": "PubChem name lookup",
+    "sdf": "/mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/agarase_substrate.sdf"
+  },
+  {
+    "key": "galactan_probe",
+    "description": "modeled sulfated 3,6-anhydro-L-galactose-(1->4)-L-galactose-6-sulfate disaccharide (no PubChem/PDB entry exists; hand-built from the agarobiose scaffold [PubChem CanonicalSMILES for 'agarobiose'] with a sulfate half-ester added at C6 of the non-anhydro ring, approximating the >95% L-galactose, sulfated-galactan composition reported for the native Schizochytrium wall)",
+    "smiles": "C1C2C(C(O1)C(C(O2)O)O)OC3C(C(C(C(O3)COS(=O)(=O)O)O)O)O",
+    "source": "RDKit-constructed (no PubChem entry for the real wall polymer)",
+    "sdf": "/mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.sdf"
+  }
+]

@@ -1,0 +1,16 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking/betaagaraseB_Zg_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.pdbqt
+center: (-0.09750000000000014, -6.1845, -8.6955)
+box_size: (57.227, 106.941, 87.429)
+exhaustiveness: 8
+n_poses: 9
+mode  affinity(kcal/mol)  rmsd_lb  rmsd_ub
+1	-6.6560	-9.7690	-1.6590
+2	-6.4300	-9.8820	-1.2140
+3	-6.1320	-9.6190	-1.0410
+4	-6.0730	-9.3230	-1.2510
+5	-5.9510	-9.1480	-1.2450
+6	-5.8500	-9.3400	-0.9040
+7	-5.8190	-9.2440	-0.9560
+8	-5.6640	-8.9560	-1.0160
+9	-5.6520	-8.7200	-1.2350

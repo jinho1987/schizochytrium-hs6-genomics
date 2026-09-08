@@ -1,0 +1,16 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking/subtilisin_carlsberg_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/protease_substrate.pdbqt
+center: (-1.5365000000000002, 18.195500000000003, -13.765500000000001)
+box_size: (62.539, 98.735, 92.193)
+exhaustiveness: 8
+n_poses: 9
+mode  affinity(kcal/mol)  rmsd_lb  rmsd_ub
+1	-7.3530	-14.0160	-2.1650
+2	-6.9460	-12.7250	-2.6810
+3	-6.7910	-12.9830	-2.1270
+4	-6.4990	-10.2690	-4.2840
+5	-6.4490	-12.2580	-2.2000
+6	-6.2590	-12.1140	-1.9810
+7	-6.1400	-10.2910	-3.5770
+8	-6.0910	-10.7190	-3.0560
+9	-6.0580	-9.9210	-3.7920

@@ -1,0 +1,16 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking/lysozyme_M1_strepto_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/lysozyme_substrate.pdbqt
+center: (-3.0839999999999996, -15.5135, 12.432)
+box_size: (54.1, 86.015, 90.952)
+exhaustiveness: 8
+n_poses: 9
+mode  affinity(kcal/mol)  rmsd_lb  rmsd_ub
+1	-6.0680	-15.2900	-6.9820
+2	-6.0200	-14.6570	-7.4940
+3	-5.9770	-15.4090	-6.6360
+4	-5.9380	-16.1070	-5.8380
+5	-5.9230	-15.0950	-6.8140
+6	-5.9140	-16.2370	-5.6500
+7	-5.8740	-13.4240	-8.3600
+8	-5.7970	-14.5290	-7.0620
+9	-5.7910	-15.1030	-6.4720

@@ -1,0 +1,106 @@
+[
+  {
+    "label": "lysozyme_C_chicken",
+    "length": 147,
+    "mean_plddt": 0.7931,
+    "seconds": 59.0,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "endolysin_T4",
+    "length": 164,
+    "mean_plddt": 0.8161,
+    "seconds": 28.7,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "xylanase2_Tr",
+    "length": 223,
+    "mean_plddt": 0.8149,
+    "seconds": 27.9,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "xylanaseB_An",
+    "length": 225,
+    "mean_plddt": 0.8017,
+    "seconds": 20.6,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "subtilisin_pumilus",
+    "length": 275,
+    "mean_plddt": 0.8603,
+    "seconds": 37.7,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "lysozyme_M1_strepto",
+    "length": 294,
+    "mean_plddt": 0.7699,
+    "seconds": 50.0,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "endoglucanase_B_An",
+    "length": 331,
+    "mean_plddt": 0.8589,
+    "seconds": 61.3,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "betaagaraseB_Zg",
+    "length": 353,
+    "mean_plddt": 0.7443,
+    "seconds": 78.9,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "subtilisin_carlsberg",
+    "length": 379,
+    "mean_plddt": 0.871,
+    "seconds": 131.8,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "subtilisin_E",
+    "length": 381,
+    "mean_plddt": 0.8649,
+    "seconds": 96.6,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "subtilisin_BPN",
+    "length": 382,
+    "mean_plddt": 0.8606,
+    "seconds": 161.8,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "endoglucanase_I_Tr",
+    "length": 459,
+    "mean_plddt": 0.7438,
+    "seconds": 179.9,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "betaagaraseA_Zg",
+    "length": 539,
+    "mean_plddt": 0.7722,
+    "seconds": 1779.2,
+    "chunk_size": 64,
+    "status": "OK"
+  }
+]

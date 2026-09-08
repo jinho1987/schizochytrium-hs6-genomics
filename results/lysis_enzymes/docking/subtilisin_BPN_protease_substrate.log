@@ -1,0 +1,16 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking/subtilisin_BPN_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/protease_substrate.pdbqt
+center: (-5.311, 3.206999999999999, -6.7109999999999985)
+box_size: (68.584, 66.326, 99.28)
+exhaustiveness: 8
+n_poses: 9
+mode  affinity(kcal/mol)  rmsd_lb  rmsd_ub
+1	-8.7220	-16.6260	-2.2990
+2	-8.6860	-15.0220	-3.8330
+3	-8.4190	-15.8700	-2.4770
+4	-8.3840	-14.2080	-4.0720
+5	-8.3750	-14.9520	-3.3120
+6	-8.2160	-15.7230	-2.2360
+7	-8.1590	-15.5850	-2.2670
+8	-8.1420	-14.0540	-3.7650
+9	-8.0820	-15.5700	-2.1340

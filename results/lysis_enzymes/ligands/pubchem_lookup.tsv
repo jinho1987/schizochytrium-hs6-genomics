@@ -1,0 +1,6 @@
+key	name	smiles	status
+protease_substrate	succinyl-Ala-Ala-Pro-Phe-4-nitroanilide	CC(C(=O)NC(C)C(=O)N1CCCC1C(=O)NC(CC2=CC=CC=C2)C(=O)NC3=CC=C(C=C3)[N+](=O)[O-])NC(=O)CCC(=O)O	FOUND
+lysozyme_substrate	chitohexaose	C(C1C(C(C(C(O1)OCC2C(C(C(C(O2)OC3C(C(C(C(O3)CO)O)OC4C(C(C(C(O4)CO)O)O)N)N)N)OC5C(C(C(C(O5)CO)O)O)N)OC6C(C(C(C(O6)CO)O)O)N)N)O)O)O	FOUND
+cellulase_substrate	cellopentaose	C(C1C(C(C(C(O1)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)OC4C(OC(C(C4O)O)OC5C(OC(C(C5O)O)O)CO)CO)CO)CO)O)O)O)O	FOUND
+xylanase_substrate	xylopentaose	C1C(C(C(C(O1)OC2COC(C(C2O)O)OC3COC(C(C3O)O)OC4COC(C(C4O)O)OC(CO)C(C(C=O)O)O)O)O)O	FOUND
+agarase_substrate	neoagarohexaose	C1C2C(C(O1)C(C(O2)OC3C(C(OC(C3O)OC4C5COC4C(C(O5)OC6C(C(OC(C6O)OC7C8COC7C(C(O8)OC9C(C(OC(C9O)O)CO)O)O)CO)O)O)CO)O)O)O	FOUND

@@ -1,0 +1,14 @@
+accession,label,expected_len,actual_len,match
+P00780,subtilisin_carlsberg,379,379,OK
+P00782,subtilisin_BPN,382,382,OK
+P04189,subtilisin_E,381,381,OK
+P07518,subtilisin_pumilus,275,275,OK
+P00698,lysozyme_C_chicken,147,147,OK
+P00720,endolysin_T4,164,164,OK
+P25310,lysozyme_M1_strepto,294,294,OK
+P07981,endoglucanase_I_Tr,459,459,OK
+O74706,endoglucanase_B_An,331,331,OK
+G0RUP7,xylanase2_Tr,223,223,OK
+P55330,xylanaseB_An,225,225,OK
+G0L322,betaagaraseA_Zg,539,539,OK
+Q9RGX8,betaagaraseB_Zg,353,353,OK

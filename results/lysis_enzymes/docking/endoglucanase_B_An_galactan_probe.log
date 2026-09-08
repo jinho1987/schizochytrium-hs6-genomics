@@ -1,0 +1,16 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking/endoglucanase_B_An_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.pdbqt
+center: (17.5235, 8.519000000000002, -0.08699999999999974)
+box_size: (95.653, 75.44800000000001, 59.436)
+exhaustiveness: 8
+n_poses: 9
+mode  affinity(kcal/mol)  rmsd_lb  rmsd_ub
+1	-5.9280	-8.7000	-1.7810
+2	-5.6730	-9.1170	-0.9910
+3	-5.4980	-8.7690	-1.0810
+4	-5.4270	-8.6330	-1.1130
+5	-5.3810	-8.7040	-0.9740
+6	-5.2600	-7.8450	-1.6560
+7	-5.2010	-8.7790	-0.6340
+8	-5.0860	-8.1710	-1.0760
+9	-4.9420	-7.2560	-1.7780

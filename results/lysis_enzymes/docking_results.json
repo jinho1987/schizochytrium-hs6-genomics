@@ -1,0 +1,262 @@
+[
+  {
+    "accession": "P00698",
+    "label": "lysozyme_C_chicken",
+    "class": "lysozyme (GH22)",
+    "host": "Gallus gallus",
+    "ligand": "lysozyme_substrate",
+    "top_affinity_kcal_mol": -6.561,
+    "seconds": 157.1,
+    "status": "OK"
+  },
+  {
+    "accession": "P00698",
+    "label": "lysozyme_C_chicken",
+    "class": "lysozyme (GH22)",
+    "host": "Gallus gallus",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -6.767,
+    "seconds": 8.5,
+    "status": "OK"
+  },
+  {
+    "accession": "P00780",
+    "label": "subtilisin_carlsberg",
+    "class": "protease",
+    "host": "B. licheniformis",
+    "ligand": "protease_substrate",
+    "top_affinity_kcal_mol": -7.353,
+    "seconds": 30.0,
+    "status": "OK"
+  },
+  {
+    "accession": "P00780",
+    "label": "subtilisin_carlsberg",
+    "class": "protease",
+    "host": "B. licheniformis",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -5.976,
+    "seconds": 10.6,
+    "status": "OK"
+  },
+  {
+    "accession": "P00782",
+    "label": "subtilisin_BPN",
+    "class": "protease",
+    "host": "B. amyloliquefaciens",
+    "ligand": "protease_substrate",
+    "top_affinity_kcal_mol": -8.722,
+    "seconds": 29.0,
+    "status": "OK"
+  },
+  {
+    "accession": "P00782",
+    "label": "subtilisin_BPN",
+    "class": "protease",
+    "host": "B. amyloliquefaciens",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -6.378,
+    "seconds": 8.5,
+    "status": "OK"
+  },
+  {
+    "accession": "P04189",
+    "label": "subtilisin_E",
+    "class": "protease",
+    "host": "B. subtilis",
+    "ligand": "protease_substrate",
+    "top_affinity_kcal_mol": -6.356,
+    "seconds": 29.0,
+    "status": "OK"
+  },
+  {
+    "accession": "P04189",
+    "label": "subtilisin_E",
+    "class": "protease",
+    "host": "B. subtilis",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -5.565,
+    "seconds": 10.1,
+    "status": "OK"
+  },
+  {
+    "accession": "P07518",
+    "label": "subtilisin_pumilus",
+    "class": "protease",
+    "host": "B. pumilus",
+    "ligand": "protease_substrate",
+    "top_affinity_kcal_mol": -6.385,
+    "seconds": 28.7,
+    "status": "OK"
+  },
+  {
+    "accession": "P07518",
+    "label": "subtilisin_pumilus",
+    "class": "protease",
+    "host": "B. pumilus",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -5.823,
+    "seconds": 6.9,
+    "status": "OK"
+  },
+  {
+    "accession": "P00720",
+    "label": "endolysin_T4",
+    "class": "lysozyme (GH24)",
+    "host": "phage T4",
+    "ligand": "lysozyme_substrate",
+    "top_affinity_kcal_mol": -7.849,
+    "seconds": 145.6,
+    "status": "OK"
+  },
+  {
+    "accession": "P00720",
+    "label": "endolysin_T4",
+    "class": "lysozyme (GH24)",
+    "host": "phage T4",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -7.519,
+    "seconds": 6.7,
+    "status": "OK"
+  },
+  {
+    "accession": "P25310",
+    "label": "lysozyme_M1_strepto",
+    "class": "lysozyme (GH25)",
+    "host": "Streptomyces globisporus",
+    "ligand": "lysozyme_substrate",
+    "top_affinity_kcal_mol": -6.068,
+    "seconds": 150.5,
+    "status": "OK"
+  },
+  {
+    "accession": "P25310",
+    "label": "lysozyme_M1_strepto",
+    "class": "lysozyme (GH25)",
+    "host": "Streptomyces globisporus",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -6.224,
+    "seconds": 8.7,
+    "status": "OK"
+  },
+  {
+    "accession": "P07981",
+    "label": "endoglucanase_I_Tr",
+    "class": "cellulase",
+    "host": "Trichoderma reesei",
+    "ligand": "cellulase_substrate",
+    "top_affinity_kcal_mol": -7.754,
+    "seconds": 64.1,
+    "status": "OK"
+  },
+  {
+    "accession": "P07981",
+    "label": "endoglucanase_I_Tr",
+    "class": "cellulase",
+    "host": "Trichoderma reesei",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -7.16,
+    "seconds": 9.2,
+    "status": "OK"
+  },
+  {
+    "accession": "O74706",
+    "label": "endoglucanase_B_An",
+    "class": "cellulase",
+    "host": "Aspergillus niger",
+    "ligand": "cellulase_substrate",
+    "top_affinity_kcal_mol": -6.382,
+    "seconds": 69.4,
+    "status": "OK"
+  },
+  {
+    "accession": "O74706",
+    "label": "endoglucanase_B_An",
+    "class": "cellulase",
+    "host": "Aspergillus niger",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -5.928,
+    "seconds": 9.5,
+    "status": "OK"
+  },
+  {
+    "accession": "G0RUP7",
+    "label": "xylanase2_Tr",
+    "class": "xylanase",
+    "host": "Trichoderma reesei",
+    "ligand": "xylanase_substrate",
+    "top_affinity_kcal_mol": -8.929,
+    "seconds": 33.6,
+    "status": "OK"
+  },
+  {
+    "accession": "G0RUP7",
+    "label": "xylanase2_Tr",
+    "class": "xylanase",
+    "host": "Trichoderma reesei",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -7.477,
+    "seconds": 9.7,
+    "status": "OK"
+  },
+  {
+    "accession": "P55330",
+    "label": "xylanaseB_An",
+    "class": "xylanase",
+    "host": "Aspergillus niger",
+    "ligand": "xylanase_substrate",
+    "top_affinity_kcal_mol": -7.195,
+    "seconds": 33.9,
+    "status": "OK"
+  },
+  {
+    "accession": "P55330",
+    "label": "xylanaseB_An",
+    "class": "xylanase",
+    "host": "Aspergillus niger",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -6.676,
+    "seconds": 7.6,
+    "status": "OK"
+  },
+  {
+    "accession": "G0L322",
+    "label": "betaagaraseA_Zg",
+    "class": "agarase",
+    "host": "Zobellia galactanivorans",
+    "ligand": "agarase_substrate",
+    "top_affinity_kcal_mol": -9.193,
+    "seconds": 74.9,
+    "status": "OK"
+  },
+  {
+    "accession": "G0L322",
+    "label": "betaagaraseA_Zg",
+    "class": "agarase",
+    "host": "Zobellia galactanivorans",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -6.926,
+    "seconds": 11.8,
+    "status": "OK"
+  },
+  {
+    "accession": "Q9RGX8",
+    "label": "betaagaraseB_Zg",
+    "class": "agarase",
+    "host": "Zobellia galactanivorans",
+    "ligand": "agarase_substrate",
+    "top_affinity_kcal_mol": -6.913,
+    "seconds": 74.2,
+    "status": "OK"
+  },
+  {
+    "accession": "Q9RGX8",
+    "label": "betaagaraseB_Zg",
+    "class": "agarase",
+    "host": "Zobellia galactanivorans",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -6.656,
+    "seconds": 8.9,
+    "status": "OK"
+  }
+]

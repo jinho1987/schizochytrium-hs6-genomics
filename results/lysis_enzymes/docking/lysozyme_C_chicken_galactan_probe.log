@@ -1,0 +1,16 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking/lysozyme_C_chicken_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.pdbqt
+center: (10.546999999999999, -2.508499999999999, -13.634)
+box_size: (64.164, 41.585, 81.682)
+exhaustiveness: 8
+n_poses: 9
+mode  affinity(kcal/mol)  rmsd_lb  rmsd_ub
+1	-6.7670	-9.9310	-0.9180
+2	-6.6710	-9.4570	-1.2520
+3	-6.5280	-9.4790	-1.0190
+4	-6.3870	-9.3110	-0.9810
+5	-6.1430	-8.6900	-1.2450
+6	-5.9670	-8.7280	-0.9480
+7	-5.8570	-8.2240	-1.2900
+8	-5.7330	-8.2680	-1.0640
+9	-5.6870	-8.0320	-1.2330

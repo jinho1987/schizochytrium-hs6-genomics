@@ -1,0 +1,16 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking/lysozyme_M1_strepto_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.pdbqt
+center: (-3.0839999999999996, -15.5135, 12.432)
+box_size: (54.1, 86.015, 90.952)
+exhaustiveness: 8
+n_poses: 9
+mode  affinity(kcal/mol)  rmsd_lb  rmsd_ub
+1	-6.2240	-9.1350	-1.6190
+2	-6.1030	-9.3130	-1.2630
+3	-5.9470	-8.7360	-1.6110
+4	-5.8680	-9.0070	-1.2240
+5	-5.8480	-8.9600	-1.2420
+6	-5.6650	-8.0880	-1.8450
+7	-5.6590	-8.8420	-1.0820
+8	-5.6080	-8.8100	-1.0400
+9	-5.5870	-8.7780	-1.0400
