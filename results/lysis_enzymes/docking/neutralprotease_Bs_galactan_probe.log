@@ -1,0 +1,16 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking/neutralprotease_Bs_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.pdbqt
+center: (-0.9849999999999994, 2.4315000000000015, -1.9045000000000023)
+box_size: (68.744, 75.56700000000001, 106.439)
+exhaustiveness: 8
+n_poses: 9
+mode  affinity(kcal/mol)  rmsd_lb  rmsd_ub
+1	-7.5690	-11.1090	-0.9910
+2	-7.3430	-10.0030	-1.7650
+3	-6.8490	-9.9740	-1.0700
+4	-6.7780	-10.1610	-0.7780
+5	-6.7020	-9.9250	-0.9020
+6	-6.5680	-8.9070	-1.7240
+7	-6.4560	-9.3910	-1.0770
+8	-6.2270	-9.1470	-0.9840
+9	-6.0370	-8.8240	-1.0290

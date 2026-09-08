@@ -1,0 +1,15 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking_ph/xylanaseB_An_ph4_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.pdbqt
+center: (3.3680000000000003, -0.572000000000001, -15.331499999999998)
+box_size: (50.55, 59.126000000000005, 77.119)
+exhaustiveness: 8
+n_poses: 9
+1	-7.3890	-10.8440	-1.1960
+2	-7.2300	-10.5070	-1.3010
+3	-6.9810	-10.5350	-0.9060
+4	-6.5300	-9.7610	-1.0190
+5	-6.3190	-8.7930	-1.6770
+6	-6.2760	-8.5780	-1.8290
+7	-6.2500	-8.6350	-1.7350
+8	-6.0010	-8.8940	-1.1080
+9	-5.3170	-7.7360	-1.2640

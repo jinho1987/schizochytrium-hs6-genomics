@@ -258,5 +258,105 @@
     "top_affinity_kcal_mol": -6.656,
     "seconds": 8.9,
     "status": "OK"
+  },
+  {
+    "accession": "P26213",
+    "label": "pectinase_An",
+    "class": "pectinase",
+    "host": "Aspergillus niger",
+    "ligand": "pectinase_substrate",
+    "top_affinity_kcal_mol": -5.961,
+    "seconds": 12.6,
+    "status": "OK"
+  },
+  {
+    "accession": "P26213",
+    "label": "pectinase_An",
+    "class": "pectinase",
+    "host": "Aspergillus niger",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -6.242,
+    "seconds": 10.5,
+    "status": "OK"
+  },
+  {
+    "accession": "Q2UCU3",
+    "label": "betagalactosidase_Ao",
+    "class": "beta-galactosidase",
+    "host": "Aspergillus oryzae",
+    "ligand": "galactosidase_substrate",
+    "top_affinity_kcal_mol": -7.137,
+    "seconds": 15.9,
+    "status": "OK"
+  },
+  {
+    "accession": "Q2UCU3",
+    "label": "betagalactosidase_Ao",
+    "class": "beta-galactosidase",
+    "host": "Aspergillus oryzae",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -7.22,
+    "seconds": 16.1,
+    "status": "OK"
+  },
+  {
+    "accession": "P29600",
+    "label": "subtilisin_savinase_Bsp",
+    "class": "protease",
+    "host": "Bacillus sp. (Lederbergia lenta)",
+    "ligand": "protease_substrate",
+    "top_affinity_kcal_mol": -6.747,
+    "seconds": 27.9,
+    "status": "OK"
+  },
+  {
+    "accession": "P29600",
+    "label": "subtilisin_savinase_Bsp",
+    "class": "protease",
+    "host": "Bacillus sp. (Lederbergia lenta)",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -5.994,
+    "seconds": 7.0,
+    "status": "OK"
+  },
+  {
+    "accession": "P68736",
+    "label": "neutralprotease_Bs",
+    "class": "neutral protease (M4/bacillolysin)",
+    "host": "Bacillus subtilis",
+    "ligand": "protease_substrate",
+    "top_affinity_kcal_mol": -8.314,
+    "seconds": 30.3,
+    "status": "OK"
+  },
+  {
+    "accession": "P68736",
+    "label": "neutralprotease_Bs",
+    "class": "neutral protease (M4/bacillolysin)",
+    "host": "Bacillus subtilis",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -7.569,
+    "seconds": 10.6,
+    "status": "OK"
+  },
+  {
+    "accession": "P18429",
+    "label": "xylanaseC_Bs",
+    "class": "xylanase",
+    "host": "Bacillus subtilis",
+    "ligand": "xylanase_substrate",
+    "top_affinity_kcal_mol": -7.382,
+    "seconds": 41.7,
+    "status": "OK"
+  },
+  {
+    "accession": "P18429",
+    "label": "xylanaseC_Bs",
+    "class": "xylanase",
+    "host": "Bacillus subtilis",
+    "ligand": "galactan_probe",
+    "top_affinity_kcal_mol": -6.821,
+    "seconds": 10.4,
+    "status": "OK"
   }
 ]

@@ -102,5 +102,46 @@
     "seconds": 1779.2,
     "chunk_size": 64,
     "status": "OK"
+  },
+  {
+    "label": "xylanaseC_Bs",
+    "length": 213,
+    "mean_plddt": 0.8373,
+    "seconds": 72.1,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "subtilisin_savinase_Bsp",
+    "length": 269,
+    "mean_plddt": 0.8609,
+    "seconds": 57.9,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "pectinase_An",
+    "length": 368,
+    "mean_plddt": 0.7754,
+    "seconds": 159.2,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "neutralprotease_Bs",
+    "length": 521,
+    "mean_plddt": 0.7853,
+    "seconds": 1933.2,
+    "chunk_size": 64,
+    "status": "OK"
+  },
+  {
+    "label": "betagalactosidase_Ao",
+    "length": 1005,
+    "mean_plddt": 0.7636,
+    "seconds": 4915.9,
+    "chunk_size": 64,
+    "status": "OK",
+    "device": "cpu"
   }
 ]

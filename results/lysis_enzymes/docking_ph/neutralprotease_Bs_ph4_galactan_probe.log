@@ -1,0 +1,15 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking_ph/neutralprotease_Bs_ph4_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.pdbqt
+center: (-0.9849999999999994, 2.4315000000000015, -1.9045000000000023)
+box_size: (68.744, 75.56700000000001, 106.439)
+exhaustiveness: 8
+n_poses: 9
+1	-7.2780	-10.6820	-1.5800
+2	-7.2660	-11.2630	-0.9810
+3	-7.1990	-11.1780	-0.9670
+4	-7.0650	-10.9670	-0.9830
+5	-6.9090	-10.7110	-1.0090
+6	-6.9000	-10.3000	-1.4060
+7	-6.8310	-10.6640	-0.9420
+8	-6.7730	-10.6890	-0.8320
+9	-6.5830	-10.1610	-1.0810

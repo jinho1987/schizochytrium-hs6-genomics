@@ -1,0 +1,15 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking_ph/lysozyme_C_chicken_ph4_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/lysozyme_substrate.pdbqt
+center: (10.546999999999999, -2.508499999999999, -13.634)
+box_size: (64.164, 41.585, 81.682)
+exhaustiveness: 8
+n_poses: 9
+1	-6.8500	-17.2620	-7.6690
+2	-6.4880	-18.1350	-5.8830
+3	-6.4230	-16.7940	-7.0610
+4	-6.4170	-17.8110	-6.0300
+5	-6.3600	-18.7830	-4.9130
+6	-6.3020	-16.5200	-7.0310
+7	-6.2950	-16.0010	-7.5320
+8	-5.9800	-15.9580	-6.7800
+9	-5.7800	-15.7260	-6.5090

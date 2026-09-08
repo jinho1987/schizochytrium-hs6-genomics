@@ -1,0 +1,429 @@
+2026-09-08 18:35:51,996 INFO:main.py:246:print_splash_screen:PDB2PQR v3.7.1: biomolecular structure conversion software.
+2026-09-08 18:35:51,996 INFO:main.py:248:print_splash_screen:Please cite:  Jurrus E, et al.  Improvements to the APBS biomolecular solvation software suite.  Protein Sci 27 112-128 (2018).
+2026-09-08 18:35:51,997 INFO:main.py:248:print_splash_screen:Please cite:  Dolinsky TJ, et al.  PDB2PQR: expanding and upgrading automated preparation of biomolecular structures for molecular simulations. Nucleic Acids Res 35 W522-W525 (2007).
+2026-09-08 18:35:51,997 INFO:main.py:770:main_driver:Checking and transforming input arguments.
+2026-09-08 18:35:51,998 INFO:main.py:774:main_driver:Loading topology files.
+2026-09-08 18:35:52,022 INFO:main.py:776:main_driver:Loading molecule: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/structures/subtilisin_savinase_Bsp.pdb
+2026-09-08 18:35:52,024 ERROR:pdb.py:2587:read_pdb:Error parsing line: 'PARENT'
+2026-09-08 18:35:52,024 ERROR:pdb.py:2588:read_pdb:<PARENT N/A>
+2026-09-08 18:35:52,025 ERROR:pdb.py:2589:read_pdb:Truncating remaining errors for record type:PARENT
+2026-09-08 18:35:52,031 WARNING:io.py:474:get_molecule:Warning: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/structures/subtilisin_savinase_Bsp.pdb is a non-standard PDB file.
+
+2026-09-08 18:35:52,031 ERROR:io.py:475:get_molecule:['PARENT']
+2026-09-08 18:35:52,032 INFO:main.py:781:main_driver:Setting up molecule.
+2026-09-08 18:35:52,037 INFO:main.py:423:setup_molecule:Created biomolecule object with 269 residues and 1879 atoms.
+2026-09-08 18:35:52,037 INFO:main.py:785:main_driver:Setting termini states for biomolecule chains.
+2026-09-08 18:35:52,040 INFO:main.py:616:non_trivial:Loading forcefield.
+2026-09-08 18:35:52,044 INFO:main.py:620:non_trivial:Loading hydrogen topology definitions.
+2026-09-08 18:35:52,045 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OXT in residue ARG A 269
+2026-09-08 18:35:52,046 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OXT in residue ARG A 269
+2026-09-08 18:35:52,046 INFO:main.py:630:non_trivial:Attempting to repair 1 missing atoms in biomolecule.
+2026-09-08 18:35:52,047 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OXT in residue ARG A 269
+2026-09-08 18:35:52,048 INFO:biomolecule.py:1080:repair_heavy:Added atom OXT to residue ARG A 269 at coordinates 5.290, 20.730, 4.741
+2026-09-08 18:35:52,048 INFO:main.py:635:non_trivial:Updating disulfide bridges.
+2026-09-08 18:35:52,048 INFO:main.py:638:non_trivial:Debumping biomolecule.
+2026-09-08 18:35:52,074 INFO:main.py:645:non_trivial:Assigning titration states with PROPKA.
+2026-09-08 18:35:52,079 INFO:output.py:74:print_header:
+propka3.5.1                                                                                  2026-09-08
+
+-------------------------------------------------------------------------------
+--                                                                           --
+--  PROPKA: A PROTEIN PKA PREDICTOR                                          --
+--                                                                           --
+--  VERSION 1.0,  04/25/2004,  IOWA CITY                                     --
+--  BY HUI LI                                                                --
+--                                                                           --
+--  VERSION 2.0,  11/05/2007, IOWA CITY/COPENHAGEN                           --
+--  BY DELPHINE C. BAS AND DAVID M. ROGERS                                   --
+--                                                                           --
+--  VERSION 3.0,  01/06/2011, COPENHAGEN                                     --
+--  BY MATS H.M. OLSSON AND CHRESTEN R. SONDERGARD                           --
+--                                                                           --
+--  VERSION 3.1,  07/01/2011, COPENHAGEN                                     --
+--  BY CHRESTEN R. SONDERGARD AND MATS H.M. OLSSON                           --
+--                                                                           --
+--  VERSION 3.2,  06/17/2020, PLANET EARTH                                   --
+--  SEE ABOVE FOR AUTHORS                                                    --
+--                                                                           --
+-------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------
+References:
+
+Very Fast Empirical Prediction and Rationalization of Protein pKa Values.
+Hui Li, Andrew D. Robertson and Jan H. Jensen. PROTEINS: Structure, Function,
+and Bioinformatics. 61:704-721 (2005)
+
+Very Fast Prediction and Rationalization of pKa Values for Protein-Ligand
+Complexes.  Delphine C. Bas, David M. Rogers and Jan H. Jensen.  PROTEINS:
+Structure, Function, and Bioinformatics 73:765-783 (2008)
+
+PROPKA3: Consistent Treatment of Internal and Surface Residues in Empirical
+pKa predictions.  Mats H.M. Olsson, Chresten R. Sondergard, Michal Rostkowski,
+and Jan H. Jensen.  Journal of Chemical Theory and Computation, 7(2):525-537
+(2011)
+
+Improved Treatment of Ligands and Coupling Effects in Empirical Calculation
+and Rationalization of pKa Values.  Chresten R. Sondergaard, Mats H.M. Olsson,
+Michal Rostkowski, and Jan H. Jensen.  Journal of Chemical Theory and
+Computation, (2011)
+-------------------------------------------------------------------------------
+
+
+
+2026-09-08 18:35:52,110 INFO:conformation_container.py:124:find_covalently_coupled_groups:Coupling map:
+
+2026-09-08 18:35:52,111 INFO:conformation_container.py:213:calculate_pka:Calculating pKas for Conformation container 1A with 2270 atoms and 648 groups
+2026-09-08 18:35:52,170 INFO:output.py:225:print_pka_section:pKa determinants:
+
+---------  -----   ------   ---------------------    --------------    --------------    --------------
+                            DESOLVATION  EFFECTS       SIDECHAIN          BACKBONE        COULOMBIC
+ RESIDUE    pKa    BURIED     REGULAR      RE        HYDROGEN BOND     HYDROGEN BOND      INTERACTION
+---------  -----   ------   ---------   ---------    --------------    --------------    --------------
+
+ASP  32 A   4.66   100 %    3.69  615   0.89    0   -0.00 THR  33 A   -0.54 THR  33 A   -0.10 LYS  92 A
+ASP  32 A                                           -1.60 HIS  62 A    0.00 XXX   0 X    0.55 ASP  58 A
+ASP  32 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -2.03 HIS  62 A
+
+ASP  40 A   3.34    25 %    1.48  352   0.36    0   -0.46 ASN  75 A   -0.62 VAL  79 A   -0.02 N+    1 A
+ASP  40 A                                           -0.85 TYR 208 A    0.00 XXX   0 X   -0.35 HIS  38 A
+
+ASP  58 A   3.19    69 %    3.00  475   0.84    0   -0.85 THR  33 A   -0.78 ASN  60 A   -0.29 LYS  92 A
+ASP  58 A                                           -0.68 THR  64 A   -0.83 GLY  61 A   -0.23 HIS  62 A
+ASP  58 A                                            0.00 XXX   0 X   -0.04 GLY  63 A    0.00 XXX   0 X
+ASP  58 A                                            0.00 XXX   0 X   -0.75 THR  64 A    0.00 XXX   0 X
+
+ASP 175 A   3.01     8 %    0.85  305   0.06    0   -0.28 ASN 179 A   -0.08 ASP 175 A   -0.00 ARG  10 A
+ASP 175 A                                            0.00 XXX   0 X   -0.61 ASN 177 A    0.00 XXX   0 X
+ASP 175 A                                            0.00 XXX   0 X   -0.04 ASN 178 A    0.00 XXX   0 X
+ASP 175 A                                            0.00 XXX   0 X   -0.69 ASN 179 A    0.00 XXX   0 X
+
+ASP 191 A   3.72    79 %    2.13  502   1.09    0   -0.41 ARG 241 A   -0.81 ALA 170 A   -0.87 ARG 241 A
+ASP 191 A                                           -0.56 LYS 245 A    0.00 XXX   0 X   -0.65 LYS 245 A
+
+GLU  53 A   3.69     0 %    0.46  263   0.00    0   -0.43 LYS  92 A   -0.46 ALA  96 A    0.02 ASP  58 A
+GLU  53 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.41 LYS  92 A
+
+GLU  87 A   4.42    11 %    0.51  311   0.03    0   -0.15 TYR  89 A    0.00 XXX   0 X   -0.19 LYS  27 A
+GLU  87 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.21 ARG  44 A
+GLU  87 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.06 HIS 118 A
+
+GLU 110 A   3.82    13 %    0.66  318   0.09    0   -0.40 SER 139 A    0.00 XXX   0 X   -0.36 ARG 143 A
+GLU 110 A                                           -0.66 ARG 143 A    0.00 XXX   0 X    0.00 XXX   0 X
+
+GLU 134 A   4.82     0 %    0.32  242   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 XXX   0 X
+
+GLU 265 A   3.63     0 %    0.43  253   0.00    0   -0.74 ARG 269 A    0.00 XXX   0 X   -0.18 ARG  19 A
+GLU 265 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.38 ARG 269 A
+
+C-  269 A   2.01     0 %    0.35  271   0.00    0   -0.85 LYS 231 A    0.00 XXX   0 X   -0.11 ARG  19 A
+C-  269 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.06 ARG 269 A
+C-  269 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.12 HIS 243 A
+C-  269 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.39 LYS 231 A
+
+HIS  17 A   5.41    59 %   -1.89  446   0.00    0    0.00 XXX   0 X    0.82 VAL  82 A   -0.02 ARG  19 A
+
+HIS  38 A   5.70    38 %   -1.71  388   0.00    0    0.00 XXX   0 X    0.56 THR 207 A    0.35 ASP  40 A
+
+HIS  62 A   8.28    90 %   -2.08  534   0.00    0    1.60 ASP  32 A    0.00 XXX   0 X    0.23 ASP  58 A
+HIS  62 A                                            0.00 XXX   0 X    0.00 XXX   0 X    2.03 ASP  32 A
+
+HIS  65 A   4.02    87 %   -2.94  524   0.00    0    0.00 XXX   0 X    0.04 HIS  65 A   -0.28 HIS  62 A
+HIS  65 A                                            0.00 XXX   0 X    0.35 VAL 199 A    0.00 XXX   0 X
+HIS  65 A                                            0.00 XXX   0 X    0.35 ALA 209 A    0.00 XXX   0 X
+
+HIS 118 A   4.76    52 %   -1.28  428   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X   -0.14 LYS  27 A
+HIS 118 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.39 LYS 229 A
+HIS 118 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.06 GLU  87 A
+
+HIS 220 A   3.56   100 %   -3.33  658   0.00    0    0.00 XXX   0 X    0.04 PRO 195 A   -0.11 HIS  65 A
+HIS 220 A                                            0.00 XXX   0 X    0.31 MET 216 A    0.00 XXX   0 X
+HIS 220 A                                            0.00 XXX   0 X    0.17 ALA 217 A    0.00 XXX   0 X
+
+HIS 243 A   6.01    31 %   -1.00  367   0.00    0    0.00 XXX   0 X    0.53 ALA 267 A   -0.13 LYS 231 A
+HIS 243 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.12 C-  269 A
+
+TYR  89 A  10.65     7 %    0.58  300   0.00    0    0.15 GLU  87 A    0.00 XXX   0 X   -0.09 ARG  44 A
+TYR  89 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.34 GLU  87 A
+TYR  89 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.32 LYS  27 A
+
+TYR 161 A  10.19     0 %    0.51  261   0.00    0   -0.00 ARG 164 A    0.00 XXX   0 X    0.07 GLU 134 A
+TYR 161 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.38 ARG 164 A
+
+TYR 165 A  10.93    17 %    1.39  329   0.00    0    0.00 XXX   0 X   -0.80 SER 130 A    0.21 GLU 134 A
+TYR 165 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.01 ARG 164 A
+TYR 165 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.15 TYR 161 A
+
+TYR 186 A  10.02     0 %    0.20  212   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X   -0.18 ARG 180 A
+
+TYR 203 A  10.44     5 %    0.32  296   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.12 ASP  58 A
+
+TYR 208 A  12.30    12 %    1.00  315   0.00    0    0.85 ASP  40 A    0.00 XXX   0 X    0.45 ASP  40 A
+
+TYR 257 A   9.92     8 %    0.54  303   0.00    0    0.00 XXX   0 X   -0.59 ARG 180 A    0.08 ASP 175 A
+TYR 257 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.11 ARG 180 A
+
+LYS  27 A  10.75     0 %   -0.25  269   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.19 GLU  87 A
+LYS  27 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.32 TYR  89 A
+
+LYS  92 A  10.10    36 %   -1.62  383   0.00    0    0.43 GLU  53 A    0.00 XXX   0 X    0.10 ASP  32 A
+LYS  92 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.29 ASP  58 A
+LYS  92 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.41 GLU  53 A
+
+LYS 229 A   9.54    26 %   -0.96  353   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 XXX   0 X
+
+LYS 231 A  10.65    10 %   -0.94  310   0.00    0    0.85 C-  269 A    0.00 XXX   0 X   -0.14 ARG  19 A
+LYS 231 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.02 ARG 269 A
+LYS 231 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.39 C-  269 A
+
+LYS 245 A  10.65    29 %   -0.68  363   0.00    0    0.56 ASP 191 A    0.00 XXX   0 X   -0.38 ARG 241 A
+LYS 245 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.65 ASP 191 A
+
+ARG  10 A  11.73    21 %   -0.77  341   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 ASP 175 A
+
+ARG  19 A  12.06     3 %   -0.58  290   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.18 GLU 265 A
+ARG  19 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.11 C-  269 A
+ARG  19 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.15 ARG 269 A
+
+ARG  44 A  12.58     0 %   -0.23  235   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.21 GLU  87 A
+ARG  44 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.09 TYR  89 A
+
+ARG 143 A  13.09     0 %   -0.43  253   0.00    0    0.66 GLU 110 A    0.00 XXX   0 X    0.36 GLU 110 A
+
+ARG 164 A  12.65     0 %   -0.24  255   0.00    0    0.00 TYR 161 A    0.00 XXX   0 X    0.38 TYR 161 A
+ARG 164 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.01 TYR 165 A
+
+ARG 180 A  12.09    15 %   -0.69  324   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.18 TYR 186 A
+ARG 180 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.11 TYR 257 A
+
+ARG 241 A  12.46    60 %   -1.31  448   0.00    0    0.41 ASP 191 A    0.00 XXX   0 X    0.87 ASP 191 A
+
+ARG 269 A  13.44     0 %   -0.24  209   0.00    0    0.74 GLU 265 A    0.00 XXX   0 X    0.06 C-  269 A
+ARG 269 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.38 GLU 265 A
+
+N+    1 A   7.83     0 %   -0.20  154   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.02 ASP  40 A
+
+
+2026-09-08 18:35:52,170 INFO:output.py:227:print_pka_section:pKa summary:
+--------------------------------------------------------------------------------------------------------
+SUMMARY OF THIS PREDICTION
+       Group      pKa  model-pKa   ligand atom-type
+   ASP  32 A     4.66       3.80                      
+   ASP  40 A     3.34       3.80                      
+   ASP  58 A     3.19       3.80                      
+   ASP 175 A     3.01       3.80                      
+   ASP 191 A     3.72       3.80                      
+   GLU  53 A     3.69       4.50                      
+   GLU  87 A     4.42       4.50                      
+   GLU 110 A     3.82       4.50                      
+   GLU 134 A     4.82       4.50                      
+   GLU 265 A     3.63       4.50                      
+   C-  269 A     2.01       3.20                      
+   HIS  17 A     5.41       6.50                      
+   HIS  38 A     5.70       6.50                      
+   HIS  62 A     8.28       6.50                      
+   HIS  65 A     4.02       6.50                      
+   HIS 118 A     4.76       6.50                      
+   HIS 220 A     3.56       6.50                      
+   HIS 243 A     6.01       6.50                      
+   TYR  89 A    10.65      10.00                      
+   TYR 161 A    10.19      10.00                      
+   TYR 165 A    10.93      10.00                      
+   TYR 186 A    10.02      10.00                      
+   TYR 203 A    10.44      10.00                      
+   TYR 208 A    12.30      10.00                      
+   TYR 257 A     9.92      10.00                      
+   LYS  27 A    10.75      10.50                      
+   LYS  92 A    10.10      10.50                      
+   LYS 229 A     9.54      10.50                      
+   LYS 231 A    10.65      10.50                      
+   LYS 245 A    10.65      10.50                      
+   ARG  10 A    11.73      12.50                      
+   ARG  19 A    12.06      12.50                      
+   ARG  44 A    12.58      12.50                      
+   ARG 143 A    13.09      12.50                      
+   ARG 164 A    12.65      12.50                      
+   ARG 180 A    12.09      12.50                      
+   ARG 241 A    12.46      12.50                      
+   ARG 269 A    13.44      12.50                      
+   N+    1 A     7.83       8.00                      
+
+2026-09-08 18:35:52,174 INFO:main.py:648:non_trivial:PROPKA information:
+--------------------------------------------------------------------------------------------------------
+Free energy of   folding (kcal/mol) as a function of pH (using neutral reference)
+  0.00     22.79
+  1.00     22.73
+  2.00     22.29
+  3.00     20.61
+  4.00     17.04
+  5.00     12.83
+  6.00      8.25
+  7.00      5.52
+  8.00      5.64
+  9.00      6.02
+ 10.00      6.69
+ 11.00      8.59
+ 12.00      9.74
+ 13.00     10.35
+ 14.00     10.98
+
+The pH of optimum stability is  7.3 for which the free energy is    5.4 kcal/mol at 298K
+Could not determine pH values where the free energy is within 80 % of minimum
+Could not determine the pH-range where the free energy is negative
+
+
+Protein charge of folded and unfolded state as a function of pH
+    pH  unfolded  folded
+  0.00     21.00   20.99
+  0.10     21.00   20.98
+  0.20     21.00   20.98
+  0.30     21.00   20.97
+  0.40     21.00   20.97
+  0.50     20.99   20.96
+  0.60     20.99   20.95
+  0.70     20.99   20.94
+  0.80     20.99   20.92
+  0.90     20.99   20.90
+  1.00     20.98   20.88
+  1.10     20.98   20.85
+  1.20     20.98   20.81
+  1.30     20.97   20.77
+  1.40     20.96   20.72
+  1.50     20.95   20.66
+  1.60     20.94   20.59
+  1.70     20.92   20.51
+  1.80     20.90   20.42
+  1.90     20.88   20.31
+  2.00     20.85   20.19
+  2.10     20.81   20.06
+  2.20     20.76   19.91
+  2.30     20.70   19.74
+  2.40     20.63   19.55
+  2.50     20.54   19.34
+  2.60     20.44   19.10
+  2.70     20.31   18.84
+  2.80     20.16   18.54
+  2.90     19.98   18.21
+  3.00     19.77   17.84
+  3.10     19.53   17.44
+  3.20     19.25   17.00
+  3.30     18.94   16.53
+  3.40     18.59   16.03
+  3.50     18.20   15.51
+  3.60     17.78   14.97
+  3.70     17.33   14.42
+  3.80     16.86   13.87
+  3.90     16.36   13.31
+  4.00     15.85   12.77
+  4.10     15.33   12.23
+  4.20     14.81   11.71
+  4.30     14.30   11.20
+  4.40     13.79   10.71
+  4.50     13.31   10.23
+  4.60     12.85    9.77
+  4.70     12.41    9.33
+  4.80     12.01    8.91
+  4.90     11.64    8.51
+  5.00     11.30    8.12
+  5.10     10.99    7.76
+  5.20     10.70    7.41
+  5.30     10.43    7.08
+  5.40     10.17    6.77
+  5.50      9.92    6.47
+  5.60      9.66    6.20
+  5.70      9.40    5.93
+  5.80      9.12    5.69
+  5.90      8.82    5.46
+  6.00      8.49    5.25
+  6.10      8.14    5.06
+  6.20      7.76    4.89
+  6.30      7.37    4.73
+  6.40      6.95    4.59
+  6.50      6.53    4.47
+  6.60      6.10    4.36
+  6.70      5.69    4.26
+  6.80      5.30    4.17
+  6.90      4.94    4.08
+  7.00      4.60    4.00
+  7.10      4.30    3.92
+  7.20      4.03    3.84
+  7.30      3.78    3.76
+  7.40      3.57    3.67
+  7.50      3.38    3.57
+  7.60      3.20    3.47
+  7.70      3.04    3.36
+  7.80      2.90    3.25
+  7.90      2.76    3.13
+  8.00      2.63    3.00
+  8.10      2.51    2.87
+  8.20      2.39    2.73
+  8.30      2.28    2.60
+  8.40      2.16    2.46
+  8.50      2.05    2.32
+  8.60      1.93    2.18
+  8.70      1.80    2.03
+  8.80      1.66    1.88
+  8.90      1.50    1.71
+  9.00      1.32    1.54
+  9.10      1.11    1.34
+  9.20      0.87    1.13
+  9.30      0.59    0.89
+  9.40      0.27    0.62
+  9.50     -0.11    0.32
+  9.60     -0.53   -0.02
+  9.70     -1.01   -0.39
+  9.80     -1.54   -0.79
+  9.90     -2.11   -1.23
+ 10.00     -2.71   -1.71
+ 10.10     -3.35   -2.21
+ 10.20     -3.99   -2.73
+ 10.30     -4.64   -3.27
+ 10.40     -5.28   -3.83
+ 10.50     -5.89   -4.38
+ 10.60     -6.48   -4.94
+ 10.70     -7.02   -5.49
+ 10.80     -7.53   -6.02
+ 10.90     -7.99   -6.54
+ 11.00     -8.41   -7.04
+ 11.10     -8.79   -7.51
+ 11.20     -9.13   -7.96
+ 11.30     -9.46   -8.40
+ 11.40     -9.76   -8.82
+ 11.50    -10.06   -9.23
+ 11.60    -10.35   -9.64
+ 11.70    -10.66  -10.05
+ 11.80    -10.98  -10.47
+ 11.90    -11.33  -10.89
+ 12.00    -11.70  -11.31
+ 12.10    -12.10  -11.75
+ 12.20    -12.53  -12.19
+ 12.30    -12.98  -12.63
+ 12.40    -13.45  -13.07
+ 12.50    -13.93  -13.51
+ 12.60    -14.40  -13.93
+ 12.70    -14.86  -14.34
+ 12.80    -15.29  -14.73
+ 12.90    -15.69  -15.10
+ 13.00    -16.06  -15.44
+ 13.10    -16.38  -15.76
+ 13.20    -16.65  -16.05
+ 13.30    -16.89  -16.32
+ 13.40    -17.10  -16.56
+ 13.50    -17.27  -16.78
+ 13.60    -17.41  -16.97
+ 13.70    -17.52  -17.14
+ 13.80    -17.61  -17.28
+ 13.90    -17.69  -17.41
+ 14.00    -17.75  -17.52
+The pI is  9.60 (folded) and  9.47 (unfolded)
+
+--------------------------------------------------------------------------------------------------------
+2026-09-08 18:35:52,175 INFO:biomolecule.py:797:apply_pka_values:Applying pKa values at a pH of 4.00:
+2026-09-08 18:35:52,177 INFO:main.py:661:non_trivial:Adding hydrogens to biomolecule.
+2026-09-08 18:35:52,262 INFO:main.py:664:non_trivial:Debumping biomolecule (again).
+2026-09-08 18:35:52,360 INFO:main.py:666:non_trivial:Optimizing hydrogen bonds
+2026-09-08 18:35:52,618 INFO:main.py:678:non_trivial:Applying force field to biomolecule states.
+2026-09-08 18:35:52,621 INFO:main.py:725:non_trivial:Regenerating headers.
+2026-09-08 18:35:52,623 INFO:main.py:750:non_trivial:Regenerating PDB lines.
+2026-09-08 18:35:52,632 WARNING:main.py:326:print_pqr:Ignoring 466 header lines in output.

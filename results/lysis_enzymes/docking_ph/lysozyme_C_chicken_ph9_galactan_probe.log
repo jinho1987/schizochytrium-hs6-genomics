@@ -1,0 +1,15 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking_ph/lysozyme_C_chicken_ph9_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.pdbqt
+center: (10.546999999999999, -2.508499999999999, -13.634)
+box_size: (64.164, 41.585, 81.682)
+exhaustiveness: 8
+n_poses: 9
+1	-6.8610	-10.0700	-0.9700
+2	-6.7500	-9.6360	-1.2410
+3	-6.7470	-9.9490	-0.9230
+4	-6.6550	-9.7970	-0.9400
+5	-6.6220	-9.5070	-1.1820
+6	-6.6140	-9.3700	-1.3060
+7	-6.4350	-9.3230	-1.0910
+8	-6.4270	-9.7270	-0.6740
+9	-6.3860	-9.3250	-1.0170

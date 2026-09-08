@@ -56,6 +56,9 @@ def main():
         "endoglucanase_I_Tr", "endoglucanase_B_An",
         "xylanase2_Tr", "xylanaseB_An",
         "betaagaraseA_Zg", "betaagaraseB_Zg",
+        # 5 new enzymes added to mirror the wet-lab Experiment 4 screen
+        "pectinase_An", "betagalactosidase_Ao", "subtilisin_savinase_Bsp",
+        "neutralprotease_Bs", "xylanaseC_Bs",
     ]
     # sort shortest-first so cheap ones finish fast and any OOM shows up early
     fastas = {}
@@ -89,12 +92,23 @@ def main():
             summary = json.load(f)
     done = {s["label"] for s in summary}
 
+    # Compute-time workaround: betagalactosidase_Ao (1005 aa, by far the
+    # largest protein in the panel) ran for >4h at the default 4 recycles
+    # without finishing and was killed by the background-task runtime limit,
+    # not a CUDA or host OOM (confirmed: no OOM signature in dmesg/journalctl,
+    # GPU stayed at 100% util / ~7.8GB the whole time -- it was genuinely just
+    # too slow at this length on an 8GB card). Documented, deliberate
+    # reduction of ESMFold's recycle count for this one protein only; every
+    # other fold in the panel used the model default (4 recycles).
+    NUM_RECYCLES_OVERRIDE = {"betagalactosidase_Ao": 0}
+
     for label in order:
         if label in done:
             print(f"skip {label} (already in summary)")
             continue
         seq = fastas[label]
-        print(f"\n=== Folding {label} ({len(seq)} aa) ===")
+        num_recycles = NUM_RECYCLES_OVERRIDE.get(label)
+        print(f"\n=== Folding {label} ({len(seq)} aa) ===" + (f" [num_recycles={num_recycles}]" if num_recycles is not None else ""))
         t0 = time.time()
         chunk_size = 64
         pdb_str = None
@@ -107,7 +121,7 @@ def main():
                 tokenized = tokenizer([seq], return_tensors="pt", add_special_tokens=False)
                 tokenized = {k: v.to(device) for k, v in tokenized.items()}
                 with torch.no_grad():
-                    output = model(tokenized["input_ids"])
+                    output = model(tokenized["input_ids"], num_recycles=num_recycles)
                 per_res_plddt = output["plddt"][0].mean(dim=-1) if output["plddt"].dim() == 3 else output["plddt"][0]
                 mean_plddt = per_res_plddt.mean().item()
                 pdb_str = convert_output_to_pdb(output)
@@ -136,6 +150,7 @@ def main():
             summary.append({
                 "label": label, "length": len(seq), "mean_plddt": round(mean_plddt, 4),
                 "seconds": round(elapsed, 1), "chunk_size": chunk_size, "status": "OK",
+                "num_recycles": num_recycles if num_recycles is not None else 4,
             })
 
         with open(SUMMARY_PATH, "w") as f:

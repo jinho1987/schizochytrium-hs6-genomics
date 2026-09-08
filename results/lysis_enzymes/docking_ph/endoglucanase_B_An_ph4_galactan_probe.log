@@ -1,0 +1,15 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking_ph/endoglucanase_B_An_ph4_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.pdbqt
+center: (17.5235, 8.519000000000002, -0.08699999999999974)
+box_size: (95.653, 75.44800000000001, 59.436)
+exhaustiveness: 8
+n_poses: 9
+1	-6.1530	-9.0310	-1.5450
+2	-6.1500	-8.8000	-1.7710
+3	-5.9900	-9.4250	-0.9110
+4	-5.6420	-9.0580	-0.7670
+5	-5.5880	-7.9890	-1.7570
+6	-5.5730	-8.4980	-1.2250
+7	-5.5140	-8.4670	-1.1700
+8	-5.3700	-8.1670	-1.2590
+9	-5.3330	-8.3620	-1.0090

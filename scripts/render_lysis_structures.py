@@ -21,6 +21,9 @@ LABELS = [
     "endoglucanase_I_Tr", "endoglucanase_B_An",
     "xylanase2_Tr", "xylanaseB_An",
     "betaagaraseA_Zg", "betaagaraseB_Zg",
+    # 5 new enzymes added to mirror the wet-lab Experiment 4 screen
+    "pectinase_An", "betagalactosidase_Ao", "subtilisin_savinase_Bsp",
+    "neutralprotease_Bs", "xylanaseC_Bs",
 ]
 
 import os
@@ -31,6 +34,10 @@ def render_one(label):
     pdb = f"{STRUCT_DIR}/{label}.pdb"
     if not os.path.exists(pdb):
         print(f"SKIP {label}: no pdb")
+        return
+    png_path = f"{OUT_DIR}/{label}_structure.png"
+    if os.path.exists(png_path):
+        print(f"SKIP {label}: already rendered")
         return
     cmd.reinitialize()
     cmd.load(pdb, "prot")
@@ -48,7 +55,6 @@ def render_one(label):
     cmd.orient("prot")
     cmd.zoom("prot", buffer=4)
     cmd.set("ray_shadows", 0)
-    png_path = f"{OUT_DIR}/{label}_structure.png"
     cmd.ray(1200, 900)
     cmd.png(png_path, dpi=150)
     print(f"saved {png_path}")

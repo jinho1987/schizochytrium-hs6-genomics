@@ -1,0 +1,16 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking/subtilisin_savinase_Bsp_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.pdbqt
+center: (-1.0425000000000004, -1.5924999999999994, -1.4749999999999996)
+box_size: (53.583, 50.535, 51.358000000000004)
+exhaustiveness: 8
+n_poses: 9
+mode  affinity(kcal/mol)  rmsd_lb  rmsd_ub
+1	-5.9940	-8.7970	-1.1680
+2	-5.8580	-8.6150	-1.1510
+3	-5.8570	-8.8030	-0.9620
+4	-5.7910	-8.6950	-0.9720
+5	-5.7150	-8.3200	-1.2350
+6	-5.6350	-8.3310	-1.1080
+7	-5.6280	-8.1910	-1.2370
+8	-5.6220	-8.2590	-1.1600
+9	-5.5610	-7.9140	-1.4150

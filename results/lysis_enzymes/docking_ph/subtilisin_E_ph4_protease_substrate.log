@@ -1,0 +1,15 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking_ph/subtilisin_E_ph4_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/protease_substrate.pdbqt
+center: (-11.9245, 6.987, -10.9405)
+box_size: (81.261, 79.556, 87.911)
+exhaustiveness: 8
+n_poses: 9
+1	-6.8800	-13.1150	-2.3300
+2	-6.8500	-12.9670	-2.4210
+3	-6.8010	-13.0410	-2.2530
+4	-6.6390	-11.6850	-3.3010
+5	-6.4210	-11.9840	-2.5860
+6	-6.2650	-9.8710	-4.4010
+7	-6.2600	-11.3300	-2.9320
+8	-6.2450	-9.9740	-4.2600
+9	-6.1960	-10.0350	-4.1060

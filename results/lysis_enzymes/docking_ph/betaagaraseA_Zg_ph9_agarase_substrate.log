@@ -1,0 +1,15 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking_ph/betaagaraseA_Zg_ph9_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/agarase_substrate.pdbqt
+center: (-17.527500000000003, -0.16300000000000026, -3.442999999999998)
+box_size: (104.251, 82.618, 78.336)
+exhaustiveness: 8
+n_poses: 9
+1	-9.5220	-20.6540	-3.3160
+2	-8.9070	-20.6900	-1.9480
+3	-8.8200	-19.2540	-3.1950
+4	-8.6590	-18.7170	-3.3810
+5	-8.6280	-18.1680	-3.8630
+6	-8.5630	-18.4360	-3.4540
+7	-8.5560	-18.9870	-2.8880
+8	-8.4130	-17.9150	-3.6490
+9	-8.2920	-17.9020	-3.4010

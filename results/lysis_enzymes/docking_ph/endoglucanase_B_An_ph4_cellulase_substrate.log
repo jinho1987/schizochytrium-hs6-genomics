@@ -1,0 +1,15 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking_ph/endoglucanase_B_An_ph4_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/cellulase_substrate.pdbqt
+center: (17.5235, 8.519000000000002, -0.08699999999999974)
+box_size: (95.653, 75.44800000000001, 59.436)
+exhaustiveness: 8
+n_poses: 9
+1	-6.6990	-15.1200	-3.9090
+2	-6.4860	-14.0620	-4.4850
+3	-6.4280	-14.0760	-4.3400
+4	-6.1290	-13.5400	-4.2020
+5	-6.0700	-13.5840	-4.0240
+6	-6.0130	-14.0070	-3.4730
+7	-5.8420	-13.1250	-3.9700
+8	-5.6720	-12.7520	-3.9580
+9	-5.6420	-12.8570	-3.7850

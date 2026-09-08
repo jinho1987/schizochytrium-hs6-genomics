@@ -38,6 +38,12 @@ PANEL = [
     ("P55330", "xylanaseB_An", "xylanase", "Aspergillus niger", "xylanase_substrate"),
     ("G0L322", "betaagaraseA_Zg", "agarase", "Zobellia galactanivorans", "agarase_substrate"),
     ("Q9RGX8", "betaagaraseB_Zg", "agarase", "Zobellia galactanivorans", "agarase_substrate"),
+    # 5 new enzymes added to mirror the wet-lab Experiment 4 cell-wall-lysis screen
+    ("P26213", "pectinase_An", "pectinase", "Aspergillus niger", "pectinase_substrate"),
+    ("Q2UCU3", "betagalactosidase_Ao", "beta-galactosidase", "Aspergillus oryzae", "galactosidase_substrate"),
+    ("P29600", "subtilisin_savinase_Bsp", "protease", "Bacillus sp. (Lederbergia lenta)", "protease_substrate"),
+    ("P68736", "neutralprotease_Bs", "neutral protease (M4/bacillolysin)", "Bacillus subtilis", "protease_substrate"),
+    ("P18429", "xylanaseC_Bs", "xylanase", "Bacillus subtilis", "xylanase_substrate"),
 ]
 
 EXHAUSTIVENESS = 8

@@ -1,0 +1,16 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking/betagalactosidase_Ao_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.pdbqt
+center: (7.1385000000000005, -7.931000000000001, 5.147500000000001)
+box_size: (93.029, 96.22200000000001, 116.961)
+exhaustiveness: 8
+n_poses: 9
+mode  affinity(kcal/mol)  rmsd_lb  rmsd_ub
+1	-7.2200	-10.5960	-1.4500
+2	-7.1620	-10.1520	-1.8090
+3	-7.1070	-10.5710	-1.3090
+4	-6.9440	-10.4910	-1.1500
+5	-6.5600	-9.6320	-1.4450
+6	-5.9640	-8.9710	-1.2320
+7	-5.9620	-9.0990	-1.1010
+8	-5.9580	-9.3420	-0.8510
+9	-5.9470	-8.9190	-1.2580

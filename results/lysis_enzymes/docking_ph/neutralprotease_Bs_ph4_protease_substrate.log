@@ -1,0 +1,15 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking_ph/neutralprotease_Bs_ph4_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/protease_substrate.pdbqt
+center: (-0.9849999999999994, 2.4315000000000015, -1.9045000000000023)
+box_size: (68.744, 75.56700000000001, 106.439)
+exhaustiveness: 8
+n_poses: 9
+1	-7.5600	-14.4110	-4.3030
+2	-7.5170	-14.4540	-4.1770
+3	-7.3940	-15.0730	-3.3240
+4	-6.5750	-13.8510	-2.9840
+5	-6.5240	-12.4640	-4.2750
+6	-6.5050	-14.5530	-2.1490
+7	-6.3430	-13.9310	-2.4640
+8	-6.3120	-14.6460	-1.6890
+9	-6.2690	-14.1800	-2.0740

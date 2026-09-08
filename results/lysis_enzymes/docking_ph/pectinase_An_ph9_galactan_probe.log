@@ -1,0 +1,15 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking_ph/pectinase_An_ph9_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.pdbqt
+center: (11.7625, -5.882, -4.641499999999999)
+box_size: (89.59100000000001, 80.122, 70.603)
+exhaustiveness: 8
+n_poses: 9
+1	-6.7360	-9.8860	-1.3200
+2	-6.4470	-9.5480	-1.2340
+3	-6.2620	-9.4620	-1.0490
+4	-6.0850	-9.1580	-1.0930
+5	-6.0620	-9.0290	-1.1880
+6	-6.0550	-9.0280	-1.1780
+7	-6.0520	-9.4950	-0.7070
+8	-6.0260	-9.0680	-1.0960
+9	-5.9690	-8.7460	-1.3360

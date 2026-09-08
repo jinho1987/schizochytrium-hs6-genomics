@@ -4,3 +4,5 @@ lysozyme_substrate	chitohexaose	C(C1C(C(C(C(O1)OCC2C(C(C(C(O2)OC3C(C(C(C(O3)CO)O
 cellulase_substrate	cellopentaose	C(C1C(C(C(C(O1)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)OC4C(OC(C(C4O)O)OC5C(OC(C(C5O)O)O)CO)CO)CO)CO)O)O)O)O	FOUND
 xylanase_substrate	xylopentaose	C1C(C(C(C(O1)OC2COC(C(C2O)O)OC3COC(C(C3O)O)OC4COC(C(C4O)O)OC(CO)C(C(C=O)O)O)O)O)O	FOUND
 agarase_substrate	neoagarohexaose	C1C2C(C(O1)C(C(O2)OC3C(C(OC(C3O)OC4C5COC4C(C(O5)OC6C(C(OC(C6O)OC7C8COC7C(C(O8)OC9C(C(OC(C9O)O)CO)O)O)CO)O)O)CO)O)O)O	FOUND
+pectinase_substrate	digalacturonic acid (PubChem CID 6857565)	C1(C(C(OC(C1O)OC2C(C(C(OC2C(=O)O)O)O)O)C(=O)O)O)O	FOUND
+galactosidase_substrate	lactose (PubChem CID 6134)	C(C1C(C(C(C(O1)OC2C(OC(C(C2O)O)O)CO)O)O)O)O	FOUND

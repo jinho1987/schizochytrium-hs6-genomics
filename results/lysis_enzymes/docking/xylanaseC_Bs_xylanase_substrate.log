@@ -1,0 +1,16 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking/xylanaseC_Bs_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/xylanase_substrate.pdbqt
+center: (-5.034000000000001, 4.832000000000001, 30.384999999999998)
+box_size: (60.718, 56.308, 115.378)
+exhaustiveness: 8
+n_poses: 9
+mode  affinity(kcal/mol)  rmsd_lb  rmsd_ub
+1	-7.3820	-15.1510	-1.9470
+2	-7.0490	-14.5520	-1.8620
+3	-6.8480	-13.1380	-2.8620
+4	-6.7790	-12.4930	-3.3670
+5	-6.6680	-13.3090	-2.3220
+6	-6.6190	-13.0240	-2.5070
+7	-6.5300	-13.0750	-2.2730
+8	-6.3590	-12.8480	-2.1490
+9	-6.3400	-12.0190	-2.9390

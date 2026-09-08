@@ -1,0 +1,15 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking_ph/endolysin_T4_ph9_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/lysozyme_substrate.pdbqt
+center: (0.6084999999999994, 2.8040000000000003, -1.004999999999999)
+box_size: (48.759, 45.620000000000005, 58.93)
+exhaustiveness: 8
+n_poses: 9
+1	-7.2770	-18.3390	-5.5550
+2	-7.2520	-17.0800	-6.7490
+3	-7.1380	-17.6390	-5.9030
+4	-6.9770	-16.9610	-6.1770
+5	-6.8670	-16.4500	-6.4100
+6	-6.7980	-17.3510	-5.3340
+7	-6.7040	-17.1080	-5.3400
+8	-6.6710	-16.4410	-5.9250
+9	-6.5370	-15.6690	-6.3610

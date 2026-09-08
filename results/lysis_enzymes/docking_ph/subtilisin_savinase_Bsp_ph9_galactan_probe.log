@@ -1,0 +1,15 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking_ph/subtilisin_savinase_Bsp_ph9_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.pdbqt
+center: (-1.0425000000000004, -1.5924999999999994, -1.4749999999999996)
+box_size: (53.583, 50.535, 51.358000000000004)
+exhaustiveness: 8
+n_poses: 9
+1	-6.2130	-9.1190	-1.7160
+2	-6.1910	-9.6880	-1.1140
+3	-5.9170	-9.2470	-1.1520
+4	-5.7940	-9.2240	-0.9950
+5	-5.6040	-8.9210	-1.0200
+6	-5.5640	-8.8520	-1.0300
+7	-5.4670	-8.4440	-1.2950
+8	-5.2720	-8.0970	-1.3550
+9	-5.1970	-8.0130	-1.3300

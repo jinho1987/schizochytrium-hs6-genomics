@@ -40,5 +40,19 @@
     "smiles": "C1C2C(C(O1)C(C(O2)O)O)OC3C(C(C(C(O3)COS(=O)(=O)O)O)O)O",
     "source": "RDKit-constructed (no PubChem entry for the real wall polymer)",
     "sdf": "/mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.sdf"
+  },
+  {
+    "key": "pectinase_substrate",
+    "description": "digalacturonic acid (alpha-D-galacturonopyranosyl-(1->4)-D-galacturonic acid)",
+    "smiles": "C1(C(C(OC(C1O)OC2C(C(C(OC2C(=O)O)O)O)O)C(=O)O)O)O",
+    "source": "PubChem CID 6857565 (name lookup: 'digalacturonic acid')",
+    "sdf": "/mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/pectinase_substrate.sdf"
+  },
+  {
+    "key": "galactosidase_substrate",
+    "description": "lactose",
+    "smiles": "C(C1C(C(C(C(O1)OC2C(OC(C(C2O)O)O)CO)O)O)O)O",
+    "source": "PubChem CID 6134 (name lookup: 'lactose')",
+    "sdf": "/mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactosidase_substrate.sdf"
   }
 ]

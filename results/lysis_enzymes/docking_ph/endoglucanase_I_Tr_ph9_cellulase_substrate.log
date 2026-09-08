@@ -1,0 +1,15 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking_ph/endoglucanase_I_Tr_ph9_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/cellulase_substrate.pdbqt
+center: (-9.280500000000002, 6.479499999999998, -11.229)
+box_size: (80.479, 76.86099999999999, 85.574)
+exhaustiveness: 8
+n_poses: 9
+1	-7.8520	-17.7200	-4.1220
+2	-7.5090	-17.2440	-3.8250
+3	-7.2840	-17.4520	-3.1090
+4	-7.1440	-16.0870	-4.1590
+5	-7.1040	-16.9420	-3.2120
+6	-7.1020	-17.8500	-2.3010
+7	-6.9650	-17.0770	-2.7640
+8	-6.9280	-16.2390	-3.5190
+9	-6.8220	-15.0420	-4.4770

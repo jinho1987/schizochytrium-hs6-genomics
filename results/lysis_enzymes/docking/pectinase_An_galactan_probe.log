@@ -1,0 +1,16 @@
+receptor: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/docking/pectinase_An_receptor.pdbqt
+ligand: /mnt/c/Users/USER/Desktop/schizochytrium-hs6-genomics/results/lysis_enzymes/ligands/galactan_probe.pdbqt
+center: (11.7625, -5.882, -4.641499999999999)
+box_size: (89.59100000000001, 80.122, 70.603)
+exhaustiveness: 8
+n_poses: 9
+mode  affinity(kcal/mol)  rmsd_lb  rmsd_ub
+1	-6.2420	-9.1620	-0.9660
+2	-6.1240	-8.7300	-1.2250
+3	-5.8070	-8.2410	-1.2480
+4	-5.6790	-7.5580	-1.7440
+5	-5.6240	-7.6470	-1.5740
+6	-5.6200	-8.3210	-0.8940
+7	-5.5910	-7.5400	-1.6310
+8	-5.5210	-8.0240	-1.0460
+9	-5.4820	-7.2830	-1.7290
