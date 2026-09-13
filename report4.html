@@ -1076,6 +1076,62 @@ a{color:var(--teal-ink);}
       <p>The paradox isn't explained away, but it's no longer a bare, isolated number either. Three things are now established directly from this project's own DEG data: (1) g6124's downregulation is shared, at least directionally, by its closest tandem paralog g6122 &mdash; arguing the effect may be locus-wide rather than driven solely by g6124's own nearby variants; (2) a more distant family member, g13138, moves significantly in the opposite direction &mdash; a real candidate for paralog-level compensation, though functional substitutability is untested; (3) the broader mTORC1/MAPK machinery this genome's annotation can identify shows no coherent systemic shift, which argues against "HS6 simply turned down growth signaling" as an explanation for its faster growth. <b>The honest conclusion: the paradox is likely a paralog-usage story, not a whole-pathway one &mdash; but confirming that needs an activity-level assay (phospho-RPS6 immunoblot, or a kinase assay), which is outside what genomics/transcriptomics alone can settle.</b> Cross-reference script: <code>_sv_audit/g6124_pathway_deg.py</code>, <code>_sv_audit/compare_paralogs.py</code>.</p>
     </div>
 
+    <h3>2026-09-13: g13138 folded &mdash; does the compensation candidate actually look like a substrate-competent kinase?</h3>
+    <p>g13138 (the more distant, oppositely-regulated paralog from Finding 2 above) was folded with ESMFold to test whether it's structurally plausible as a compensating kinase, the same logic already applied to g6124.</p>
+    <div class="struct-fig-row" style="grid-template-columns:1fr;max-width:520px;">
+      <div class="struct-fig-card">
+        <img src="figures/esmfold/g13138_confidence.png" alt="g13138 predicted structure colored by pLDDT confidence, showing a bilobal kinase fold" loading="lazy">
+        <div class="cap-title">g13138, confidence-colored (pLDDT 0.724, mean &mdash; higher confidence than g6124's own 0.66)</div>
+        <div class="cap-body">A clear bilobal protein-kinase architecture (&beta;-sheet-rich N-lobe, &alpha;-helical C-lobe, both confidently folded), independently supporting the eggNOG "S6 kinase subfamily" call. A LightDock run against the same RPS6 substrate (g3557) used for g6124 is in progress to test whether it forms a comparable, non-random interface &mdash; result pending, not yet complete as of this writing.</div>
+      </div>
+    </div>
+
+    <h3>2026-09-13: a second, unlinked signature &mdash; salt/osmotic-transport genes, motivated by the low-salinity-tolerance phenotype</h3>
+    <p>Added to this project's phenotype list: alongside faster growth, HS6 may also tolerate lower salinity better than #4. Following the same "pull every pathway gene regardless of DE status, then check" method already used for the carotenoid-resistance search (&sect;6), 91 genes annotated to osmotic/ionic-transport functions (aquaporins, Na<sup>+</sup>/H<sup>+</sup> exchangers, K<sup>+</sup> channels, glycine-betaine/choline/carnitine transport, glycerol metabolism) were pulled from this genome's eggNOG annotation and checked two ways: proximity to the validated variant set, and DE significance.</p>
+    <div class="callout caveat">
+      <span class="lbl">No DNA link found &mdash; this is a pure expression signature</span>
+      <p>None of the 91 genes has a validated variant within 10kb that is also DE-significant (the two closest candidates, g10566 and g5279, are both flat: padj&asymp;0.95&ndash;0.97). This signature does not fit the mutation&rarr;DEG template the other candidates on this page follow, and is presented as such &mdash; a real, strong expression pattern with no currently-identified genomic driver.</p>
+    </div>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Gene</th><th>log2FC</th><th>padj</th><th>Direction</th><th>Function</th></tr></thead>
+      <tbody>
+        <tr><td class="gene">g2593</td><td>+5.38</td><td>&asymp;0</td><td>up, consistent</td><td><b>Voltage-gated K<sup>+</sup> channel</b> &mdash; largest fold-change of any gene found in this entire project</td></tr>
+        <tr><td class="gene">g10808</td><td>+3.45</td><td>&asymp;0</td><td>up, consistent</td><td><b>Aquaporin</b> (MIP family)</td></tr>
+        <tr><td class="gene">g10799</td><td>+1.81</td><td>&asymp;0</td><td>up, consistent</td><td>Aquaporin (MIP family), second paralog</td></tr>
+        <tr><td class="gene">g14376</td><td>+1.05</td><td>&asymp;0</td><td>up, consistent</td><td>BCCT betaine/choline transporter</td></tr>
+        <tr><td class="gene">g478</td><td>+0.83</td><td>0.0020</td><td>up, consistent</td><td>Na<sup>+</sup>/H<sup>+</sup> antiporter (SOS1 family)</td></tr>
+        <tr><td class="gene">g3873</td><td>+0.87</td><td>0.0127</td><td>up, consistent</td><td>PI/PC transfer protein</td></tr>
+        <tr><td class="gene">g10392</td><td>&minus;3.08</td><td>&asymp;0</td><td>down, consistent</td><td>Carnitine/choline acetyltransferase family</td></tr>
+        <tr><td class="gene">g3296</td><td>&minus;3.49</td><td>0.0006</td><td>down, consistent</td><td>Lysophosphatidylcholine acyltransferase 2</td></tr>
+        <tr><td class="gene">g14378</td><td>&minus;1.37</td><td>&asymp;0</td><td>down, consistent</td><td>BCCT transporter, different paralog from g14376</td></tr>
+        <tr><td class="gene">g5700</td><td>&minus;1.82</td><td>0.0008</td><td>down, consistent</td><td>Choline transporter-like (CTL family)</td></tr>
+        <tr><td class="gene">g5078</td><td>&minus;0.98</td><td>0.0006</td><td>down, consistent</td><td>Na<sup>+</sup>/H<sup>+</sup> exchanger, paralog of g478</td></tr>
+        <tr><td class="gene">g9362</td><td>&minus;1.42</td><td>0.0103</td><td>down, consistent</td><td>K<sup>+</sup> channel subfamily K member</td></tr>
+        <tr><td class="gene">g9641</td><td>&minus;1.29</td><td>0.0433</td><td>down, consistent</td><td>Sphingosine/diacylglycerol kinase-like</td></tr>
+        <tr><td class="gene">g7886</td><td>&minus;0.93</td><td>0.0052</td><td>inconsistent</td><td>Na<sup>+</sup>/H<sup>+</sup> exchanger, third paralog</td></tr>
+        <tr><td class="gene">g12044</td><td>&minus;0.66</td><td>0.0270</td><td>inconsistent</td><td>Inward-rectifier K<sup>+</sup> channel</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout finding">
+      <span class="lbl">A coordinated paralog-switching signature, not a uniform pathway shift</span>
+      <p>Within every gene family here, some paralogs go up while siblings go down &mdash; the same structural pattern already seen with g6124/g13138, not a simple "salt-tolerance pathway on" story. Na<sup>+</sup>/H<sup>+</sup> exchangers: g478 up, g5078/g7886 down. BCCT betaine/choline transporters: g14376 up, g14378 down. K<sup>+</sup> channels: g2593 massively up, g9362/g12044 down. The two aquaporins (g10808, g10799) are the one family moving uniformly in the same direction. Baseline ESMFold structures were generated for the two strongest hits to confirm their annotations are structurally credible:</p>
+    </div>
+    <div class="struct-fig-row" style="grid-template-columns:1fr 1fr;">
+      <div class="struct-fig-card">
+        <img src="figures/esmfold/g2593_kchannel_confidence.png" alt="g2593 predicted structure colored by pLDDT confidence, showing a multi-pass transmembrane helical bundle" loading="lazy">
+        <div class="cap-title">g2593 (K<sup>+</sup> channel), confidence-colored (pLDDT 0.826, mean)</div>
+        <div class="cap-body">A tightly-packed multi-pass transmembrane helical bundle, almost entirely high-confidence (dark blue) with one lower-confidence loop (yellow) &mdash; consistent with a real voltage-gated channel architecture despite ESMFold having no membrane/lipid-bilayer context to work from.</div>
+      </div>
+      <div class="struct-fig-card">
+        <img src="figures/esmfold/g10808_aquaporin_confidence.png" alt="g10808 predicted structure colored by pLDDT confidence, showing a compact aquaporin fold with a lower-confidence tail" loading="lazy">
+        <div class="cap-title">g10808 (aquaporin), confidence-colored (pLDDT 0.825, mean)</div>
+        <div class="cap-body">The compact, 6-helix MIP-family bundle characteristic of aquaporins, confidently folded (blue), with a lower-confidence extended C-terminal tail (yellow) &mdash; plausible for a cytoplasmic regulatory tail.</div>
+      </div>
+    </div>
+    <p class="pending-note">Both membrane proteins folded with no lipid-bilayer context (a real limitation of single-sequence ESMFold for this protein class) &mdash; pLDDT scores this high despite that caveat are a reasonably strong signal the fold is close to correct. Cross-reference script: <code>_sv_audit/salinity_pathway_check.py</code>.</p>
+
     <h3>The 421kb inversion &mdash; independently supported, unaffected by the retraction</h3>
     <div class="callout caveat">
       <span class="lbl">If real, this alone could explain "cascading to hundreds of genes" &mdash; built on &sect;15's SV survey, not the retracted missense work</span>
