@@ -166,6 +166,7 @@ a{color:var(--teal-ink);}
     <span class="pill retracted">34-gene WT4-vs-HS6 ESMFold batch sweep &mdash; paused at 25/68, 2026-09-07: same reason, no confirmed missense target remains</span>
     <span class="pill done">Baseline structure/docking figures (g6124/g3557) &mdash; done, 2026-09-07: docking render bug found &amp; fixed, see &sect;16</span>
     <span class="pill done">g14345 RNA-fold visualization &mdash; done, 2026-09-07: identical structure confirmed visually, pairing detail corrected</span>
+    <span class="pill done">g13138/g3557 LightDock docking (paralog-compensation test) &mdash; done, 2026-09-15: 579/579 swarms, defined interface replicated across 2 independent swarms, see &sect;16</span>
   </div>
 
   <div class="callout retracted" style="margin-top:16px;">
@@ -1105,7 +1106,7 @@ a{color:var(--teal-ink);}
       <div class="struct-fig-card">
         <img src="figures/esmfold/g13138_confidence.png" alt="g13138 predicted structure colored by pLDDT confidence, showing a bilobal kinase fold" loading="lazy">
         <div class="cap-title">g13138, confidence-colored (pLDDT 0.724, mean &mdash; higher confidence than g6124's own 0.66)</div>
-        <div class="cap-body">A clear bilobal protein-kinase architecture (&beta;-sheet-rich N-lobe, &alpha;-helical C-lobe, both confidently folded), independently supporting the eggNOG "S6 kinase subfamily" call. A LightDock run against the same RPS6 substrate (g3557) used for g6124 is in progress to test whether it forms a comparable, non-random interface &mdash; result pending, not yet complete as of this writing.</div>
+        <div class="cap-body">A clear bilobal protein-kinase architecture (&beta;-sheet-rich N-lobe, &alpha;-helical C-lobe, both confidently folded), independently supporting the eggNOG "S6 kinase subfamily" call. A LightDock run against the same RPS6 substrate (g3557) used for g6124 has since completed &mdash; see &sect;16 below, "Docking g13138 against g3557."</div>
       </div>
     </div>
 
@@ -1369,6 +1370,32 @@ a{color:var(--teal-ink);}
       <p>Restating the caveat from above, now with the completed result: g6124 has <b>zero sequence differences of any kind between HS6 and #4</b> &mdash; not just at the CDS level (0 SNPs, verified even under the most permissive no-filter variant-calling setting), but genome-wide for this gene, because g6124 is a single-exon gene with no introns to carry a non-coding variant either. The nearest variation at all is 2 intergenic SNPs sitting between g6124 and its neighbor g6125 &mdash; not confirmed to be in either gene's own regulatory region specifically.</p>
       <p style="margin-top:8px;">So this docking result cannot be, and was never testing for, a structural difference between the two genotypes: there is only one g6124 structure, shared identically by both strains. What it does establish is that the eggNOG "ribosomal S6 kinase" annotation is structurally credible &mdash; the fold has the expected bilobal kinase architecture with intact catalytic motifs, and it forms a convergent, non-random docking interface with this organism's own RPS6. That's supporting evidence the annotation itself is trustworthy, which matters for interpreting g6124's differential expression (log2FC=&minus;0.59, padj=0.017) as biologically meaningful rather than a mis-annotated gene &mdash; not evidence of a mutation-driven structural change.</p>
       <p style="margin-top:8px;">Worth keeping in view alongside g6423: it shows a <i>larger</i> effect size (log2FC=&minus;1.11, padj=0.019) than g6124 does, with comparable significance. g6124 was chosen for this structural test because it has a tractable, well-characterized native substrate to dock against &mdash; not because the expression data marks it as the strongest of the three original candidate genes (g6423, g1760, g6124). g1760, for reference, does not clear significance after correction at all (padj=0.257).</p>
+    </div>
+
+    <h3>Docking g13138 against g3557: the paralog-compensation test, complete</h3>
+    <p>g13138 is the unlinked RSK/S6K-family paralog that moves in the <i>opposite</i> direction from g6124 in HS6 (log2FC=+0.96, padj=0.040, vs. g6124's &minus;0.59 down) &mdash; the candidate "compensation" signal flagged above. If g13138 is functionally capable of substituting for reduced g6124 activity, it should be able to form a comparable, structurally plausible interface with the same native RPS6 substrate (g3557). Full blind docking (LightDock, 579 swarms covering the entire molecular surface, DFIRE scoring, 100 steps/swarm, 200 glowworms/swarm &mdash; 115,800 scored structures total) finished cleanly. The top-scoring pose (swarm 30, glowworm 127, DFIRE score 25.41) sits in the same score range as g6124's own top pose (29.54) and forms a defined, compact 34-residue interface &mdash; comparable in size to g6124's 35-residue interface with the same substrate.</p>
+
+    <div class="struct-fig-row" style="grid-template-columns:1.4fr 1fr;">
+      <div class="struct-fig-card">
+        <img src="figures/esmfold/g13138_g3557_docking_top_pose.gif" alt="Top-ranked docking pose of g13138 (kinase, blue) and g3557 (RPS6, orange), rotating" loading="lazy">
+        <div class="cap-title">Top-ranked pose, rotating (g13138 blue, g3557/RPS6 orange)</div>
+        <div class="cap-body">Rendered with the same <code>retain_order=1</code> + <code>dss()</code> method established for the g6124 render above (needed for any LightDock output PDB, since receptor/ligand share overlapping residue numbering and the file carries no HELIX/SHEET records).</div>
+      </div>
+      <div class="struct-fig-card">
+        <img src="figures/esmfold/g13138_g3557_docking_top_pose.png" alt="Static render of the top docking pose" loading="lazy">
+        <div class="cap-title">Same pose, static view</div>
+        <div class="cap-body">34 receptor residues sit at the interface (CA within 10&#8491; of any ligand CA): 20, 23, 98&ndash;102, 109, 129, 131&ndash;134, 159&ndash;168, 172&ndash;176, 186, 188, 406&ndash;409.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:14px;">
+      <div class="ctitle">Convergence check: two independently-optimized swarms land on 74% the same interface</div>
+      <p>Unlike g6124's docking (where one swarm, 179, alone contributed 38 of the top 200 scored structures genome-wide), g13138's top-200 structures are more spread across swarms (the best-represented swarm, 466, contributes 31; the swarm holding the single best pose, 30, contributes 19). Spread-out representation alone would be weaker convergence evidence than g6124 had &mdash; so this was checked directly rather than left as a caveat: the top pose from swarm 466 (glowworm 197, DFIRE score 21.64) was generated and its interface compared residue-by-residue against swarm 30's. <b>25 of swarm 30's 34 interface residues (74%) are also in swarm 466's 39-residue interface</b> (98&ndash;100, 131&ndash;134, 159, 161&ndash;168, 172&ndash;175, 188, 406&ndash;409) &mdash; two independent optimization trajectories, starting from different points on the molecular surface, converging on essentially the same binding site. That is at least as strong a convergence signal as g6124's single-swarm dominance, arguably stronger since it comes from genuinely independent starting configurations rather than neighbor-propagation within one swarm.</p>
+    </div>
+
+    <div class="callout caveat" style="margin-top:14px;">
+      <div class="ctitle">What this does and doesn't establish</div>
+      <p>g13138 has not had its catalytic-motif residues annotated the way g6124's were (H<sup>276</sup>ADLKPEN<sup>283</sup>/D<sup>296</sup>FGLSVF<sup>302</sup>/S<sup>328</sup>APE<sup>331</sup> were located directly in g6124's sequence by motif search; the equivalent scan hasn't been run for g13138) &mdash; so unlike g6124's result, this report cannot say whether the interface sits near or away from g13138's own active site. What it does establish: g13138 is structurally capable of forming a well-defined, reproducible, non-random interface with this organism's native RPS6, at a comparable score and interface size to the kinase (g6124) already down in HS6. That is consistent with &mdash; not proof of &mdash; the compensation hypothesis: a structurally plausible substrate interaction paired with the opposite-direction expression shift is exactly the pattern a real compensating paralog would produce, but expression direction and docking plausibility are not evidence of actual increased catalytic throughput in vivo. Like g6124, g13138 carries no confirmed coding-level difference between HS6 and #4 (see the zero-confirmed-missense finding above), so this is, again, a single shared structure and interface for both genotypes &mdash; not a HS6-vs-WT4 structural comparison, but a plausibility check on which parts of the growth-signaling story hold up structurally.</p>
     </div>
   </section>
 
