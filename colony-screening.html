@@ -148,8 +148,9 @@ footer p{max-width:none; color:var(--ink-faint);}
 </section>
 
 <div class="callout rust">
-  <span class="ctitle">Read this before the results below</span>
-  <p style="margin:0;">This is an exploratory, crude-by-design pass, not a validated classifier. The reference data is thin (mostly one physical plate per strain, several dominated by lawn growth rather than isolated colonies), the "likeness" score is a similarity distance against a small pooled reference sample, not a trained/cross-validated model, and one environmental plate produced confirmed false positives from background noise. Every number and image below should be read as "worth a look under the microscope," not "confirmed Schizochytrium."</p>
+  <span class="ctitle">Read this before the results below &mdash; updated after a failed validation check</span>
+  <p>This is an exploratory, crude-by-design pass, not a validated classifier. The reference data is thin (mostly one physical plate per strain, several dominated by lawn growth rather than isolated colonies), the "likeness" score is a similarity distance against a small pooled reference sample, not a trained/cross-validated model, and one environmental plate produced confirmed false positives from background noise.</p>
+  <p style="margin:0;"><b>A leave-one-out check (Section 03) found the scorer ranks the one known real Schizochytrium colony we have 552nd of 556</b> &mdash; almost dead last &mdash; against the environmental candidates. The ranking below should be read as an unvalidated first-pass triage, not a working identification model. See Section 03 for why, and what fixing it requires.</p>
 </div>
 
 <section id="framing">
@@ -204,8 +205,15 @@ footer p{max-width:none; color:var(--ink-faint);}
   <h3>Method</h3>
   <p>Reference signal is pooled from two sources, since single colonies were scarce on the reference plates themselves (see Question 2): the 1 genuine isolated single-colony crop obtained (strain #7), plus a whole-growth-region color/texture signature computed for all 5 strains (mean/spread of hue, saturation, brightness, plus a texture-roughness measure, over whatever growth &mdash; streak, lawn, or colony &mdash; is present on each strain's plate). Every environmental colony crop gets the same 7-feature vector, and is scored by its RMS z-score distance to the pooled reference mean. This is a similarity/anomaly score, not a trained or cross-validated classifier &mdash; with 6 total reference samples, a real classifier would be fitting noise.</p>
 
-  <h3>Result: consistent hotspots, not scattered hits</h3>
-  <p>Of the top 60 ranked candidates (plate 40 excluded), most cluster on a handful of plates rather than spreading evenly across all 60 &mdash; the strongest signal for "this is picking up something real" in the whole analysis. Plates <b>47, 56, 7, 52, 17,</b> and <b>42</b> account for the majority of strong candidates.</p>
+  <h3>Validation check: this score fails on the one ground-truth example we have</h3>
+  <div class="callout rust">
+    <div class="ctitle">Leave-one-out test: negative</div>
+    <p>The single genuine isolated colony we do have (strain #7) was scored against a reference distribution built <i>without</i> it &mdash; the honest way to ask "would this scorer have recognized a real Schizochytrium colony as Schizochytrium-like?" It ranked <b>552nd of 556</b> (99.3rd percentile) against the environmental candidates &mdash; the scorer would have placed a known true positive almost dead last.</p>
+  </div>
+  <p>The likely cause: 5 of the 6 pooled reference samples are <b>whole-lawn/streak-region</b> features, and the one true positive is a <b>single-colony</b> feature &mdash; not the same kind of optical measurement. A thick confluent streak smear and an isolated 3D colony dome can differ systematically in color/texture for reasons that have nothing to do with strain identity, and pooling them as interchangeable was a methodological error, not a minor wrinkle. The deeper issue it exposes: there is exactly <b>one</b> single-colony reference sample in existence across all 5 strains &mdash; not enough to build a reference distribution at all, let alone a validated one. <b>This ranking should not be treated as a working identification model.</b> The results below are kept for the record and because the visual spot-check (round, smooth, cream-colored colonies) is still a real, human-eye observation independent of the broken score &mdash; but the ranking that produced the ordering is not currently trustworthy, and the fix is the same one Question 2 already calls for: real isolated-colony reference plates, imaged the same way as the environmental samples, before this is attempted again.</p>
+
+  <h3>Result: consistent hotspots, not scattered hits <span style="font-weight:400;font-size:14px;color:var(--ink-faint);">(pre-validation-check framing, see above)</span></h3>
+  <p>Of the top 60 ranked candidates (plate 40 excluded), most cluster on a handful of plates rather than spreading evenly across all 60 &mdash; the strongest signal for "this is picking up something real" in the whole analysis, independent of whether the distance score itself is trustworthy. Plates <b>47, 56, 7, 52, 17,</b> and <b>42</b> account for the majority of strong candidates.</p>
 
   <div class="tbl-wrap">
   <table>
@@ -296,10 +304,11 @@ footer p{max-width:none; color:var(--ink-faint);}
 <section id="limitations">
   <div class="sec-head"><span class="sec-num">05</span><h2>Limitations &amp; evidence tier</h2></div>
   <div class="callout rust">
-    <span class="ctitle">Evidence tier: exploratory / crude by design</span>
-    <p style="margin:0;">Everything on this page sits at the lowest confidence tier used across this site. The likeness score is an unvalidated similarity metric on 6 pooled reference samples; the pipeline has at least one confirmed false-positive source (plate 40); isolation quality trades off directly against yield (documented above) and was tuned by visual inspection, not a held-out validation set; and Question 2 is currently unanswerable rather than answered. Treat every image above as a candidate worth a human look &mdash; ideally back on the physical plate, or under a microscope &mdash; not as a confirmed identification.</p>
+    <span class="ctitle">Evidence tier: exploratory / crude by design &mdash; scoring model failed its own validation check</span>
+    <p style="margin:0;">Everything on this page sits at the lowest confidence tier used across this site, and Question 1's ranking specifically should not be treated as a working model: a leave-one-out check (Section 03) found it ranks the one known real Schizochytrium colony we have 552nd of 556, almost dead last. The pipeline also has at least one confirmed false-positive source (plate 40); isolation quality trades off directly against yield (documented above) and was tuned by visual inspection, not a held-out validation set; and Question 2 is currently unanswerable rather than answered. Treat every image above as a candidate worth a human look &mdash; ideally back on the physical plate, or under a microscope &mdash; not as a confirmed identification, and treat the ranking order itself with active skepticism given the failed check.</p>
   </div>
   <ul class="clean">
+    <li><b>The likeness score fails a leave-one-out validation check</b> (Section 03) &mdash; traced to pooling whole-lawn/streak-region reference features with a single-colony test feature, two different kinds of optical measurement. With only one true single-colony reference sample in existence, this cannot currently be fixed by better pooling; it needs more single-colony reference data.</li>
     <li>No molecular confirmation (16S/18S sequencing, microscopy) of any candidate's identity &mdash; this is colony-morphology screening only.</li>
     <li>The reference "distribution" is 6 samples across 5 strains; a properly cross-validated classifier is not appropriate at this sample size (same lesson learned the hard way on the <i>Chlorella</i> panel).</li>
     <li>Isolation floor (100px&sup2;) is a manually chosen trade-off between crop purity and colony yield, not derived from a ground-truth check.</li>
