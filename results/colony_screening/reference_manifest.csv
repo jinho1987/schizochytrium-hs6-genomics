@@ -1,0 +1,2 @@
+strain,crop_path,source_image,x,y,w,h,area,circularity,solidity
+strain7,cropped_colonies_reference\strain7\strain7__colony001.jpg,reference\strain7\strain7_2_142306.jpg,426,1558,162,280,24048.5,0.428,0.83

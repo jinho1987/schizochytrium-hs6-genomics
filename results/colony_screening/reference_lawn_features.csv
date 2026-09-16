@@ -1,0 +1,6 @@
+strain,source_image,growth_fraction,mean_hue,mean_sat,mean_val,std_hue,std_sat,std_val,texture_std
+HS6,reference\HS6\HS6_2_142339.jpg,0.333,23.3,54.1,206.8,15.0,15.1,11.2,9.2
+M42,reference\M42\M42_2_142410.jpg,0.2364,32.3,24.5,202.3,26.5,8.3,11.5,12.7
+M64,reference\M64\M64_2_142556.jpg,0.1888,27.1,25.4,211.3,23.2,8.0,14.6,14.8
+strain4,reference\strain4\strain4_2_142225.jpg,0.2814,34.0,47.1,204.1,31.5,19.2,14.9,12.9
+strain7,reference\strain7\strain7_2_142306.jpg,0.3112,21.7,37.5,208.2,6.5,9.3,9.3,8.5
