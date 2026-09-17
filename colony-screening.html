@@ -150,7 +150,7 @@ footer p{max-width:none; color:var(--ink-faint);}
 <div class="callout rust">
   <span class="ctitle">Read this before the results below &mdash; updated after a failed validation check</span>
   <p>This is an exploratory, crude-by-design pass, not a validated classifier. The reference data is thin (mostly one physical plate per strain, several dominated by lawn growth rather than isolated colonies), the "likeness" score is a similarity distance against a small pooled reference sample, not a trained/cross-validated model, and one environmental plate produced confirmed false positives from background noise.</p>
-  <p style="margin:0;"><b>A leave-one-out check (Section 03) found the scorer ranks the one known real Schizochytrium colony we have 552nd of 556</b> &mdash; almost dead last &mdash; against the environmental candidates. The ranking below should be read as an unvalidated first-pass triage, not a working identification model. See Section 03 for why, and what fixing it requires.</p>
+  <p style="margin:0;"><b>A leave-one-out check (Section 03) found the scorer ranks the one known real Schizochytrium colony we have 552nd of 556</b> &mdash; almost dead last &mdash; against the environmental candidates. The ranking below should be read as an unvalidated first-pass triage, not a working identification model. See Section 03 for why, Section 05 for whether the score is meaningful at all given Question 2 is also unanswered, and Section 06 for what fixing it requires.</p>
 </div>
 
 <section id="framing">
@@ -328,8 +328,34 @@ footer p{max-width:none; color:var(--ink-faint);}
   <p>This sharpens, rather than changes, the fix already on record: any reference data usable for Question 1 has to be collected in the <i>same</i> imaging session (or with a color-calibration card enabling cross-session correction) as the environmental plates it's meant to score against. A large, clean, confirmed-strain dataset from a different session &mdash; however good it looks in isolation &mdash; is not a shortcut around that.</p>
 </section>
 
+<section id="should-you-trust-the-score">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Given all this, is the Question 1 score meaningful at all?</h2></div>
+  <p class="dek">No &mdash; and the reasoning is worth spelling out, because it's stronger than "we're not sure yet."</p>
+
+  <p>Question 1's ranking already failed on its own terms, independently of Question 2: the leave-one-out check in Section 03 ranked the one genuine Schizochytrium colony available <b>552nd of 556</b>, almost dead last, against a reference built without it. Question 2 being unanswerable doesn't newly break Question 1 &mdash; it was already broken. But putting the two side by side reveals something worse than two unrelated failures.</p>
+
+  <div class="callout rust">
+    <div class="ctitle">Same root cause, both times</div>
+    <p style="margin:0;">Both failures trace to the same thing: the feature representation (absolute color, brightness, and texture on a raw crop) doesn't survive <i>anything</i> &mdash; not a session change, not a strain comparison, not much beyond "the same photo shot twice." Section 04b proved this directly: a real strain #7 colony, same species, different imaging session, scored <i>worse</i> than random environmental colonies against a reference built from that very strain. If a feature vector can't recognize the same organism across two photo sessions, there's no principled reason to expect it separates "Schizochytrium" from "not Schizochytrium" reliably either &mdash; the top-40 crops looking visually plausible (Section 03) was a human eye judging pictures, not evidence the numerical score itself was sound.</p>
+  </div>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Component</th><th>Trustworthy?</th></tr></thead>
+    <tbody>
+      <tr><td>Segmentation pipeline (dish detection, isolation, cropping)</td><td>Yes &mdash; mechanically sound, produces clean crops</td></tr>
+      <tr><td>Human visual spot-check of top candidates</td><td>A reasonable first filter, but a person looking at pictures, not the model</td></tr>
+      <tr><td>The numerical "likeness" score / ranking</td><td>No &mdash; fails its own validation, provably not session-robust</td></tr>
+      <tr><td>Question 2 (strain differentiation)</td><td>Not failed &mdash; genuinely untestable with current data</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>This is not evidence that Schizochytrium can't be identified from photos in principle &mdash; it's evidence that <i>this particular score</i>, built on uncalibrated absolute color pooled from mismatched sources, can't. Whether a properly built version (same-session data, color-card-calibrated, one consistent feature type throughout) would work is still open. The protocol below exists to make that testable, not to claim it's already been answered.</p>
+</section>
+
 <section id="capture-protocol">
-  <div class="sec-head"><span class="sec-num">05</span><h2>Recommended image capture protocol</h2></div>
+  <div class="sec-head"><span class="sec-num">06</span><h2>Recommended image capture protocol</h2></div>
   <p class="dek">Every failure mode documented on this page traces back to one root cause: nothing about how these photos were taken was held constant. This is the concrete fix, built from what specifically broke, not a generic checklist.</p>
 
   <div class="callout rust">
@@ -371,7 +397,7 @@ footer p{max-width:none; color:var(--ink-faint);}
 </section>
 
 <section id="limitations">
-  <div class="sec-head"><span class="sec-num">06</span><h2>Limitations &amp; evidence tier</h2></div>
+  <div class="sec-head"><span class="sec-num">07</span><h2>Limitations &amp; evidence tier</h2></div>
   <div class="callout rust">
     <span class="ctitle">Evidence tier: exploratory / crude by design &mdash; scoring model failed its own validation check</span>
     <p style="margin:0;">Everything on this page sits at the lowest confidence tier used across this site, and Question 1's ranking specifically should not be treated as a working model: a leave-one-out check (Section 03) found it ranks the one known real Schizochytrium colony we have 552nd of 556, almost dead last. The pipeline also has at least one confirmed false-positive source (plate 40); isolation quality trades off directly against yield (documented above) and was tuned by visual inspection, not a held-out validation set; and Question 2 is currently unanswerable rather than answered. Treat every image above as a candidate worth a human look &mdash; ideally back on the physical plate, or under a microscope &mdash; not as a confirmed identification, and treat the ranking order itself with active skepticism given the failed check.</p>
@@ -386,7 +412,7 @@ footer p{max-width:none; color:var(--ink-faint);}
 </section>
 
 <section id="data">
-  <div class="sec-head"><span class="sec-num">07</span><h2>Data &amp; scripts</h2></div>
+  <div class="sec-head"><span class="sec-num">08</span><h2>Data &amp; scripts</h2></div>
   <ul class="nav-list clean">
     <li><a href="results/colony_screening/environmental_colony_ranking_cleaned.csv">Full ranking, all 555 environmental colony crops (CSV)</a></li>
     <li><a href="results/colony_screening/reference_lawn_features.csv">Reference strain whole-growth-region features (CSV)</a></li>
