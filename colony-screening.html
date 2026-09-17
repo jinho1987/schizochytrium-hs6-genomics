@@ -328,8 +328,50 @@ footer p{max-width:none; color:var(--ink-faint);}
   <p>This sharpens, rather than changes, the fix already on record: any reference data usable for Question 1 has to be collected in the <i>same</i> imaging session (or with a color-calibration card enabling cross-session correction) as the environmental plates it's meant to score against. A large, clean, confirmed-strain dataset from a different session &mdash; however good it looks in isolation &mdash; is not a shortcut around that.</p>
 </section>
 
+<section id="capture-protocol">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Recommended image capture protocol</h2></div>
+  <p class="dek">Every failure mode documented on this page traces back to one root cause: nothing about how these photos were taken was held constant. This is the concrete fix, built from what specifically broke, not a generic checklist.</p>
+
+  <div class="callout rust">
+    <div class="ctitle">What actually varied across the photos analyzed here</div>
+    <p style="margin:0;">Reflective steel bench vs. plain white paper vs. a green table at another institution. Colonies brighter than agar in one set, darker in another. No color or scale reference in any frame. Different growth media (GYP vs. "Basal") across labs. Streak plates (few isolated colonies) vs. spread plates (hundreds) used inconsistently. Sessions batched by strain/sample rather than interleaved. None of this was a labeling problem &mdash; it's why a same-strain colony photographed twice scored as more different than two genuinely different things photographed once.</p>
+  </div>
+
+  <h3>The rig</h3>
+  <ul class="clean">
+    <li><b>One fixed background, chosen deliberately, used every time.</b> Not the steel bench (specular reflections, scratches) and not plain white paper (too low-contrast against pale colonies, and it inverted the colony/agar brightness relationship entirely on the #7 batch). A matte, non-reflective mid-gray or black backdrop gives consistent moderate contrast against colonies of either light or dark color.</li>
+    <li><b>Tripod-mounted phone</b>, same physical position (mark the floor/stand), same height and distance every session.</li>
+    <li><b>Diffuse, shadow-free lighting</b> from a small LED light box or softbox &mdash; not ceiling room lighting or daylight, both of which drift by time of day and were the likely source of the illumination gradients that broke a global-threshold approach earlier in this project.</li>
+    <li><b>Lock exposure and white balance</b> for the whole session. Auto-exposure compensating differently per shot is a plausible contributor to the brightness swings seen even within the original steel-bench dataset.</li>
+    <li>Turn off HDR / auto-enhance / any computational photography mode.</li>
+  </ul>
+
+  <h3>Color and scale calibration &mdash; the single highest-leverage fix</h3>
+  <div class="callout gold">
+    <div class="ctitle">Why this matters more here than it might elsewhere</div>
+    <p style="margin:0;">Section 04b proved that raw color/brightness values do not transfer across sessions for this organism. A color reference card (even a basic printed color-checker strip or an 18% gray card) in the same corner of every frame is what makes cross-session comparison possible at all: every photo can be corrected against a known target after the fact, rather than trusting that lighting stayed constant. A small ruler or printed scale bar in frame does the same for colony size, which currently has no real-world unit anywhere in this project.</p>
+  </div>
+
+  <h3>Growth conditions</h3>
+  <ul class="clean">
+    <li><b>Same medium, same lot, for anything meant to be compared.</b> The Mokwon batch's "Basal" medium vs. this lab's GYP medium is a second, independent axis of variation stacked on top of the imaging differences &mdash; a plate grown differently and photographed differently has no clean way to attribute any observed difference to strain identity.</li>
+    <li><b>Same incubation time and conditions</b> before photographing; log the inoculation and imaging timestamps so colony age is known, not assumed.</li>
+    <li><b>Prefer dilution/spread plates over streak plates</b> for building any reference dataset. The #7 batch's spread plates yielded hundreds of isolated colonies each; the original steel-bench streak plates yielded a handful per plate at best, and the reference strains' streak plates yielded zero usable single colonies for 4 of 5 strains. Tune the dilution so the plate is countable (well short of confluent lawn) rather than either extreme seen in this project's data so far.</li>
+  </ul>
+
+  <h3>Session design</h3>
+  <ul class="clean">
+    <li><b>Interleave, don't batch.</b> If comparing multiple strains or comparing reference strains against environmental samples, shoot them in the same session in randomized order &mdash; never all of one group, then all of another. This is the single fix that would have prevented Question 2's confound on the <i>Chlorella</i> panel, and the same logic applies here.</li>
+    <li><b>Reference and target must share a session (or a calibration card) to ever be compared.</b> The decisive finding in Section 04b was exactly this: a real strain-#7 colony from one session was unrecognizable against a reference built from another session of the same strain. Environmental samples and whatever reference strains they're scored against must be shot together, or the color-card correction above must be trusted to bridge them &mdash; not assumed to be unnecessary.</li>
+    <li><b>Log metadata per photo</b>: date, session ID, shoot order, strain/sample ID, medium + lot, incubation start time, camera settings locked (Y/N), operator.</li>
+  </ul>
+
+  <h3>Before trusting this at scale</h3>
+  <p>Run a small pilot first: photograph the <i>same</i> plate twice, under two deliberately different lighting setups, both with the color card in frame. Apply color correction using the card, then check whether the resulting feature vectors converge. If they do, cross-session comparison is back on the table (with correction). If they don't, the color-card approach itself needs revisiting before any larger reshoot is worth doing &mdash; cheaper to find that out from two photos than from another 60-plate batch.</p>
+</section>
+
 <section id="limitations">
-  <div class="sec-head"><span class="sec-num">05</span><h2>Limitations &amp; evidence tier</h2></div>
+  <div class="sec-head"><span class="sec-num">06</span><h2>Limitations &amp; evidence tier</h2></div>
   <div class="callout rust">
     <span class="ctitle">Evidence tier: exploratory / crude by design &mdash; scoring model failed its own validation check</span>
     <p style="margin:0;">Everything on this page sits at the lowest confidence tier used across this site, and Question 1's ranking specifically should not be treated as a working model: a leave-one-out check (Section 03) found it ranks the one known real Schizochytrium colony we have 552nd of 556, almost dead last. The pipeline also has at least one confirmed false-positive source (plate 40); isolation quality trades off directly against yield (documented above) and was tuned by visual inspection, not a held-out validation set; and Question 2 is currently unanswerable rather than answered. Treat every image above as a candidate worth a human look &mdash; ideally back on the physical plate, or under a microscope &mdash; not as a confirmed identification, and treat the ranking order itself with active skepticism given the failed check.</p>
@@ -344,7 +386,7 @@ footer p{max-width:none; color:var(--ink-faint);}
 </section>
 
 <section id="data">
-  <div class="sec-head"><span class="sec-num">06</span><h2>Data &amp; scripts</h2></div>
+  <div class="sec-head"><span class="sec-num">07</span><h2>Data &amp; scripts</h2></div>
   <ul class="nav-list clean">
     <li><a href="results/colony_screening/environmental_colony_ranking_cleaned.csv">Full ranking, all 555 environmental colony crops (CSV)</a></li>
     <li><a href="results/colony_screening/reference_lawn_features.csv">Reference strain whole-growth-region features (CSV)</a></li>
