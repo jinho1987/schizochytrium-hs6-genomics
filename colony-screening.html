@@ -301,6 +301,33 @@ footer p{max-width:none; color:var(--ink-faint);}
   <p>The same fix already prescribed for the <i>Chlorella</i> panel, adapted here: <b>multiple independent plates per reference strain</b> (5&ndash;10+), each streaked for genuine single-colony isolation (not lawn growth), imaged with strains interleaved across sessions rather than batched, so within-strain and between-strain variability can both actually be measured. Without that, "can these strains be told apart" stays an open question rather than a negative result &mdash; there simply isn't enough data yet to fail the test, let alone pass it.</p>
 </section>
 
+<section id="new-batch">
+  <div class="sec-head"><span class="sec-num">04b</span><h2>A follow-up batch, and a decisive negative result</h2></div>
+  <p class="dek">297 new single-colony crops of a confirmed strain arrived -- and definitively closed off "just collect more data" as a fix for Question 1.</p>
+
+  <p>Two additional photo sets were provided: a 22-photo batch of strain #7 GFP-transformation plates (heat-shock DNA uptake step, two sample codes "G1"/"G2" that turned out to be <b>the same strain</b>, not different strains &mdash; so this batch cannot speak to Question 2), and a 5-photo batch from Mokwon University on a different growth medium with only lawn growth, unusable for cropping either way.</p>
+
+  <p>The #7 batch was shot on a plain white background, not the original steel bench, and needed its own recalibration: colonies here are <b>darker</b> than the agar (the opposite brightness relationship from the steel-bench dataset), with a yellow-green hue against a blue-cyan background, discovered by direct pixel sampling after the steel-bench pipeline's local-contrast method found essentially no usable signal on this lighting. A second, swappable HSV mask fixed detection: <b>297 clean single-colony crops</b> across 9 plates, all confirmed strain #7.</p>
+
+  <figure class="pose-fig">
+    <img src="figures/colony_screening/gfp7_crop_contact_sheet.jpg" alt="Sample of the 297 single-colony crops extracted from the strain #7 GFP-transformation batch" loading="lazy">
+    <figcaption>A sample of the 297 single-colony crops from the new batch &mdash; genuinely clean isolation, all confirmed strain #7. The imaging-session mismatch below is not a data-quality problem with this set.</figcaption>
+  </figure>
+
+  <div class="callout gold">
+    <div class="ctitle">First check looked like a fix</div>
+    <p style="margin:0;">A leave-one-plate-out self-consistency check within these 297 crops passed cleanly on <b>9 of 9</b> held-out plates: each held-out plate's own colonies scored 2&ndash;3&times; closer to a reference built from the other plates than a random sample of environmental colonies did. That looked like the n=1 problem from Section 03 was finally solved.</p>
+  </div>
+
+  <div class="callout rust">
+    <div class="ctitle">Second check: it wasn't a fix, it was the same confound again</div>
+    <p>The environmental colonies being ranked were shot on the <b>original steel bench</b>, not this new white background. Rerunning the leave-one-out logic with the <i>one</i> genuine steel-bench single colony that already existed (Section 03/04 &mdash; also strain #7, imaged in a completely different session) as the test case: it scored a distance of <b>3.87</b> against the new white-background reference &mdash; worse than <b>74.5% of a random environmental sample</b>, and worse than the reference's own environmental-colony control group entirely. The same real strain, in a different imaging session, was unrecognizable to its own species' reference profile.</p>
+    <p style="margin:0;">Masking each crop down to just the colony pixels (removing background influence, in case that was diluting a real signal) made this <i>worse</i>, not better &mdash; distance 6.24. This rules out "background contamination" as the explanation. The conclusion is structural, not a data-quantity problem: <b>absolute color/brightness features do not transfer across imaging sessions for this organism, at all, even for an identical strain measured both times.</b> No amount of additional single-colony data from an incompatible session can fix Question 1's ranking &mdash; it would need to come from the same session (or a properly color-calibrated one) as whatever it's meant to score.</p>
+  </div>
+
+  <p>This sharpens, rather than changes, the fix already on record: any reference data usable for Question 1 has to be collected in the <i>same</i> imaging session (or with a color-calibration card enabling cross-session correction) as the environmental plates it's meant to score against. A large, clean, confirmed-strain dataset from a different session &mdash; however good it looks in isolation &mdash; is not a shortcut around that.</p>
+</section>
+
 <section id="limitations">
   <div class="sec-head"><span class="sec-num">05</span><h2>Limitations &amp; evidence tier</h2></div>
   <div class="callout rust">

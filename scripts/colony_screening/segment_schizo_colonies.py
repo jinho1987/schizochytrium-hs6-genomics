@@ -107,6 +107,40 @@ def find_dish_roi(img):
     return roi, (cx, cy, r)
 
 
+def compute_colony_mask_local_contrast(img, hsv, dish_roi):
+    """Default mask: local contrast (difference-of-Gaussians) on brightness.
+    Works when colonies are BRIGHTER than agar and exposure/illumination
+    varies shot-to-shot (the original steel-bench dataset)."""
+    v = hsv[:, :, 2].astype(np.float32)
+    blur = cv2.GaussianBlur(v, (0, 0), sigmaX=LOCAL_CONTRAST_BLUR_SIGMA)
+    local_contrast = v - blur
+    mask = np.where(local_contrast > LOCAL_CONTRAST_CUTOFF, 255, 0).astype(np.uint8)
+    mask = cv2.bitwise_and(mask, mask, mask=dish_roi)
+    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, np.ones((5, 5), np.uint8))
+    return mask
+
+
+# module-level hook so a batch-specific driver can swap in a different mask
+# function (e.g. compute_colony_mask_hsv_dark below) without duplicating the
+# shape-filter / crop-isolation / output logic in process_image.
+MASK_FN = compute_colony_mask_local_contrast
+
+
+def compute_colony_mask_hsv_dark(img, hsv, dish_roi):
+    """Alternate mask for the white-background GFP-transformant batch: under
+    that lighting, colonies are DARKER than agar (opposite of the steel-bench
+    dataset) with a yellow-green hue (~20-65) vs. the agar's blue-cyan hue
+    (~95-105). Local contrast found essentially no signal on this batch even
+    at generous percentile cutoffs -- direct HSV thresholding, calibrated by
+    sampling real colony vs. agar pixels, worked far better."""
+    mask = cv2.inRange(hsv, (20, 0, 40), (65, 255, 155))
+    mask = cv2.bitwise_and(mask, mask, mask=dish_roi)
+    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8))
+    return mask
+
+
 def rects_overlap_with_pad(a, b, pad):
     ax1, ay1, aw, ah = a
     ax2, ay2 = ax1 + aw, ay1 + ah
@@ -126,14 +160,7 @@ def process_image(path, out_crop_dir, out_qc_path, label_prefix):
 
     dish_roi, (dcx, dcy, dr) = find_dish_roi(img)
 
-    v = hsv[:, :, 2].astype(np.float32)
-    blur = cv2.GaussianBlur(v, (0, 0), sigmaX=LOCAL_CONTRAST_BLUR_SIGMA)
-    local_contrast = v - blur
-
-    colony_mask = np.where(local_contrast > LOCAL_CONTRAST_CUTOFF, 255, 0).astype(np.uint8)
-    colony_mask = cv2.bitwise_and(colony_mask, colony_mask, mask=dish_roi)
-    colony_mask = cv2.morphologyEx(colony_mask, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
-    colony_mask = cv2.morphologyEx(colony_mask, cv2.MORPH_CLOSE, np.ones((5, 5), np.uint8))
+    colony_mask = MASK_FN(img, hsv, dish_roi)
 
     contours, _ = cv2.findContours(colony_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
