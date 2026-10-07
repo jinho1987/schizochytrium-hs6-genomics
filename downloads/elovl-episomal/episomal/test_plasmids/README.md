@@ -80,3 +80,5 @@ the elements used are borrowed from yeast; whether they do anything in Schizochy
 - Both pass the same checks as the other plasmids (unique PacI/AscI/SbfI sites, ble translates
   correctly, bla intact, backbone unchanged). Compare against the no-ARS control exactly as above.
 - Diagnostic primers: see the "CEN plasmids" sheet in plasmid_diagnostic_primers.xlsx.
+
+- **No CEN6-like sequence in HS6 or #7.** A sensitive search with CEN6 alone gave only chance-level hits (best about 80 bp at ~80% identity, comparable to a shuffled control), and a scan for the point-centromere architecture (CDEI motif, 70-100 bp AT-rich spacer at least 88% AT, CDEIII core) found 0 matches in either genome. Point centromeres are largely a budding-yeast feature, so the CEN6 plasmids may show no centromere effect in this host; the replication-element part (ARSH4 or the native candidate) is more likely to matter. The scan is strict and could miss a highly diverged element.
