@@ -1,0 +1,13 @@
+type	position_rel_to_ATG	region	HS6	S7	length_bp
+substitution	-497	upstream	T	C	1
+deletion in #7 (bases only in HS6)	-489	upstream	G	-	1
+substitution	-477	upstream	T	G	1
+deletion in #7 (bases only in HS6)	-370	upstream	GATGGATGAATGAGTGAAT	-	19
+deletion in #7 (bases only in HS6)	-342	upstream	TATTTATT	-	8
+deletion in #7 (bases only in HS6)	-275	upstream	GAATGTAT	-	8
+substitution	-216	upstream	G	A	1
+deletion in #7 (bases only in HS6)	-211	upstream	TAAGTTTGTATA	-	12
+substitution	940	CDS	A	G	1
+substitution	1197	downstream	T	C	1
+substitution	1507	downstream	A	T	1
+substitution	1546	downstream	A	C	1

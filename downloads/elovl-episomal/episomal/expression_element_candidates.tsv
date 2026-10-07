@@ -1,0 +1,16 @@
+gene	mean_norm_count	CV_6samples	name	swissprot_pct_id	strand	promoter_len	terminator_len	promoter_coords	terminator_coords	promoter_ident_S7	terminator_ident_S7
+g827	39567	0.09	ATPase 4, plasma membrane-type	49.1	+	1000	500	Scaffolds_1:1330380-1331379	Scaffolds_1:1336823-1337322	94.1	99.2
+g5520	34636	0.21	Pyrophosphate-energized vacuolar membrane proton pump	53.6	+	1000	500	Scaffolds_19:715146-716145	Scaffolds_19:718411-718910	98.0	98.4
+g14235	32222	0.16	Cathepsin D	38.6	-	1000	500	Scaffolds_4:2423537-2424536	Scaffolds_4:2421558-2422057	99.3	99.2
+g11097	27401	0.2	Sodium- and chloride-dependent creatine transporter 1	34.3	-	1000	500	Scaffolds_29:1897644-1898643	Scaffolds_29:1895227-1895726	96.9	99.2
+g9463	22919	0.17	Vignain	44.3	+	1000	500	Scaffolds_25:508610-509609	Scaffolds_25:511059-511558	99.1	100.0
+g8663	21621	0.23	Sodium-dependent phosphate transport protein 2B	37.3	-	1000	500	Scaffolds_23:1274482-1275481	Scaffolds_23:1272215-1272714	99.3	97.6
+g14162	20033	0.14	Ammonium transporter 1 member 3	42.2	+	1000	500	Scaffolds_4:2157701-2158700	Scaffolds_4:2160201-2160700	97.7	97.2
+g227	18408	0.16	Elongation factor 2	62.6	+	1000	500	Scaffolds_0:929997-930996	Scaffolds_0:933562-934061	98.5	98.2
+g10868	12672	0.22	Glutamate synthase 2 [NADH], chloroplastic	55.1	+	1000	456	Scaffolds_29:1023707-1024706	Scaffolds_29:1033804-1034259	99.1	99.1
+g2766	12670	0.21	Mitochondrial phosphate carrier protein	51.0	+	1000	500	Scaffolds_15:625842-626841	Scaffolds_15:628786-629285	95.4	98.0
+g2121	12443	0.08	(no SwissProt hit)		-	1000	500	Scaffolds_14:187958-188957	Scaffolds_14:186024-186523	97.6	99.2
+g11466	11764	0.12	Transmembrane 9 superfamily member 9	48.3	+	1000	384	Scaffolds_3:31023-32022	Scaffolds_3:33994-34377	98.6	100.0
+g9251	11158	0.23	(no SwissProt hit)		+	1000	500	Scaffolds_24:1587191-1588190	Scaffolds_24:1589482-1589981	97.1	96.4
+g12164	10882	0.23	ADP-ribosylation factor	86.5	+	1000	500	Scaffolds_30:643866-644865	Scaffolds_30:647748-648247	94.9	99.4
+g9208	9843	0.18	ABC transporter G family member 8	32.9	-	1000	500	Scaffolds_24:1432981-1433980	Scaffolds_24:1430627-1431126	97.9	96.6

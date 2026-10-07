@@ -1,0 +1,3 @@
+set	fwd	fwd_Tm	rev	rev_Tm	HS6_product_bp	S7_product_bp	fwd_pos_rel_ATG	genome_sites_HS6_S7_fwd	genome_sites_HS6_S7_rev	rev_5prime_end_rel_stop
+flank_pair (covers whole gene, upstream and downstream)	TGCTAGGGGAAACTGGTAGGA	59.9	GAGGAACGAGAAGGCATTTGC	59.9	1725	1678	-459	[1, 1]	[1, 1]	177
+internal_CDS_pair (control: gene present in both strains)	GTACATGCGCGAGTACTACGA	60.0	GAGCGTGATAGTGTACCTCGG	60.0	535	535	335	[1, 1]	[1, 1]	-219

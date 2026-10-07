@@ -1,0 +1,5 @@
+set	purpose	fwd	fwd_tm	rev	rev_tm	HS6_product_bp	S7_product_bp	fwd_hits_HS6_S7	rev_hits_HS6_S7	status
+outer_WT_KO_pair	outside both arms; WT product vs shorter/longer KO product	GAAGAGCTCGTGGTACGTTGA	60.1	GCATACGAGCAGCCTTATCCT	60.0	3903	3890	[1, 1]	[1, 1]	unique in both genomes, exact match in both strains
+internal_CDS_pair	inside deleted CDS; product = gene still present, none = deleted	TTTGGTGTACGCTGCCCTTAT	60.0	CAGTGCCAACAACCATCTGTG	60.0	665	665	[1, 1]	[1, 1]	unique in both genomes, exact match in both strains
+5prime_junction_anchor	forward anchor beyond 5' arm; pair with marker-specific reverse primer	GAAGAGCTCGTGGTACGTTGA	60.1	GGCTTGCTATCACCCCACATA	59.9	722	724	[1, 1]	[1, 1]	unique in both genomes, exact match in both strains
+3prime_junction_anchor	reverse anchor beyond 3' arm; pair with marker-specific forward primer	TGACAAGTGTCTCCAATCCCG	60.0	GCATACGAGCAGCCTTATCCT	60.0	739	739	[1, 1]	[1, 1]	unique in both genomes, exact match in both strains

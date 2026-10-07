@@ -1,0 +1,169 @@
+---
+layout: default
+title: ELOVL Family, g12225 Knockout & Episomal Plasmid Design
+---
+
+<section class="hero">
+  <div class="eyebrow"><span class="dot"></span>Schizochytrium &middot; ELOVL elongases, knockout design, episomal plasmid</div>
+  <h1 class="hero-title">ELOVL family, a <em>cross-strain</em> knockout, and a first episomal test</h1>
+  <p class="hero-sub">All four ELO-domain elongases in HS6 and #7, which of them is the ELOVL6-type gene, a homology-arm knockout design for g12225 that works in both strains, and a first-pass test-plasmid set for episomal maintenance in Schizochytrium.</p>
+  <div class="strain-tags">
+    <span class="tag hs6">HS6</span>
+    <span class="tag s7">#7</span>
+  </div>
+</section>
+
+<div class="callout caveat">
+  <span class="lbl">Status: design stage</span>
+  <p style="margin:0;">Nothing on this page has been tested in the lab. The knockout and plasmid constructs are in-silico designs (sizes, restriction sites, ORF translations and sequence specificity were checked, but nothing was sequenced or transformed). Replication and centromere elements are sequence-based hypotheses. Every file mentioned is downloadable from the tables at the bottom.</p>
+</div>
+
+<section class="block" id="elovl">
+  <span class="section-eyebrow">1 &middot; ELOVL family</span>
+  <h2>Four ELO-domain genes per strain, and g12225 is the ELOVL6-type one</h2>
+  <p>Scanning the whole HS6 and #7 proteomes with the Pfam ELO domain model (PF01151, curated threshold; a looser E-value added nothing) finds exactly <b>4 proteins in each strain</b>. A translated-BLAST scan of both raw genomes found no unannotated elongase loci. The genes pair one-to-one between strains:</p>
+
+  <div class="stat-grid">
+    <div class="stat-card"><div class="v">4 + 4</div><div class="k">ELO-domain genes found in HS6 and #7</div></div>
+    <div class="stat-card"><div class="v">100%</div><div class="k">g12225 coding sequence identical in HS6 and #7</div></div>
+    <div class="stat-card"><div class="v">99.9%</div><div class="k">g1554 coding sequence identity (1 nucleotide of 1,089)</div></div>
+  </div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>HS6</th><th>#7</th><th>HS6 vs #7 protein identity</th><th>Closest <i>Hondaea fermentalgiana</i> protein</th><th>Identity to it</th></tr></thead>
+    <tbody>
+      <tr><td>g12225 (408 aa)</td><td>LOCUS_004835</td><td>100%</td><td>A0A2R5G2P4</td><td>87.3%</td></tr>
+      <tr><td>g1554 (362 aa)</td><td>LOCUS_010826</td><td>99.7%</td><td>A0A2R5GJ10</td><td>77.3%</td></tr>
+      <tr><td>g12221</td><td>LOCUS_004830</td><td>99.2% over 255 aa</td><td>A0A2R5G2S5</td><td>67.7%</td></tr>
+      <tr><td>g7382</td><td>LOCUS_005399</td><td>98.8%</td><td>A0A2R5GP98</td><td>67.9%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>g12221 and g7382 are longer in HS6 than in #7 (417 vs 255 aa, and 1,234 vs 874 aa); the ELO domain regions match, so this looks like a gene-model difference, not unchecked biology. In both strains g12221 and g12225 sit about 12 kb apart on one scaffold.</p>
+
+  <h3>Phylogeny</h3>
+  <p><img src="downloads/elovl-episomal/elovl/elovl_phylogeny.png" alt="Maximum-likelihood phylogeny of ELO domains from HS6, #7, Hondaea, human ELOVL1-7, yeast and T. brucei" style="max-width:100%;height:auto;border:1px solid #d6dedc;border-radius:6px;"></p>
+  <div class="callout finding">
+    <span class="lbl">What the tree says</span>
+    <p style="margin:0;">g12225 and its #7 and <i>Hondaea</i> counterparts (bootstrap 99) join human ELOVL3 and ELOVL6 (bootstrap 100): the ELOVL3/6 subfamily. g1554 and its counterparts (bootstrap 100) sit outside that group, closer to <i>T. brucei</i> ELO1&ndash;3 (bootstrap 71, moderate). So g1554 is a divergent paralog, not a second ELOVL6, and <b>g12225 is the better ELOVL6-type target</b>. The tree cannot separate ELOVL6 from ELOVL3 within their shared group, and which fatty acids each gene actually elongates is untested. Midpoint-rooted, ELO domain only (28 sequences, 242 columns, model Q.YEAST+F+I+R4).</p>
+  </div>
+
+  <h3>The g1554 PCR that works in HS6 but not in #7</h3>
+  <p>A collaborator&rsquo;s g1554 PCR gives the expected product in HS6 but none in #7. The gene itself is intact in #7, and across 520 bp upstream to 520 bp downstream (about 2.1 kb) the two strains differ at only <b>12 places</b>: 7 substitutions and 5 deletions totalling 48 bp, with a single coding-sequence difference (A940G, M314V). A primer fails in #7 only if it overlaps one of those spots, with a 3&prime;-end overlap the worst case.</p>
+  <p><img src="downloads/elovl-episomal/elovl/g1554_primer_site_conservation.png" alt="g1554 primer-site conservation HS6 vs #7" style="max-width:100%;height:auto;border:1px solid #d6dedc;border-radius:6px;"></p>
+  <p>Where a primer sits matters: 74% of possible 20-mer sites in the upstream 500 bp and 88% downstream are identical in #7, but the outermost 20 bp of the upstream flank have <b>no</b> conserved site (0 of 20) and the outer edge of the downstream flank has few (3 of 21). A primer placed at the very ends of the &plusmn;500 bp flank files would be expected to fail in #7. This is a hypothesis until the primer sequences are checked. A pair that matches exactly in both strains (1,725 bp in HS6, 1,678 bp in #7) and an internal control pair are in the downloads.</p>
+</section>
+
+<section class="block" id="ko">
+  <span class="section-eyebrow">2 &middot; Knockout design</span>
+  <h2>g12225 knockout with HS6 homology arms (no Cas9)</h2>
+  <p>Design: replace the whole 1,227 bp g12225 coding sequence (identical in both strains) with a selectable-marker cassette flanked by 800 bp HS6 arms placed directly against the start and stop codons, one construct for both strains. The marker is not chosen yet.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Arm</th><th>Length</th><th>HS6 vs #7 identity</th><th>Differences</th></tr></thead>
+    <tbody>
+      <tr><td>5&prime; arm (upstream of ATG)</td><td>800 bp</td><td>95.1%</td><td>11 substitutions + 6 indels (29 bp; the largest is a 16 bp HS6-only block); longest identical stretch 160 bp</td></tr>
+      <tr><td>3&prime; arm (downstream of stop)</td><td>800 bp</td><td>98.9%</td><td>9 substitutions, no indels; 194 identical bases up to the stop codon</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Without Cas9, recombination efficiency depends on arm identity, so the 5&prime; arm in #7 is the main risk; #7 versions of both arms are provided in case a strain-specific 5&prime; arm is needed.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Primers (all match exactly in both strains, one site per genome)</th><th>Forward</th><th>Reverse</th><th>HS6 / #7 product</th></tr></thead>
+    <tbody>
+      <tr><td>Outer pair (diagnostic, outside both arms)</td><td><code>GAAGAGCTCGTGGTACGTTGA</code></td><td><code>GCATACGAGCAGCCTTATCCT</code></td><td>3,903 / 3,890 bp</td></tr>
+      <tr><td>Internal CDS pair (band = gene present)</td><td><code>TTTGGTGTACGCTGCCCTTAT</code></td><td><code>CAGTGCCAACAACCATCTGTG</code></td><td>665 / 665 bp</td></tr>
+      <tr><td>5&prime; arm amplification</td><td><code>CGAACAGGCCCACGAGCTGTTT</code></td><td><code>GGTCCCAAGAGTTCCGTCTACT</code></td><td>800 bp arm</td></tr>
+      <tr><td>3&prime; arm amplification</td><td><code>ATCTTCGACGAGGTCGATCAAC</code></td><td><code>TTCTATTCCCGGGTCTTCTTGC</code></td><td>800 bp arm</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Expected knockout outer-pair product = wild-type product &minus; 1,227 bp + cassette length. Marker-side junction primers can only be designed once the cassette is chosen.</p>
+</section>
+
+<section class="block" id="episomal">
+  <span class="section-eyebrow">3 &middot; Episomal plasmid</span>
+  <h2>What the genomes offer for an episomal plasmid</h2>
+  <p>A replicating plasmid needs a replication/maintenance element, expression elements and host-compatible codons. HS6 genome: 61.6 Mb, 34 scaffolds, GC 45.1%.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Element</th><th>What the screen found</th><th>Confidence</th></tr></thead>
+    <tbody>
+      <tr><td>Telomere repeat</td><td>A 5-base unit (AACCT on the strand shown, the TTAGG type) forms 320&ndash;830 bp tandem arrays at <b>41 of 68</b> scaffold ends. Two end sequences are provided as seeds for a linear plasmid.</td><td>Strong</td></tr>
+      <tr><td>ARS-like (replication-origin-like)</td><td>254 AT-rich (&ge;78.5%) intergenic regions of 300 bp or more that are single-copy, outside repeat families and conserved in #7. 81 lie between divergently transcribed genes (probably promoters), 117 between same-direction genes, 56 between convergent genes.</td><td>Hypothesis; yeast-style features, no origins mapped in this organism</td></tr>
+      <tr><td>Native promoters and terminators</td><td>202 genes in the top 5% by expression and steady across all six RNA-seq samples (CV &le;0.25), with free flanking space and no repeats; the top 15 listed are also conserved in #7 (94&ndash;100% identity). Most conventional: g227 (elongation factor 2, CV 0.16) and g12164 (ADP-ribosylation factor).</td><td>Steady across three time points in one condition only</td></tr>
+      <tr><td>Codon usage</td><td>15,960 coding sequences, GC3 47.2%, close to the genome average, so codon adaptation of a marker should be modest.</td><td>Solid</td></tr>
+      <tr><td>Centromere</td><td><b>None identified.</b> Every scaffold has a gene-poor stretch of 25&ndash;105 kb, 27 of 34 in the interior, but they are mostly not repeat-rich (typically 1&ndash;5% repeats; the repeat-rich ones are mainly near scaffold ends) and could be annotation gaps. A heterologous yeast CEN6 is used as a test arm instead.</td><td>Weak; confirmation needs CENH3 ChIP-seq or Hi-C</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Test plasmids</h3>
+  <p>Backbone pUC19c (<i>E. coli</i> origin and ampicillin gene unchanged), a codon-adapted zeocin-resistance gene (<i>Sh ble</i>) driven by the native g227 promoter and terminator, and a PacI/AscI slot for the replication candidate. All seven maps pass in-silico checks (each cloning site once, <i>ble</i> translates to the reference protein, <i>bla</i> intact, backbone unchanged outside the slot).</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Plasmid</th><th>Size</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td>pSCHZ_noARS_control</td><td>4,540 bp</td><td><b>Essential control:</b> no replication element, so any colonies are background</td></tr>
+      <tr><td>pSCHZ_ARS (Scaffolds_18, _19, _10 candidates)</td><td>5,040 / 5,090 / 5,140 bp</td><td>One native ARS-like candidate each</td></tr>
+      <tr><td>pSCHZ_CEN6-ARSH4_yeast</td><td>5,051 bp</td><td>Yeast CEN6/ARSH4 (511 bp, taken from pRS416 and matched to yeast chromosomes VI and II)</td></tr>
+      <tr><td>pSCHZ_ARS18_plus_CEN6</td><td>5,165 bp</td><td>Native candidate plus yeast CEN6, to ask whether a centromere adds stability</td></tr>
+      <tr><td>pSCHZ_TEL</td><td>5,276 bp</td><td>Cut with PmeI for a 5,268 bp linear molecule with native telomere blocks at both ends</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout caveat">
+    <span class="lbl">Risks and limits</span>
+    <p style="margin:0;"><b>Zeocin is less active at high salt</b>, and Schizochytrium media are often marine-type: run a kill-curve on HS6 and #7 first, and swap the marker if wild-type tolerates it. PCR cannot tell an episome from an integrated plasmid; the diagnostic primer workbook (9 pairs, all with at least one plasmid-only primer, so host DNA alone cannot give a band) lists the ways to separate them. Whether the yeast elements do anything in Schizochytrium is unknown.</p>
+  </div>
+</section>
+
+<section class="block" id="panel">
+  <span class="section-eyebrow">4 &middot; Earlier primer panel</span>
+  <h2>Sanger and qPCR primers for the 54 SKKU-derived mutation-candidate genes</h2>
+  <p>Position-verified against the HS6 reference, 74 Sanger amplicons and 54 qPCR pairs. <b>A BLAST specificity check showed that most of this panel is not unique in this genome</b> (Sanger: 6 clean, 10 modest, 12 elevated, 46 severe; qPCR: 11 / 8 / 10 / 25). The severe cases trace to genuinely repeated sequence in the assembly, not to the design pipeline; only the clean tier is safe to order as-is. Full detail in the panel README.</p>
+</section>
+
+<section class="block" id="downloads">
+  <span class="section-eyebrow">Downloads</span>
+  <h2>Files</h2>
+  <p>Every file is served directly from this repository. Right-click a link and choose &ldquo;save link as&rdquo;, or open the folder on GitHub.</p>
+
+  <h3>ELOVL family and g1554</h3>
+  <div class="table-wrap"><table><thead><tr><th>File</th><th>Contents</th></tr></thead><tbody>
+    <tr><td><a href="downloads/elovl-episomal/elovl/ELOVL_g1554_g12225_HS6_vs_S7.xlsx" download>ELOVL_g1554_g12225_HS6_vs_S7.xlsx</a></td><td>Differences for both genes (&minus;520 to +520) plus full sequences (CDS, 500 bp flanks, protein) for HS6 and #7</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/elovl/g1554_all_differences_HS6_vs_S7.tsv" download>g1554_all_differences_HS6_vs_S7.tsv</a></td><td>The 12 g1554 differences, plain text</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/elovl/g1554_flank_conservation_by_site.tsv" download>g1554_flank_conservation_by_site.tsv</a></td><td>For every 20-mer start site in the flanks, whether it is identical in #7</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/elovl/g1554_primers_both_strains.tsv" download>g1554_primers_both_strains.tsv</a></td><td>Primers that match exactly in both strains</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/elovl/elovl_phylogeny.png" download>elovl_phylogeny.png</a>, <a href="downloads/elovl-episomal/elovl/elovl_tree.contree" download>elovl_tree.contree</a>, <a href="downloads/elovl-episomal/elovl/elovl_tree.iqtree" download>elovl_tree.iqtree</a>, <a href="downloads/elovl-episomal/elovl/trimmed.aln.fa" download>trimmed.aln.fa</a>, <a href="downloads/elovl-episomal/elovl/elovl_domain_sequences_input.fa" download>input sequences</a></td><td>Tree figure, Newick tree with bootstrap support, IQ-TREE report, trimmed alignment, input proteins</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/elovl/genome_scan_HS6_tblastn.tsv" download>HS6</a>, <a href="downloads/elovl-episomal/elovl/genome_scan_S7_tblastn.tsv" download>#7</a> genome scans</td><td>Translated-BLAST hits used to look for unannotated elongase loci</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/elovl/g12225_vs_LOCUS_004835.aln.fa" download>g12225 locus alignment</a>, <a href="downloads/elovl-episomal/elovl/g1554_vs_LOCUS_010826.aln.fa" download>g1554 locus alignment</a></td><td>HS6 vs #7 aligned loci with flanks (unaligned versions and summary alongside, in the same folder)</td></tr>
+  </tbody></table></div>
+
+  <h3>g12225 knockout design</h3>
+  <div class="table-wrap"><table><thead><tr><th>File</th><th>Contents</th></tr></thead><tbody>
+    <tr><td><a href="downloads/elovl-episomal/g12225_KO/README.md">README.md</a></td><td>Full design notes</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/g12225_KO/HS6_arms_final.fa" download>HS6_arms_final.fa</a>, <a href="downloads/elovl-episomal/g12225_KO/homology_arms_800bp.fa" download>homology_arms_800bp.fa</a></td><td>The 800 bp HS6 arms; and the HS6 and #7 versions of both arms</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/g12225_KO/arm_amplification_primers.tsv" download>arm_amplification_primers.tsv</a>, <a href="downloads/elovl-episomal/g12225_KO/genotyping_primers.tsv" download>genotyping_primers.tsv</a></td><td>Arm amplification and genotyping primers</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/g12225_KO/arm_differences_vs_S7.tsv" download>arm_differences_vs_S7.tsv</a>, <a href="downloads/elovl-episomal/g12225_KO/locus_pm2500.aln.fa" download>locus_pm2500.aln.fa</a></td><td>Where the HS6 arms differ from #7; &plusmn;2.5 kb locus alignment</td></tr>
+  </tbody></table></div>
+
+  <h3>Episomal plasmid screen and test plasmids</h3>
+  <div class="table-wrap"><table><thead><tr><th>File</th><th>Contents</th></tr></thead><tbody>
+    <tr><td><a href="downloads/elovl-episomal/episomal/README.md">episomal/README.md</a>, <a href="downloads/elovl-episomal/episomal/test_plasmids/README.md">test_plasmids/README.md</a></td><td>Screen method and results; plasmid design and suggested test logic</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/episomal/test_plasmids/plasmid_diagnostic_primers.xlsx" download>plasmid_diagnostic_primers.xlsx</a></td><td>Diagnostic PCR primers for transformants, with expected product sizes on every plasmid</td></tr>
+    <tr><td>Plasmid maps (GenBank) and sequences (FASTA), one pair per plasmid, in <a href="downloads/elovl-episomal/episomal/test_plasmids/">test_plasmids/</a>: <a href="downloads/elovl-episomal/episomal/test_plasmids/pSCHZ_noARS_control.gb" download>noARS control</a>, <a href="downloads/elovl-episomal/episomal/test_plasmids/pSCHZ_ARS_Scaffolds_18_2316401-2316900.gb" download>ARS Sc18</a>, <a href="downloads/elovl-episomal/episomal/test_plasmids/pSCHZ_ARS_Scaffolds_19_846151-846700.gb" download>ARS Sc19</a>, <a href="downloads/elovl-episomal/episomal/test_plasmids/pSCHZ_ARS_Scaffolds_10_453601-454200.gb" download>ARS Sc10</a>, <a href="downloads/elovl-episomal/episomal/test_plasmids/pSCHZ_CEN6-ARSH4_yeast.gb" download>CEN6-ARSH4</a>, <a href="downloads/elovl-episomal/episomal/test_plasmids/pSCHZ_ARS18_plus_CEN6.gb" download>ARS18+CEN6</a>, <a href="downloads/elovl-episomal/episomal/test_plasmids/pSCHZ_TEL.gb" download>TEL</a></td><td>Annotated circular maps</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/episomal/test_plasmids/ARS_candidate_library.tsv" download>ARS_candidate_library.tsv</a>, <a href="downloads/elovl-episomal/episomal/test_plasmids/parts.fa" download>parts.fa</a></td><td>Six replication candidates with cloning primers; cassette parts and telomere blocks</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/episomal/ARS_like_candidates_classified.tsv" download>ARS_like_candidates_classified.tsv</a>, <a href="downloads/elovl-episomal/episomal/centromere_candidate_regions.tsv" download>centromere_candidate_regions.tsv</a></td><td>254 ARS-like regions with orientation class; 142 gene-poor stretches of 30 kb or more</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/episomal/expression_element_candidates.tsv" download>expression_element_candidates.tsv</a>, <a href="downloads/elovl-episomal/episomal/promoters_terminators.fa" download>promoters_terminators.fa</a>, <a href="downloads/elovl-episomal/episomal/codon_usage_HS6.tsv" download>codon_usage_HS6.tsv</a>, <a href="downloads/elovl-episomal/episomal/telomere_seed_candidates.fa" download>telomere_seed_candidates.fa</a></td><td>Native promoter/terminator candidates and sequences; codon table; telomere seeds</td></tr>
+  </tbody></table></div>
+
+  <h3>54-gene primer panel</h3>
+  <div class="table-wrap"><table><thead><tr><th>File</th><th>Contents</th></tr></thead><tbody>
+    <tr><td><a href="downloads/elovl-episomal/primer_panel_54genes/README.md">README.md</a></td><td>Method, verification and the BLAST specificity finding</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/primer_panel_54genes/sanger_primers.tsv" download>sanger_primers.tsv</a>, <a href="downloads/elovl-episomal/primer_panel_54genes/qpcr_primers.tsv" download>qpcr_primers.tsv</a></td><td>Primer pairs, each annotated with its severity tier</td></tr>
+    <tr><td><a href="downloads/elovl-episomal/primer_panel_54genes/flanking_500bp_context.tsv" download>flanking_500bp_context.tsv</a>, <a href="downloads/elovl-episomal/primer_panel_54genes/flanking_500bp_context.fasta" download>.fasta</a></td><td>500 bp upstream and downstream sequence around each mutation cluster</td></tr>
+  </tbody></table></div>
+</section>

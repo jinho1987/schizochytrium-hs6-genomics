@@ -1,0 +1,5 @@
+primer	sequence_5to3	length	Tm_C	GC_pct	sites_in_HS6_genome	sites_in_S7_genome
+5arm_F (starts at -800)	CGAACAGGCCCACGAGCTGTTT	22	65.8	59	1	1
+5arm_R (ends adjacent to ATG)	GGTCCCAAGAGTTCCGTCTACT	22	61.1	55	1	1
+3arm_F (starts after stop)	ATCTTCGACGAGGTCGATCAAC	22	60.2	50	1	1
+3arm_R (ends at +800)	TTCTATTCCCGGGTCTTCTTGC	22	60.1	50	1	1
