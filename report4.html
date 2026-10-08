@@ -633,6 +633,39 @@ a{color:var(--teal-ink);}
       <p>No degenerate regions, extreme GC, or repeat content forced a design failure or fallback for any target &mdash; including the 6 junction-constrained designs, which is a harder constraint to satisfy than free-form picking. Full table (identity, log2FC, padj, genomic coordinates, exon count, both primer sequences, Tm, product size) and both sequence sets (genomic DNA per locus, including introns/UTRs; and the spliced CDS actually used for primer picking) are linked below for independent verification &mdash; run your own BLAST against <code>HS6_scaf.fasta</code> before ordering, same caveat as &sect;12.</p>
     </div>
     <p class="pending-note">Full panel with genomic coordinates and primers: <a href="results/qpcr_primer_panel.tsv">results/qpcr_primer_panel.tsv</a>. Raw genomic DNA sequence per gene (includes introns/UTRs, directly sliced from <code>HS6_scaf.fasta</code> at the coordinates in the table above): <a href="results/qpcr_gene_genomic_sequences.fasta">results/qpcr_gene_genomic_sequences.fasta</a>. Spliced CDS used for primer design: <a href="results/qpcr_target_spliced_cds.fasta">results/qpcr_target_spliced_cds.fasta</a>.</p>
+
+    <h3 style="margin-top:28px;">Extension, 2026-10-08: why 40 targets, and primers for the five missing sequence-difference genes</h3>
+    <p>The 27-gene panel was re-checked (26 primer pairs clean under a strict genome-wide specificity test, 1 modest: g3889) and then audited for coverage. It missed five genes that carry an HS6-vs-#4 sequence difference <i>and</i> are significantly changed, under-represented the strongest signal (actin/myosin), and had no test of the faster-glucose-consumption phenotype. The count below is the sum of one rule per question the data raises, not a round number.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Module</th><th>Targets</th><th>Question and why this many</th></tr></thead>
+      <tbody>
+        <tr><td>Reference genes</td><td>3</td><td>g827, g227, g10543. At least 2 validated references are required; 3 allow ranking by geNorm/NormFinder. Stable in n=1 RNA-seq only, so stability must be re-tested on the new samples.</td></tr>
+        <tr><td>Sequence difference + significant DEG</td><td>9</td><td>All of them (g3906, g14345, g6124, g6423 existing; g2636, g6055, g845, g1664, g15200 new). Count set by the data. Evidence differs by tier: only g3906/g14345/g6124 are supported by the high-confidence 84-variant call; for g6423, g6055 and g845 the independent re-call found no variant in the gene body (&sect;16), so Sanger sequencing of those loci must accompany qPCR.</td></tr>
+        <tr><td>Growth / cell-cycle control (MYB3R family, CDK-F3)</td><td>9</td><td>All 8 significant MYB/MYB3R factors plus CDK-F3, because the paralog-split pattern is only interpretable if the whole family is measured.</td></tr>
+        <tr><td>Growth machinery (actin / myosin)</td><td>3 <i>(proposed)</i></td><td>The strongest signal in the dataset (30 actin-filament-binding genes down, GO p.adj ~1e-13) but absent from the panel. Representatives: actin g1305 (padj 7.5e-20), myosin-6 g8048, myosin-I heavy chain g8072.</td></tr>
+        <tr><td>Lipid / PUFA / storage lipid</td><td>10</td><td>Every pathway group in the DHA phenotype: FA synthesis, PKS-type synthesis, storage lipid. Includes non-significant g3889 to settle it.</td></tr>
+        <tr><td>Glucose uptake and glycolysis</td><td>3 <i>(proposed)</i></td><td>g2184 (GAPDH), g6544 (pyruvate kinase), g6030 (SWEET sugar transporter). In the RNA-seq the core glycolytic genes are <b>not</b> changed (GAPDH padj 0.48, pyruvate kinase 0.69); only one low-expression transporter moves. Flat qPCR would mean faster glucose use is not explained by glycolytic transcript levels &mdash; a meaningful negative result.</td></tr>
+        <tr><td>Largest unexplained responses</td><td>3 (1 existing, 2 <i>proposed</i>)</td><td>g342 (+6.0 log2FC, unannotated); g4043 (DnaJ chaperone, +4.6, adjacent to ClpB and co-moving); g6378 (ferric reductase, +3.5; three ferric reductases rise). One representative per co-moving module.</td></tr>
+        <tr><td><b>Total</b></td><td><b>40</b></td><td>37 test genes + 3 references. 1,223 genes are significant (padj&lt;0.05), so validating all is not practical; modules answer specific questions and representatives carry the module's information.</td></tr>
+      </tbody>
+    </table></div>
+    <p><b>Practical size.</b> 2 genotypes &times; 3 timepoints &times; 3 biological replicates = 18 cDNA samples; about 6 genes per 384-well plate with controls, so roughly 7 plates. Biological replication matters more than adding genes. A module counts as validated if its representatives change in the RNA-seq direction (p&lt;0.05 on &Delta;Ct) at 2 of 3 timepoints. qPCR tests whether expression differences are real; it does not show that a gene causes the phenotype.</p>
+    <h4>Primers for the five missing genes</h4>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Gene</th><th>Forward 5'&rarr;3'</th><th>Reverse 5'&rarr;3'</th><th>Product</th><th>Tm F / R</th><th>Design</th><th>Genome specificity</th></tr></thead>
+      <tbody>
+<tr><td class="gene">g2636</td><td class="mono">CCTTTGCGATGCAGATTCCG</td><td class="mono">GGGCAGCTTGATAACCAGGT</td><td>153 bp</td><td>60.0&deg; / 60.0&deg;</td><td>single exon: no-RT control</td><td>unique</td></tr>
+<tr><td class="gene">g6055</td><td class="mono">CCAGGCGAGGTGATAAGAGC</td><td class="mono">CGGTATGGATGCAACGAAGC</td><td>120 bp</td><td>60.2&deg; / 59.7&deg;</td><td>single exon: no-RT control</td><td>unique</td></tr>
+<tr><td class="gene">g845</td><td class="mono">GATGCAACCATATCGGCGAC</td><td class="mono">AATGTCAGCGACCGGTTCTT</td><td>157 bp</td><td>59.5&deg; / 60.0&deg;</td><td>best available</td><td><b>NOT unique &mdash; do not use for quantification without amplicon sequencing + melt curve</b></td></tr>
+<tr><td class="gene">g1664</td><td class="mono">AGCATGTGGAGCATTGTGGT</td><td class="mono">CCGCATTGGTTCGATGTACG</td><td>119 bp</td><td>60.3&deg; / 59.7&deg;</td><td>single exon: no-RT control</td><td>unique</td></tr>
+<tr><td class="gene">g15200</td><td class="mono">AGTCGGCGACCCTTTCTTTC</td><td class="mono">AAATGCACTTCAAGAGCGCC</td><td>103 bp</td><td>60.3&deg; / 59.8&deg;</td><td>exon-junction</td><td>unique</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout method">
+      <span class="lbl">Caveats, stated plainly</span>
+      <p>Primers avoid every HS6-vs-#4 difference in the coding sequence, and each was BLASTed against the HS6 genome (one full-length site per primer, no second predicted amplicon). <b>g845 could not be given a unique pair</b>: in 200 candidates none passed, because its coding sequence is repeat-rich (reverse primer has a second genomic site). g6055 had 3 passing candidates and g1664 only 1 of 200; these genes are also repeat-rich, so a melt-curve single peak and amplicon sequencing are mandatory before trusting them. Four of the five pairs lie within one exon, so a no-RT control is required. Efficiency curves, melt curves and DNase treatment still need to be done at the bench for all 40 targets.</p>
+    </div>
+    <p class="pending-note">Downloads: <a href="downloads/qpcr-additional/qPCR_validation_panel_HS6_vs_4.xlsx">qPCR_validation_panel_HS6_vs_4.xlsx</a> (selection logic, new primers with specificity columns and amplicon sequences, all 40 targets with module, design checks) &middot; <a href="downloads/qpcr-additional/qpcr_additional5_primers.tsv">qpcr_additional5_primers.tsv</a></p>
   </section>
 
   <section id="missense">
