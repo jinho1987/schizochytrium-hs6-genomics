@@ -1,0 +1,155 @@
+---
+layout: default
+title: Epigenetics — DNA methylation and chromatin machinery in Schizochytrium
+---
+
+<section class="hero">
+  <div class="eyebrow"><span class="dot"></span>Schizochytrium &middot; DNA methylation &amp; chromatin</div>
+  <h1 class="hero-title">Epigenetics: one methylome exists, and it is <em>not</em> HS6&rsquo;s</h1>
+  <p class="hero-sub">Strain #7 has native PacBio 5mC calls. HS6&rsquo;s sequencing delivery did not include them, and its parent #4 was sequenced on short reads only. This page records what the existing annotation and expression data already say about methylation and chromatin machinery, and which measurement would settle the open questions.</p>
+  <div class="strain-tags">
+    <span class="tag hs6">HS6</span>
+    <span class="tag">#4 (WT)</span>
+    <span class="tag s7">#7</span>
+  </div>
+</section>
+
+<div class="callout caveat">
+  <span class="lbl">Status: no methylation level has been measured on HS6 or #4</span>
+  <p style="margin:0;">Everything below is either annotation-level (which genes exist) or expression-level (n=1 per genotype &times; timepoint, no biological replicates). Nothing here shows that DNA methylation does, or does not, contribute to HS6&rsquo;s phenotype.</p>
+</div>
+
+<section class="block" id="data">
+  <span class="section-eyebrow">1 &middot; What data exists</span>
+  <h2>Only strain #7 has methylation calls, and they are not in this repository</h2>
+
+  <div class="stat-grid">
+    <div class="stat-card"><div class="v">2.7M</div><div class="k">CpG sites with native PacBio 5mC calls in #7 (a site count, not a methylation level)</div></div>
+    <div class="stat-card"><div class="v">0</div><div class="k">methylation calls delivered for HS6; #4 has short-read data only</div></div>
+    <div class="stat-card"><div class="v">1</div><div class="k">candidate genomic cytosine-5 methyltransferase gene (g1774) in the annotated gene set</div></div>
+    <div class="stat-card"><div class="v">33</div><div class="k">SET-domain genes (histone methyltransferase family)</div></div>
+  </div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Strain</th><th>Genome data</th><th>Methylation data</th><th>RNA-seq</th></tr></thead>
+    <tbody>
+      <tr><td>HS6</td><td>PacBio HiFi assembly, 34 scaffolds, 61.6 Mb</td><td>None in the sequencing delivery (<a href="report1.html">Comparative Genomics Report</a>)</td><td>3 timepoints, n=1</td></tr>
+      <tr><td>#4 (WT)</td><td>Illumina short-read resequencing only</td><td>None. Short-read genome sequencing does not report 5mC without bisulfite or EM-seq chemistry</td><td>3 timepoints, n=1</td></tr>
+      <tr><td>#7</td><td>PacBio HiFi assembly</td><td>Native 5mC/CpG calls, 2.7M sites. The call files are not in this repository and have not been analysed here</td><td>None</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The comparison the project cares about most, what EMS mutagenesis changed in HS6 relative to its own parent, has no methylation data on either side. HS6 vs #7 becomes possible once HS6 calls exist, but it mixes epigenetic differences with genetic divergence between two independent isolates.</p>
+</section>
+
+<section class="block" id="dna">
+  <span class="section-eyebrow">2 &middot; DNA-methylation machinery</span>
+  <h2>A thin toolkit for DNA methylation: one candidate C5 writer, no TET, UHRF or CXXC</h2>
+  <p>The eggNOG-mapper annotation was scanned by exact Pfam family name. It annotates 9,134 of the 16,088 gene models (56.8%), so &ldquo;not detected&rdquo; below means absent from the annotated subset, not proven absent from the genome.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Gene</th><th>Domain / annotation</th><th>Best eggNOG match</th><th>Reading</th><th>Confidence</th></tr></thead>
+    <tbody>
+      <tr><td>g1774</td><td>C5-methyltransferase fold (<code>DNA_methylase</code>)</td><td>Fungi, E 1.2&times;10<sup>&minus;47</sup></td><td>The only candidate genomic cytosine-5 methyltransferase. Single-domain: no DNMT3-type PWWP architecture and no DNMT1-type multi-domain architecture seen</td><td>Medium</td></tr>
+      <tr><td>g4817</td><td>TRDMT1 / DNMT2 (EC 2.1.1.204)</td><td>Metazoa, E 6.0&times;10<sup>&minus;38</sup></td><td>tRNA methyltransferase; not expected to write genomic 5mC</td><td>High (identity)</td></tr>
+      <tr><td>g11031</td><td>MT-A70 family, KO K05925 (METTL3-type)</td><td>Chlorophyta, E 9.5&times;10<sup>&minus;96</sup></td><td>N6-adenosine writer. Whether it acts on RNA (m6A) or DNA (6mA) is not decided by annotation</td><td>High (family), substrate unknown</td></tr>
+      <tr><td>g4695</td><td>MT-A70 domain, no description</td><td>Eukaryota, E 2.3&times;10<sup>&minus;5</sup></td><td>Weak hit</td><td>Low</td></tr>
+      <tr><td>g4561</td><td><code>N6_N4_Mtase</code>, EC 2.1.1.72; named &ldquo;DNA methyltransferase CcrM&rdquo; in the expression table</td><td>Betaproteobacteria, E 1.1&times;10<sup>&minus;7</sup></td><td>Bacterial-type adenine methyltransferase. Its origin (assembly contaminant, horizontal transfer, or a spurious hit) has not been checked</td><td>Low</td></tr>
+      <tr><td>g5533</td><td><code>N6-adenineMlase</code> domain beside CRAL_TRIO and PH domains</td><td>Eukaryota, E 1.6&times;10<sup>&minus;5</sup></td><td>The domain combination suggests a fused or mispredicted gene model</td><td>Low</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Readers and erasers</h3>
+  <ul>
+    <li><b>Not detected:</b> <code>SAD_SRA</code> (UHRF/VIM-type 5mC reader), <code>zf-CXXC</code> and <code>Tet_JBP</code> (TET-type oxidase). The same scan finds a <code>BAH</code>-domain gene (g3653, ORC1) and a <code>DMAP1</code> gene (g14076, a DNMT1-associated remodeling-complex subunit), but neither carries a methyltransferase domain.</li>
+    <li><b>PWWP:</b> 5 genes (g604, g1397, g1597, g1825, g13194), none with a C5-methyltransferase domain, so there is no DNMT3-type candidate.</li>
+    <li><b>MBD:</b> 2 genes (g696, g6296). Both also carry Bromodomain and WSD domains, which looks like a BAZ2/TIP5-type remodeler subunit more than a dedicated methyl-CpG reader.</li>
+    <li><b>Glycosylases (<code>HhH-GPD</code>):</b> 4 genes (g7973 NTH1, g14967 OGG1-type, g14417 MAG1-type, g8861 EndoIII-like). These are canonical base-excision enzymes; no DEMETER/ROS1-type demethylating glycosylase was seen.</li>
+    <li><b>AlkB family (<code>2OG-FeII_Oxy_2</code>):</b> 7 genes, including ALKBH1 (g13707). Possible erasers of 6mA or RNA marks in other systems; nothing here tests that.</li>
+  </ul>
+
+  <div class="callout finding">
+    <span class="lbl">What the gene content suggests</span>
+    <p style="margin:0;">One candidate C5 writer and no TET/UHRF/CXXC would be consistent with a modest 5mC layer rather than a dense plant- or vertebrate-style methylome, and the MT-A70 family leaves room for 6mA or RNA m6A. This is a prediction from gene content. The #7 calls can test it directly.</p>
+  </div>
+</section>
+
+<section class="block" id="chromatin">
+  <span class="section-eyebrow">3 &middot; Chromatin machinery</span>
+  <h2>Histone-modifying machinery is far richer than DNA-methylation machinery</h2>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Family (Pfam)</th><th>Genes</th><th>Family (Pfam)</th><th>Genes</th></tr></thead>
+    <tbody>
+      <tr><td>SET (histone lysine methyltransferase)</td><td>33</td><td>Bromodomain</td><td>20</td></tr>
+      <tr><td>DOT1 (H3K79 methyltransferase)</td><td>4</td><td>Chromo</td><td>10</td></tr>
+      <tr><td>JmjC (demethylase / hydroxylase)</td><td>8</td><td>SNF2-family remodeler (<code>SNF2_N</code>)</td><td>27</td></tr>
+      <tr><td>Histone deacetylase (<code>Hist_deacetyl</code>)</td><td>12</td><td>Sirtuin (<code>SIR2</code>)</td><td>7</td></tr>
+      <tr><td>MYST / p300-type acetyltransferase</td><td>6</td><td>Core histone fold</td><td>18</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>If chromatin state contributes to HS6&rsquo;s phenotype, histone marks are at least as likely a carrier as 5mC, and they are invisible to PacBio methylation calls.</p>
+</section>
+
+<section class="block" id="expression">
+  <span class="section-eyebrow">4 &middot; Expression in HS6 vs #4</span>
+  <h2>No global change in the methylation or chromatin machinery</h2>
+  <p>The 152 machinery genes above were joined to the HS6-vs-#4 table (adjusted for time; positive log2FC = higher in HS6). 137 have expression statistics and <b>8 are significant at padj&lt;0.05 (5.8%), against 12.1% genome-wide</b> (1,223 of 10,119 genes with an adjusted p-value), where about 16.6 would be expected by chance. The set is not enriched (hypergeometric P(&ge;8) = 0.995). The two candidate writers are unchanged: g1774 log2FC +0.20 (padj 0.91) and g11031 log2FC &minus;0.04 (padj 0.98).</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Gene</th><th>Annotation</th><th>log2FC</th><th>padj</th><th>Relevance</th></tr></thead>
+    <tbody>
+      <tr><td>g2379</td><td>SET-domain histone methyltransferase (SET5-like)</td><td>&minus;1.58</td><td>2.0&times;10<sup>&minus;4</sup></td><td>The one clearly chromatin-relevant change</td></tr>
+      <tr><td>g4561</td><td>Bacterial-type adenine methyltransferase (above)</td><td>&minus;1.63</td><td>1.1&times;10<sup>&minus;3</sup></td><td>Low-confidence gene; origin unchecked</td></tr>
+      <tr><td>g14561</td><td>SNF2-family, RAD5-type</td><td>&minus;0.75</td><td>1.2&times;10<sup>&minus;3</sup></td><td>Annotated for DNA repair rather than chromatin</td></tr>
+      <tr><td>g5533</td><td>N6-adenineMlase domain in a CRAL_TRIO gene model</td><td>&minus;0.81</td><td>2.4&times;10<sup>&minus;3</sup></td><td>Likely a fused model</td></tr>
+      <tr><td>g7973</td><td>Endonuclease III homolog (glycosylase)</td><td>&minus;1.38</td><td>1.0&times;10<sup>&minus;2</sup></td><td>DNA repair</td></tr>
+      <tr><td>g4605</td><td>Histone H2A</td><td>+1.57</td><td>1.5&times;10<sup>&minus;2</sup></td><td>Histone moves up</td></tr>
+      <tr><td>g4089</td><td>Chromo-domain assignment on a gene named elongation factor 3</td><td>+0.95</td><td>2.6&times;10<sup>&minus;2</sup></td><td>Probably not chromatin machinery</td></tr>
+      <tr><td>g7783</td><td>Histone H3.2</td><td>&minus;0.63</td><td>4.5&times;10<sup>&minus;2</sup></td><td>Histone moves down; H2A and H3.2 give no coherent signature</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout tier">
+    <span class="lbl">Evidence tier: transcriptome-correlational, n=1</span>
+    <p style="margin:0;">There are no biological replicates in this RNA-seq, so a single divergent culture could produce any of these eight changes. The absence of class-level enrichment is the more reliable statement than any single gene.</p>
+  </div>
+</section>
+
+<section class="block" id="questions">
+  <span class="section-eyebrow">5 &middot; Open questions elsewhere on this site</span>
+  <h2>Where a chromatin or methylation measurement could help</h2>
+  <ul>
+    <li><b>A coordinated tandem-locus change (<a href="report4.html">Extended Analyses</a>).</b> g6124 is down in HS6 and its unmutated tandem neighbour trends the same way. The report reads this as a locus-wide change, possibly through a shared chromatin or regulatory mechanism spanning both genes, and notes that the validated point variants near g6124 may be a marker rather than the sole cause. That reading has not been tested.</li>
+    <li><b>Candidate variants linked to g8342 and g8869.</b> The same report says that, because both genes are unannotated, a regulatory role is speculative until a motif or a chromatin mark is found nearby.</li>
+    <li><b>The 421 kb inversion (g6674&ndash;g6776, 103 genes).</b> Report 4 tests whether it dysregulates the genes inside it: 9 of 82 genes with statistics are significant (11.0%) against 9.0% elsewhere, Fisher p = 0.56. That gives no support for a region-wide chromatin effect from the inversion, though 82 genes is a small sample. Report 4&rsquo;s baseline (1,214 of 13,447 genes outside the inversion) uses a different denominator from section 4 above (1,223 of 10,119 genes with an adjusted p-value); each is stated where it is used.</li>
+  </ul>
+</section>
+
+<section class="block" id="next">
+  <span class="section-eyebrow">6 &middot; What would settle it</span>
+  <h2>Next steps, cheapest first</h2>
+  <ol>
+    <li><b>Find and summarise the #7 call set.</b> Mean CpG methylation, split by gene body, promoter and repeat or transposable-element sequence, strand symmetry, and CpG observed/expected in the #7 assembly. This needs no new sequencing and says whether 5mC is a substantial layer at all.</li>
+    <li><b>Ask the sequencing provider for HS6&rsquo;s original HiFi BAM with base-modification tags (<code>MM</code>/<code>ML</code>).</b> PacBio&rsquo;s on-instrument 5mC calls are stored in those BAM tags and are lost when reads are exported as FASTQ or FASTA, so converted files cannot be used. If the run did not record modification calls, they may not be recoverable and the reads would need re-sequencing. HS6 vs #7 then only makes sense in alignable regions.</li>
+    <li><b>Add #4 for the comparison that matters.</b> Long-read 5mC data for #4, with at least three biological replicates per strain at matched stages. Replication is what makes a differential-methylation call interpretable.</li>
+    <li><b>Finish the machinery census on the full proteome.</b> Search all 16,088 predicted proteins, and #7&rsquo;s, for <code>DNA_methylase</code>, <code>MT-A70</code>, <code>Tet_JBP</code>, <code>SAD_SRA</code> and <code>zf-CXXC</code>. The eggNOG pass covers only 56.8%. This needs the protein FASTA, which is not in the repository.</li>
+    <li><b>Histone-level assays at the g6124 locus.</b> CUT&amp;Tag or ChIP for marks chosen after checking which writer families are present, or ATAC-seq, on HS6 vs #4.</li>
+    <li><b>6mA is a separate question.</b> The MT-A70 family is present, but PacBio&rsquo;s default on-instrument modification calls typically cover 5mC at CpG, not 6mA. A 6mA question needs a dedicated approach.</li>
+  </ol>
+</section>
+
+<section class="block" id="downloads">
+  <span class="section-eyebrow">Downloads</span>
+  <h2>Files</h2>
+  <div class="table-wrap"><table><thead><tr><th>File</th><th>Contents</th></tr></thead><tbody>
+    <tr><td><a href="results/epigenetic_machinery_inventory.tsv" download>epigenetic_machinery_inventory.tsv</a></td><td>All 152 machinery genes: category, Pfam families, annotation, eggNOG best-hit level and E-value, HS6-vs-#4 log2FC and padj</td></tr>
+    <tr><td><a href="https://github.com/jinho1987/schizochytrium-hs6-genomics/blob/main/scripts/epigenetic_machinery_inventory.py">epigenetic_machinery_inventory.py</a></td><td>Produces the table and every number in sections 2&ndash;4. Run <code>python3 scripts/epigenetic_machinery_inventory.py</code> from the repository root</td></tr>
+  </tbody></table></div>
+  <p>Inputs are <code>results/eggnog/hs6_eggnog.emapper.annotations.tsv</code> and <code>results/volcano_data.tsv</code>, both already in the repository.</p>
+</section>

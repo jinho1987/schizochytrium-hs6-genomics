@@ -1,0 +1,153 @@
+gene	categories	pfams	description	preferred_name	ko	best_hit_level	evalue	log2FC_HS6_vs_4	padj	significant_padj05
+g17	Core histone fold	Histone	Core component of nucleosome. Nucleosomes wrap and compact DNA into chromatin, limiting DNA accessibility to the cellular machineries which require DNA as a template. Histones thereby play a central role in transcription regulation, DNA repair, DNA replication and chromosomal stability. DNA accessibility is regulated via a complex set of post-translational modifications of histones, also called histone code, and nucleosome remodeling	H3F3C	ko:K11253	33208|Metazoa	7.88e-42			
+g140	Core histone fold	CENP-T_C,Histone	histone H3	-	ko:K11253,ko:K11254	33208|Metazoa	6.85e-45	-0.0329	9.769e-01	no
+g264	HDAC	Ank,Ank_2,Ank_4,Hist_deacetyl	histone deacetylase	-	-	3041|Chlorophyta	2.25e-113	0.2049	7.916e-01	no
+g507	HDAC	Hist_deacetyl	Belongs to the histone deacetylase family. HD Type 1 subfamily	HD1	ko:K06067	35493|Streptophyta	9.48e-94	-0.0775	9.509e-01	no
+g508	SET (histone KMT)	SET	Ribulose-1,5-bisphosphate carboxylase oxygenase small subunit N-methyltransferase I. Source PGD	-	-	121069|Pythiales	2.06e-45	-0.1815	9.293e-01	no
+g604	PWWP	PWWP	mitotic sister chromatid cohesion	-	ko:K11757	2759|Eukaryota	2e-05	0.4347	3.672e-01	no
+g696	MBD; Bromodomain	BET,Bromodomain,HATPase_c_3,MBD,WSD	acetylation-dependent protein binding	-	ko:K11721	2759|Eukaryota	4.97e-11	-0.0543	9.633e-01	no
+g1011	Bromodomain	Acetyltransf_1,Bromodomain	histone acetyltransferase activity	HAG1	ko:K06062	2759|Eukaryota	9.43e-105	0.2676	6.922e-01	no
+g1019	HDAC	Hist_deacetyl,p450	iron ion binding	-	-	4776|Peronosporales	9.69e-73			
+g1285	Core histone fold	Histone	Histone H3. Source PGD	-	-	121069|Pythiales	1.48e-29	-0.1542	9.370e-01	no
+g1347	HDAC	Hist_deacetyl	Belongs to the histone deacetylase family. HD Type 1 subfamily	HDAC2	ko:K06067	33208|Metazoa	1.5e-163	-0.3002	5.498e-01	no
+g1397	PWWP; SET (histone KMT)	PWWP,SET	histone-lysine N-methyltransferase activity	-	ko:K11424	2759|Eukaryota	0.000637	-0.2138	8.352e-01	no
+g1430	HDAC	Hist_deacetyl	Histone deacetylase domain	hdaH	-	201174|Actinobacteria	4.51e-17	0.0473	9.765e-01	no
+g1517	MYST/p300 HAT; Bromodomain	Bromodomain,HAT_KAT11,ZZ,zf-TAZ	TAZ zinc finger, present in p300 and CBP	-	ko:K04498	2836|Bacillariophyta	4.02e-14			
+g1518	JmjC	Cupin_8,JmjC	peptidyl-lysine hydroxylation to 5-hydroxy-L-lysine	-	ko:K11323	2759|Eukaryota	4.71e-102	0.0949	9.474e-01	no
+g1597	PWWP; SET (histone KMT)	ABC_membrane_2,ABC_tran,PWWP,SET,zf-HC5HC2H_2	ATP-binding cassette sub-family D	-	-	2759|Eukaryota	8.87e-36	-0.0885	9.509e-01	no
+g1774	DNA C5-MTase fold	DNA_methylase	Belongs to the class I-like SAM-binding methyltransferase superfamily. C5-methyltransferase family	-	-	4751|Fungi	1.22e-47	0.1983	9.076e-01	no
+g1825	PWWP	PHD,PWWP	Source PGD	-	-	121069|Pythiales	3.47e-08	-0.0328	9.827e-01	no
+g1977	SET (histone KMT)	Rubis-subs-bind,SET	Ribulose-1,5 bisphosphate carboxylase oxygenase large subunit N-methyltransferase	-	ko:K19199	35493|Streptophyta	1.04e-09	-0.2310	9.406e-01	no
+g2045	SET (histone KMT)	SET	Saccharomyces cerevisiae	SET6	ko:K07117,ko:K11426	4751|Fungi	1.28e-06	-0.3230	8.557e-01	no
+g2062	SET (histone KMT)	SET,zf-MYND	methyltransferase activity	SMYD5	-	33154|Opisthokonta	5.06e-08	0.1140	9.570e-01	no
+g2175	SNF2 remodeler	Helicase_C,Rad54_N,SNF2_N	DNA repair and recombination protein	RAD54L	ko:K10875	2759|Eukaryota	1.94e-200	0.3631	5.858e-01	no
+g2189	SET (histone KMT)	Rubis-subs-bind,SET	Rubisco LSMT substrate-binding	-	ko:K19199	33090|Viridiplantae	2.2e-06	0.0290	9.904e-01	no
+g2379	SET (histone KMT)	SET	SET (Su(var)3-9, Enhancer-of-zeste, Trithorax) domain	-	-	5653|Kinetoplastida	5.29e-10	-1.5831	2.048e-04	yes
+g2566	Chromo; SNF2 remodeler	Chromo,Helicase_C,SNF2_N	SNF2 family N-terminal domain	-	-	2836|Bacillariophyta	2.08e-15	0.0825	9.609e-01	no
+g2914	SET (histone KMT)	N-SET,RRM_1,SET,SET_assoc	COMPASS (Complex proteins associated with Set1p) component N	SET1	ko:K11422	4751|Fungi	1.6e-09	-0.5024	7.623e-01	no
+g2979	DOT1	DOT1	Histone methylation protein DOT1	DOT1	ko:K11427	4751|Fungi	1.83e-05	-0.0177	9.930e-01	no
+g2982	HDAC	Hist_deacetyl,zf-UBP	Ubiquitin Carboxyl-terminal Hydrolase-like zinc finger	HDAC6	ko:K11407,ko:K18671	33208|Metazoa	1.29e-51	0.2089	8.742e-01	no
+g2989	Core histone fold	Histone	histone H3	-	ko:K11253	33208|Metazoa	2.72e-80	-1.3767	1.778e-01	no
+g3210	SNF2 remodeler	Helicase_C,SNF2_N,zf-PARP,zf-RING_2	SNF2 family N-terminal domain	-	ko:K15083	3041|Chlorophyta	3.93e-87	0.1711	8.742e-01	no
+g3326	AlkB/ALKBH	2OG-FeII_Oxy_2	dioxygenase activity	ALKBH7	ko:K06085,ko:K10769,ko:K21806	2759|Eukaryota	1.22e-31	0.5265	6.888e-01	no
+g3427	SET (histone KMT)	FAR1,MULE,SET	isoform X1	-	ko:K11423	35493|Streptophyta	6.21e-32	-0.1090	9.362e-01	no
+g3594	HDAC	Hist_deacetyl	histone deacetylase activity (H3-K14 specific)	HDAC2	ko:K06067	33208|Metazoa	2.85e-188	-0.1127	9.343e-01	no
+g3617	SNF2 remodeler	HSA,Helicase_C,Myb_DNA-bind_6,SNF2_N	Protein PHOTOPERIOD-INDEPENDENT EARLY FLOWERING	PIE1	ko:K11320	35493|Streptophyta	2.28e-10	0.2322	6.836e-01	no
+g3791	SET (histone KMT)	SET	SET domain	-	-	2836|Bacillariophyta	3.78e-40	-0.0031	9.978e-01	no
+g3872	DOT1	DOT1	Histone-lysine N-methyltransferase, H3 lysine-79 specific	-	ko:K11427	33208|Metazoa	2.65e-10	-0.2846	7.901e-01	no
+g4089	Chromo	ABC_tran,Chromo	protein kinase regulator activity	NEW1	ko:K03235	2759|Eukaryota	4.34e-243	0.9535	2.575e-02	yes
+g4105	Chromo	ABC_tran,Chromo	protein kinase regulator activity	NEW1	ko:K03235	2759|Eukaryota	3.88e-244	0.5299	3.589e-01	no
+g4112	JmjC	ARID,JmjC,JmjN,PHD,PLU-1,zf-C5HC2	histone lysine demethylation	ECM5	ko:K11318,ko:K11446,ko:K11447	2759|Eukaryota	1.8e-08	0.2971	5.396e-01	no
+g4203	SNF2 remodeler	Helicase_C,Pkinase,SNF2_N	phosphorylase kinase activity	RAD54B	ko:K00871,ko:K06811,ko:K10779,ko:K10875,ko:K10877,ko:K17613	2759|Eukaryota	8.01e-130	0.0502	9.781e-01	no
+g4236	JmjC	JmjC	Lysine (K)-specific demethylase 6B, b	-	ko:K11448	33208|Metazoa	6.78e-09	-0.2336	7.283e-01	no
+g4398	MYST/p300 HAT; Bromodomain	Bromodomain,HAT_KAT11,KIX_2,ZZ,zf-TAZ	Histone acetylation protein	-	ko:K04498	4776|Peronosporales	6.82e-136	0.1537	8.581e-01	no
+g4401	MYST/p300 HAT; Bromodomain	Bromodomain,HAT_KAT11,KIX_2,ZZ,zf-TAZ	histone acetyltransferase activity	-	ko:K04498	2759|Eukaryota	1.25e-108	0.1667	8.333e-01	no
+g4438	Core histone fold	Histone	protein heterodimerization activity	-	ko:K11252	2759|Eukaryota	1.43e-44	-0.2565	6.366e-01	no
+g4561	N6/N4 adenine-cytosine MTase	N6_N4_Mtase	DNA methylase	-	ko:K00571	28216|Betaproteobacteria	1.08e-07	-1.6269	1.060e-03	yes
+g4604	Core histone fold	Histone	Histone H2B	-	ko:K11252	2836|Bacillariophyta	4.8e-53	0.5425	4.889e-01	no
+g4605	Core histone fold	Histone,Histone_H2A_C,Macro	Histone H2A	H2AFY	ko:K11251,ko:K16617	2759|Eukaryota	4.07e-64	1.5679	1.471e-02	yes
+g4689	AlkB/ALKBH	2OG-FeII_Oxy_2	DNA repair protein	alkB	ko:K03919	201174|Actinobacteria	0.000888			
+g4695	MT-A70 (METTL3/14, MTA1 family)	MT-A70	-	-	-	2759|Eukaryota	2.34e-05	-0.0743	9.570e-01	no
+g4817	DNA C5-MTase fold	DNA_methylase	tRNA methyltransferase activity	TRDMT1	ko:K15336	33208|Metazoa	5.95e-38			
+g4830	HDAC	Hist_deacetyl	Histone deacetylase. Source PGD	-	-	121069|Pythiales	1.99e-108	0.4173	6.428e-01	no
+g4835	Sirtuin	SIR2	NAD-dependent histone deacetylase activity (H4-K16 specific)	-	ko:K11412	33208|Metazoa	3.85e-86	-0.2697	5.613e-01	no
+g4878	SET (histone KMT)	Rubis-subs-bind,SET	Ribulose-1,5 bisphosphate carboxylase oxygenase large subunit N-methyltransferase	-	ko:K00592	35493|Streptophyta	8.44e-13	-0.1368	9.554e-01	no
+g4893	SET (histone KMT)	SET	SET (Su(var)3-9, Enhancer-of-zeste, Trithorax) domain	-	ko:K11426	3041|Chlorophyta	6.14e-25	-0.0476	9.831e-01	no
+g5328	Bromodomain; SNF2 remodeler	Bromodomain,SNF2_N	SNF2 family N-terminal domain	-	-	2836|Bacillariophyta	3.83e-67	-0.1616	8.530e-01	no
+g5339	Sirtuin	SIR2	NAD-dependent protein deacetylase which modulates the activities of several enzymes which are inactive in their acetylated form	cobB	ko:K12410	186801|Clostridia	4.97e-09	0.1194	9.486e-01	no
+g5363	Core histone fold	Histone	protein heterodimerization activity	-	ko:K11253	2759|Eukaryota	1.22e-19	0.1816	9.570e-01	no
+g5386	Core histone fold	Histone	Histone H3	-	ko:K11253	35493|Streptophyta	2.46e-44			
+g5480	SET (histone KMT)	Rubis-subs-bind,SET,zf-MYND	Histone-lysine n-methyltransferase	-	ko:K19199	4751|Fungi	3.27e-45	0.1823	9.248e-01	no
+g5533	N6/N4 adenine-cytosine MTase	CRAL_TRIO,N6-adenineMlase,PH	macromolecule localization	-	ko:K12382	2759|Eukaryota	1.56e-05	-0.8122	2.414e-03	yes
+g5581	MYST/p300 HAT	MOZ_SAS,Tudor-knot	histone acetyltransferase activity	-	ko:K11304,ko:K11308	2759|Eukaryota	3.08e-88	-0.1405	9.165e-01	no
+g5630	Chromo; SNF2 remodeler	BRK,Chromo,Helicase_C,SNF2_N	histone methyltransferase activity (H3-K4 specific)	CHD6	ko:K04494,ko:K14436,ko:K14437,ko:K14438	2759|Eukaryota	9.5e-15	0.2332	6.305e-01	no
+g5656	SET (histone KMT)	SET,zf-MYND	methyltransferase activity	-	ko:K11426	2759|Eukaryota	3.65e-36	0.1868	9.433e-01	no
+g5740	AlkB/ALKBH	2OG-FeII_Oxy_2,CUE,zf-GRF	2OG-Fe(II) oxygenase superfamily	-	-	4751|Fungi	9.09e-21	-0.6664	7.005e-01	no
+g6041	SET (histone KMT)	SET	SET domain	-	ko:K07117	2759|Eukaryota	4.67e-29	0.3839	8.249e-01	no
+g6147	DOT1	DOT1	Histone methylation protein DOT1	-	-	2759|Eukaryota	3.38e-24	-0.2317	9.319e-01	no
+g6165	Chromo; Bromodomain; SNF2 remodeler	Bromodomain,Chromo,Helicase_C,PHD,SNF2_N,zf-HC5HC2H	PHD-like zinc-binding domain	-	ko:K14437	4776|Peronosporales	2.75e-233	0.0162	9.868e-01	no
+g6296	MBD; Bromodomain	Bromodomain,CENP-B_N,DDT,MBD,PHD,WHIM1,WSD	Zinc ion binding	-	-	33208|Metazoa	2.97e-09	0.1614	8.630e-01	no
+g6307	SNF2 remodeler	Helicase_C,SNF2_N,Tudor-knot	ATP binding	-	ko:K06767,ko:K10779,ko:K10876	2759|Eukaryota	7.43e-115	-0.2681	7.579e-01	no
+g6848	SET (histone KMT)	Rubis-subs-bind,SET	peptidyl-lysine monomethylation	-	ko:K19199	2759|Eukaryota	0.000102	-0.1121	9.614e-01	no
+g7295	Sirtuin	SIR2	regulation of cellular response to testosterone stimulus	SIRT1	ko:K11411	33208|Metazoa	4.41e-49	0.3917	3.400e-01	no
+g7317	Bromodomain	Bromodomain,DUF3512,WD40	acetylation-dependent protein binding	BRD7	ko:K11723,ko:K11798,ko:K22184	2759|Eukaryota	5.84e-33	-0.0562	9.621e-01	no
+g7416	SET (histone KMT)	SET	Histone-lysine N-methyltransferase ATXR3	-	-	35493|Streptophyta	2.8e-64	0.5360	3.589e-01	no
+g7445	Bromodomain	Bromodomain	bromo domain	CECR2	-	33208|Metazoa	2.65e-06	0.0717	9.577e-01	no
+g7491	SET (histone KMT)	SET	methyltransferase activity	-	ko:K11426	2759|Eukaryota	1.85e-13	-0.4909	6.422e-01	no
+g7592	SNF2 remodeler	Helicase_C,Linker_histone,SNF2_N,zf-C3HC4_3,zf-RING_UBOX	SNF2 family N-terminal domain	SHPRH	ko:K15710	33208|Metazoa	3.36e-49	0.1182	9.119e-01	no
+g7685	Bromodomain	BET,Bromodomain	bromo domain	-	ko:K11721	35493|Streptophyta	2.92e-08	-0.0286	9.740e-01	no
+g7736	Core histone fold	Histone,Histone_H2A_C,Macro	Histone H2A	H2AFY	ko:K11251,ko:K16617	2759|Eukaryota	4.07e-64	-0.0931	9.151e-01	no
+g7737	Core histone fold	Histone	Histone H2B	-	ko:K11252	2836|Bacillariophyta	4.8e-53	0.0719	9.462e-01	no
+g7738	SET (histone KMT)	SET	Cysteine-rich motif following a subset of SET domains	-	-	121069|Pythiales	7.34e-18			
+g7783	Core histone fold	Histone	protein heterodimerization activity	-	ko:K11253	2759|Eukaryota	8.14e-83	-0.6321	4.492e-02	yes
+g7808	SET (histone KMT)	SET,TPR_8,zf-MYND	SET and MYND domain-containing protein	-	-	35493|Streptophyta	0.000574	-0.8358	1.825e-01	no
+g7936	Core histone fold	Histone	protein heterodimerization activity	-	ko:K11253	2759|Eukaryota	2.45e-07			
+g7973	HhH-GPD glycosylase	HhH-GPD	Bifunctional DNA N-glycosylase with associated apurinic apyrimidinic (AP) lyase function that catalyzes the first step in base excision repair (BER), the primary repair pathway for the repair of oxidative DNA damage. The DNA N-glycosylase activity releases the damaged DNA base from DNA by cleaving the N- glycosidic bond, leaving an AP site. The AP lyase activity cleaves the phosphodiester bond 3' to the AP site by a beta-elimination. Primarily recognizes and repairs oxidative base damage of pyrimidines	NTH1	ko:K10773	4751|Fungi	3.69e-44	-1.3782	1.002e-02	yes
+g8018	DOT1	DOT1	Histone methylation protein DOT1	-	-	2759|Eukaryota	6.85e-66			
+g8419	SET (histone KMT)	2OG-FeII_Oxy_3,SET	procollagen-lysine 5-dioxygenase activity	-	-	2759|Eukaryota	5.01e-40	-0.0647	9.666e-01	no
+g8483	Bromodomain	BET,Bromodomain	Bromodomain extra-terminal - transcription regulation	BDF1	ko:K11684	4751|Fungi	2.39e-13	0.6320	9.249e-02	no
+g8486	SET (histone KMT)	SET	Histone-lysine N-methyltransferase	-	-	35493|Streptophyta	3.54e-39	0.0861	9.294e-01	no
+g8736	MYST/p300 HAT	MOZ_SAS,Tudor-knot	Belongs to the MYST (SAS MOZ) family	ESA1	ko:K11304	4751|Fungi	1.55e-58	0.2265	8.045e-01	no
+g8745	SNF2 remodeler	Helicase_C,SNF2_N	ATP-dependent DNA helicase	-	ko:K19001	35493|Streptophyta	3.19e-148	-0.1119	9.159e-01	no
+g8861	HhH-GPD glycosylase	EndIII_4Fe-2S,HhH-GPD,NUDIX_4	FES	-	ko:K03575	4751|Fungi	1.93e-64	-0.1895	9.450e-01	no
+g8899	HDAC	Ank,Ank_2,Ank_4,Hist_deacetyl,Myb_DNA-binding	spectrin binding	-	-	2759|Eukaryota	9.66e-97	0.1521	9.486e-01	no
+g9047	JmjC	ARID,JmjC,JmjN,PHD,PLU-1,zf-C5HC2	Histone demethylase. Source PGD	-	-	121069|Pythiales	2.29e-110	-0.0386	9.691e-01	no
+g9094	SNF2 remodeler	Beta_helix,HSA,Helicase_C,SNF2_N	HSA	-	ko:K11320	4776|Peronosporales	2.85e-212	0.0766	9.433e-01	no
+g9132	SNF2 remodeler	Helicase_C,SNF2_N	helicase	-	ko:K10841	422676|Aconoidasida	2.02e-105	0.2917	6.469e-01	no
+g9196	SET (histone KMT)	Rubis-subs-bind,SET	Source PGD	-	-	121069|Pythiales	2.76e-85	0.5348	3.386e-01	no
+g9366	SET (histone KMT)	SET	Set domain-containing protein	-	-	4751|Fungi	1.14e-12	-0.5979	6.246e-01	no
+g9448	Core histone fold	Histone,Histone_H2A_C	chromatin silencing	-	ko:K11251	2759|Eukaryota	4.19e-62	0.1808	9.207e-01	no
+g9464	AlkB/ALKBH	2OG-FeII_Oxy_2	2OG-Fe(II) oxygenase superfamily	ALKBH6	ko:K10768	33208|Metazoa	3.89e-30	-0.0120	9.964e-01	no
+g9469	Core histone fold	Histone	histone H3	-	ko:K11253	35493|Streptophyta	5.3e-61	-0.1285	8.681e-01	no
+g9654	Chromo; SNF2 remodeler	Chromo,Helicase_C,SNF2_N	SNF2 family N-terminal domain	-	ko:K14437	4776|Peronosporales	4.01e-174	-0.4174	1.487e-01	no
+g9759	JmjC	JmjC,JmjN,PHD_2,zf-HC5HC2H_2	demethylase	KDM4B	ko:K06709	33154|Opisthokonta	6.72e-56	0.1263	9.110e-01	no
+g9795	SET (histone KMT)	SET	SET (Su(var)3-9, Enhancer-of-zeste, Trithorax) domain	-	-	35493|Streptophyta	5.25e-09	0.1281	9.450e-01	no
+g10053	SNF2 remodeler	Helicase_C,SLIDE,SNF2_N	Imitation switch isoform 1, alias nucleosome remodeling factor 140 kDa subunit. Source PGD	-	-	121069|Pythiales	8.15e-311	-0.0933	9.323e-01	no
+g10124	SET (histone KMT)	SET	SET domain	-	-	33154|Opisthokonta	4.16e-16			
+g10323	SET (histone KMT)	SET	SET domain	-	-	2759|Eukaryota	1.24e-11	-0.1241	9.486e-01	no
+g10400	SET (histone KMT)	SET	SET (Su(var)3-9, Enhancer-of-zeste, Trithorax) domain	-	-	4776|Peronosporales	8.3e-15	-0.5643	4.722e-01	no
+g10619	SNF2 remodeler	Helicase_C,SNF2_N	dna repair and recombination protein	rhp26	ko:K10841	4751|Fungi	1.01e-35	0.0464	9.692e-01	no
+g10831	Chromo	Chromo,Chromo_shadow	Chromodomain protein 2	-	ko:K11585	4751|Fungi	3.11e-05	-0.2444	6.175e-01	no
+g10902	JmjC	JmjC,polyprenyl_synt	geranylgeranyl diphosphate biosynthetic process	-	ko:K00804	2759|Eukaryota	3.44e-115	0.6569	1.526e-01	no
+g10938	HDAC	Hist_deacetyl,zf-UBP	Ubiquitin Carboxyl-terminal Hydrolase-like zinc finger	HDAC6	ko:K11407	33208|Metazoa	5.9e-85	1.0307	7.891e-02	no
+g11031	MT-A70 (METTL3/14, MTA1 family)	MT-A70	Belongs to the MT-A70-like family	-	ko:K05925	3041|Chlorophyta	9.54e-96	-0.0375	9.831e-01	no
+g11053	Sirtuin	SIR2	lipoamidase activity	SIRT4	ko:K11414	2759|Eukaryota	8.78e-74	0.9579	8.884e-02	no
+g11339	JmjC	Cupin_8,F-box-like,JmjC	peptidyl-lysine hydroxylation to 5-hydroxy-L-lysine	JMJD6	ko:K00804,ko:K11323	2759|Eukaryota	9.6e-05	-1.0568	1.177e-01	no
+g11421	SNF2 remodeler	HARP,Helicase_C,SNF2_N	SWI SNF-related matrix-associated actin-dependent regulator of chromatin subfamily A-like protein	SMARCAL1	ko:K14440	33208|Metazoa	2e-26	0.1443	9.322e-01	no
+g12591	Bromodomain	Bromodomain,WD40	transcription initiation from RNA polymerase II promoter	-	ko:K01265,ko:K11797	2759|Eukaryota	1.71e-18	-0.1306	9.354e-01	no
+g12593	AlkB/ALKBH	2OG-FeII_Oxy_2	2OG-Fe(II) oxygenase superfamily	-	ko:K10768	4751|Fungi	5.76e-09	0.1459	9.457e-01	no
+g12651	Sirtuin	SIR2	Sir2 family	HST3	ko:K11121,ko:K20247	4751|Fungi	2.09e-19			
+g12745	Bromodomain	Bromodomain,WSD	Williams-Beuren syndrome DDT (WSD), D-TOX E motif	-	-	4776|Peronosporales	2.71e-12	0.2420	6.103e-01	no
+g12755	Bromodomain	AAA,Bromodomain,DUF3591,Longin,Synaptobrevin	histone acetyltransferase activity	-	-	2759|Eukaryota	0.000374			
+g13075	AlkB/ALKBH	2OG-FeII_Oxy_2	2OG-Fe(II) oxygenase superfamily	-	-	4751|Fungi	5.09e-12			
+g13131	Chromo; SNF2 remodeler	Chromo,FYRC,FYRN,Helicase_C,SNF2_N	helicase activity	-	ko:K14436,ko:K14437	2759|Eukaryota	5.93e-149	-0.0762	9.584e-01	no
+g13194	PWWP	MutS_I,MutS_II,MutS_III,MutS_IV,MutS_V,PWWP	mutS homolog 6	MSH6	ko:K08737	33208|Metazoa	3.07e-195	-0.1426	9.021e-01	no
+g13219	Bromodomain	Bromodomain,DUF3591,TBP-binding,ubiquitin,zf-CCHC_6	Transcription initiation factor TFIID subunit 1	-	ko:K03125	35493|Streptophyta	7.45e-26	0.0391	9.683e-01	no
+g13707	AlkB/ALKBH	2OG-FeII_Oxy_2	RNA repair	ALKBH1	ko:K01426,ko:K10765,ko:K20168	2759|Eukaryota	5.77e-49			
+g13708	SET (histone KMT)	Rubis-subs-bind,SET	peptidyl-lysine monomethylation	-	ko:K19199	2759|Eukaryota	1.04e-87	0.2106	9.165e-01	no
+g13761	SET (histone KMT)	SET	SET domain	-	-	33154|Opisthokonta	1.57e-10	0.3117	8.449e-01	no
+g13762	SNF2 remodeler	DUF3535,HEAT,Helicase_C,SNF2_N	Domain of unknown function (DUF3535)	MOT1	ko:K15192	4751|Fungi	6.25e-106	0.3116	7.265e-01	no
+g13952	SET (histone KMT)	SET	Set domain-containing protein	-	-	4751|Fungi	0.000148	-0.3979	7.984e-01	no
+g13962	SNF2 remodeler	Helicase_C,SNF2_N	SNF2 family	FUN30	ko:K14439	4751|Fungi	9.68e-97	-0.4769	5.461e-01	no
+g14047	SNF2 remodeler	Helicase_C,SNF2_N,zf-C3HC4,zf-C3HC4_2,zf-C3HC4_3,zf-RING_2	Zinc finger, C3HC4 type (RING finger)	-	ko:K15710	4751|Fungi	4.94e-10	0.1608	8.703e-01	no
+g14055	Bromodomain	BET,Bromodomain	bromo domain	-	ko:K11721	35493|Streptophyta	1.93e-15	0.3519	5.517e-01	no
+g14358	SNF2 remodeler	Helicase_C,SNF2_N,zf-CW	SNF2 family N-terminal domain	-	ko:K11654	3041|Chlorophyta	3.51e-204	0.1369	8.585e-01	no
+g14408	SNF2 remodeler	HNH,Helicase_C,SNF2_N,zf-RanBP	SWI SNF-related matrix-associated actin-dependent regulator of chromatin subfamily A-like protein	ZRANB3	-	33154|Opisthokonta	1.75e-139	0.1976	9.064e-01	no
+g14417	HhH-GPD glycosylase	HhH-GPD	alkylated DNA binding	MAG1	ko:K01247,ko:K04409	2759|Eukaryota	2.09e-72	0.2620	7.964e-01	no
+g14561	SNF2 remodeler	HIRAN,Helicase_C,SNF2_N,zf-C3HC4,zf-C3HC4_2,zf-C3HC4_3,zf-RING_2,zf-RING_5	pyrimidine dimer repair by nucleotide-excision repair	-	ko:K15710,ko:K15711	2759|Eukaryota	3.69e-63	-0.7454	1.182e-03	yes
+g14678	Sirtuin	SIR2	Sir2 family	-	-	554915|Amoebozoa	4.35e-54	0.2325	8.352e-01	no
+g14769	HDAC	Ank,Ank_2,Ank_4,Hist_deacetyl,Myb_DNA-binding	spectrin binding	-	-	2759|Eukaryota	1.74e-90	0.1417	8.585e-01	no
+g14967	HhH-GPD glycosylase	HhH-GPD,OGG_N	COG0122 3-methyladenine DNA glycosylase 8-oxoguanine DNA glycosylase	ogg	ko:K03660	183963|Halobacteria	6.98e-17	0.3240	7.536e-01	no
+g14984	Core histone fold	Histone,PH,RasGEF,RasGEF_N,RhoGEF	guanyl-nucleotide exchange factor activity	SOS1	ko:K03099	2759|Eukaryota	0.000792	0.1326	8.597e-01	no
+g14995	Bromodomain	Bromodomain,EPL1,PHD_2,zf-HC5HC2H_2	chromatin organization	-	ko:K11380,ko:K22184	2759|Eukaryota	2.68e-07	-0.5439	4.126e-01	no
+g15000	Sirtuin	DUF592,SIR2	to Saccharomyces cerevisiae SIR2 (YDL042C) and HST1 (YOL068C)	SIR2	ko:K11121	4751|Fungi	5.76e-52			
+g15019	HDAC	Hist_deacetyl	Histone deacetylase 2	HDAC2	ko:K06067	33208|Metazoa	2.14e-174	0.0462	9.713e-01	no
+g15152	SET (histone KMT)	N-SET,RRM_1,SET	histone-lysine N-methyltransferase activity	-	ko:K11422	2759|Eukaryota	2.95e-48	-0.1689	9.165e-01	no
+g15185	Chromo; Bromodomain; SNF2 remodeler	Bromodomain,Chromo,Helicase_C,PHD,SNF2_N,zf-HC5HC2H	Chromodomain-helicase-DNA-binding protein. Source PGD	-	-	121069|Pythiales	0.000114	0.0986	9.439e-01	no
+g15339	JmjC	Cupin_8,JmjC	Cupin-like domain	-	-	4751|Fungi	2.4e-08	-0.0180	9.848e-01	no
+g15793	Chromo; SNF2 remodeler	CHDCT2,CHDNT,Chromo,DUF1086,DUF1087,Helicase_C,PHD,SNF2_N,zf-PHD-like	H3K27me3 modified histone binding	CHD5	ko:K11642,ko:K11643,ko:K14435	33154|Opisthokonta	7.03e-07	0.0375	9.823e-01	no
+g15858	Core histone fold	Histone	Histone H2B	-	ko:K11252	2836|Bacillariophyta	4.8e-53	0.4262	6.084e-01	no
+g15859	Core histone fold	Histone,Histone_H2A_C	Histone 2A	-	ko:K11251	4776|Peronosporales	3.54e-68	0.0240	9.851e-01	no
+g15976	Bromodomain	Bromodomain,WD40,zf-HC5HC2H	WD domain, G-beta repeat	-	ko:K11798	4776|Peronosporales	2.1e-26	0.1960	7.593e-01	no
+g16034	MYST/p300 HAT	MOZ_SAS,Tudor-knot	Belongs to the MYST (SAS MOZ) family	-	ko:K11308	554915|Amoebozoa	6.91e-71	-0.0036	9.978e-01	no
+g16040	SNF2 remodeler	Helicase_C,SNF2_N,zf-GRF	DNA binding	TTF2	ko:K14862,ko:K15173	33208|Metazoa	6.02e-60	0.2998	8.152e-01	no
