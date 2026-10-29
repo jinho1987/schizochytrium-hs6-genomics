@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omics Data Inventory</title>
+<style>
+:root{
+  --bg:#faf9f6; --bg-raised:#ffffff; --ink:#152025; --ink-soft:#455055; --ink-faint:#7c8a8d;
+  --line:#d7e0de; --line-soft:#e6ece9; --teal:#1f6f68; --teal-tint:#e4f0ee; --gold:#a9762f; --rust:#a2432f;
+  --plum:#6b4f8a; --slate:#9aa8aa; --good:#3c7a4f;
+  --shadow: 0 1px 2px rgba(21,32,37,0.06), 0 8px 24px -12px rgba(21,32,37,0.18);
+  --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", "URW Palladio L", Georgia, serif;
+  --sans: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, "Liberation Mono", monospace;
+}
+@media (prefers-color-scheme: dark){ :root{
+  --bg:#121a1d; --bg-raised:#182226; --ink:#e6ecea; --ink-soft:#b3bfbd; --ink-faint:#83918f;
+  --line:#2c3a3e; --line-soft:#223035; --teal:#4fb3a8; --teal-tint:#1b3533; --gold:#d6a55e; --rust:#d97a63; --plum:#a98bd0; --slate:#5d6b6e; --good:#6fb37f;
+  --shadow: 0 1px 2px rgba(0,0,0,.3); color-scheme: dark; } }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:28px}
+a{color:var(--teal)}
+.back{font-size:13px}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,40px);margin:4px 0 8px;text-wrap:balance}
+h2{font-family:var(--serif);font-weight:400;font-size:22px;margin:0}
+.lede{max-width:70ch;color:var(--ink-soft);margin:0}
+.lede b{color:var(--ink);font-variant-numeric:tabular-nums}
+.scope{font-size:13px;color:var(--ink-faint);margin:6px 0 0;max-width:80ch}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px}
+.tile{background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.tile .l{font-size:12px;color:var(--ink-faint)}
+.tile .v{font-family:var(--serif);font-size:30px;font-variant-numeric:tabular-nums;line-height:1.1}
+.tile .v small{font-family:var(--sans);font-size:12px;color:var(--ink-faint);margin-left:4px}
+.tile .n{font-size:12px;color:var(--ink-faint)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:16px}
+.card{min-width:0;background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow)}
+.note{font-size:13px;color:var(--ink-soft);margin:0;max-width:80ch}
+.chart{position:relative;min-height:280px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--ink-soft)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.tip{position:absolute;z-index:3;pointer-events:none;max-width:280px;background:var(--bg-raised);border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);padding:6px 9px;font-size:12px;line-height:1.4}
+.tip .a{color:var(--ink-faint)} .tip .b{font-weight:600}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tools input,.tools select,.tools button{font:inherit;font-size:13px;padding:5px 9px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);min-width:0}
+.tools input{flex:1 1 220px} .tools button{cursor:pointer}
+.count{font-size:12px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.scroll{overflow:auto;max-height:560px;border-top:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:12.5px;font-variant-numeric:tabular-nums}
+th{position:sticky;top:0;background:var(--bg-raised);text-align:left;font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line);padding:0;white-space:nowrap;z-index:1}
+th button{all:unset;display:block;padding:6px 8px;cursor:pointer;width:100%;box-sizing:border-box}
+th button:focus-visible{outline:2px solid var(--teal);outline-offset:-2px}
+th[aria-sort=ascending] button::after{content:" ↑"} th[aria-sort=descending] button::after{content:" ↓"}
+td{padding:6px 8px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+.num{text-align:right} .wrapc{min-width:200px;overflow-wrap:anywhere}
+.path{color:var(--ink-faint);font-family:var(--mono);font-size:11px;overflow-wrap:anywhere;min-width:220px;white-space:pre-line}
+tr.click{cursor:pointer} tr.click:hover td{background:var(--teal-tint)}
+.sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px}
+.name{font-weight:600}
+.bar{display:flex;align-items:center;justify-content:flex-end;gap:6px} .bar i{display:block;height:7px;border-radius:2px}
+.chip{display:inline-block;padding:0 6px;margin:0 4px 2px 0;border-radius:999px;border:1px solid var(--line);font-size:11px;white-space:nowrap}
+.chip.raw{color:var(--good);border-color:currentColor} .chip.arch{color:var(--gold);border-color:currentColor}
+.err{color:var(--rust);font-size:13px}
+@media (max-width:720px){ .hide-n{display:none} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">&larr; Schizochytrium HS6 site</a>
+  <header>
+    <div class="eyebrow">Lab data management &middot; snapshot 29 Oct 2026</div>
+    <h1>Omics data inventory</h1>
+    <p class="lede" id="lede">Loading the inventory…</p>
+    <p class="scope">Built by scanning I:\ and the C: user folders (Documents, Desktop, Downloads, OneDrive) with <a href="scripts/data_inventory/scan_drives.py">scan_drives.py</a> and <a href="scripts/data_inventory/build_inventory.py">build_inventory.py</a>. D: and E: are not included, and the WSL disk image on I: was not opened. Data files are in <a href="https://github.com/jinho1987/schizochytrium-hs6-genomics/tree/main/results/data_inventory">results/data_inventory/</a>.</p>
+  </header>
+
+  <section class="tiles" id="tiles"></section>
+
+  <section class="grid">
+    <div class="card">
+      <h2>Where the space goes</h2>
+      <p class="note">One block per dataset, sized by GB and grouped by organism. Lighter blocks are second copies in Downloads.</p>
+      <div class="legend" id="legend"></div>
+      <div class="chart" id="treemap"></div>
+    </div>
+    <div class="card">
+      <h2>When each dataset was last touched</h2>
+      <p class="note">Each line runs from the oldest to the newest file in the dataset. The dot is sized by GB.</p>
+      <div class="chart" id="timeline"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Dataset catalog</h2>
+    <p class="note">Platform and read length come from each FASTQ's first read header. Click a row to list its files below.</p>
+    <div class="tools"><input id="ds-q" type="search" placeholder="Search datasets, organisms, assays, platforms" aria-label="Search datasets"><span class="count" id="ds-n"></span></div>
+    <div class="scroll"><table id="ds-t"><thead><tr>
+      <th data-k="dataset"><button>Dataset</button></th><th data-k="organism"><button>Organism</button></th><th data-k="assay"><button>Assay</button></th>
+      <th data-k="platform" class="hide-n"><button>Platform</button></th><th data-k="read_length" class="hide-n"><button>Reads</button></th>
+      <th data-k="samples" class="num"><button>Samples</button></th><th data-k="gb" class="num" aria-sort="descending"><button>Size (GB)</button></th>
+      <th data-k="state" class="hide-n"><button>Contents</button></th><th data-k="last"><button>Last change</button></th><th data-k="location" class="hide-n"><button>Location</button></th>
+    </tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h2>Lipidomics: PLD KO vs WT4</h2>
+      <p class="note" id="lip-note">Untargeted LC-MS lipidomics (positive and negative mode), vendor package on I:.</p>
+      <div class="chart" id="lipbars"></div>
+    </div>
+    <div class="card">
+      <h2>File types</h2>
+      <p class="note">GB by format, with file counts. Archives count only when they hold omics files.</p>
+      <div class="chart" id="types"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Duplicate copies</h2>
+    <p class="note">Files over 20 MB with the same name and size in more than one folder. Reclaimable is the space freed by keeping one copy. Check each pair before deleting anything.</p>
+    <div class="scroll"><table id="dup-t"><thead><tr>
+      <th data-k="file"><button>File</button></th><th data-k="copies" class="num"><button>Copies</button></th>
+      <th data-k="reclaimable_gb" class="num" aria-sort="descending"><button>Reclaimable (GB)</button></th><th data-k="locations"><button>Locations</button></th>
+    </tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="card" id="files">
+    <h2>All omics files</h2>
+    <p class="note">Every omics file found except individual protein structure files. "What's inside" comes from each file's header: read length and instrument for FASTQ, samples for VCF, sequence count for FASTA, contents for zip files.</p>
+    <div class="tools"><input id="f-q" type="search" placeholder="Search file name, dataset, folder" aria-label="Search files"><select id="f-type" aria-label="File type"><option value="">All file types</option></select><button id="f-clear" type="button">Clear</button><span class="count" id="f-n"></span></div>
+    <div class="scroll"><table id="f-t"><thead><tr>
+      <th data-k="file"><button>File</button></th><th data-k="type"><button>Type</button></th><th data-k="dataset" class="hide-n"><button>Dataset</button></th>
+      <th data-k="gb" class="num" aria-sort="descending"><button>GB</button></th><th data-k="modified" class="hide-n"><button>Modified</button></th>
+      <th data-k="detail"><button>What's inside</button></th><th data-k="folder" class="hide-n"><button>Folder</button></th>
+    </tr></thead><tbody></tbody></table></div>
+  </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script>
+(async () => {
+  const base = 'results/data_inventory/';
+  const load = (n) => fetch(base + n).then((r) => { if (!r.ok) throw new Error(n); return r.json(); });
+  let D;
+  try {
+    const [datasets, files, duplicates, filetypes, drives, lipidomics] = await Promise.all(
+      ['datasets.json', 'files.json', 'duplicates.json', 'filetypes.json', 'drives.json', 'lipidomics.json'].map(load));
+    D = { datasets, files, duplicates, filetypes, drives, lipidomics };
+  } catch (e) { document.getElementById('lede').innerHTML = '<span class="err">Could not load the inventory data files.</span>'; return; }
+
+  const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const ORGS = [['Chlorella sp. HS2', '--teal'], ['Chlamydomonas reinhardtii', '--gold'], ['Schizochytrium sp.', '--plum'], ['Microalgae', '--rust']];
+  const color = (o) => { const f = ORGS.find(([n]) => n === o); return css(f ? f[1] : '--slate'); };
+  const gb = (v) => v == null ? '' : v >= 10 ? d3.format(',.1f')(v) : v >= 0.1 ? d3.format('.2f')(v) : d3.format('.3f')(v);
+  const sum = (a, f) => a.reduce((s, d) => s + (d[f] || 0), 0);
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+
+  // headline
+  const primary = D.datasets.filter((d) => d.curated && !d.id.startsWith('dl-'));
+  const K = { omics: Math.round(sum(D.datasets, 'gb')), fastq: Math.round(sum(D.datasets, 'raw_gb')), ds: primary.length,
+              samples: sum(primary, 'samples'), dup: Math.round(sum(D.duplicates, 'reclaimable_gb')) };
+  const wsl = (D.drives.find((d) => d.drive === 'I:') || {}).wsl_vhdx_gb;
+  const lede = document.getElementById('lede'); lede.replaceChildren();
+  const B = (t) => el('b', null, t);
+  lede.append(B(d3.format(',')(K.omics) + ' GB'), ' of sequencing and other omics files across ', B(String(K.ds)), ' datasets, covering ',
+    B(String(K.samples)), ' sequenced or profiled samples. About ', B(K.dup + ' GB'), ' of that is second copies of the same files.' +
+    (wsl ? ` I: also holds a ${d3.format(',.1f')(wsl)} GB WSL disk image that was not scanned.` : ''));
+  const tiles = document.getElementById('tiles');
+  [['Omics data on disk', K.omics, 'GB', 'Reads, alignments, assemblies, variants, MS runs'], ['Raw reads (FASTQ)', K.fastq, 'GB', 'Illumina and PacBio HiFi'],
+   ['Datasets', K.ds, '', 'Identified experiments, not counting Downloads copies'], ['Samples', K.samples, '', 'Distinct FASTQ libraries plus MS samples'],
+   ['Duplicate copies', K.dup, 'GB', 'Same name and size in another folder']].forEach(([l, v, u, n]) => {
+    const t = el('div', 'tile'); const vv = el('span', 'v', d3.format(',')(v)); if (u) vv.appendChild(el('small', null, u));
+    t.append(el('span', 'l', l), vv, el('span', 'n', n)); tiles.appendChild(t);
+  });
+  const leg = document.getElementById('legend');
+  [...ORGS.map(([n]) => n === 'Microalgae' ? ['Pigment HPLC', n] : [n, n]), ['Other or mixed', '']].forEach(([lab, o]) => {
+    const s = el('span'); const i = el('i'); i.style.background = color(o); s.append(i, lab); leg.appendChild(s);
+  });
+
+  const tipFor = (box) => {
+    const tip = el('div', 'tip'); tip.hidden = true; box.appendChild(tip);
+    return { show(ev, lines) { tip.replaceChildren(...lines.map(([c, t]) => el('div', c, t))); tip.hidden = false;
+        const r = box.getBoundingClientRect(); let x = ev.clientX - r.left + 12, y = ev.clientY - r.top + 12;
+        if (x + tip.offsetWidth > r.width) x = Math.max(0, x - tip.offsetWidth - 24); if (y + tip.offsetHeight > r.height) y = Math.max(0, y - tip.offsetHeight - 24);
+        tip.style.left = x + 'px'; tip.style.top = y + 'px'; }, hide() { tip.hidden = true; } };
+  };
+  const fit = (t, max) => { let s = t.text(); while (t.node().getComputedTextLength() > max && s.length > 3) { s = s.slice(0, -2); t.text(s + '…'); } };
+
+  function treemap() {
+    const box = document.getElementById('treemap'); box.replaceChildren();
+    const W = Math.max(280, box.clientWidth), H = Math.round(Math.max(300, Math.min(460, W * 0.62)));
+    const known = ORGS.map(([n]) => n);
+    const root = d3.hierarchy({ children: d3.groups(D.datasets.filter((d) => d.gb >= 0.05), (d) => known.includes(d.organism) ? d.organism : 'Other').map(([k, v]) => ({ name: k, children: v })) })
+      .sum((d) => d.gb || 0).sort((a, b) => b.value - a.value);
+    d3.treemap().size([W, H]).paddingInner(2).round(true)(root);
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+    const tip = tipFor(box);
+    const g = svg.selectAll('g').data(root.leaves()).join('g').attr('transform', (d) => `translate(${d.x0},${d.y0})`);
+    g.append('rect').attr('width', (d) => d.x1 - d.x0).attr('height', (d) => d.y1 - d.y0).attr('rx', 3)
+      .style('fill', (d) => color(d.data.organism)).style('fill-opacity', (d) => d.data.id.startsWith('dl-') ? 0.45 : 0.92)
+      .on('pointermove', (ev, d) => tip.show(ev, [['a', d.data.organism + ' · ' + d.data.assay], ['b', d.data.dataset],
+        ['', gb(d.data.gb) + ' GB · ' + d.data.files + ' files' + (d.data.samples ? ' · ' + d.data.samples + ' samples' : '')], ['a', d.data.location]]))
+      .on('pointerleave', () => tip.hide());
+    g.each(function (d) {
+      const w = d.x1 - d.x0, h = d.y1 - d.y0; if (w < 54 || h < 30) return;
+      const s = d3.select(this).style('pointer-events', 'none');
+      fit(s.append('text').attr('x', 6).attr('y', 16).attr('font-size', 12).attr('font-weight', 600).style('fill', '#fff').text(d.data.dataset), w - 12);
+      if (h > 46) s.append('text').attr('x', 6).attr('y', 32).attr('font-size', 11).style('fill', '#fff').style('opacity', .85).text(gb(d.data.gb) + ' GB');
+    });
+  }
+
+  function timeline() {
+    const box = document.getElementById('timeline'); box.replaceChildren();
+    const rows = D.datasets.filter((d) => d.curated && d.gb > 0).map((d) => ({ ...d, a: new Date(d.first), b: new Date(d.last) })).sort((x, y) => x.b - y.b);
+    const W = Math.max(280, box.clientWidth), rh = 22, top = 8, bot = 26, H = top + bot + rows.length * rh;
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+    let widest = 0; const lab = svg.append('g').attr('font-size', 11).style('fill', css('--ink'));
+    rows.forEach((d, i) => { const t = lab.append('text').attr('y', top + i * rh + rh / 2 + 4).text(d.dataset); fit(t, Math.min(W * .42, 230)); widest = Math.max(widest, t.node().getComputedTextLength()); });
+    const L = widest + 14, x = d3.scaleUtc(d3.extent(rows.flatMap((d) => [d.a, d.b])), [L, W - 14]).nice();
+    const r = d3.scaleSqrt([0, d3.max(rows, (d) => d.gb)], [2.5, 10]);
+    const ticks = x.ticks(Math.max(2, Math.floor((W - L) / 80)));
+    svg.append('g').selectAll('line').data(ticks).join('line').attr('x1', x).attr('x2', x).attr('y1', top).attr('y2', H - bot).style('stroke', css('--line-soft'));
+    svg.append('g').attr('font-size', 11).selectAll('text').data(ticks).join('text').attr('x', x).attr('y', H - 8).attr('text-anchor', 'middle').style('fill', css('--ink-faint')).text(d3.utcFormat('%Y'));
+    const tip = tipFor(box);
+    const g = svg.append('g').selectAll('g').data(rows).join('g').attr('transform', (d, i) => `translate(0,${top + i * rh + rh / 2})`);
+    g.append('line').attr('x1', (d) => x(d.a)).attr('x2', (d) => x(d.b)).style('stroke', (d) => color(d.organism)).attr('stroke-width', 2).attr('stroke-linecap', 'round').style('opacity', .6);
+    g.append('circle').attr('cx', (d) => x(d.b)).attr('r', (d) => r(d.gb)).style('fill', (d) => color(d.organism))
+      .on('pointermove', (ev, d) => tip.show(ev, [['a', d.first + ' → ' + d.last], ['b', d.dataset], ['', gb(d.gb) + ' GB · ' + d.assay]])).on('pointerleave', () => tip.hide());
+  }
+
+  function hbars(id, rows, label, value, endTxt, accent) {
+    const box = document.getElementById(id); box.replaceChildren();
+    const W = Math.max(280, box.clientWidth), rh = 22, H = rows.length * rh + 6;
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+    let lw = 0, ew = 0; const lab = svg.append('g').attr('font-size', 11).style('fill', css('--ink'));
+    rows.forEach((d, i) => { const t = lab.append('text').attr('y', i * rh + 15).text(label(d)); lw = Math.max(lw, t.node().getComputedTextLength()); });
+    const ends = svg.append('g').attr('font-size', 11).style('fill', css('--ink-faint'));
+    rows.forEach((d) => { const t = ends.append('text').text(endTxt(d)); ew = Math.max(ew, t.node().getComputedTextLength()); t.remove(); });
+    const L = lw + 10, x = d3.scaleLinear([0, d3.max(rows, value)], [0, Math.max(20, W - L - ew - 10)]);
+    const g = svg.append('g').selectAll('g').data(rows).join('g').attr('transform', (d, i) => `translate(${L},${i * rh + 5})`);
+    g.append('rect').attr('height', 13).attr('rx', 3).attr('width', (d) => Math.max(1, x(value(d)))).style('fill', (d, i) => accent ? css('--slate') : (i === 0 ? css('--teal') : css('--slate')));
+    if (accent) g.append('rect').attr('height', 13).attr('rx', 3).attr('width', (d) => accent(d) ? Math.max(2, x(accent(d))) : 0).style('fill', css('--rust'));
+    rows.forEach((d, i) => ends.append('text').attr('x', L + Math.max(1, x(value(d))) + 6).attr('y', i * rh + 15).text(endTxt(d)));
+  }
+  const lipN = sum(D.lipidomics, 'lipids'), lipDown = sum(D.lipidomics, 'down');
+  document.getElementById('lip-note').textContent =
+    `Untargeted LC-MS lipidomics (positive and negative mode) from the vendor package on I:, PLD KO vs WT4 with three replicates each. ${lipN} lipids identified; ${lipDown} are lower in PLD KO by the vendor's p < 0.05 call, and none pass q < 0.05. The red part of each bar is the ones called lower.`;
+
+  // sortable, searchable tables
+  function table(id, rows, sortKey, render, filter) {
+    const t = document.getElementById(id), body = t.tBodies[0]; const s = { k: sortKey, dir: -1 };
+    const draw = () => {
+      const r = rows.filter(filter || (() => true)).sort((a, b) => { const x = a[s.k], y = b[s.k];
+        if (x == null || x === '') return 1; if (y == null || y === '') return -1;
+        return (typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y))) * s.dir; });
+      body.replaceChildren(...r.map(render)); return r.length;
+    };
+    t.querySelectorAll('th[data-k]').forEach((th) => th.querySelector('button').addEventListener('click', () => {
+      const k = th.dataset.k; s.dir = s.k === k ? -s.dir : (typeof rows.find((d) => d[k] != null)?.[k] === 'number' ? -1 : 1); s.k = k;
+      t.querySelectorAll('th[data-k]').forEach((h) => h.setAttribute('aria-sort', h === th ? (s.dir > 0 ? 'ascending' : 'descending') : 'none')); draw(); }));
+    return draw;
+  }
+  const td = (tr, text, cls) => { const c = el('td', cls, text ?? ''); tr.appendChild(c); return c; };
+  const maxGB = d3.max(D.datasets, (d) => d.gb);
+  const dsQ = document.getElementById('ds-q'), fQ = document.getElementById('f-q'), fT = document.getElementById('f-type');
+  const drawDS = table('ds-t', D.datasets, 'gb', (d) => {
+    const tr = el('tr', 'click'); tr.tabIndex = 0;
+    const c = td(tr, '', 'wrapc'); const sw = el('span', 'sw'); sw.style.background = color(d.organism); c.append(sw, el('span', 'name', d.dataset));
+    td(tr, d.organism); td(tr, d.assay); td(tr, d.platform, 'hide-n'); td(tr, d.read_length, 'hide-n'); td(tr, d.samples == null ? '' : String(d.samples), 'num');
+    const b = el('div', 'bar'); const i = el('i'); i.style.width = Math.max(1, 64 * d.gb / maxGB) + 'px'; i.style.background = color(d.organism); b.append(i, el('span', null, gb(d.gb))); td(tr, '', 'num').appendChild(b);
+    const cs = td(tr, '', 'hide-n'); (d.state || '').split(' + ').filter(Boolean).forEach((p) => cs.appendChild(el('span', 'chip' + (p.startsWith('raw') ? ' raw' : p === 'archived' ? ' arch' : ''), p)));
+    td(tr, d.last); td(tr, d.location, 'path hide-n');
+    const pick = () => { fQ.value = d.dataset; fT.value = ''; refreshFiles(); document.getElementById('files').scrollIntoView({ behavior: 'smooth' }); };
+    tr.addEventListener('click', pick); tr.addEventListener('keydown', (e) => { if (e.key === 'Enter') pick(); });
+    return tr;
+  }, (d) => !dsQ.value || [d.dataset, d.organism, d.assay, d.platform, d.location].join(' ').toLowerCase().includes(dsQ.value.toLowerCase()));
+  const refreshDS = () => { document.getElementById('ds-n').textContent = drawDS() + ' of ' + D.datasets.length + ' datasets'; };
+  dsQ.addEventListener('input', refreshDS);
+
+  const drawDup = table('dup-t', D.duplicates, 'reclaimable_gb', (d) => { const tr = el('tr');
+    td(tr, d.file, 'wrapc'); td(tr, String(d.copies), 'num'); td(tr, gb(d.reclaimable_gb), 'num'); td(tr, d.locations.split(' | ').join('\n'), 'path'); return tr; });
+
+  [...new Set(D.files.map((d) => d.type))].sort().forEach((t) => fT.appendChild(new Option(t, t)));
+  const drawF = table('f-t', D.files, 'gb', (d) => { const tr = el('tr');
+    td(tr, '', 'wrapc').appendChild(el('span', 'name', d.file)); td(tr, d.type); td(tr, d.dataset, 'hide-n'); td(tr, gb(d.gb), 'num');
+    td(tr, d.modified, 'hide-n'); td(tr, d.detail, 'wrapc'); td(tr, d.folder, 'path hide-n'); return tr;
+  }, (d) => (!fT.value || d.type === fT.value) && (!fQ.value || [d.file, d.dataset, d.folder, d.detail, d.type].join(' ').toLowerCase().includes(fQ.value.toLowerCase())));
+  const refreshFiles = () => { document.getElementById('f-n').textContent = d3.format(',')(drawF()) + ' of ' + d3.format(',')(D.files.length) + ' files'; };
+  fQ.addEventListener('input', refreshFiles); fT.addEventListener('input', refreshFiles);
+  document.getElementById('f-clear').addEventListener('click', () => { fQ.value = ''; fT.value = ''; refreshFiles(); });
+
+  const charts = () => {
+    treemap(); timeline();
+    hbars('lipbars', D.lipidomics.slice().sort((a, b) => b.lipids - a.lipids), (d) => d.lipid_class, (d) => d.lipids, (d) => d.lipids + (d.down ? ' · ' + d.down + ' lower' : ''), (d) => d.down);
+    hbars('types', D.filetypes.filter((d) => d.gb >= 0.01).sort((a, b) => b.gb - a.gb), (d) => d.type, (d) => d.gb, (d) => gb(d.gb) + ' GB · ' + d3.format(',')(d.files));
+  };
+  charts(); refreshDS(); drawDup(); refreshFiles();
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(charts, 150); });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', charts);
+})();
+</script>
+</body>
+</html>
