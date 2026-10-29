@@ -204,3 +204,31 @@ if os.path.exists(LZ):
                                detail=next((v for k, v in det.items() if i.filename.endswith(k)), "MS run archive" if m else "")))
     dump("datasets.json", ds_rows); dump("files.json", files_rows); dump("lipidomics.json", lip_rows)
     print(lip_rows[:12])
+
+# ---- lineage (taxonomy, NCBI-style ranks) and strains per dataset ----
+LINEAGE = {
+ "Chlorella sp. HS2":         ["Archaeplastida", "Chlorophyta", "Trebouxiophyceae", "Chlorellales", "Chlorellaceae", "Chlorella sp. HS2"],
+ "Chlamydomonas reinhardtii": ["Archaeplastida", "Chlorophyta", "Chlorophyceae", "Chlamydomonadales", "Chlamydomonadaceae", "Chlamydomonas reinhardtii"],
+ "Schizochytrium sp.":        ["SAR (Stramenopiles)", "Bigyra", "Labyrinthulomycetes", "Thraustochytrida", "Thraustochytriidae", "Schizochytrium sp."],
+}
+ORG_FIX = {r"misc:C:Desktop\Trang-HS2 RNAseq": "Chlorella sp. HS2"}
+STRAINS = {
+ "hs2-ale-hifi": "HS2, ALE", "hs2-omics-legacy": "HS2", "hs2-hsv-tx": "HS2 wild type, HS-LZ mutants", "hs2-ale-hydro": "HS2 (W), ALE (M)",
+ "hs2-ale-2304": "HS2, ALE", "hs2-hmf-2311": "HS2, HMF", "hs2-hmf-ale-2410": "HS2, HMF, ALE", "hs19-hs2": "HS2, HS19", "dl-hs19": "HS19",
+ "hs2-hetero": "HS2", "dl-gse146789": "HS2 (public)", r"misc:C:Desktop\Trang-HS2 RNAseq": "HS2",
+ "chlamy-rnaseq": "WT, 4-9 (ref. CC-4532)", "chlamy-wgs": "CC-125, 4-9", "dl-chlamy-wgs": "CC-125, 4-9", "chlamy-varcall": "CC-125, 4-9",
+ "hs6-rnaseq": "HS6, #4 (WT)", "hs6-genome-bak": "HS6, #4 (ref. Aurantiochytrium sp. 9LR)", "hs6-docking-bak": "HS6, #4",
+ "pld-lipidomics": "PLD KO, WT4", "schizo-constructs": "Schizochytrium sp. (ref. Aurantiochytrium sp. KH105)",
+}
+RANKS = ["supergroup", "phylum", "class", "order", "family", "species"]
+for r in ds_rows:
+    r["organism"] = ORG_FIX.get(r["id"], r["organism"])
+    lin = LINEAGE.get(r["organism"])
+    if lin:
+        r.update(dict(zip(RANKS, lin)))
+    else:
+        label = "Microalgae, species not recorded" if r["organism"] == "Microalgae" else "Several organisms or none"
+        r.update(supergroup="Unplaced", phylum="", **{"class": ""}, order="", family="", species=label)
+    r["strains"] = STRAINS.get(r["id"], "")
+dump("datasets.json", ds_rows)
+for r in ds_rows: print(r["species"], "|", r["strains"], "|", r["dataset"])

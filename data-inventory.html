@@ -78,6 +78,12 @@ tr.click{cursor:pointer} tr.click:hover td{background:var(--teal-tint)}
 
   <section class="tiles" id="tiles"></section>
 
+  <section class="card" id="lineage">
+    <h2>Datasets by lineage</h2>
+    <p class="note">Each dataset placed on the eukaryote tree by the organism it comes from, using NCBI ranks from supergroup to species. Branch lengths show rank, not evolutionary distance. Strains are listed after each dataset, and the dot is sized by GB. Data with no single organism sits on the Unplaced branch.</p>
+    <div style="overflow-x:auto"><div class="chart" id="tree" style="min-width:1080px;min-height:600px"></div></div>
+  </section>
+
   <section class="grid">
     <div class="card">
       <h2>Where the space goes</h2>
@@ -97,7 +103,7 @@ tr.click{cursor:pointer} tr.click:hover td{background:var(--teal-tint)}
     <p class="note">Platform and read length come from each FASTQ's first read header. Click a row to list its files below.</p>
     <div class="tools"><input id="ds-q" type="search" placeholder="Search datasets, organisms, assays, platforms" aria-label="Search datasets"><span class="count" id="ds-n"></span></div>
     <div class="scroll"><table id="ds-t"><thead><tr>
-      <th data-k="dataset"><button>Dataset</button></th><th data-k="organism"><button>Organism</button></th><th data-k="assay"><button>Assay</button></th>
+      <th data-k="dataset"><button>Dataset</button></th><th data-k="organism"><button>Organism</button></th><th data-k="assay"><button>Assay</button></th><th data-k="strains"><button>Strains</button></th>
       <th data-k="platform" class="hide-n"><button>Platform</button></th><th data-k="read_length" class="hide-n"><button>Reads</button></th>
       <th data-k="samples" class="num"><button>Samples</button></th><th data-k="gb" class="num" aria-sort="descending"><button>Size (GB)</button></th>
       <th data-k="state" class="hide-n"><button>Contents</button></th><th data-k="last"><button>Last change</button></th><th data-k="location" class="hide-n"><button>Location</button></th>
@@ -188,6 +194,53 @@ tr.click{cursor:pointer} tr.click:hover td{background:var(--teal-tint)}
   };
   const fit = (t, max) => { let s = t.text(); while (t.node().getComputedTextLength() > max && s.length > 3) { s = s.slice(0, -2); t.text(s + '…'); } };
 
+
+  function tree() {
+    const box = document.getElementById('tree'); box.replaceChildren();
+    const RANKS = ['supergroup', 'phylum', 'class', 'order', 'family', 'species'], ITALIC = new Set(['family', 'species']);
+    const root = { name: 'Eukaryota', rank: -1, children: [] };
+    for (const d of D.datasets) {
+      let node = root;
+      RANKS.forEach((k, i) => { const v = d[k]; if (!v) return;
+        let c = node.children.find((n) => n.name === v); if (!c) { c = { name: v, rank: i, key: k, children: [] }; node.children.push(c); } node = c; });
+      node.children.push({ name: d.dataset, rank: RANKS.length, leaf: d });
+    }
+    const h = d3.hierarchy(root).sum((d) => d.leaf ? d.leaf.gb : 0).sort((a, b) => (a.data.name === 'Unplaced') - (b.data.name === 'Unplaced') || b.value - a.value);
+    const rowH = 24, top = 46, W = Math.max(1080, box.clientWidth), n = h.leaves().length, H = top + (n - 1) * rowH + 24;
+    const labelW = Math.min(420, Math.max(320, W * 0.34)), colW = (W - labelW - 24) / (RANKS.length + 1), X = (r) => 12 + (r + 1) * colW;
+    d3.cluster().size([(n - 1) * rowH, 1]).separation(() => 1)(h);
+    h.each((d) => { d.px = X(d.data.rank); d.py = top + d.x; });
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+    const hdr = svg.append('g').attr('font-size', 11).style('fill', css('--ink-faint'));
+    hdr.append('text').attr('x', X(-1)).attr('y', 14).attr('font-weight', 600).style('fill', css('--ink')).text('Eukaryota');
+    ['Supergroup', 'Phylum', 'Class', 'Order', 'Family', 'Species', 'Dataset · strains · GB'].forEach((t, i) =>
+      hdr.append('text').attr('x', X(i) + (i === RANKS.length ? 14 : 0)).attr('y', 14).attr('text-anchor', i === RANKS.length ? 'start' : 'middle').text(t));
+    svg.append('g').selectAll('path').data(h.links()).join('path').attr('d', (l) => `M${l.source.px},${l.source.py}V${l.target.py}H${l.target.px}`)
+      .style('fill', 'none').style('stroke', css('--ink-faint')).attr('stroke-width', 1.2);
+    const inner = h.descendants().filter((d) => !d.data.leaf);
+    svg.append('g').selectAll('circle').data(inner).join('circle').attr('cx', (d) => d.px).attr('cy', (d) => d.py).attr('r', 2.5).style('fill', css('--ink-faint'));
+    const lab = svg.append('g').attr('font-size', 11).style('fill', css('--ink'));
+    inner.filter((d) => d.depth > 0).forEach((d) => {
+      const t = lab.append('text').attr('x', d.px - 4).attr('y', d.py - 5).attr('text-anchor', 'end').text(d.data.name);
+      if (ITALIC.has(d.data.key) && d.data.name !== 'Unplaced') t.style('font-style', 'italic');
+      if (d.data.key === 'species') t.attr('font-weight', 600);
+      fit(t, colW - 8);
+    });
+    const rad = d3.scaleSqrt([0, d3.max(D.datasets, (d) => d.gb) || 1], [3, 9]), tip = tipFor(box);
+    const lv = svg.append('g').selectAll('g').data(h.leaves()).join('g').attr('transform', (d) => `translate(${d.px},${d.py})`);
+    lv.append('circle').attr('r', (d) => rad(d.data.leaf.gb)).style('fill', (d) => color(d.data.leaf.organism)).style('fill-opacity', (d) => d.data.leaf.id.startsWith('dl-') ? 0.45 : 0.92);
+    lv.each(function (nd) {
+      const d = nd.data.leaf, t = d3.select(this).append('text').attr('x', 14).attr('y', 4).attr('font-size', 11.5);
+      t.append('tspan').attr('font-weight', 600).style('fill', css('--ink')).text(d.dataset);
+      const tail = t.append('tspan').style('fill', css('--ink-faint')).text((d.strains ? ' · ' + d.strains : '') + ' · ' + gb(d.gb) + ' GB');
+      let st = d.strains || ''; while (t.node().getComputedTextLength() > labelW - 20 && st.length > 4) { st = st.slice(0, -2); tail.text(' · ' + st + '… · ' + gb(d.gb) + ' GB'); }
+    });
+    lv.append('rect').attr('x', -10).attr('y', -rowH / 2).attr('width', labelW).attr('height', rowH).style('fill', 'transparent')
+      .on('pointermove', (ev, nd) => { const d = nd.data.leaf; tip.show(ev, [['a', [d.class, d.family, d.species].filter(Boolean).join(' › ')], ['b', d.dataset],
+        ['', (d.strains || 'No strain recorded') + ' · ' + d.assay], ['', gb(d.gb) + ' GB · ' + d.files + ' files']]); })
+      .on('pointerleave', () => tip.hide());
+  }
+
   function treemap() {
     const box = document.getElementById('treemap'); box.replaceChildren();
     const W = Math.max(280, box.clientWidth), H = Math.round(Math.max(300, Math.min(460, W * 0.62)));
@@ -268,14 +321,14 @@ tr.click{cursor:pointer} tr.click:hover td{background:var(--teal-tint)}
   const drawDS = table('ds-t', D.datasets, 'gb', (d) => {
     const tr = el('tr', 'click'); tr.tabIndex = 0;
     const c = td(tr, '', 'wrapc'); const sw = el('span', 'sw'); sw.style.background = color(d.organism); c.append(sw, el('span', 'name', d.dataset));
-    td(tr, d.organism); td(tr, d.assay); td(tr, d.platform, 'hide-n'); td(tr, d.read_length, 'hide-n'); td(tr, d.samples == null ? '' : String(d.samples), 'num');
+    td(tr, d.organism); td(tr, d.assay); td(tr, d.strains, 'wrapc'); td(tr, d.platform, 'hide-n'); td(tr, d.read_length, 'hide-n'); td(tr, d.samples == null ? '' : String(d.samples), 'num');
     const b = el('div', 'bar'); const i = el('i'); i.style.width = Math.max(1, 64 * d.gb / maxGB) + 'px'; i.style.background = color(d.organism); b.append(i, el('span', null, gb(d.gb))); td(tr, '', 'num').appendChild(b);
     const cs = td(tr, '', 'hide-n'); (d.state || '').split(' + ').filter(Boolean).forEach((p) => cs.appendChild(el('span', 'chip' + (p.startsWith('raw') ? ' raw' : p === 'archived' ? ' arch' : ''), p)));
     td(tr, d.last); td(tr, d.location, 'path hide-n');
     const pick = () => { fQ.value = d.dataset; fT.value = ''; refreshFiles(); document.getElementById('files').scrollIntoView({ behavior: 'smooth' }); };
     tr.addEventListener('click', pick); tr.addEventListener('keydown', (e) => { if (e.key === 'Enter') pick(); });
     return tr;
-  }, (d) => !dsQ.value || [d.dataset, d.organism, d.assay, d.platform, d.location].join(' ').toLowerCase().includes(dsQ.value.toLowerCase()));
+  }, (d) => !dsQ.value || [d.dataset, d.organism, d.assay, d.platform, d.location, d.strains, d.class, d.family].join(' ').toLowerCase().includes(dsQ.value.toLowerCase()));
   const refreshDS = () => { document.getElementById('ds-n').textContent = drawDS() + ' of ' + D.datasets.length + ' datasets'; };
   dsQ.addEventListener('input', refreshDS);
 
@@ -292,7 +345,7 @@ tr.click{cursor:pointer} tr.click:hover td{background:var(--teal-tint)}
   document.getElementById('f-clear').addEventListener('click', () => { fQ.value = ''; fT.value = ''; refreshFiles(); });
 
   const charts = () => {
-    treemap(); timeline();
+    tree(); treemap(); timeline();
     hbars('lipbars', D.lipidomics.slice().sort((a, b) => b.lipids - a.lipids), (d) => d.lipid_class, (d) => d.lipids, (d) => d.lipids + (d.down ? ' · ' + d.down + ' lower' : ''), (d) => d.down);
     hbars('types', D.filetypes.filter((d) => d.gb >= 0.01).sort((a, b) => b.gb - a.gb), (d) => d.type, (d) => d.gb, (d) => gb(d.gb) + ' GB · ' + d3.format(',')(d.files));
   };
